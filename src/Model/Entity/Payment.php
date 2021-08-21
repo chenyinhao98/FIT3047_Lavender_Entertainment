@@ -6,15 +6,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Customer Entity
+ * Payment Entity
  *
- * @property int $customerID
- * @property string $customerFirstname
- * @property string $customerSecondname
- * @property string $customerEmail
- * @property string $customerPhone
+ * @property int $paymentID
+ * @property string $paymentType
+ * @property int $paymentTotal
  */
-class Customer extends Entity
+class Payment extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -26,9 +24,7 @@ class Customer extends Entity
      * @var array
      */
     protected $_accessible = [
-        'customerFirstname' => true,
-        'customerSecondname' => true,
-        'customerEmail' => true,
-        'customerPhone' => true,
+        'paymentType' => true,
+        'paymentTotal' => true,
     ];
 }

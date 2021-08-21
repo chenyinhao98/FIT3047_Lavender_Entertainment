@@ -19,20 +19,24 @@
             <h3><?= h($customer->id) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Firstname') ?></th>
-                    <td><?= h($customer->firstname) ?></td>
+                    <th><?= __('CustomerFirstname') ?></th>
+                    <td><?= h($customer->customerFirstname) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Lastname') ?></th>
-                    <td><?= h($customer->lastname) ?></td>
+                    <th><?= __('CustomerSecondname') ?></th>
+                    <td><?= h($customer->customerSecondname) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Email') ?></th>
-                    <td><?= h($customer->email) ?></td>
+                    <th><?= __('CustomerEmail') ?></th>
+                    <td><?= h($customer->customerEmail) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($customer->id) ?></td>
+                    <th><?= __('CustomerPhone') ?></th>
+                    <td><?= h($customer->customerPhone) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('CustomerID') ?></th>
+                    <td><?= $this->Number->format($customer->customerID) ?></td>
                 </tr>
             </table>
         </div>

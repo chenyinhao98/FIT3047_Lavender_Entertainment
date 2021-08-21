@@ -22,9 +22,11 @@
             <fieldset>
                 <legend><?= __('Edit Customer') ?></legend>
                 <?php
-                    echo $this->Form->control('firstname');
-                    echo $this->Form->control('lastname');
-                    echo $this->Form->control('email');
+                    echo $this->Form->control('customerID');
+                    echo $this->Form->control('customerFirstname');
+                    echo $this->Form->control('customerSecondname');
+                    echo $this->Form->control('customerEmail');
+                    echo $this->Form->control('customerPhone');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

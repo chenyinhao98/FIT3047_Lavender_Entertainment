@@ -51,25 +51,32 @@ class CustomersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
+            ->integer('customerID')
+            ->allowEmptyString('customerID', null, 'create');
 
         $validator
-            ->scalar('firstname')
-            ->maxLength('firstname', 64)
-            ->requirePresence('firstname', 'create')
-            ->notEmptyString('firstname');
+            ->scalar('customerFirstname')
+            ->maxLength('customerFirstname', 256)
+            ->requirePresence('customerFirstname', 'create')
+            ->notEmptyString('customerFirstname');
 
         $validator
-            ->scalar('lastname')
-            ->maxLength('lastname', 64)
-            ->requirePresence('lastname', 'create')
-            ->notEmptyString('lastname');
+            ->scalar('customerSecondname')
+            ->maxLength('customerSecondname', 256)
+            ->requirePresence('customerSecondname', 'create')
+            ->notEmptyString('customerSecondname');
 
         $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->scalar('customerEmail')
+            ->maxLength('customerEmail', 256)
+            ->requirePresence('customerEmail', 'create')
+            ->notEmptyString('customerEmail');
+
+        $validator
+            ->scalar('customerPhone')
+            ->maxLength('customerPhone', 256)
+            ->requirePresence('customerPhone', 'create')
+            ->notEmptyString('customerPhone');
 
         return $validator;
     }
