@@ -19,40 +19,40 @@
             <h3><?= h($event->eventID) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('EventType') ?></th>
-                    <td><?= h($event->eventType) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($event->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('EventID') ?></th>
-                    <td><?= $this->Number->format($event->eventID) ?></td>
+                    <th><?= __('Customer Id') ?></th>
+                    <td><?= $this->Number->format($event->customer_id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('CustomerID') ?></th>
-                    <td><?= $this->Number->format($event->customerID) ?></td>
+                    <th><?= __('Venue Id') ?></th>
+                    <td><?= $this->Number->format($event->venue_id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueID') ?></th>
-                    <td><?= $this->Number->format($event->venueID) ?></td>
+                    <th><?= __('Event Attendance') ?></th>
+                    <td><?= $this->Number->format($event->event_attendance) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('EventAttendance') ?></th>
-                    <td><?= $this->Number->format($event->eventAttendance) ?></td>
+                    <th><?= __('Event Date') ?></th>
+                    <td><?= $this->Number->format($event->event_date) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('EventDate') ?></th>
-                    <td><?= $this->Number->format($event->eventDate) ?></td>
+                    <th><?= __('Event Type Id') ?></th>
+                    <td><?= $this->Number->format($event->event_type_id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('PaymentID') ?></th>
-                    <td><?= $this->Number->format($event->paymentID) ?></td>
+                    <th><?= __('Payment Id') ?></th>
+                    <td><?= $this->Number->format($event->payment_id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('EventStartTime') ?></th>
-                    <td><?= h($event->eventStartTime) ?></td>
+                    <th><?= __('Event Startdate') ?></th>
+                    <td><?= h($event->event_startdate) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('EventEndTime') ?></th>
-                    <td><?= h($event->eventEndTime) ?></td>
+                    <th><?= __('Event Enddate') ?></th>
+                    <td><?= h($event->event_enddate) ?></td>
                 </tr>
             </table>
         </div>

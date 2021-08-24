@@ -19,16 +19,16 @@
             <h3><?= h($payment->paymentID) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('PaymentType') ?></th>
-                    <td><?= h($payment->paymentType) ?></td>
+                    <th><?= __('Payment Type') ?></th>
+                    <td><?= h($payment->payment_type) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('PaymentID') ?></th>
-                    <td><?= $this->Number->format($payment->paymentID) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($payment->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('PaymentTotal') ?></th>
-                    <td><?= $this->Number->format($payment->paymentTotal) ?></td>
+                    <th><?= __('Payment Total') ?></th>
+                    <td><?= $this->Number->format($payment->payment_total) ?></td>
                 </tr>
             </table>
         </div>

@@ -22,15 +22,15 @@
             <fieldset>
                 <legend><?= __('Edit Venue') ?></legend>
                 <?php
-                    echo $this->Form->control('venueName');
-                    echo $this->Form->control('venueAddress');
-                    echo $this->Form->control('venueMiniCap');
-                    echo $this->Form->control('venuePreferred');
-                    echo $this->Form->control('venuePPH');
-                    echo $this->Form->control('venueMiniHour');
-                    echo $this->Form->control('venueContactName');
-                    echo $this->Form->control('venueContactNumber');
-                    echo $this->Form->control('venueContactEmail');
+                    echo $this->Form->control('id');
+                    echo $this->Form->control('venue_name');
+                    echo $this->Form->control('venue_address');
+                    echo $this->Form->control('venue_min_capacity');
+                    echo $this->Form->control('venue_payrate');
+                    echo $this->Form->control('venue_min_hour');
+                    echo $this->Form->control('venue_contact_name');
+                    echo $this->Form->control('venue_contact_number');
+                    echo $this->Form->control('venue_email');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

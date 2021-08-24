@@ -40,6 +40,10 @@ class PaymentsTable extends Table
         $this->setTable('payments');
         $this->setDisplayField('paymentID');
         $this->setPrimaryKey('paymentID');
+
+        $this->hasMany('Events', [
+            'foreignKey' => 'payment_id',
+        ]);
     }
 
     /**
@@ -51,19 +55,19 @@ class PaymentsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('paymentID')
-            ->allowEmptyString('paymentID', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('paymentType')
-            ->maxLength('paymentType', 256)
-            ->requirePresence('paymentType', 'create')
-            ->notEmptyString('paymentType');
+            ->scalar('payment_type')
+            ->maxLength('payment_type', 256)
+            ->requirePresence('payment_type', 'create')
+            ->notEmptyString('payment_type');
 
         $validator
-            ->integer('paymentTotal')
-            ->requirePresence('paymentTotal', 'create')
-            ->notEmptyString('paymentTotal');
+            ->integer('payment_total')
+            ->requirePresence('payment_total', 'create')
+            ->notEmptyString('payment_total');
 
         return $validator;
     }

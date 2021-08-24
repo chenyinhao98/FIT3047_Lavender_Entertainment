@@ -11,22 +11,22 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('customerID') ?></th>
-                    <th><?= $this->Paginator->sort('customerFirstname') ?></th>
-                    <th><?= $this->Paginator->sort('customerSecondname') ?></th>
-                    <th><?= $this->Paginator->sort('customerEmail') ?></th>
-                    <th><?= $this->Paginator->sort('customerPhone') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('customer_firstname') ?></th>
+                    <th><?= $this->Paginator->sort('customer_secondname') ?></th>
+                    <th><?= $this->Paginator->sort('customer_email') ?></th>
+                    <th><?= $this->Paginator->sort('customer_phone') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($customers as $customer): ?>
                 <tr>
-                    <td><?= $this->Number->format($customer->customerID) ?></td>
-                    <td><?= h($customer->customerFirstname) ?></td>
-                    <td><?= h($customer->customerSecondname) ?></td>
-                    <td><?= h($customer->customerEmail) ?></td>
-                    <td><?= h($customer->customerPhone) ?></td>
+                    <td><?= $this->Number->format($customer->id) ?></td>
+                    <td><?= h($customer->customer_firstname) ?></td>
+                    <td><?= h($customer->customer_secondname) ?></td>
+                    <td><?= h($customer->customer_email) ?></td>
+                    <td><?= h($customer->customer_phone) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $customer->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $customer->id]) ?>

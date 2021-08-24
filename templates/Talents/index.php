@@ -11,34 +11,32 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('talentID') ?></th>
-                    <th><?= $this->Paginator->sort('talentCategory') ?></th>
-                    <th><?= $this->Paginator->sort('talentName') ?></th>
-                    <th><?= $this->Paginator->sort('talentPreferred') ?></th>
-                    <th><?= $this->Paginator->sort('talentAddress') ?></th>
-                    <th><?= $this->Paginator->sort('talentTravelRadius') ?></th>
-                    <th><?= $this->Paginator->sort('talentPPH') ?></th>
-                    <th><?= $this->Paginator->sort('talentMinHour') ?></th>
-                    <th><?= $this->Paginator->sort('talentContactName') ?></th>
-                    <th><?= $this->Paginator->sort('talentContactNumber') ?></th>
-                    <th><?= $this->Paginator->sort('talentContactEmail') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('talent_type') ?></th>
+                    <th><?= $this->Paginator->sort('talent_name') ?></th>
+                    <th><?= $this->Paginator->sort('talent_address') ?></th>
+                    <th><?= $this->Paginator->sort('talent_travel_radius') ?></th>
+                    <th><?= $this->Paginator->sort('talent_payrate') ?></th>
+                    <th><?= $this->Paginator->sort('talent_min_hour') ?></th>
+                    <th><?= $this->Paginator->sort('talent_contact_name') ?></th>
+                    <th><?= $this->Paginator->sort('talent_contact_number') ?></th>
+                    <th><?= $this->Paginator->sort('talent_email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($talents as $talent): ?>
                 <tr>
-                    <td><?= $this->Number->format($talent->talentID) ?></td>
-                    <td><?= h($talent->talentCategory) ?></td>
-                    <td><?= h($talent->talentName) ?></td>
-                    <td><?= h($talent->talentPreferred) ?></td>
-                    <td><?= h($talent->talentAddress) ?></td>
-                    <td><?= $this->Number->format($talent->talentTravelRadius) ?></td>
-                    <td><?= h($talent->talentPPH) ?></td>
-                    <td><?= $this->Number->format($talent->talentMinHour) ?></td>
-                    <td><?= h($talent->talentContactName) ?></td>
-                    <td><?= h($talent->talentContactNumber) ?></td>
-                    <td><?= h($talent->talentContactEmail) ?></td>
+                    <td><?= $this->Number->format($talent->id) ?></td>
+                    <td><?= h($talent->talent_type) ?></td>
+                    <td><?= h($talent->talent_name) ?></td>
+                    <td><?= h($talent->talent_address) ?></td>
+                    <td><?= $this->Number->format($talent->talent_travel_radius) ?></td>
+                    <td><?= $this->Number->format($talent->talent_payrate) ?></td>
+                    <td><?= $this->Number->format($talent->talent_min_hour) ?></td>
+                    <td><?= h($talent->talent_contact_name) ?></td>
+                    <td><?= h($talent->talent_contact_number) ?></td>
+                    <td><?= h($talent->talent_email) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $talent->talentID]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $talent->talentID]) ?>

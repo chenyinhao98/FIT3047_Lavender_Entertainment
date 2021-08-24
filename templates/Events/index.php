@@ -11,30 +11,30 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('eventID') ?></th>
-                    <th><?= $this->Paginator->sort('customerID') ?></th>
-                    <th><?= $this->Paginator->sort('venueID') ?></th>
-                    <th><?= $this->Paginator->sort('eventAttendance') ?></th>
-                    <th><?= $this->Paginator->sort('eventDate') ?></th>
-                    <th><?= $this->Paginator->sort('eventType') ?></th>
-                    <th><?= $this->Paginator->sort('eventStartTime') ?></th>
-                    <th><?= $this->Paginator->sort('eventEndTime') ?></th>
-                    <th><?= $this->Paginator->sort('paymentID') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('customer_id') ?></th>
+                    <th><?= $this->Paginator->sort('venue_id') ?></th>
+                    <th><?= $this->Paginator->sort('event_attendance') ?></th>
+                    <th><?= $this->Paginator->sort('event_date') ?></th>
+                    <th><?= $this->Paginator->sort('event_type_id') ?></th>
+                    <th><?= $this->Paginator->sort('event_startdate') ?></th>
+                    <th><?= $this->Paginator->sort('event_enddate') ?></th>
+                    <th><?= $this->Paginator->sort('payment_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($events as $event): ?>
                 <tr>
-                    <td><?= $this->Number->format($event->eventID) ?></td>
-                    <td><?= $this->Number->format($event->customerID) ?></td>
-                    <td><?= $this->Number->format($event->venueID) ?></td>
-                    <td><?= $this->Number->format($event->eventAttendance) ?></td>
-                    <td><?= $this->Number->format($event->eventDate) ?></td>
-                    <td><?= h($event->eventType) ?></td>
-                    <td><?= h($event->eventStartTime) ?></td>
-                    <td><?= h($event->eventEndTime) ?></td>
-                    <td><?= $this->Number->format($event->paymentID) ?></td>
+                    <td><?= $this->Number->format($event->id) ?></td>
+                    <td><?= $this->Number->format($event->customer_id) ?></td>
+                    <td><?= $this->Number->format($event->venue_id) ?></td>
+                    <td><?= $this->Number->format($event->event_attendance) ?></td>
+                    <td><?= $this->Number->format($event->event_date) ?></td>
+                    <td><?= $this->Number->format($event->event_type_id) ?></td>
+                    <td><?= h($event->event_startdate) ?></td>
+                    <td><?= h($event->event_enddate) ?></td>
+                    <td><?= $this->Number->format($event->payment_id) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $event->eventID]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->eventID]) ?>

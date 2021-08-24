@@ -8,15 +8,15 @@ use Cake\ORM\Entity;
 /**
  * Event Entity
  *
- * @property int $eventID
- * @property int $customerID
- * @property int $venueID
- * @property int $eventAttendance
- * @property int $eventDate
- * @property string $eventType
- * @property \Cake\I18n\FrozenTime $eventStartTime
- * @property \Cake\I18n\FrozenTime $eventEndTime
- * @property int $paymentID
+ * @property int $id
+ * @property int $customer_id
+ * @property int $venue_id
+ * @property int $event_attendance
+ * @property int $event_date
+ * @property int $event_type_id
+ * @property \Cake\I18n\FrozenTime $event_startdate
+ * @property \Cake\I18n\FrozenTime $event_enddate
+ * @property int $payment_id
  */
 class Event extends Entity
 {
@@ -30,13 +30,13 @@ class Event extends Entity
      * @var array
      */
     protected $_accessible = [
-        'customerID' => true,
-        'venueID' => true,
-        'eventAttendance' => true,
-        'eventDate' => true,
-        'eventType' => true,
-        'eventStartTime' => true,
-        'eventEndTime' => true,
-        'paymentID' => true,
+        'customer_id' => true,
+        'venue_id' => true,
+        'event_attendance' => true,
+        'event_date' => true,
+        'event_type_id' => true,
+        'event_startdate' => true,
+        'event_enddate' => true,
+        'payment_id' => true,
     ];
 }

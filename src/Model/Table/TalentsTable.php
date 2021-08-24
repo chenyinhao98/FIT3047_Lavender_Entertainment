@@ -40,6 +40,17 @@ class TalentsTable extends Table
         $this->setTable('talents');
         $this->setDisplayField('talentID');
         $this->setPrimaryKey('talentID');
+
+        $this->belongsToMany('Events', [
+            'foreignKey' => 'talent_id',
+            'targetForeignKey' => 'event_id',
+            'joinTable' => 'events_talents',
+        ]);
+        $this->belongsToMany('EventTypes', [
+            'foreignKey' => 'talent_id',
+            'targetForeignKey' => 'event_type_id',
+            'joinTable' => 'talents_event_types',
+        ]);
     }
 
     /**
@@ -51,66 +62,59 @@ class TalentsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('talentID')
-            ->allowEmptyString('talentID', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('talentCategory')
-            ->maxLength('talentCategory', 64)
-            ->requirePresence('talentCategory', 'create')
-            ->notEmptyString('talentCategory');
+            ->scalar('talent_type')
+            ->maxLength('talent_type', 64)
+            ->requirePresence('talent_type', 'create')
+            ->notEmptyString('talent_type');
 
         $validator
-            ->scalar('talentName')
-            ->maxLength('talentName', 256)
-            ->requirePresence('talentName', 'create')
-            ->notEmptyString('talentName');
+            ->scalar('talent_name')
+            ->maxLength('talent_name', 256)
+            ->requirePresence('talent_name', 'create')
+            ->notEmptyString('talent_name');
 
         $validator
-            ->scalar('talentPreferred')
-            ->maxLength('talentPreferred', 256)
-            ->requirePresence('talentPreferred', 'create')
-            ->notEmptyString('talentPreferred');
+            ->scalar('talent_address')
+            ->maxLength('talent_address', 256)
+            ->requirePresence('talent_address', 'create')
+            ->notEmptyString('talent_address');
 
         $validator
-            ->scalar('talentAddress')
-            ->maxLength('talentAddress', 256)
-            ->requirePresence('talentAddress', 'create')
-            ->notEmptyString('talentAddress');
+            ->numeric('talent_travel_radius')
+            ->requirePresence('talent_travel_radius', 'create')
+            ->notEmptyString('talent_travel_radius');
 
         $validator
-            ->numeric('talentTravelRadius')
-            ->requirePresence('talentTravelRadius', 'create')
-            ->notEmptyString('talentTravelRadius');
+            ->numeric('talent_payrate')
+            ->requirePresence('talent_payrate', 'create')
+            ->notEmptyString('talent_payrate');
 
         $validator
-            ->scalar('talentPPH')
-            ->maxLength('talentPPH', 256)
-            ->requirePresence('talentPPH', 'create')
-            ->notEmptyString('talentPPH');
+            ->numeric('talent_min_hour')
+            ->requirePresence('talent_min_hour', 'create')
+            ->notEmptyString('talent_min_hour');
 
         $validator
-            ->numeric('talentMinHour')
-            ->requirePresence('talentMinHour', 'create')
-            ->notEmptyString('talentMinHour');
+            ->scalar('talent_contact_name')
+            ->maxLength('talent_contact_name', 64)
+            ->requirePresence('talent_contact_name', 'create')
+            ->notEmptyString('talent_contact_name');
 
         $validator
-            ->scalar('talentContactName')
-            ->maxLength('talentContactName', 64)
-            ->requirePresence('talentContactName', 'create')
-            ->notEmptyString('talentContactName');
+            ->scalar('talent_contact_number')
+            ->maxLength('talent_contact_number', 256)
+            ->requirePresence('talent_contact_number', 'create')
+            ->notEmptyString('talent_contact_number');
 
         $validator
-            ->scalar('talentContactNumber')
-            ->maxLength('talentContactNumber', 256)
-            ->requirePresence('talentContactNumber', 'create')
-            ->notEmptyString('talentContactNumber');
-
-        $validator
-            ->scalar('talentContactEmail')
-            ->maxLength('talentContactEmail', 256)
-            ->requirePresence('talentContactEmail', 'create')
-            ->notEmptyString('talentContactEmail');
+            ->scalar('talent_email')
+            ->maxLength('talent_email', 256)
+            ->requirePresence('talent_email', 'create')
+            ->notEmptyString('talent_email');
 
         return $validator;
     }

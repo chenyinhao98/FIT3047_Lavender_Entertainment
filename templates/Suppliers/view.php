@@ -19,48 +19,48 @@
             <h3><?= h($supplier->supplierID) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('SupplierCategory') ?></th>
-                    <td><?= h($supplier->supplierCategory) ?></td>
+                    <th><?= __('Supplier Type') ?></th>
+                    <td><?= h($supplier->supplier_type) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierName') ?></th>
-                    <td><?= h($supplier->supplierName) ?></td>
+                    <th><?= __('Supplier Name') ?></th>
+                    <td><?= h($supplier->supplier_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierPreferred') ?></th>
-                    <td><?= h($supplier->supplierPreferred) ?></td>
+                    <th><?= __('Supplier Address') ?></th>
+                    <td><?= h($supplier->supplier_address) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierAddress') ?></th>
-                    <td><?= h($supplier->supplierAddress) ?></td>
+                    <th><?= __('Supplier Payrate') ?></th>
+                    <td><?= h($supplier->supplier_payrate) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierPPH') ?></th>
-                    <td><?= h($supplier->supplierPPH) ?></td>
+                    <th><?= __('Supplier Contact Name') ?></th>
+                    <td><?= h($supplier->supplier_contact_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierContactName') ?></th>
-                    <td><?= h($supplier->supplierContactName) ?></td>
+                    <th><?= __('Supplier Contact Number') ?></th>
+                    <td><?= h($supplier->supplier_contact_number) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierContactNumber') ?></th>
-                    <td><?= h($supplier->supplierContactNumber) ?></td>
+                    <th><?= __('Supplier Email') ?></th>
+                    <td><?= h($supplier->supplier_email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierContactEmail') ?></th>
-                    <td><?= h($supplier->supplierContactEmail) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($supplier->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierID') ?></th>
-                    <td><?= $this->Number->format($supplier->supplierID) ?></td>
+                    <th><?= __('Supplier Travel Radius') ?></th>
+                    <td><?= $this->Number->format($supplier->supplier_travel_radius) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierTravelRadius') ?></th>
-                    <td><?= $this->Number->format($supplier->supplierTravelRadius) ?></td>
+                    <th><?= __('Supplier Min Hour') ?></th>
+                    <td><?= $this->Number->format($supplier->supplier_min_hour) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('SupplierMiniHour') ?></th>
-                    <td><?= $this->Number->format($supplier->supplierMiniHour) ?></td>
+                    <th><?= __('Supplier Advertise Fee') ?></th>
+                    <td><?= $this->Number->format($supplier->supplier_advertise_fee) ?></td>
                 </tr>
             </table>
         </div>

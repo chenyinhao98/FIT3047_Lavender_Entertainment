@@ -22,16 +22,16 @@
             <fieldset>
                 <legend><?= __('Edit Talent') ?></legend>
                 <?php
-                    echo $this->Form->control('talentCategory');
-                    echo $this->Form->control('talentName');
-                    echo $this->Form->control('talentPreferred');
-                    echo $this->Form->control('talentAddress');
-                    echo $this->Form->control('talentTravelRadius');
-                    echo $this->Form->control('talentPPH');
-                    echo $this->Form->control('talentMinHour');
-                    echo $this->Form->control('talentContactName');
-                    echo $this->Form->control('talentContactNumber');
-                    echo $this->Form->control('talentContactEmail');
+                    echo $this->Form->control('id');
+                    echo $this->Form->control('talent_type');
+                    echo $this->Form->control('talent_name');
+                    echo $this->Form->control('talent_address');
+                    echo $this->Form->control('talent_travel_radius');
+                    echo $this->Form->control('talent_payrate');
+                    echo $this->Form->control('talent_min_hour');
+                    echo $this->Form->control('talent_contact_name');
+                    echo $this->Form->control('talent_contact_number');
+                    echo $this->Form->control('talent_email');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

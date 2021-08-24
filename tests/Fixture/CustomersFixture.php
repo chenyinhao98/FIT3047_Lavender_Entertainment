@@ -17,13 +17,13 @@ class CustomersFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'customerID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'customerFirstname' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'customerSecondname' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'customerEmail' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'customerPhone' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'customer_firstname' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'customer_secondname' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'customer_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'customer_phone' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['customerID'], 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -40,11 +40,11 @@ class CustomersFixture extends TestFixture
     {
         $this->records = [
             [
-                'customerID' => 1,
-                'customerFirstname' => 'Lorem ipsum dolor sit amet',
-                'customerSecondname' => 'Lorem ipsum dolor sit amet',
-                'customerEmail' => 'Lorem ipsum dolor sit amet',
-                'customerPhone' => 'Lorem ipsum dolor sit amet',
+                'id' => 1,
+                'customer_firstname' => 'Lorem ipsum dolor sit amet',
+                'customer_secondname' => 'Lorem ipsum dolor sit amet',
+                'customer_email' => 'Lorem ipsum dolor sit amet',
+                'customer_phone' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

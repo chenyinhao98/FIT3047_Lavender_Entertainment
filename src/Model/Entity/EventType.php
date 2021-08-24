@@ -6,13 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Payment Entity
+ * EventType Entity
  *
  * @property int $id
- * @property string $payment_type
- * @property int $payment_total
+ * @property int $event_name
+ *
+ * @property \App\Model\Entity\Event[] $events
+ * @property \App\Model\Entity\Supplier[] $suppliers
+ * @property \App\Model\Entity\Talent[] $talents
+ * @property \App\Model\Entity\Venue[] $venues
  */
-class Payment extends Entity
+class EventType extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -24,7 +28,10 @@ class Payment extends Entity
      * @var array
      */
     protected $_accessible = [
-        'payment_type' => true,
-        'payment_total' => true,
+        'event_name' => true,
+        'events' => true,
+        'suppliers' => true,
+        'talents' => true,
+        'venues' => true,
     ];
 }

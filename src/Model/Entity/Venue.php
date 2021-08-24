@@ -8,16 +8,15 @@ use Cake\ORM\Entity;
 /**
  * Venue Entity
  *
- * @property int $venueID
- * @property string $venueName
- * @property string $venueAddress
- * @property string $venueMiniCap
- * @property string $venuePreferred
- * @property string $venuePPH
- * @property float $venueMiniHour
- * @property string $venueContactName
- * @property string $venueContactNumber
- * @property string $venueContactEmail
+ * @property int $id
+ * @property string $venue_name
+ * @property string $venue_address
+ * @property string $venue_min_capacity
+ * @property float $venue_payrate
+ * @property float $venue_min_hour
+ * @property string $venue_contact_name
+ * @property string $venue_contact_number
+ * @property string $venue_email
  */
 class Venue extends Entity
 {
@@ -31,14 +30,13 @@ class Venue extends Entity
      * @var array
      */
     protected $_accessible = [
-        'venueName' => true,
-        'venueAddress' => true,
-        'venueMiniCap' => true,
-        'venuePreferred' => true,
-        'venuePPH' => true,
-        'venueMiniHour' => true,
-        'venueContactName' => true,
-        'venueContactNumber' => true,
-        'venueContactEmail' => true,
+        'venue_name' => true,
+        'venue_address' => true,
+        'venue_min_capacity' => true,
+        'venue_payrate' => true,
+        'venue_min_hour' => true,
+        'venue_contact_name' => true,
+        'venue_contact_number' => true,
+        'venue_email' => true,
     ];
 }

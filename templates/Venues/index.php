@@ -11,32 +11,30 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('venueID') ?></th>
-                    <th><?= $this->Paginator->sort('venueName') ?></th>
-                    <th><?= $this->Paginator->sort('venueAddress') ?></th>
-                    <th><?= $this->Paginator->sort('venueMiniCap') ?></th>
-                    <th><?= $this->Paginator->sort('venuePreferred') ?></th>
-                    <th><?= $this->Paginator->sort('venuePPH') ?></th>
-                    <th><?= $this->Paginator->sort('venueMiniHour') ?></th>
-                    <th><?= $this->Paginator->sort('venueContactName') ?></th>
-                    <th><?= $this->Paginator->sort('venueContactNumber') ?></th>
-                    <th><?= $this->Paginator->sort('venueContactEmail') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('venue_name') ?></th>
+                    <th><?= $this->Paginator->sort('venue_address') ?></th>
+                    <th><?= $this->Paginator->sort('venue_min_capacity') ?></th>
+                    <th><?= $this->Paginator->sort('venue_payrate') ?></th>
+                    <th><?= $this->Paginator->sort('venue_min_hour') ?></th>
+                    <th><?= $this->Paginator->sort('venue_contact_name') ?></th>
+                    <th><?= $this->Paginator->sort('venue_contact_number') ?></th>
+                    <th><?= $this->Paginator->sort('venue_email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($venues as $venue): ?>
                 <tr>
-                    <td><?= $this->Number->format($venue->venueID) ?></td>
-                    <td><?= h($venue->venueName) ?></td>
-                    <td><?= h($venue->venueAddress) ?></td>
-                    <td><?= h($venue->venueMiniCap) ?></td>
-                    <td><?= h($venue->venuePreferred) ?></td>
-                    <td><?= h($venue->venuePPH) ?></td>
-                    <td><?= $this->Number->format($venue->venueMiniHour) ?></td>
-                    <td><?= h($venue->venueContactName) ?></td>
-                    <td><?= h($venue->venueContactNumber) ?></td>
-                    <td><?= h($venue->venueContactEmail) ?></td>
+                    <td><?= $this->Number->format($venue->id) ?></td>
+                    <td><?= h($venue->venue_name) ?></td>
+                    <td><?= h($venue->venue_address) ?></td>
+                    <td><?= h($venue->venue_min_capacity) ?></td>
+                    <td><?= $this->Number->format($venue->venue_payrate) ?></td>
+                    <td><?= $this->Number->format($venue->venue_min_hour) ?></td>
+                    <td><?= h($venue->venue_contact_name) ?></td>
+                    <td><?= h($venue->venue_contact_number) ?></td>
+                    <td><?= h($venue->venue_email) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $venue->venueID]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $venue->venueID]) ?>

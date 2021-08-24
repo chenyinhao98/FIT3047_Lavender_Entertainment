@@ -11,18 +11,18 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('paymentID') ?></th>
-                    <th><?= $this->Paginator->sort('paymentType') ?></th>
-                    <th><?= $this->Paginator->sort('paymentTotal') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('payment_type') ?></th>
+                    <th><?= $this->Paginator->sort('payment_total') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($payments as $payment): ?>
                 <tr>
-                    <td><?= $this->Number->format($payment->paymentID) ?></td>
-                    <td><?= h($payment->paymentType) ?></td>
-                    <td><?= $this->Number->format($payment->paymentTotal) ?></td>
+                    <td><?= $this->Number->format($payment->id) ?></td>
+                    <td><?= h($payment->payment_type) ?></td>
+                    <td><?= $this->Number->format($payment->payment_total) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $payment->paymentID]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $payment->paymentID]) ?>

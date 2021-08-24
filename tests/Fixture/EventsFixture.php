@@ -17,25 +17,27 @@ class EventsFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'eventID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'customerID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'venueID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'eventAttendance' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'eventDate' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'eventType' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'eventStartTime' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
-        'eventEndTime' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
-        'paymentID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'customer_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'venue_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'event_attendance' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'event_date' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'event_type_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'event_startdate' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
+        'event_enddate' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
+        'payment_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
-            'event_venue_venueID' => ['type' => 'index', 'columns' => ['venueID'], 'length' => []],
-            'event_payment_paymentID' => ['type' => 'index', 'columns' => ['paymentID'], 'length' => []],
-            'event_customer_customerID' => ['type' => 'index', 'columns' => ['customerID'], 'length' => []],
+            'event_event_type_id' => ['type' => 'index', 'columns' => ['event_type_id'], 'length' => []],
+            'event_customer_customer_id' => ['type' => 'index', 'columns' => ['customer_id'], 'length' => []],
+            'event_payment_payment_id' => ['type' => 'index', 'columns' => ['payment_id'], 'length' => []],
+            'event_venue_venue_id' => ['type' => 'index', 'columns' => ['venue_id'], 'length' => []],
         ],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['eventID'], 'length' => []],
-            'event_venue_venueID' => ['type' => 'foreign', 'columns' => ['venueID'], 'references' => ['venues', 'venueID'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_payment_paymentID' => ['type' => 'foreign', 'columns' => ['paymentID'], 'references' => ['payments', 'paymentID'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_customer_customerID' => ['type' => 'foreign', 'columns' => ['customerID'], 'references' => ['customers', 'customerID'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+            'event_venue_venue_id' => ['type' => 'foreign', 'columns' => ['venue_id'], 'references' => ['venues', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'event_payment_payment_id' => ['type' => 'foreign', 'columns' => ['payment_id'], 'references' => ['payments', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'event_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'event_customer_customer_id' => ['type' => 'foreign', 'columns' => ['customer_id'], 'references' => ['customers', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -52,15 +54,15 @@ class EventsFixture extends TestFixture
     {
         $this->records = [
             [
-                'eventID' => 1,
-                'customerID' => 1,
-                'venueID' => 1,
-                'eventAttendance' => 1,
-                'eventDate' => 1,
-                'eventType' => 'Lorem ipsum dolor sit amet',
-                'eventStartTime' => '2021-08-21 14:02:37',
-                'eventEndTime' => '2021-08-21 14:02:37',
-                'paymentID' => 1,
+                'id' => 1,
+                'customer_id' => 1,
+                'venue_id' => 1,
+                'event_attendance' => 1,
+                'event_date' => 1,
+                'event_type_id' => 1,
+                'event_startdate' => '2021-08-24 11:16:56',
+                'event_enddate' => '2021-08-24 11:16:56',
+                'payment_id' => 1,
             ],
         ];
         parent::init();

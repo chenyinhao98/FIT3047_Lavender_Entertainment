@@ -17,19 +17,19 @@ class SuppliersFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'supplierID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'supplierCategory' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierName' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierPreferred' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierAddress' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierTravelRadius' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'supplierPPH' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierMiniHour' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'supplierContactName' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierContactNumber' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplierContactEmail' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'supplier_type' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_address' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_travel_radius' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'supplier_payrate' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_min_hour' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'supplier_advertise_fee' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'supplier_contact_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['supplierID'], 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -46,17 +46,17 @@ class SuppliersFixture extends TestFixture
     {
         $this->records = [
             [
-                'supplierID' => 1,
-                'supplierCategory' => 'Lorem ipsum dolor sit amet',
-                'supplierName' => 'Lorem ipsum dolor sit amet',
-                'supplierPreferred' => 'Lorem ipsum dolor sit amet',
-                'supplierAddress' => 'Lorem ipsum dolor sit amet',
-                'supplierTravelRadius' => 1,
-                'supplierPPH' => 'Lorem ipsum dolor sit amet',
-                'supplierMiniHour' => 1,
-                'supplierContactName' => 'Lorem ipsum dolor sit amet',
-                'supplierContactNumber' => 'Lorem ipsum dolor sit amet',
-                'supplierContactEmail' => 'Lorem ipsum dolor sit amet',
+                'id' => 1,
+                'supplier_type' => 'Lorem ipsum dolor sit amet',
+                'supplier_name' => 'Lorem ipsum dolor sit amet',
+                'supplier_address' => 'Lorem ipsum dolor sit amet',
+                'supplier_travel_radius' => 1,
+                'supplier_payrate' => 'Lorem ipsum dolor sit amet',
+                'supplier_min_hour' => 1,
+                'supplier_advertise_fee' => 1,
+                'supplier_contact_name' => 'Lorem ipsum dolor sit amet',
+                'supplier_contact_number' => 'Lorem ipsum dolor sit amet',
+                'supplier_email' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

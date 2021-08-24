@@ -17,11 +17,10 @@
             <fieldset>
                 <legend><?= __('Add Customer') ?></legend>
                 <?php
-                    echo $this->Form->control('customerID');
-                    echo $this->Form->control('customerFirstname');
-                    echo $this->Form->control('customerSecondname');
-                    echo $this->Form->control('customerEmail');
-                    echo $this->Form->control('customerPhone');
+                    echo $this->Form->control('customer_firstname');
+                    echo $this->Form->control('customer_secondname');
+                    echo $this->Form->control('customer_email');
+                    echo $this->Form->control('customer_phone');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -40,6 +40,17 @@ class SuppliersTable extends Table
         $this->setTable('suppliers');
         $this->setDisplayField('supplierID');
         $this->setPrimaryKey('supplierID');
+
+        $this->belongsToMany('Events', [
+            'foreignKey' => 'supplier_id',
+            'targetForeignKey' => 'event_id',
+            'joinTable' => 'events_suppliers',
+        ]);
+        $this->belongsToMany('EventTypes', [
+            'foreignKey' => 'supplier_id',
+            'targetForeignKey' => 'event_type_id',
+            'joinTable' => 'suppliers_event_types',
+        ]);
     }
 
     /**
@@ -51,66 +62,65 @@ class SuppliersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('supplierID')
-            ->allowEmptyString('supplierID', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('supplierCategory')
-            ->maxLength('supplierCategory', 64)
-            ->requirePresence('supplierCategory', 'create')
-            ->notEmptyString('supplierCategory');
+            ->scalar('supplier_type')
+            ->maxLength('supplier_type', 64)
+            ->requirePresence('supplier_type', 'create')
+            ->notEmptyString('supplier_type');
 
         $validator
-            ->scalar('supplierName')
-            ->maxLength('supplierName', 256)
-            ->requirePresence('supplierName', 'create')
-            ->notEmptyString('supplierName');
+            ->scalar('supplier_name')
+            ->maxLength('supplier_name', 256)
+            ->requirePresence('supplier_name', 'create')
+            ->notEmptyString('supplier_name');
 
         $validator
-            ->scalar('supplierPreferred')
-            ->maxLength('supplierPreferred', 256)
-            ->requirePresence('supplierPreferred', 'create')
-            ->notEmptyString('supplierPreferred');
+            ->scalar('supplier_address')
+            ->maxLength('supplier_address', 256)
+            ->requirePresence('supplier_address', 'create')
+            ->notEmptyString('supplier_address');
 
         $validator
-            ->scalar('supplierAddress')
-            ->maxLength('supplierAddress', 256)
-            ->requirePresence('supplierAddress', 'create')
-            ->notEmptyString('supplierAddress');
+            ->numeric('supplier_travel_radius')
+            ->requirePresence('supplier_travel_radius', 'create')
+            ->notEmptyString('supplier_travel_radius');
 
         $validator
-            ->numeric('supplierTravelRadius')
-            ->requirePresence('supplierTravelRadius', 'create')
-            ->notEmptyString('supplierTravelRadius');
+            ->scalar('supplier_payrate')
+            ->maxLength('supplier_payrate', 256)
+            ->requirePresence('supplier_payrate', 'create')
+            ->notEmptyString('supplier_payrate');
 
         $validator
-            ->scalar('supplierPPH')
-            ->maxLength('supplierPPH', 256)
-            ->requirePresence('supplierPPH', 'create')
-            ->notEmptyString('supplierPPH');
+            ->numeric('supplier_min_hour')
+            ->requirePresence('supplier_min_hour', 'create')
+            ->notEmptyString('supplier_min_hour');
 
         $validator
-            ->numeric('supplierMiniHour')
-            ->requirePresence('supplierMiniHour', 'create')
-            ->notEmptyString('supplierMiniHour');
+            ->numeric('supplier_advertise_fee')
+            ->requirePresence('supplier_advertise_fee', 'create')
+            ->notEmptyString('supplier_advertise_fee');
 
         $validator
-            ->scalar('supplierContactName')
-            ->maxLength('supplierContactName', 256)
-            ->requirePresence('supplierContactName', 'create')
-            ->notEmptyString('supplierContactName');
+            ->scalar('supplier_contact_name')
+            ->maxLength('supplier_contact_name', 256)
+            ->requirePresence('supplier_contact_name', 'create')
+            ->notEmptyString('supplier_contact_name');
 
         $validator
-            ->scalar('supplierContactNumber')
-            ->maxLength('supplierContactNumber', 256)
-            ->requirePresence('supplierContactNumber', 'create')
-            ->notEmptyString('supplierContactNumber');
+            ->scalar('supplier_contact_number')
+            ->maxLength('supplier_contact_number', 256)
+            ->requirePresence('supplier_contact_number', 'create')
+            ->notEmptyString('supplier_contact_number');
 
         $validator
-            ->scalar('supplierContactEmail')
-            ->maxLength('supplierContactEmail', 256)
-            ->requirePresence('supplierContactEmail', 'create')
-            ->notEmptyString('supplierContactEmail');
+            ->scalar('supplier_email')
+            ->maxLength('supplier_email', 256)
+            ->requirePresence('supplier_email', 'create')
+            ->notEmptyString('supplier_email');
 
         return $validator;
     }

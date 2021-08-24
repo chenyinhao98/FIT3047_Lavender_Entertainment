@@ -22,16 +22,17 @@
             <fieldset>
                 <legend><?= __('Edit Supplier') ?></legend>
                 <?php
-                    echo $this->Form->control('supplierCategory');
-                    echo $this->Form->control('supplierName');
-                    echo $this->Form->control('supplierPreferred');
-                    echo $this->Form->control('supplierAddress');
-                    echo $this->Form->control('supplierTravelRadius');
-                    echo $this->Form->control('supplierPPH');
-                    echo $this->Form->control('supplierMiniHour');
-                    echo $this->Form->control('supplierContactName');
-                    echo $this->Form->control('supplierContactNumber');
-                    echo $this->Form->control('supplierContactEmail');
+                    echo $this->Form->control('id');
+                    echo $this->Form->control('supplier_type');
+                    echo $this->Form->control('supplier_name');
+                    echo $this->Form->control('supplier_address');
+                    echo $this->Form->control('supplier_travel_radius');
+                    echo $this->Form->control('supplier_payrate');
+                    echo $this->Form->control('supplier_min_hour');
+                    echo $this->Form->control('supplier_advertise_fee');
+                    echo $this->Form->control('supplier_contact_name');
+                    echo $this->Form->control('supplier_contact_number');
+                    echo $this->Form->control('supplier_email');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

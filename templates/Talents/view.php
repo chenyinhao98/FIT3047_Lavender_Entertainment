@@ -19,48 +19,44 @@
             <h3><?= h($talent->talentID) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('TalentCategory') ?></th>
-                    <td><?= h($talent->talentCategory) ?></td>
+                    <th><?= __('Talent Type') ?></th>
+                    <td><?= h($talent->talent_type) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentName') ?></th>
-                    <td><?= h($talent->talentName) ?></td>
+                    <th><?= __('Talent Name') ?></th>
+                    <td><?= h($talent->talent_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentPreferred') ?></th>
-                    <td><?= h($talent->talentPreferred) ?></td>
+                    <th><?= __('Talent Address') ?></th>
+                    <td><?= h($talent->talent_address) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentAddress') ?></th>
-                    <td><?= h($talent->talentAddress) ?></td>
+                    <th><?= __('Talent Contact Name') ?></th>
+                    <td><?= h($talent->talent_contact_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentPPH') ?></th>
-                    <td><?= h($talent->talentPPH) ?></td>
+                    <th><?= __('Talent Contact Number') ?></th>
+                    <td><?= h($talent->talent_contact_number) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentContactName') ?></th>
-                    <td><?= h($talent->talentContactName) ?></td>
+                    <th><?= __('Talent Email') ?></th>
+                    <td><?= h($talent->talent_email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentContactNumber') ?></th>
-                    <td><?= h($talent->talentContactNumber) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($talent->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentContactEmail') ?></th>
-                    <td><?= h($talent->talentContactEmail) ?></td>
+                    <th><?= __('Talent Travel Radius') ?></th>
+                    <td><?= $this->Number->format($talent->talent_travel_radius) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentID') ?></th>
-                    <td><?= $this->Number->format($talent->talentID) ?></td>
+                    <th><?= __('Talent Payrate') ?></th>
+                    <td><?= $this->Number->format($talent->talent_payrate) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('TalentTravelRadius') ?></th>
-                    <td><?= $this->Number->format($talent->talentTravelRadius) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('TalentMinHour') ?></th>
-                    <td><?= $this->Number->format($talent->talentMinHour) ?></td>
+                    <th><?= __('Talent Min Hour') ?></th>
+                    <td><?= $this->Number->format($talent->talent_min_hour) ?></td>
                 </tr>
             </table>
         </div>

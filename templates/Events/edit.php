@@ -22,14 +22,15 @@
             <fieldset>
                 <legend><?= __('Edit Event') ?></legend>
                 <?php
-                    echo $this->Form->control('customerID');
-                    echo $this->Form->control('venueID');
-                    echo $this->Form->control('eventAttendance');
-                    echo $this->Form->control('eventDate');
-                    echo $this->Form->control('eventType');
-                    echo $this->Form->control('eventStartTime');
-                    echo $this->Form->control('eventEndTime');
-                    echo $this->Form->control('paymentID');
+                    echo $this->Form->control('id');
+                    echo $this->Form->control('customer_id');
+                    echo $this->Form->control('venue_id');
+                    echo $this->Form->control('event_attendance');
+                    echo $this->Form->control('event_date');
+                    echo $this->Form->control('event_type_id');
+                    echo $this->Form->control('event_startdate');
+                    echo $this->Form->control('event_enddate');
+                    echo $this->Form->control('payment_id');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

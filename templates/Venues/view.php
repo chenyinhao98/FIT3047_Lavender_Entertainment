@@ -19,44 +19,40 @@
             <h3><?= h($venue->venueID) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('VenueName') ?></th>
-                    <td><?= h($venue->venueName) ?></td>
+                    <th><?= __('Venue Name') ?></th>
+                    <td><?= h($venue->venue_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueAddress') ?></th>
-                    <td><?= h($venue->venueAddress) ?></td>
+                    <th><?= __('Venue Address') ?></th>
+                    <td><?= h($venue->venue_address) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueMiniCap') ?></th>
-                    <td><?= h($venue->venueMiniCap) ?></td>
+                    <th><?= __('Venue Min Capacity') ?></th>
+                    <td><?= h($venue->venue_min_capacity) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenuePreferred') ?></th>
-                    <td><?= h($venue->venuePreferred) ?></td>
+                    <th><?= __('Venue Contact Name') ?></th>
+                    <td><?= h($venue->venue_contact_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenuePPH') ?></th>
-                    <td><?= h($venue->venuePPH) ?></td>
+                    <th><?= __('Venue Contact Number') ?></th>
+                    <td><?= h($venue->venue_contact_number) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueContactName') ?></th>
-                    <td><?= h($venue->venueContactName) ?></td>
+                    <th><?= __('Venue Email') ?></th>
+                    <td><?= h($venue->venue_email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueContactNumber') ?></th>
-                    <td><?= h($venue->venueContactNumber) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($venue->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueContactEmail') ?></th>
-                    <td><?= h($venue->venueContactEmail) ?></td>
+                    <th><?= __('Venue Payrate') ?></th>
+                    <td><?= $this->Number->format($venue->venue_payrate) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('VenueID') ?></th>
-                    <td><?= $this->Number->format($venue->venueID) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('VenueMiniHour') ?></th>
-                    <td><?= $this->Number->format($venue->venueMiniHour) ?></td>
+                    <th><?= __('Venue Min Hour') ?></th>
+                    <td><?= $this->Number->format($venue->venue_min_hour) ?></td>
                 </tr>
             </table>
         </div>

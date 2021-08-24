@@ -8,17 +8,16 @@ use Cake\ORM\Entity;
 /**
  * Talent Entity
  *
- * @property int $talentID
- * @property string $talentCategory
- * @property string $talentName
- * @property string $talentPreferred
- * @property string $talentAddress
- * @property float $talentTravelRadius
- * @property string $talentPPH
- * @property float $talentMinHour
- * @property string $talentContactName
- * @property string $talentContactNumber
- * @property string $talentContactEmail
+ * @property int $id
+ * @property string $talent_type
+ * @property string $talent_name
+ * @property string $talent_address
+ * @property float $talent_travel_radius
+ * @property float $talent_payrate
+ * @property float $talent_min_hour
+ * @property string $talent_contact_name
+ * @property string $talent_contact_number
+ * @property string $talent_email
  */
 class Talent extends Entity
 {
@@ -32,15 +31,14 @@ class Talent extends Entity
      * @var array
      */
     protected $_accessible = [
-        'talentCategory' => true,
-        'talentName' => true,
-        'talentPreferred' => true,
-        'talentAddress' => true,
-        'talentTravelRadius' => true,
-        'talentPPH' => true,
-        'talentMinHour' => true,
-        'talentContactName' => true,
-        'talentContactNumber' => true,
-        'talentContactEmail' => true,
+        'talent_type' => true,
+        'talent_name' => true,
+        'talent_address' => true,
+        'talent_travel_radius' => true,
+        'talent_payrate' => true,
+        'talent_min_hour' => true,
+        'talent_contact_name' => true,
+        'talent_contact_number' => true,
+        'talent_email' => true,
     ];
 }

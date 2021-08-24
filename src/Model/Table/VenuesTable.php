@@ -40,6 +40,15 @@ class VenuesTable extends Table
         $this->setTable('venues');
         $this->setDisplayField('venueID');
         $this->setPrimaryKey('venueID');
+
+        $this->hasMany('Events', [
+            'foreignKey' => 'venue_id',
+        ]);
+        $this->belongsToMany('EventTypes', [
+            'foreignKey' => 'venue_id',
+            'targetForeignKey' => 'event_type_id',
+            'joinTable' => 'venues_event_types',
+        ]);
     }
 
     /**
@@ -51,61 +60,54 @@ class VenuesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('venueID')
-            ->allowEmptyString('venueID', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('venueName')
-            ->maxLength('venueName', 256)
-            ->requirePresence('venueName', 'create')
-            ->notEmptyString('venueName');
+            ->scalar('venue_name')
+            ->maxLength('venue_name', 256)
+            ->requirePresence('venue_name', 'create')
+            ->notEmptyString('venue_name');
 
         $validator
-            ->scalar('venueAddress')
-            ->maxLength('venueAddress', 256)
-            ->requirePresence('venueAddress', 'create')
-            ->notEmptyString('venueAddress');
+            ->scalar('venue_address')
+            ->maxLength('venue_address', 256)
+            ->requirePresence('venue_address', 'create')
+            ->notEmptyString('venue_address');
 
         $validator
-            ->scalar('venueMiniCap')
-            ->maxLength('venueMiniCap', 256)
-            ->requirePresence('venueMiniCap', 'create')
-            ->notEmptyString('venueMiniCap');
+            ->scalar('venue_min_capacity')
+            ->maxLength('venue_min_capacity', 256)
+            ->requirePresence('venue_min_capacity', 'create')
+            ->notEmptyString('venue_min_capacity');
 
         $validator
-            ->scalar('venuePreferred')
-            ->maxLength('venuePreferred', 256)
-            ->requirePresence('venuePreferred', 'create')
-            ->notEmptyString('venuePreferred');
+            ->numeric('venue_payrate')
+            ->requirePresence('venue_payrate', 'create')
+            ->notEmptyString('venue_payrate');
 
         $validator
-            ->scalar('venuePPH')
-            ->maxLength('venuePPH', 256)
-            ->requirePresence('venuePPH', 'create')
-            ->notEmptyString('venuePPH');
+            ->numeric('venue_min_hour')
+            ->requirePresence('venue_min_hour', 'create')
+            ->notEmptyString('venue_min_hour');
 
         $validator
-            ->numeric('venueMiniHour')
-            ->requirePresence('venueMiniHour', 'create')
-            ->notEmptyString('venueMiniHour');
+            ->scalar('venue_contact_name')
+            ->maxLength('venue_contact_name', 256)
+            ->requirePresence('venue_contact_name', 'create')
+            ->notEmptyString('venue_contact_name');
 
         $validator
-            ->scalar('venueContactName')
-            ->maxLength('venueContactName', 256)
-            ->requirePresence('venueContactName', 'create')
-            ->notEmptyString('venueContactName');
+            ->scalar('venue_contact_number')
+            ->maxLength('venue_contact_number', 256)
+            ->requirePresence('venue_contact_number', 'create')
+            ->notEmptyString('venue_contact_number');
 
         $validator
-            ->scalar('venueContactNumber')
-            ->maxLength('venueContactNumber', 256)
-            ->requirePresence('venueContactNumber', 'create')
-            ->notEmptyString('venueContactNumber');
-
-        $validator
-            ->scalar('venueContactEmail')
-            ->maxLength('venueContactEmail', 256)
-            ->requirePresence('venueContactEmail', 'create')
-            ->notEmptyString('venueContactEmail');
+            ->scalar('venue_email')
+            ->maxLength('venue_email', 256)
+            ->requirePresence('venue_email', 'create')
+            ->notEmptyString('venue_email');
 
         return $validator;
     }

@@ -40,6 +40,10 @@ class CustomersTable extends Table
         $this->setTable('customers');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Events', [
+            'foreignKey' => 'customer_id',
+        ]);
     }
 
     /**
@@ -51,32 +55,32 @@ class CustomersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('customerID')
-            ->allowEmptyString('customerID', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('customerFirstname')
-            ->maxLength('customerFirstname', 256)
-            ->requirePresence('customerFirstname', 'create')
-            ->notEmptyString('customerFirstname');
+            ->scalar('customer_firstname')
+            ->maxLength('customer_firstname', 256)
+            ->requirePresence('customer_firstname', 'create')
+            ->notEmptyString('customer_firstname');
 
         $validator
-            ->scalar('customerSecondname')
-            ->maxLength('customerSecondname', 256)
-            ->requirePresence('customerSecondname', 'create')
-            ->notEmptyString('customerSecondname');
+            ->scalar('customer_secondname')
+            ->maxLength('customer_secondname', 256)
+            ->requirePresence('customer_secondname', 'create')
+            ->notEmptyString('customer_secondname');
 
         $validator
-            ->scalar('customerEmail')
-            ->maxLength('customerEmail', 256)
-            ->requirePresence('customerEmail', 'create')
-            ->notEmptyString('customerEmail');
+            ->scalar('customer_email')
+            ->maxLength('customer_email', 256)
+            ->requirePresence('customer_email', 'create')
+            ->notEmptyString('customer_email');
 
         $validator
-            ->scalar('customerPhone')
-            ->maxLength('customerPhone', 256)
-            ->requirePresence('customerPhone', 'create')
-            ->notEmptyString('customerPhone');
+            ->scalar('customer_phone')
+            ->maxLength('customer_phone', 256)
+            ->requirePresence('customer_phone', 'create')
+            ->notEmptyString('customer_phone');
 
         return $validator;
     }

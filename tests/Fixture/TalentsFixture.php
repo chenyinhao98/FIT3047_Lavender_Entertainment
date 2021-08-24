@@ -17,19 +17,18 @@ class TalentsFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'talentID' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'talentCategory' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentName' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentPreferred' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentAddress' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentTravelRadius' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'talentPPH' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentMinHour' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'talentContactName' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentContactNumber' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talentContactEmail' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'talent_type' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'talent_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'talent_address' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'talent_travel_radius' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'talent_payrate' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'talent_min_hour' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'talent_contact_name' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'talent_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'talent_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['talentID'], 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -46,17 +45,16 @@ class TalentsFixture extends TestFixture
     {
         $this->records = [
             [
-                'talentID' => 1,
-                'talentCategory' => 'Lorem ipsum dolor sit amet',
-                'talentName' => 'Lorem ipsum dolor sit amet',
-                'talentPreferred' => 'Lorem ipsum dolor sit amet',
-                'talentAddress' => 'Lorem ipsum dolor sit amet',
-                'talentTravelRadius' => 1,
-                'talentPPH' => 'Lorem ipsum dolor sit amet',
-                'talentMinHour' => 1,
-                'talentContactName' => 'Lorem ipsum dolor sit amet',
-                'talentContactNumber' => 'Lorem ipsum dolor sit amet',
-                'talentContactEmail' => 'Lorem ipsum dolor sit amet',
+                'id' => 1,
+                'talent_type' => 'Lorem ipsum dolor sit amet',
+                'talent_name' => 'Lorem ipsum dolor sit amet',
+                'talent_address' => 'Lorem ipsum dolor sit amet',
+                'talent_travel_radius' => 1,
+                'talent_payrate' => 1,
+                'talent_min_hour' => 1,
+                'talent_contact_name' => 'Lorem ipsum dolor sit amet',
+                'talent_contact_number' => 'Lorem ipsum dolor sit amet',
+                'talent_email' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

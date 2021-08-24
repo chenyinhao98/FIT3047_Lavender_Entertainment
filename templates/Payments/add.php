@@ -17,8 +17,9 @@
             <fieldset>
                 <legend><?= __('Add Payment') ?></legend>
                 <?php
-                    echo $this->Form->control('paymentType');
-                    echo $this->Form->control('paymentTotal');
+                    echo $this->Form->control('id');
+                    echo $this->Form->control('payment_type');
+                    echo $this->Form->control('payment_total');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

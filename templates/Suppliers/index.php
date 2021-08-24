@@ -11,34 +11,34 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('supplierID') ?></th>
-                    <th><?= $this->Paginator->sort('supplierCategory') ?></th>
-                    <th><?= $this->Paginator->sort('supplierName') ?></th>
-                    <th><?= $this->Paginator->sort('supplierPreferred') ?></th>
-                    <th><?= $this->Paginator->sort('supplierAddress') ?></th>
-                    <th><?= $this->Paginator->sort('supplierTravelRadius') ?></th>
-                    <th><?= $this->Paginator->sort('supplierPPH') ?></th>
-                    <th><?= $this->Paginator->sort('supplierMiniHour') ?></th>
-                    <th><?= $this->Paginator->sort('supplierContactName') ?></th>
-                    <th><?= $this->Paginator->sort('supplierContactNumber') ?></th>
-                    <th><?= $this->Paginator->sort('supplierContactEmail') ?></th>
+                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_type') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_name') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_address') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_travel_radius') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_payrate') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_min_hour') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_advertise_fee') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_contact_name') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_contact_number') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_email') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($suppliers as $supplier): ?>
                 <tr>
-                    <td><?= $this->Number->format($supplier->supplierID) ?></td>
-                    <td><?= h($supplier->supplierCategory) ?></td>
-                    <td><?= h($supplier->supplierName) ?></td>
-                    <td><?= h($supplier->supplierPreferred) ?></td>
-                    <td><?= h($supplier->supplierAddress) ?></td>
-                    <td><?= $this->Number->format($supplier->supplierTravelRadius) ?></td>
-                    <td><?= h($supplier->supplierPPH) ?></td>
-                    <td><?= $this->Number->format($supplier->supplierMiniHour) ?></td>
-                    <td><?= h($supplier->supplierContactName) ?></td>
-                    <td><?= h($supplier->supplierContactNumber) ?></td>
-                    <td><?= h($supplier->supplierContactEmail) ?></td>
+                    <td><?= $this->Number->format($supplier->id) ?></td>
+                    <td><?= h($supplier->supplier_type) ?></td>
+                    <td><?= h($supplier->supplier_name) ?></td>
+                    <td><?= h($supplier->supplier_address) ?></td>
+                    <td><?= $this->Number->format($supplier->supplier_travel_radius) ?></td>
+                    <td><?= h($supplier->supplier_payrate) ?></td>
+                    <td><?= $this->Number->format($supplier->supplier_min_hour) ?></td>
+                    <td><?= $this->Number->format($supplier->supplier_advertise_fee) ?></td>
+                    <td><?= h($supplier->supplier_contact_name) ?></td>
+                    <td><?= h($supplier->supplier_contact_number) ?></td>
+                    <td><?= h($supplier->supplier_email) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $supplier->supplierID]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $supplier->supplierID]) ?>

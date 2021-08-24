@@ -8,17 +8,17 @@ use Cake\ORM\Entity;
 /**
  * Supplier Entity
  *
- * @property int $supplierID
- * @property string $supplierCategory
- * @property string $supplierName
- * @property string $supplierPreferred
- * @property string $supplierAddress
- * @property float $supplierTravelRadius
- * @property string $supplierPPH
- * @property float $supplierMiniHour
- * @property string $supplierContactName
- * @property string $supplierContactNumber
- * @property string $supplierContactEmail
+ * @property int $id
+ * @property string $supplier_type
+ * @property string $supplier_name
+ * @property string $supplier_address
+ * @property float $supplier_travel_radius
+ * @property string $supplier_payrate
+ * @property float $supplier_min_hour
+ * @property float $supplier_advertise_fee
+ * @property string $supplier_contact_name
+ * @property string $supplier_contact_number
+ * @property string $supplier_email
  */
 class Supplier extends Entity
 {
@@ -32,15 +32,15 @@ class Supplier extends Entity
      * @var array
      */
     protected $_accessible = [
-        'supplierCategory' => true,
-        'supplierName' => true,
-        'supplierPreferred' => true,
-        'supplierAddress' => true,
-        'supplierTravelRadius' => true,
-        'supplierPPH' => true,
-        'supplierMiniHour' => true,
-        'supplierContactName' => true,
-        'supplierContactNumber' => true,
-        'supplierContactEmail' => true,
+        'supplier_type' => true,
+        'supplier_name' => true,
+        'supplier_address' => true,
+        'supplier_travel_radius' => true,
+        'supplier_payrate' => true,
+        'supplier_min_hour' => true,
+        'supplier_advertise_fee' => true,
+        'supplier_contact_name' => true,
+        'supplier_contact_number' => true,
+        'supplier_email' => true,
     ];
 }

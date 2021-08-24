@@ -40,6 +40,33 @@ class EventsTable extends Table
         $this->setTable('events');
         $this->setDisplayField('eventID');
         $this->setPrimaryKey('eventID');
+
+        $this->belongsTo('Customers', [
+            'foreignKey' => 'customer_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('Venues', [
+            'foreignKey' => 'venue_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('EventTypes', [
+            'foreignKey' => 'event_type_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('Payments', [
+            'foreignKey' => 'payment_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsToMany('Suppliers', [
+            'foreignKey' => 'event_id',
+            'targetForeignKey' => 'supplier_id',
+            'joinTable' => 'events_suppliers',
+        ]);
+        $this->belongsToMany('Talents', [
+            'foreignKey' => 'event_id',
+            'targetForeignKey' => 'talent_id',
+            'joinTable' => 'events_talents',
+        ]);
     }
 
     /**
@@ -51,50 +78,46 @@ class EventsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('eventID')
-            ->allowEmptyString('eventID', null, 'create');
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->integer('customerID')
-            ->requirePresence('customerID', 'create')
-            ->notEmptyString('customerID');
+            ->integer('event_attendance')
+            ->requirePresence('event_attendance', 'create')
+            ->notEmptyString('event_attendance');
 
         $validator
-            ->integer('venueID')
-            ->requirePresence('venueID', 'create')
-            ->notEmptyString('venueID');
+            ->integer('event_date')
+            ->requirePresence('event_date', 'create')
+            ->notEmptyString('event_date');
 
         $validator
-            ->integer('eventAttendance')
-            ->requirePresence('eventAttendance', 'create')
-            ->notEmptyString('eventAttendance');
+            ->dateTime('event_startdate')
+            ->requirePresence('event_startdate', 'create')
+            ->notEmptyDateTime('event_startdate');
 
         $validator
-            ->integer('eventDate')
-            ->requirePresence('eventDate', 'create')
-            ->notEmptyString('eventDate');
-
-        $validator
-            ->scalar('eventType')
-            ->maxLength('eventType', 256)
-            ->requirePresence('eventType', 'create')
-            ->notEmptyString('eventType');
-
-        $validator
-            ->dateTime('eventStartTime')
-            ->requirePresence('eventStartTime', 'create')
-            ->notEmptyDateTime('eventStartTime');
-
-        $validator
-            ->dateTime('eventEndTime')
-            ->requirePresence('eventEndTime', 'create')
-            ->notEmptyDateTime('eventEndTime');
-
-        $validator
-            ->integer('paymentID')
-            ->requirePresence('paymentID', 'create')
-            ->notEmptyString('paymentID');
+            ->dateTime('event_enddate')
+            ->requirePresence('event_enddate', 'create')
+            ->notEmptyDateTime('event_enddate');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn(['customer_id'], 'Customers'), ['errorField' => 'customer_id']);
+        $rules->add($rules->existsIn(['venue_id'], 'Venues'), ['errorField' => 'venue_id']);
+        $rules->add($rules->existsIn(['event_type_id'], 'EventTypes'), ['errorField' => 'event_type_id']);
+        $rules->add($rules->existsIn(['payment_id'], 'Payments'), ['errorField' => 'payment_id']);
+
+        return $rules;
     }
 }
