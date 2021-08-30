@@ -18,6 +18,9 @@ class EventsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Customers', 'Venues', 'EventTypes', 'Payments'],
+        ];
         $events = $this->paginate($this->Events);
 
         $this->set(compact('events'));
@@ -33,7 +36,7 @@ class EventsController extends AppController
     public function view($id = null)
     {
         $event = $this->Events->get($id, [
-            'contain' => [],
+            'contain' => ['Customers', 'Venues', 'EventTypes', 'Payments', 'Suppliers', 'Talents'],
         ]);
 
         $this->set(compact('event'));
@@ -56,7 +59,13 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $this->set(compact('event'));
+        $customers = $this->Events->Customers->find('list', ['limit' => 200]);
+        $venues = $this->Events->Venues->find('list', ['limit' => 200]);
+        $eventTypes = $this->Events->EventTypes->find('list', ['limit' => 200]);
+        $payments = $this->Events->Payments->find('list', ['limit' => 200]);
+        $suppliers = $this->Events->Suppliers->find('list', ['limit' => 200]);
+        $talents = $this->Events->Talents->find('list', ['limit' => 200]);
+        $this->set(compact('event', 'customers', 'venues', 'eventTypes', 'payments', 'suppliers', 'talents'));
     }
 
     /**
@@ -69,7 +78,7 @@ class EventsController extends AppController
     public function edit($id = null)
     {
         $event = $this->Events->get($id, [
-            'contain' => [],
+            'contain' => ['Suppliers', 'Talents'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $event = $this->Events->patchEntity($event, $this->request->getData());
@@ -80,7 +89,13 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $this->set(compact('event'));
+        $customers = $this->Events->Customers->find('list', ['limit' => 200]);
+        $venues = $this->Events->Venues->find('list', ['limit' => 200]);
+        $eventTypes = $this->Events->EventTypes->find('list', ['limit' => 200]);
+        $payments = $this->Events->Payments->find('list', ['limit' => 200]);
+        $suppliers = $this->Events->Suppliers->find('list', ['limit' => 200]);
+        $talents = $this->Events->Talents->find('list', ['limit' => 200]);
+        $this->set(compact('event', 'customers', 'venues', 'eventTypes', 'payments', 'suppliers', 'talents'));
     }
 
     /**

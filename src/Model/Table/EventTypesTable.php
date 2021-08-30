@@ -52,17 +52,17 @@ class EventTypesTable extends Table
         $this->belongsToMany('Suppliers', [
             'foreignKey' => 'event_type_id',
             'targetForeignKey' => 'supplier_id',
-            'joinTable' => 'suppliers_event_types',
+            'joinTable' => 'event_types_suppliers',
         ]);
         $this->belongsToMany('Talents', [
             'foreignKey' => 'event_type_id',
             'targetForeignKey' => 'talent_id',
-            'joinTable' => 'talents_event_types',
+            'joinTable' => 'event_types_talents',
         ]);
         $this->belongsToMany('Venues', [
             'foreignKey' => 'event_type_id',
             'targetForeignKey' => 'venue_id',
-            'joinTable' => 'venues_event_types',
+            'joinTable' => 'event_types_venues',
         ]);
     }
 
@@ -79,7 +79,8 @@ class EventTypesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->integer('event_name')
+            ->scalar('event_name')
+            ->maxLength('event_name', 256)
             ->requirePresence('event_name', 'create')
             ->notEmptyString('event_name');
 

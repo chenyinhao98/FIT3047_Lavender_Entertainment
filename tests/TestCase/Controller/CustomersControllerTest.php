@@ -23,12 +23,14 @@ class CustomersControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Customers',
+        'app.Events',
     ];
 
     /**
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\CustomersController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +41,7 @@ class CustomersControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\CustomersController::view()
      */
     public function testView(): void
     {
@@ -49,6 +52,7 @@ class CustomersControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\CustomersController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +63,7 @@ class CustomersControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\CustomersController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +74,7 @@ class CustomersControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\CustomersController::delete()
      */
     public function testDelete(): void
     {

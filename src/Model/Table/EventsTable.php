@@ -11,6 +11,13 @@ use Cake\Validation\Validator;
 /**
  * Events Model
  *
+ * @property \App\Model\Table\CustomersTable&\Cake\ORM\Association\BelongsTo $Customers
+ * @property \App\Model\Table\VenuesTable&\Cake\ORM\Association\BelongsTo $Venues
+ * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsTo $EventTypes
+ * @property \App\Model\Table\PaymentsTable&\Cake\ORM\Association\BelongsTo $Payments
+ * @property \App\Model\Table\SuppliersTable&\Cake\ORM\Association\BelongsToMany $Suppliers
+ * @property \App\Model\Table\TalentsTable&\Cake\ORM\Association\BelongsToMany $Talents
+ *
  * @method \App\Model\Entity\Event newEmptyEntity()
  * @method \App\Model\Entity\Event newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Event[] newEntities(array $data, array $options = [])
@@ -80,6 +87,12 @@ class EventsTable extends Table
         $validator
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
+
+        $validator
+            ->scalar('event_name')
+            ->maxLength('event_name', 256)
+            ->requirePresence('event_name', 'create')
+            ->notEmptyString('event_name');
 
         $validator
             ->integer('event_attendance')

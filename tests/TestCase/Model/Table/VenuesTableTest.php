@@ -25,6 +25,8 @@ class VenuesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Venues',
+        'app.Events',
+        'app.EventTypes',
     ];
 
     /**
@@ -55,6 +57,7 @@ class VenuesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\VenuesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

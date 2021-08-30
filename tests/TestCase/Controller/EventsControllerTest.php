@@ -23,12 +23,21 @@ class EventsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Events',
+        'app.Customers',
+        'app.Venues',
+        'app.EventTypes',
+        'app.Payments',
+        'app.Suppliers',
+        'app.Talents',
+        'app.EventsSuppliers',
+        'app.EventsTalents',
     ];
 
     /**
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\EventsController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +48,7 @@ class EventsControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\EventsController::view()
      */
     public function testView(): void
     {
@@ -49,6 +59,7 @@ class EventsControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\EventsController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +70,7 @@ class EventsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\EventsController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +81,7 @@ class EventsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\EventsController::delete()
      */
     public function testDelete(): void
     {

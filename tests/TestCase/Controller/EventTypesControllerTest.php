@@ -36,6 +36,7 @@ class EventTypesControllerTest extends TestCase
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\EventTypesController::index()
      */
     public function testIndex(): void
     {
@@ -46,6 +47,7 @@ class EventTypesControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\EventTypesController::view()
      */
     public function testView(): void
     {
@@ -56,6 +58,7 @@ class EventTypesControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\EventTypesController::add()
      */
     public function testAdd(): void
     {
@@ -66,6 +69,7 @@ class EventTypesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\EventTypesController::edit()
      */
     public function testEdit(): void
     {
@@ -76,6 +80,7 @@ class EventTypesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\EventTypesController::delete()
      */
     public function testDelete(): void
     {

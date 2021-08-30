@@ -33,7 +33,7 @@ class VenuesController extends AppController
     public function view($id = null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => [],
+            'contain' => ['EventTypes', 'Events'],
         ]);
 
         $this->set(compact('venue'));
@@ -56,7 +56,8 @@ class VenuesController extends AppController
             }
             $this->Flash->error(__('The venue could not be saved. Please, try again.'));
         }
-        $this->set(compact('venue'));
+        $eventTypes = $this->Venues->EventTypes->find('list', ['limit' => 200]);
+        $this->set(compact('venue', 'eventTypes'));
     }
 
     /**
@@ -69,7 +70,7 @@ class VenuesController extends AppController
     public function edit($id = null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => [],
+            'contain' => ['EventTypes'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
@@ -80,7 +81,8 @@ class VenuesController extends AppController
             }
             $this->Flash->error(__('The venue could not be saved. Please, try again.'));
         }
-        $this->set(compact('venue'));
+        $eventTypes = $this->Venues->EventTypes->find('list', ['limit' => 200]);
+        $this->set(compact('venue', 'eventTypes'));
     }
 
     /**

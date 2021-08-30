@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * Event Entity
  *
  * @property int $id
+ * @property string $event_name
  * @property int $customer_id
  * @property int $venue_id
  * @property int $event_attendance
@@ -17,6 +18,13 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $event_startdate
  * @property \Cake\I18n\FrozenTime $event_enddate
  * @property int $payment_id
+ *
+ * @property \App\Model\Entity\Customer $customer
+ * @property \App\Model\Entity\Venue $venue
+ * @property \App\Model\Entity\EventType $event_type
+ * @property \App\Model\Entity\Payment $payment
+ * @property \App\Model\Entity\Supplier[] $suppliers
+ * @property \App\Model\Entity\Talent[] $talents
  */
 class Event extends Entity
 {
@@ -30,6 +38,7 @@ class Event extends Entity
      * @var array
      */
     protected $_accessible = [
+        'event_name' => true,
         'customer_id' => true,
         'venue_id' => true,
         'event_attendance' => true,
@@ -38,5 +47,11 @@ class Event extends Entity
         'event_startdate' => true,
         'event_enddate' => true,
         'payment_id' => true,
+        'customer' => true,
+        'venue' => true,
+        'event_type' => true,
+        'payment' => true,
+        'suppliers' => true,
+        'talents' => true,
     ];
 }

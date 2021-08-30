@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property string $customer_secondname
  * @property string $customer_email
  * @property string $customer_phone
+ *
+ * @property \App\Model\Entity\Event[] $events
  */
 class Customer extends Entity
 {
@@ -30,5 +32,6 @@ class Customer extends Entity
         'customer_secondname' => true,
         'customer_email' => true,
         'customer_phone' => true,
+        'events' => true,
     ];
 }

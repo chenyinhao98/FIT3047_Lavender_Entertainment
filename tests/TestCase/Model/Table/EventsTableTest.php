@@ -25,6 +25,12 @@ class EventsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Events',
+        'app.Customers',
+        'app.Venues',
+        'app.EventTypes',
+        'app.Payments',
+        'app.Suppliers',
+        'app.Talents',
     ];
 
     /**
@@ -55,8 +61,20 @@ class EventsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\EventsTable::validationDefault()
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     * @uses \App\Model\Table\EventsTable::buildRules()
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

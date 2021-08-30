@@ -23,12 +23,16 @@ class VenuesControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Venues',
+        'app.Events',
+        'app.EventTypes',
+        'app.VenuesEventTypes',
     ];
 
     /**
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\VenuesController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +43,7 @@ class VenuesControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\VenuesController::view()
      */
     public function testView(): void
     {
@@ -49,6 +54,7 @@ class VenuesControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\VenuesController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +65,7 @@ class VenuesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\VenuesController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +76,7 @@ class VenuesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\VenuesController::delete()
      */
     public function testDelete(): void
     {

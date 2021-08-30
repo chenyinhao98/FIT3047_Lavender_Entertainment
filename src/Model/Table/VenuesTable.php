@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Venues Model
  *
+ * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\HasMany $Events
+ * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsToMany $EventTypes
+ *
  * @method \App\Model\Entity\Venue newEmptyEntity()
  * @method \App\Model\Entity\Venue newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Venue[] newEntities(array $data, array $options = [])
@@ -47,7 +50,7 @@ class VenuesTable extends Table
         $this->belongsToMany('EventTypes', [
             'foreignKey' => 'venue_id',
             'targetForeignKey' => 'event_type_id',
-            'joinTable' => 'venues_event_types',
+            'joinTable' => 'event_types_venues',
         ]);
     }
 
@@ -76,8 +79,7 @@ class VenuesTable extends Table
             ->notEmptyString('venue_address');
 
         $validator
-            ->scalar('venue_min_capacity')
-            ->maxLength('venue_min_capacity', 256)
+            ->integer('venue_min_capacity')
             ->requirePresence('venue_min_capacity', 'create')
             ->notEmptyString('venue_min_capacity');
 
@@ -108,6 +110,17 @@ class VenuesTable extends Table
             ->maxLength('venue_email', 256)
             ->requirePresence('venue_email', 'create')
             ->notEmptyString('venue_email');
+
+        $validator
+            ->allowEmptyString('venue_photo1');
+
+        $validator
+            ->allowEmptyString('venue_photo2');
+
+        $validator
+            ->scalar('venue_about_us')
+            ->maxLength('venue_about_us', 512)
+            ->allowEmptyString('venue_about_us');
 
         return $validator;
     }

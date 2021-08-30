@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Customers Model
  *
+ * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\HasMany $Events
+ *
  * @method \App\Model\Entity\Customer newEmptyEntity()
  * @method \App\Model\Entity\Customer newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Customer[] newEntities(array $data, array $options = [])

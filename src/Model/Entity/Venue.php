@@ -11,12 +11,18 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $venue_name
  * @property string $venue_address
- * @property string $venue_min_capacity
+ * @property int $venue_min_capacity
  * @property float $venue_payrate
  * @property float $venue_min_hour
  * @property string $venue_contact_name
  * @property string $venue_contact_number
  * @property string $venue_email
+ * @property string|resource|null $venue_photo1
+ * @property string|resource|null $venue_photo2
+ * @property string|null $venue_about_us
+ *
+ * @property \App\Model\Entity\Event[] $events
+ * @property \App\Model\Entity\EventType[] $event_types
  */
 class Venue extends Entity
 {
@@ -38,5 +44,10 @@ class Venue extends Entity
         'venue_contact_name' => true,
         'venue_contact_number' => true,
         'venue_email' => true,
+        'venue_photo1' => true,
+        'venue_photo2' => true,
+        'venue_about_us' => true,
+        'events' => true,
+        'event_types' => true,
     ];
 }

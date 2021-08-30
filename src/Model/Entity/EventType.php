@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * EventType Entity
  *
  * @property int $id
- * @property int $event_name
+ * @property string $event_name
  *
  * @property \App\Model\Entity\Event[] $events
  * @property \App\Model\Entity\Supplier[] $suppliers

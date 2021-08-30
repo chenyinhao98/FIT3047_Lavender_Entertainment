@@ -59,6 +59,7 @@ class EventTypesTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\EventTypesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

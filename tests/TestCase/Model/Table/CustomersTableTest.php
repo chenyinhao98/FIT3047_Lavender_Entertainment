@@ -25,6 +25,7 @@ class CustomersTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Customers',
+        'app.Events',
     ];
 
     /**
@@ -55,6 +56,7 @@ class CustomersTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\CustomersTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
