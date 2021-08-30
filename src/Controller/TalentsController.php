@@ -33,7 +33,7 @@ class TalentsController extends AppController
     public function view($id = null)
     {
         $talent = $this->Talents->get($id, [
-            'contain' => [],
+            'contain' => ['EventTypes', 'Events'],
         ]);
 
         $this->set(compact('talent'));
@@ -56,7 +56,9 @@ class TalentsController extends AppController
             }
             $this->Flash->error(__('The talent could not be saved. Please, try again.'));
         }
-        $this->set(compact('talent'));
+        $eventTypes = $this->Talents->EventTypes->find('list', ['limit' => 200]);
+        $events = $this->Talents->Events->find('list', ['limit' => 200]);
+        $this->set(compact('talent', 'eventTypes', 'events'));
     }
 
     /**
@@ -69,7 +71,7 @@ class TalentsController extends AppController
     public function edit($id = null)
     {
         $talent = $this->Talents->get($id, [
-            'contain' => [],
+            'contain' => ['EventTypes', 'Events'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $talent = $this->Talents->patchEntity($talent, $this->request->getData());
@@ -80,7 +82,9 @@ class TalentsController extends AppController
             }
             $this->Flash->error(__('The talent could not be saved. Please, try again.'));
         }
-        $this->set(compact('talent'));
+        $eventTypes = $this->Talents->EventTypes->find('list', ['limit' => 200]);
+        $events = $this->Talents->Events->find('list', ['limit' => 200]);
+        $this->set(compact('talent', 'eventTypes', 'events'));
     }
 
     /**

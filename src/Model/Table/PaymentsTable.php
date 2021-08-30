@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Payments Model
  *
+ * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\HasMany $Events
+ *
  * @method \App\Model\Entity\Payment newEmptyEntity()
  * @method \App\Model\Entity\Payment newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Payment[] newEntities(array $data, array $options = [])
@@ -38,8 +40,8 @@ class PaymentsTable extends Table
         parent::initialize($config);
 
         $this->setTable('payments');
-        $this->setDisplayField('paymentID');
-        $this->setPrimaryKey('paymentID');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->hasMany('Events', [
             'foreignKey' => 'payment_id',

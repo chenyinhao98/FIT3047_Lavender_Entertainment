@@ -23,12 +23,14 @@ class PaymentsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Payments',
+        'app.Events',
     ];
 
     /**
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\PaymentsController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +41,7 @@ class PaymentsControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\PaymentsController::view()
      */
     public function testView(): void
     {
@@ -49,6 +52,7 @@ class PaymentsControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\PaymentsController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +63,7 @@ class PaymentsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\PaymentsController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +74,7 @@ class PaymentsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\PaymentsController::delete()
      */
     public function testDelete(): void
     {

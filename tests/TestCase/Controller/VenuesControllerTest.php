@@ -25,7 +25,7 @@ class VenuesControllerTest extends TestCase
         'app.Venues',
         'app.Events',
         'app.EventTypes',
-        'app.VenuesEventTypes',
+        'app.EventTypesVenues',
     ];
 
     /**

@@ -25,6 +25,8 @@ class SuppliersTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Suppliers',
+        'app.EventTypes',
+        'app.Events',
     ];
 
     /**
@@ -55,6 +57,7 @@ class SuppliersTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\SuppliersTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

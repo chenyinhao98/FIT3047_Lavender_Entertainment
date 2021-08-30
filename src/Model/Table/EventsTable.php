@@ -45,8 +45,8 @@ class EventsTable extends Table
         parent::initialize($config);
 
         $this->setTable('events');
-        $this->setDisplayField('eventID');
-        $this->setPrimaryKey('eventID');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->belongsTo('Customers', [
             'foreignKey' => 'customer_id',

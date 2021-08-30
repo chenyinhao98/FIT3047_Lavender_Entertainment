@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Suppliers Model
  *
+ * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsToMany $EventTypes
+ * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\BelongsToMany $Events
+ *
  * @method \App\Model\Entity\Supplier newEmptyEntity()
  * @method \App\Model\Entity\Supplier newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Supplier[] newEntities(array $data, array $options = [])
@@ -38,18 +41,18 @@ class SuppliersTable extends Table
         parent::initialize($config);
 
         $this->setTable('suppliers');
-        $this->setDisplayField('supplierID');
-        $this->setPrimaryKey('supplierID');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
+        $this->belongsToMany('EventTypes', [
+            'foreignKey' => 'supplier_id',
+            'targetForeignKey' => 'event_type_id',
+            'joinTable' => 'event_types_suppliers',
+        ]);
         $this->belongsToMany('Events', [
             'foreignKey' => 'supplier_id',
             'targetForeignKey' => 'event_id',
             'joinTable' => 'events_suppliers',
-        ]);
-        $this->belongsToMany('EventTypes', [
-            'foreignKey' => 'supplier_id',
-            'targetForeignKey' => 'event_type_id',
-            'joinTable' => 'suppliers_event_types',
         ]);
     }
 
@@ -121,6 +124,14 @@ class SuppliersTable extends Table
             ->maxLength('supplier_email', 256)
             ->requirePresence('supplier_email', 'create')
             ->notEmptyString('supplier_email');
+
+        $validator
+            ->allowEmptyString('supplier_photo');
+
+        $validator
+            ->scalar('supplier_about_us')
+            ->maxLength('supplier_about_us', 512)
+            ->allowEmptyString('supplier_about_us');
 
         return $validator;
     }

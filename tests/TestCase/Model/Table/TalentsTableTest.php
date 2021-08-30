@@ -25,6 +25,8 @@ class TalentsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Talents',
+        'app.EventTypes',
+        'app.Events',
     ];
 
     /**
@@ -55,6 +57,7 @@ class TalentsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\TalentsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

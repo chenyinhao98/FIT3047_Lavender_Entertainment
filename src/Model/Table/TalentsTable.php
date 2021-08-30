@@ -11,6 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Talents Model
  *
+ * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsToMany $EventTypes
+ * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\BelongsToMany $Events
+ *
  * @method \App\Model\Entity\Talent newEmptyEntity()
  * @method \App\Model\Entity\Talent newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Talent[] newEntities(array $data, array $options = [])
@@ -38,18 +41,18 @@ class TalentsTable extends Table
         parent::initialize($config);
 
         $this->setTable('talents');
-        $this->setDisplayField('talentID');
-        $this->setPrimaryKey('talentID');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
+        $this->belongsToMany('EventTypes', [
+            'foreignKey' => 'talent_id',
+            'targetForeignKey' => 'event_type_id',
+            'joinTable' => 'event_types_talents',
+        ]);
         $this->belongsToMany('Events', [
             'foreignKey' => 'talent_id',
             'targetForeignKey' => 'event_id',
             'joinTable' => 'events_talents',
-        ]);
-        $this->belongsToMany('EventTypes', [
-            'foreignKey' => 'talent_id',
-            'targetForeignKey' => 'event_type_id',
-            'joinTable' => 'talents_event_types',
         ]);
     }
 
@@ -115,6 +118,14 @@ class TalentsTable extends Table
             ->maxLength('talent_email', 256)
             ->requirePresence('talent_email', 'create')
             ->notEmptyString('talent_email');
+
+        $validator
+            ->allowEmptyString('talent_photo');
+
+        $validator
+            ->scalar('talent_about_us')
+            ->maxLength('talent_about_us', 512)
+            ->allowEmptyString('talent_about_us');
 
         return $validator;
     }

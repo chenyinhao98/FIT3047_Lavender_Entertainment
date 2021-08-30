@@ -6,12 +6,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * EventSupplier Entity
+ * EventTypesSupplier Entity
  *
- * @property int $eventID
- * @property int $supplierID
+ * @property int $id
+ * @property int $supplier_id
+ * @property int $event_type_id
+ *
+ * @property \App\Model\Entity\Supplier $supplier
+ * @property \App\Model\Entity\EventType $event_type
  */
-class EventSupplier extends Entity
+class EventTypesSupplier extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -23,7 +27,9 @@ class EventSupplier extends Entity
      * @var array
      */
     protected $_accessible = [
-        'eventID' => true,
-        'supplierID' => true,
+        'supplier_id' => true,
+        'event_type_id' => true,
+        'supplier' => true,
+        'event_type' => true,
     ];
 }

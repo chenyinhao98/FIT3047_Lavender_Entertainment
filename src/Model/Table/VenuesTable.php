@@ -41,8 +41,8 @@ class VenuesTable extends Table
         parent::initialize($config);
 
         $this->setTable('venues');
-        $this->setDisplayField('venueID');
-        $this->setPrimaryKey('venueID');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
 
         $this->hasMany('Events', [
             'foreignKey' => 'venue_id',

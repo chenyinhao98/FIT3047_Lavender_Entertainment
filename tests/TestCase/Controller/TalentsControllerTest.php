@@ -23,12 +23,17 @@ class TalentsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Talents',
+        'app.EventTypes',
+        'app.Events',
+        'app.EventTypesTalents',
+        'app.EventsTalents',
     ];
 
     /**
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\TalentsController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +44,7 @@ class TalentsControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\TalentsController::view()
      */
     public function testView(): void
     {
@@ -49,6 +55,7 @@ class TalentsControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\TalentsController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +66,7 @@ class TalentsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\TalentsController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +77,7 @@ class TalentsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\TalentsController::delete()
      */
     public function testDelete(): void
     {

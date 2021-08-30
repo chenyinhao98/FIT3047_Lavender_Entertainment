@@ -27,6 +27,8 @@ class TalentsFixture extends TestFixture
         'talent_contact_name' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'talent_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'talent_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'talent_photo' => ['type' => 'binary', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'talent_about_us' => ['type' => 'string', 'length' => 512, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -55,6 +57,8 @@ class TalentsFixture extends TestFixture
                 'talent_contact_name' => 'Lorem ipsum dolor sit amet',
                 'talent_contact_number' => 'Lorem ipsum dolor sit amet',
                 'talent_email' => 'Lorem ipsum dolor sit amet',
+                'talent_photo' => 'Lorem ipsum dolor sit amet',
+                'talent_about_us' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

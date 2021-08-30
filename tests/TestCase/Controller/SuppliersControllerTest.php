@@ -23,12 +23,17 @@ class SuppliersControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Suppliers',
+        'app.EventTypes',
+        'app.Events',
+        'app.EventTypesSuppliers',
+        'app.EventsSuppliers',
     ];
 
     /**
      * Test index method
      *
      * @return void
+     * @uses \App\Controller\SuppliersController::index()
      */
     public function testIndex(): void
     {
@@ -39,6 +44,7 @@ class SuppliersControllerTest extends TestCase
      * Test view method
      *
      * @return void
+     * @uses \App\Controller\SuppliersController::view()
      */
     public function testView(): void
     {
@@ -49,6 +55,7 @@ class SuppliersControllerTest extends TestCase
      * Test add method
      *
      * @return void
+     * @uses \App\Controller\SuppliersController::add()
      */
     public function testAdd(): void
     {
@@ -59,6 +66,7 @@ class SuppliersControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+     * @uses \App\Controller\SuppliersController::edit()
      */
     public function testEdit(): void
     {
@@ -69,6 +77,7 @@ class SuppliersControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+     * @uses \App\Controller\SuppliersController::delete()
      */
     public function testDelete(): void
     {

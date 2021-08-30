@@ -33,7 +33,7 @@ class SuppliersController extends AppController
     public function view($id = null)
     {
         $supplier = $this->Suppliers->get($id, [
-            'contain' => [],
+            'contain' => ['EventTypes', 'Events'],
         ]);
 
         $this->set(compact('supplier'));
@@ -56,7 +56,9 @@ class SuppliersController extends AppController
             }
             $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
         }
-        $this->set(compact('supplier'));
+        $eventTypes = $this->Suppliers->EventTypes->find('list', ['limit' => 200]);
+        $events = $this->Suppliers->Events->find('list', ['limit' => 200]);
+        $this->set(compact('supplier', 'eventTypes', 'events'));
     }
 
     /**
@@ -69,7 +71,7 @@ class SuppliersController extends AppController
     public function edit($id = null)
     {
         $supplier = $this->Suppliers->get($id, [
-            'contain' => [],
+            'contain' => ['EventTypes', 'Events'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $supplier = $this->Suppliers->patchEntity($supplier, $this->request->getData());
@@ -80,7 +82,9 @@ class SuppliersController extends AppController
             }
             $this->Flash->error(__('The supplier could not be saved. Please, try again.'));
         }
-        $this->set(compact('supplier'));
+        $eventTypes = $this->Suppliers->EventTypes->find('list', ['limit' => 200]);
+        $events = $this->Suppliers->Events->find('list', ['limit' => 200]);
+        $this->set(compact('supplier', 'eventTypes', 'events'));
     }
 
     /**

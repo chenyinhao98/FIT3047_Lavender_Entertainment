@@ -19,6 +19,11 @@ use Cake\ORM\Entity;
  * @property string $supplier_contact_name
  * @property string $supplier_contact_number
  * @property string $supplier_email
+ * @property string|resource|null $supplier_photo
+ * @property string|null $supplier_about_us
+ *
+ * @property \App\Model\Entity\EventType[] $event_types
+ * @property \App\Model\Entity\Event[] $events
  */
 class Supplier extends Entity
 {
@@ -42,5 +47,9 @@ class Supplier extends Entity
         'supplier_contact_name' => true,
         'supplier_contact_number' => true,
         'supplier_email' => true,
+        'supplier_photo' => true,
+        'supplier_about_us' => true,
+        'event_types' => true,
+        'events' => true,
     ];
 }

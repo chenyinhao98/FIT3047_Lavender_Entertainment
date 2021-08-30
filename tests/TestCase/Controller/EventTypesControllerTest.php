@@ -27,9 +27,9 @@ class EventTypesControllerTest extends TestCase
         'app.Suppliers',
         'app.Talents',
         'app.Venues',
-        'app.SuppliersEventTypes',
-        'app.TalentsEventTypes',
-        'app.VenuesEventTypes',
+        'app.EventTypesSuppliers',
+        'app.EventTypesTalents',
+        'app.EventTypesVenues',
     ];
 
     /**

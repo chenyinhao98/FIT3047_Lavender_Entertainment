@@ -25,6 +25,7 @@ class PaymentsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Payments',
+        'app.Events',
     ];
 
     /**
@@ -55,6 +56,7 @@ class PaymentsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+     * @uses \App\Model\Table\PaymentsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

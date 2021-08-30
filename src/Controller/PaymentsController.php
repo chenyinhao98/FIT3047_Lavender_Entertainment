@@ -33,7 +33,7 @@ class PaymentsController extends AppController
     public function view($id = null)
     {
         $payment = $this->Payments->get($id, [
-            'contain' => [],
+            'contain' => ['Events'],
         ]);
 
         $this->set(compact('payment'));

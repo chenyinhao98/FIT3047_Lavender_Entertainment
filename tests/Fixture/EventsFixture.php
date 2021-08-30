@@ -62,8 +62,8 @@ class EventsFixture extends TestFixture
                 'event_attendance' => 1,
                 'event_date' => 1,
                 'event_type_id' => 1,
-                'event_startdate' => '2021-08-30 09:02:02',
-                'event_enddate' => '2021-08-30 09:02:02',
+                'event_startdate' => '2021-08-30 09:10:08',
+                'event_enddate' => '2021-08-30 09:10:08',
                 'payment_id' => 1,
             ],
         ];

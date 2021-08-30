@@ -18,6 +18,11 @@ use Cake\ORM\Entity;
  * @property string $talent_contact_name
  * @property string $talent_contact_number
  * @property string $talent_email
+ * @property string|resource|null $talent_photo
+ * @property string|null $talent_about_us
+ *
+ * @property \App\Model\Entity\EventType[] $event_types
+ * @property \App\Model\Entity\Event[] $events
  */
 class Talent extends Entity
 {
@@ -40,5 +45,9 @@ class Talent extends Entity
         'talent_contact_name' => true,
         'talent_contact_number' => true,
         'talent_email' => true,
+        'talent_photo' => true,
+        'talent_about_us' => true,
+        'event_types' => true,
+        'events' => true,
     ];
 }

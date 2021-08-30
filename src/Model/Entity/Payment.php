@@ -11,6 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $payment_type
  * @property int $payment_total
+ *
+ * @property \App\Model\Entity\Event[] $events
  */
 class Payment extends Entity
 {
@@ -26,5 +28,6 @@ class Payment extends Entity
     protected $_accessible = [
         'payment_type' => true,
         'payment_total' => true,
+        'events' => true,
     ];
 }
