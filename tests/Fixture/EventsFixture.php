@@ -35,10 +35,10 @@ class EventsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'event_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_customer_customer_id' => ['type' => 'foreign', 'columns' => ['customer_id'], 'references' => ['customers', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'event_venue_venue_id' => ['type' => 'foreign', 'columns' => ['venue_id'], 'references' => ['venues', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'event_payment_payment_id' => ['type' => 'foreign', 'columns' => ['payment_id'], 'references' => ['payments', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'event_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'event_customer_customer_id' => ['type' => 'foreign', 'columns' => ['customer_id'], 'references' => ['customers', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -62,8 +62,8 @@ class EventsFixture extends TestFixture
                 'event_attendance' => 1,
                 'event_date' => 1,
                 'event_type_id' => 1,
-                'event_startdate' => '2021-08-30 09:10:08',
-                'event_enddate' => '2021-08-30 09:10:08',
+                'event_startdate' => '2021-08-30 08:21:32',
+                'event_enddate' => '2021-08-30 08:21:32',
                 'payment_id' => 1,
             ],
         ];

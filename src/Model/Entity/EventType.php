@@ -12,9 +12,9 @@ use Cake\ORM\Entity;
  * @property string $event_name
  *
  * @property \App\Model\Entity\Event[] $events
+ * @property \App\Model\Entity\Venue[] $venues
  * @property \App\Model\Entity\Supplier[] $suppliers
  * @property \App\Model\Entity\Talent[] $talents
- * @property \App\Model\Entity\Venue[] $venues
  */
 class EventType extends Entity
 {
@@ -30,8 +30,8 @@ class EventType extends Entity
     protected $_accessible = [
         'event_name' => true,
         'events' => true,
+        'venues' => true,
         'suppliers' => true,
         'talents' => true,
-        'venues' => true,
     ];
 }

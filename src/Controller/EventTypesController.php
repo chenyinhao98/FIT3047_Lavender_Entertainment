@@ -33,7 +33,7 @@ class EventTypesController extends AppController
     public function view($id = null)
     {
         $eventType = $this->EventTypes->get($id, [
-            'contain' => ['Suppliers', 'Talents', 'Venues', 'Events'],
+            'contain' => ['Venues', 'Suppliers', 'Talents', 'Events'],
         ]);
 
         $this->set(compact('eventType'));
@@ -56,10 +56,10 @@ class EventTypesController extends AppController
             }
             $this->Flash->error(__('The event type could not be saved. Please, try again.'));
         }
+        $venues = $this->EventTypes->Venues->find('list', ['limit' => 200]);
         $suppliers = $this->EventTypes->Suppliers->find('list', ['limit' => 200]);
         $talents = $this->EventTypes->Talents->find('list', ['limit' => 200]);
-        $venues = $this->EventTypes->Venues->find('list', ['limit' => 200]);
-        $this->set(compact('eventType', 'suppliers', 'talents', 'venues'));
+        $this->set(compact('eventType', 'venues', 'suppliers', 'talents'));
     }
 
     /**
@@ -72,7 +72,7 @@ class EventTypesController extends AppController
     public function edit($id = null)
     {
         $eventType = $this->EventTypes->get($id, [
-            'contain' => ['Suppliers', 'Talents', 'Venues'],
+            'contain' => ['Venues', 'Suppliers', 'Talents'],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $eventType = $this->EventTypes->patchEntity($eventType, $this->request->getData());
@@ -83,10 +83,10 @@ class EventTypesController extends AppController
             }
             $this->Flash->error(__('The event type could not be saved. Please, try again.'));
         }
+        $venues = $this->EventTypes->Venues->find('list', ['limit' => 200]);
         $suppliers = $this->EventTypes->Suppliers->find('list', ['limit' => 200]);
         $talents = $this->EventTypes->Talents->find('list', ['limit' => 200]);
-        $venues = $this->EventTypes->Venues->find('list', ['limit' => 200]);
-        $this->set(compact('eventType', 'suppliers', 'talents', 'venues'));
+        $this->set(compact('eventType', 'venues', 'suppliers', 'talents'));
     }
 
     /**

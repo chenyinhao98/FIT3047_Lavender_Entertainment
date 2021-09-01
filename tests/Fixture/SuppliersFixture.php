@@ -28,6 +28,8 @@ class SuppliersFixture extends TestFixture
         'supplier_contact_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'supplier_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'supplier_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'supplier_photo' => ['type' => 'binary', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'supplier_about_us' => ['type' => 'string', 'length' => 512, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -57,6 +59,8 @@ class SuppliersFixture extends TestFixture
                 'supplier_contact_name' => 'Lorem ipsum dolor sit amet',
                 'supplier_contact_number' => 'Lorem ipsum dolor sit amet',
                 'supplier_email' => 'Lorem ipsum dolor sit amet',
+                'supplier_photo' => 'Lorem ipsum dolor sit amet',
+                'supplier_about_us' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

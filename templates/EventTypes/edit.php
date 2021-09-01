@@ -2,9 +2,9 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\EventType $eventType
+ * @var string[]|\Cake\Collection\CollectionInterface $venues
  * @var string[]|\Cake\Collection\CollectionInterface $suppliers
  * @var string[]|\Cake\Collection\CollectionInterface $talents
- * @var string[]|\Cake\Collection\CollectionInterface $venues
  */
 ?>
 <div class="row">
@@ -26,9 +26,9 @@
                 <legend><?= __('Edit Event Type') ?></legend>
                 <?php
                     echo $this->Form->control('event_name');
+                    echo $this->Form->control('venues._ids', ['options' => $venues]);
                     echo $this->Form->control('suppliers._ids', ['options' => $suppliers]);
                     echo $this->Form->control('talents._ids', ['options' => $talents]);
-                    echo $this->Form->control('venues._ids', ['options' => $venues]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

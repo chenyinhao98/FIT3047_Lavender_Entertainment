@@ -8,7 +8,6 @@ use Cake\ORM\Entity;
 /**
  * EventTypesTalent Entity
  *
- * @property int $id
  * @property int $talent_id
  * @property int $event_type_id
  *
