@@ -4,6 +4,9 @@
  * @var \App\Model\Entity\Venue $venue
  */
 ?>
+<?= $this->Form->create($venue, ['type' => 'get']);?>
+<p></p>
+
 <div class="row">
     <aside class="column">
         <div class="side-nav">

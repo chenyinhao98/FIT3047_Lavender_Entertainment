@@ -75,10 +75,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="rooms.html" class="nav-link">Apartment Room</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="rooms.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
@@ -119,13 +118,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                 <h2 class="footer-heading">Tag cloud</h2>
                 <div class="tagcloud">
-                    <a href="#" class="tag-cloud-link">apartment</a>
-                    <a href="#" class="tag-cloud-link">home</a>
-                    <a href="#" class="tag-cloud-link">vacation</a>
-                    <a href="#" class="tag-cloud-link">rental</a>
-                    <a href="#" class="tag-cloud-link">rent</a>
-                    <a href="#" class="tag-cloud-link">house</a>
+                    <a href="#" class="tag-cloud-link">Venue</a>
                     <a href="#" class="tag-cloud-link">place</a>
+                    <a href="#" class="tag-cloud-link">party</a>
+                    <a href="#" class="tag-cloud-link">rental</a>
+                    <a href="#" class="tag-cloud-link">wedding</a>
+                    <a href="#" class="tag-cloud-link">melbourne</a>
+                    <a href="#" class="tag-cloud-link">DJ</a>
                     <a href="#" class="tag-cloud-link">drinks</a>
                 </div>
             </div>
