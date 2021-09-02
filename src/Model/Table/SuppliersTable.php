@@ -126,6 +126,8 @@ class SuppliersTable extends Table
             ->notEmptyString('supplier_email');
 
         $validator
+            ->scalar('supplier_photo')
+            ->maxLength('supplier_photo', 256)
             ->allowEmptyString('supplier_photo');
 
         $validator

@@ -22,10 +22,12 @@
                     echo $this->Form->control('venue_address');
                     echo $this->Form->control('venue_min_capacity');
                     echo $this->Form->control('venue_payrate');
-                    echo $this->Form->control('venue_min_hour');
+                    echo $this->Form->control('venue_rating');
                     echo $this->Form->control('venue_contact_name');
                     echo $this->Form->control('venue_contact_number');
                     echo $this->Form->control('venue_email');
+                    echo $this->Form->control('venue_photo1');
+                    echo $this->Form->control('venue_photo2');
                     echo $this->Form->control('venue_about_us');
                     echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
                 ?>

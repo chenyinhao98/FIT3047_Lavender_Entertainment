@@ -22,6 +22,7 @@
                     <th><?= $this->Paginator->sort('supplier_contact_name') ?></th>
                     <th><?= $this->Paginator->sort('supplier_contact_number') ?></th>
                     <th><?= $this->Paginator->sort('supplier_email') ?></th>
+                    <th><?= $this->Paginator->sort('supplier_photo') ?></th>
                     <th><?= $this->Paginator->sort('supplier_about_us') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
@@ -40,6 +41,7 @@
                     <td><?= h($supplier->supplier_contact_name) ?></td>
                     <td><?= h($supplier->supplier_contact_number) ?></td>
                     <td><?= h($supplier->supplier_email) ?></td>
+                    <td><?= h($supplier->supplier_photo) ?></td>
                     <td><?= h($supplier->supplier_about_us) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $supplier->id]) ?>

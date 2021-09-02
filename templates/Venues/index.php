@@ -16,10 +16,12 @@
                     <th><?= $this->Paginator->sort('venue_address') ?></th>
                     <th><?= $this->Paginator->sort('venue_min_capacity') ?></th>
                     <th><?= $this->Paginator->sort('venue_payrate') ?></th>
-                    <th><?= $this->Paginator->sort('venue_min_hour') ?></th>
+                    <th><?= $this->Paginator->sort('venue_rating') ?></th>
                     <th><?= $this->Paginator->sort('venue_contact_name') ?></th>
                     <th><?= $this->Paginator->sort('venue_contact_number') ?></th>
                     <th><?= $this->Paginator->sort('venue_email') ?></th>
+                    <th><?= $this->Paginator->sort('venue_photo1') ?></th>
+                    <th><?= $this->Paginator->sort('venue_photo2') ?></th>
                     <th><?= $this->Paginator->sort('venue_about_us') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
@@ -32,10 +34,12 @@
                     <td><?= h($venue->venue_address) ?></td>
                     <td><?= $this->Number->format($venue->venue_min_capacity) ?></td>
                     <td><?= $this->Number->format($venue->venue_payrate) ?></td>
-                    <td><?= $this->Number->format($venue->venue_min_hour) ?></td>
+                    <td><?= $this->Number->format($venue->venue_rating) ?></td>
                     <td><?= h($venue->venue_contact_name) ?></td>
                     <td><?= h($venue->venue_contact_number) ?></td>
                     <td><?= h($venue->venue_email) ?></td>
+                    <td><?= h($venue->venue_photo1) ?></td>
+                    <td><?= h($venue->venue_photo2) ?></td>
                     <td><?= h($venue->venue_about_us) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?>

@@ -47,6 +47,10 @@
                     <td><?= h($supplier->supplier_email) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Supplier Photo') ?></th>
+                    <td><?= h($supplier->supplier_photo) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Supplier About Us') ?></th>
                     <td><?= h($supplier->supplier_about_us) ?></td>
                 </tr>
