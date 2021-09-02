@@ -24,12 +24,12 @@
             <?php foreach ($venues as $venue): ?>
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
-                        <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_email))?>');"></a>
+                        <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_photo1))?>');"></a>
                         <div class="half left-arrow d-flex align-items-center">
                             <div class="text p-4 p-xl-5 text-center">
                                 <p class="star mb-0">
                                 <?php  $count = 0;
-                                while($count < $venue->venue_min_hour){
+                                while($count < $venue->venue_rating){
                                     $count++;
                                 ?>
                                 <span class="fa fa-star"></span>
