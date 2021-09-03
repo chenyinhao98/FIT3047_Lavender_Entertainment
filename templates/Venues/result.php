@@ -6,6 +6,7 @@
  */
 ?>
 
+
 <section class="hero-wrap hero-wrap-2" style="background-image: url(<?=$this->Html->Url->image('/img/result_background.png')?>); data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -18,10 +19,31 @@
     </div>
 </section>
 
+
+<?php
+$search_venue = array();
+$search_name = $_POST["search_name"];
+$search_empty = false;
+if (empty($search_name)){
+    foreach ($venues as $venue):
+        array_push($search_venue,$venue);
+    endforeach;
+    $search_empty = true;
+}
+foreach ($venues as $venue):
+    if ($search_empty == false){
+        if (strpos($venue->venue_name,$search_name) !== false ){
+            array_push($search_venue,$venue);
+        }
+    }
+    endforeach;
+?>
+
+
 <section class="ftco-section bg-light ftco-no-pt ftco-no-pb">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
-            <?php foreach ($venues as $venue): ?>
+            <?php foreach ($search_venue as $venue): ?>
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
                         <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_photo1))?>');"></a>
