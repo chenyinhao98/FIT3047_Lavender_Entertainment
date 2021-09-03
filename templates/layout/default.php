@@ -17,28 +17,51 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
+    <title><?= $this->fetch('title') ?></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?= $this->Html->meta('icon') ?>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
+    <!-- ?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?> -->
+    <?= $this->Html->css(['https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css']) ?>
+    <?= $this->Html->css(['/css/animate.css']) ?>
+    <?= $this->Html->css(['/css/owl.carousel.min.css']) ?>
+    <?= $this->Html->css(['/css/owl.theme.default.min.css']) ?>
+    <?= $this->Html->css(['/css/magnific-popup.css']) ?>
+    <?= $this->Html->css(['/css/bootstrap-datepicker.css']) ?>
+    <?= $this->Html->css(['/css/jquery.timepicker.css']) ?>
+    <?= $this->Html->css(['/css/flaticon.css']) ?>
+    <?= $this->Html->css(['/css/style.css']) ?>
+
+    <?= $this->Html->script('/js/jquery.min.js'); ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+<div class="wrap">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col d-flex align-items-center">
+                <p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+00 1234 567</a> or <span class="mailus">email us:</span> <a href="#">emailsample@email.com</a></p>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <div class="social-media">
+                    <p class="mb-0 d-flex">
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -123,13 +146,47 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
     <div class="w-100 mt-5 border-top py-5">
->>>>>>> 3f60109f20aa2f81aa691fe12cafa687a2799b4e
         <div class="container">
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
+            <div class="row">
+                <div class="col-md-6 col-lg-8">
+
+                    <p class="copyright mb-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+                <div class="col-md-6 col-lg-4 text-md-right">
+                    <p class="mb-0 list-unstyled">
+                        <a class="mr-md-3" href="#">Terms</a>
+                        <a class="mr-md-3" href="#">Privacy</a>
+                        <a class="mr-md-3" href="#">Compliances</a>
+                    </p>
+                </div>
+            </div>
         </div>
-    </main>
-    <footer>
-    </footer>
+    </div>
+</footer>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+<?= $this->Html->script('/js/jquery-migrate-3.0.1.min.js'); ?>
+<?= $this->Html->script('/js/popper.min.js'); ?>
+<?= $this->Html->script('/js/bootstrap.min.js'); ?>
+<?= $this->Html->script('/js/jquery.easing.1.3.js'); ?>
+<?= $this->Html->script('/js/jquery.waypoints.min.js'); ?>
+<?= $this->Html->script('/js/jquery.stellar.min.js'); ?>
+<?= $this->Html->script('/js/jquery.animateNumber.min.js'); ?>
+<?= $this->Html->script('/js/bootstrap-datepicker.js'); ?>
+<?= $this->Html->script('/js/jquery.timepicker.min.js'); ?>
+<?= $this->Html->script('/js/owl.carousel.min.js'); ?>
+<?= $this->Html->script('/js/jquery.magnific-popup.min.js'); ?>
+<?= $this->Html->script('/js/scrollax.min.js'); ?>
+<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false'); ?>
+<?= $this->Html->script('/js/google-map.js'); ?>
+<?= $this->Html->script('/js/main.js'); ?>
+<?= $this->fetch('script') ?>
 </body>
 </html>

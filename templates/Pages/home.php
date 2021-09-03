@@ -51,26 +51,32 @@ endif;
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+    <title>Lavender Entertainment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'home']) ?>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+
+    <?= $this->Html->css(['/css/animate.css']) ?>
+
+    <?= $this->Html->css(['/css/owl.carousel.min.css']) ?>
+    <?= $this->Html->css(['/css/owl.theme.default.min.css']) ?>
+    <?= $this->Html->css(['/css/magnific-popup.css']) ?>
+
+    <?= $this->Html->css(['/css/bootstrap-datepicker.css']) ?>
+    <?= $this->Html->css(['/css/jquery.timepicker.css']) ?>
+    <?= $this->Html->css(['/css/flaticon.css']) ?>
+    <?= $this->Html->css(['/css/style.css']) ?>
+
+
 </head>
 <body>
-<<<<<<< HEAD
 <div class="wrap">
     <div class="container">
         <div class="row justify-content-between">
@@ -270,13 +276,62 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="form-group d-flex">
                         <input type="text" class="form-control rounded-left" placeholder="Enter email address">
                         <button type="submit" class="form-control submit rounded-right"><span class="sr-only">Submit</span><i class="fa fa-paper-plane"></i></button>
-=======
-   
->>>>>>> 96c7ce493db2e38c75ec780a99e7de0395e8faa8
                     </div>
+                </form>
+                <h2 class="footer-heading mt-5">Follow us</h2>
+                <ul class="ftco-footer-social p-0">
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 mt-5 border-top py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-8">
+
+                    <p class="copyright mb-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+                <div class="col-md-6 col-lg-4 text-md-right">
+                    <p class="mb-0 list-unstyled">
+                        <a class="mr-md-3" href="#">Terms</a>
+                        <a class="mr-md-3" href="#">Privacy</a>
+                        <a class="mr-md-3" href="#">Compliances</a>
+                    </p>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</footer>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+<?= $this->Html->script('/js/jquery.min.js');?>
+<?= $this->Html->script('/js/jquery-migrate-3.0.1.min.js');?>
+<?= $this->Html->script('/js/popper.min.js');?>
+<?= $this->Html->script('/js/bootstrap.min.js');?>
+<?= $this->Html->script('/js/jquery.easing.1.3.js');?>
+<?= $this->Html->script('/js/jquery.waypoints.min.js');?>
+<?= $this->Html->script('/js/jquery.stellar.min.js');?>
+<?= $this->Html->script('/js/jquery.animateNumber.min.js');?>
+<?= $this->Html->script('/js/bootstrap-datepicker.js');?>
+<?= $this->Html->script('/js/jquery.timepicker.min.js');?>
+<?= $this->Html->script('/js/owl.carousel.min.js');?>
+<?= $this->Html->script('/js/jquery.magnific-popup.min.js');?>
+<?= $this->Html->script('/js/scrollax.min.js');?>
+<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false');?>
+<?= $this->Html->script('/js/google-map.js');?>
+<?= $this->Html->script('/js/main.js');?>
+
+
+
 </body>
 </html>
