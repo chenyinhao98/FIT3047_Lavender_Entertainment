@@ -39,6 +39,14 @@
                     <td><?= h($venue->venue_email) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Venue Photo1') ?></th>
+                    <td><?= h($venue->venue_photo1) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Venue Photo2') ?></th>
+                    <td><?= h($venue->venue_photo2) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Venue About Us') ?></th>
                     <td><?= h($venue->venue_about_us) ?></td>
                 </tr>
@@ -55,8 +63,8 @@
                     <td><?= $this->Number->format($venue->venue_payrate) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Venue Min Hour') ?></th>
-                    <td><?= $this->Number->format($venue->venue_min_hour) ?></td>
+                    <th><?= __('Venue Rating') ?></th>
+                    <td><?= $this->Number->format($venue->venue_rating) ?></td>
                 </tr>
             </table>
             <div class="related">

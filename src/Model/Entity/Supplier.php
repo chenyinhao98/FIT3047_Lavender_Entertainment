@@ -19,7 +19,7 @@ use Cake\ORM\Entity;
  * @property string $supplier_contact_name
  * @property string $supplier_contact_number
  * @property string $supplier_email
- * @property string|resource|null $supplier_photo
+ * @property string|null $supplier_photo
  * @property string|null $supplier_about_us
  *
  * @property \App\Model\Entity\EventType[] $event_types

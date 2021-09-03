@@ -23,6 +23,13 @@ class VenuesController extends AppController
         $this->set(compact('venues'));
     }
 
+    public function result()
+    {
+        $venues = $this->paginate($this->Venues);
+
+        $this->set(compact('venues'));
+    }
+
     /**
      * View method
      *

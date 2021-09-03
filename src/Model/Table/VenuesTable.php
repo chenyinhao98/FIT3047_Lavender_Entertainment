@@ -89,9 +89,9 @@ class VenuesTable extends Table
             ->notEmptyString('venue_payrate');
 
         $validator
-            ->numeric('venue_min_hour')
-            ->requirePresence('venue_min_hour', 'create')
-            ->notEmptyString('venue_min_hour');
+            ->integer('venue_rating')
+            ->requirePresence('venue_rating', 'create')
+            ->notEmptyString('venue_rating');
 
         $validator
             ->scalar('venue_contact_name')
@@ -112,9 +112,13 @@ class VenuesTable extends Table
             ->notEmptyString('venue_email');
 
         $validator
+            ->scalar('venue_photo1')
+            ->maxLength('venue_photo1', 256)
             ->allowEmptyString('venue_photo1');
 
         $validator
+            ->scalar('venue_photo2')
+            ->maxLength('venue_photo2', 256)
             ->allowEmptyString('venue_photo2');
 
         $validator

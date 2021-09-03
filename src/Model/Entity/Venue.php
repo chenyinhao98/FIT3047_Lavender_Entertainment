@@ -13,12 +13,12 @@ use Cake\ORM\Entity;
  * @property string $venue_address
  * @property int $venue_min_capacity
  * @property float $venue_payrate
- * @property float $venue_min_hour
+ * @property int $venue_rating
  * @property string $venue_contact_name
  * @property string $venue_contact_number
  * @property string $venue_email
- * @property string|resource|null $venue_photo1
- * @property string|resource|null $venue_photo2
+ * @property string|null $venue_photo1
+ * @property string|null $venue_photo2
  * @property string|null $venue_about_us
  *
  * @property \App\Model\Entity\Event[] $events
@@ -40,7 +40,7 @@ class Venue extends Entity
         'venue_address' => true,
         'venue_min_capacity' => true,
         'venue_payrate' => true,
-        'venue_min_hour' => true,
+        'venue_rating' => true,
         'venue_contact_name' => true,
         'venue_contact_number' => true,
         'venue_email' => true,
