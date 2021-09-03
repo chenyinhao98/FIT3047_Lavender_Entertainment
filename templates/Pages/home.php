@@ -51,32 +51,26 @@ endif;
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Lavender Entertainment</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?= $this->Html->charset() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <?= $cakeDescription ?>:
+        <?= $this->fetch('title') ?>
+    </title>
+    <?= $this->Html->meta('icon') ?>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'home']) ?>
 
-
-    <?= $this->Html->css(['/css/animate.css']) ?>
-
-    <?= $this->Html->css(['/css/owl.carousel.min.css']) ?>
-    <?= $this->Html->css(['/css/owl.theme.default.min.css']) ?>
-    <?= $this->Html->css(['/css/magnific-popup.css']) ?>
-
-    <?= $this->Html->css(['/css/bootstrap-datepicker.css']) ?>
-    <?= $this->Html->css(['/css/jquery.timepicker.css']) ?>
-    <?= $this->Html->css(['/css/flaticon.css']) ?>
-    <?= $this->Html->css(['/css/style.css']) ?>
-
-
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="wrap">
     <div class="container">
         <div class="row justify-content-between">
@@ -275,63 +269,168 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="form-group d-flex">
                         <input type="text" class="form-control rounded-left" placeholder="Enter email address">
                         <button type="submit" class="form-control submit rounded-right"><span class="sr-only">Submit</span><i class="fa fa-paper-plane"></i></button>
-                    </div>
-                </form>
-                <h2 class="footer-heading mt-5">Follow us</h2>
-                <ul class="ftco-footer-social p-0">
-                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
-                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
-                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
-                </ul>
-            </div>
+=======
+    <header>
+        <div class="container text-center">
+            <a href="https://cakephp.org/" target="_blank" rel="noopener">
+                <img alt="CakePHP" src="https://cakephp.org/v2/img/logos/CakePHP_Logo.svg" width="350" />
+            </a>
+            <h1>
+                Welcome to CakePHP <?= Configure::version() ?> Strawberry (🍓)
+            </h1>
         </div>
-    </div>
-    <div class="w-100 mt-5 border-top py-5">
+    </header>
+    <main class="main">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-8">
-
-                    <p class="copyright mb-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="content">
+                <div class="row">
+                    <div class="column">
+                        <div class="message default text-center">
+                            <small>Please be aware that this page will not be shown if you turn off debug mode unless you replace templates/Pages/home.php with your own version.</small>
+                        </div>
+                        <!-- <div id="url-rewriting-warning" class="alert url-rewriting">
+                            <ul>
+                                <li class="bullet problem">
+                                    URL rewriting is not properly configured on your server.<br />
+                                    1) <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/en/installation.html#url-rewriting">Help me configure it</a><br />
+                                    2) <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <?php Debugger::checkSecurityKeys(); ?>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4 text-md-right">
-                    <p class="mb-0 list-unstyled">
-                        <a class="mr-md-3" href="#">Terms</a>
-                        <a class="mr-md-3" href="#">Privacy</a>
-                        <a class="mr-md-3" href="#">Compliances</a>
-                    </p>
+                <div class="row">
+                    <div class="column">
+                        <h4>Environment</h4>
+                        <ul>
+                        <?php if (version_compare(PHP_VERSION, '7.2.0', '>=')) : ?>
+                            <li class="bullet success">Your version of PHP is 7.2.0 or higher (detected <?= PHP_VERSION ?>).</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your version of PHP is too low. You need PHP 7.2.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
+                        <?php endif; ?>
+
+                        <?php if (extension_loaded('mbstring')) : ?>
+                            <li class="bullet success">Your version of PHP has the mbstring extension loaded.</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your version of PHP does NOT have the mbstring extension loaded.</li>
+                        <?php endif; ?>
+
+                        <?php if (extension_loaded('openssl')) : ?>
+                            <li class="bullet success">Your version of PHP has the openssl extension loaded.</li>
+                        <?php elseif (extension_loaded('mcrypt')) : ?>
+                            <li class="bullet success">Your version of PHP has the mcrypt extension loaded.</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</li>
+                        <?php endif; ?>
+
+                        <?php if (extension_loaded('intl')) : ?>
+                            <li class="bullet success">Your version of PHP has the intl extension loaded.</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your version of PHP does NOT have the intl extension loaded.</li>
+                        <?php endif; ?>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>Filesystem</h4>
+                        <ul>
+                        <?php if (is_writable(TMP)) : ?>
+                            <li class="bullet success">Your tmp directory is writable.</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your tmp directory is NOT writable.</li>
+                        <?php endif; ?>
+
+                        <?php if (is_writable(LOGS)) : ?>
+                            <li class="bullet success">Your logs directory is writable.</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your logs directory is NOT writable.</li>
+                        <?php endif; ?>
+
+                        <?php $settings = Cache::getConfig('_cake_core_'); ?>
+                        <?php if (!empty($settings)) : ?>
+                            <li class="bullet success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
+                        <?php else : ?>
+                            <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
+                        <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="column">
+                        <h4>Database</h4>
+                        <?php
+                        $result = $checkConnection('default');
+                        ?>
+                        <ul>
+                        <?php if ($result['connected']) : ?>
+                            <li class="bullet success">CakePHP is able to connect to the database.</li>
+                        <?php else : ?>
+                            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= $result['error'] ?></li>
+                        <?php endif; ?>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>DebugKit</h4>
+                        <ul>
+                        <?php if (Plugin::isLoaded('DebugKit')) : ?>
+                            <li class="bullet success">DebugKit is loaded.</li>
+                            <?php
+                            $result = $checkConnection('debug_kit');
+                            ?>
+                            <?php if ($result['connected']) : ?>
+                                <li class="bullet success">DebugKit can connect to the database.</li>
+                            <?php else : ?>
+                                <li class="bullet problem">DebugKit is <strong>not</strong> able to connect to the database.<br /><?= $result['error'] ?></li>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <li class="bullet problem">DebugKit is <strong>not</strong> loaded.</li>
+                        <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="column links">
+                        <h3>Getting Started</h3>
+                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/en/">CakePHP Documentation</a>
+                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="column links">
+                        <h3>Help and Bug Reports</h3>
+                        <a target="_blank" rel="noopener" href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
+                        <a target="_blank" rel="noopener" href="http://cakesf.herokuapp.com/">Slack</a>
+                        <a target="_blank" rel="noopener" href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
+                        <a target="_blank" rel="noopener" href="http://discourse.cakephp.org/">CakePHP Forum</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="column links">
+                        <h3>Docs and Downloads</h3>
+                        <a target="_blank" rel="noopener" href="https://api.cakephp.org/">CakePHP API</a>
+                        <a target="_blank" rel="noopener" href="https://bakery.cakephp.org">The Bakery</a>
+                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/en/">CakePHP Documentation</a>
+                        <a target="_blank" rel="noopener" href="https://plugins.cakephp.org">CakePHP plugins repo</a>
+                        <a target="_blank" rel="noopener" href="https://github.com/cakephp/">CakePHP Code</a>
+                        <a target="_blank" rel="noopener" href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
+                        <a target="_blank" rel="noopener" href="https://www.cakephp.org">CakePHP</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="column links">
+                        <h3>Training and Certification</h3>
+                        <a target="_blank" rel="noopener" href="https://cakefoundation.org/">Cake Software Foundation</a>
+                        <a target="_blank" rel="noopener" href="https://training.cakephp.org/">CakePHP Training</a>
+>>>>>>> 96c7ce493db2e38c75ec780a99e7de0395e8faa8
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
-
-
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-<?= $this->Html->script('/js/jquery.min.js');?>
-<?= $this->Html->script('/js/jquery-migrate-3.0.1.min.js');?>
-<?= $this->Html->script('/js/popper.min.js');?>
-<?= $this->Html->script('/js/bootstrap.min.js');?>
-<?= $this->Html->script('/js/jquery.easing.1.3.js');?>
-<?= $this->Html->script('/js/jquery.waypoints.min.js');?>
-<?= $this->Html->script('/js/jquery.stellar.min.js');?>
-<?= $this->Html->script('/js/jquery.animateNumber.min.js');?>
-<?= $this->Html->script('/js/bootstrap-datepicker.js');?>
-<?= $this->Html->script('/js/jquery.timepicker.min.js');?>
-<?= $this->Html->script('/js/owl.carousel.min.js');?>
-<?= $this->Html->script('/js/jquery.magnific-popup.min.js');?>
-<?= $this->Html->script('/js/scrollax.min.js');?>
-<?= $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false');?>
-<?= $this->Html->script('/js/google-map.js');?>
-<?= $this->Html->script('/js/main.js');?>
-
-
-
->>>>>>> 7a6c549e9c749a038d938d759751da6e08d079c1
+    </main>
 </body>
 </html>
