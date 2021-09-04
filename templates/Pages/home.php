@@ -19,10 +19,38 @@ use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Http\Exception\NotFoundException;
-$cakeDescription = 'Cake PHP'
+
+$this->disableAutoLayout();
+
+$checkConnection = function (string $name) {
+    $error = null;
+    $connected = false;
+    try {
+        $connection = ConnectionManager::get($name);
+        $connected = $connection->connect();
+    } catch (Exception $connectionError) {
+        $error = $connectionError->getMessage();
+        if (method_exists($connectionError, 'getAttributes')) {
+            $attributes = $connectionError->getAttributes();
+            if (isset($attributes['message'])) {
+                $error .= '<br />' . $attributes['message'];
+            }
+        }
+    }
+
+    return compact('connected', 'error');
+};
+
+if (!Configure::read('debug')) :
+    throw new NotFoundException(
+        'Please replace templates/Pages/home.php with your own version or re-enable debug mode.'
+    );
+endif;
+
+$cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
-<!DOCKTYPE html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Lavender Entertainment</title>
     <meta charset="utf-8">
@@ -683,6 +711,5 @@ $cakeDescription = 'Cake PHP'
 
 
 
->>>>>>> 7a6c549e9c749a038d938d759751da6e08d079c1
 </body>
 </html>

@@ -1,13 +1,8 @@
 <?php
+
 declare(strict_types=1);
-
-    namespace App\Controller;
-
-    use App\Controller\AppController;
-
-    class CustomerController extends AppController
-
-
+namespace App\Controller;
+class CustomersController extends AppController
 {
     /**
      * Index method
@@ -105,3 +100,4 @@ declare(strict_types=1);
         return $this->redirect(['action' => 'index']);
     }
 }
+?>
