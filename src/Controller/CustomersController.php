@@ -1,7 +1,14 @@
 <?php
-
 declare(strict_types=1);
+
 namespace App\Controller;
+
+/**
+ * Customers Controller
+ *
+ * @property \App\Model\Table\CustomersTable $Customers
+ * @method \App\Model\Entity\Customer[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ */
 class CustomersController extends AppController
 {
     /**
@@ -74,10 +81,6 @@ class CustomersController extends AppController
             $this->Flash->error(__('The customer could not be saved. Please, try again.'));
         }
         $this->set(compact('customer'));
-
-        {
-
-        }
     }
 
     /**
@@ -100,4 +103,3 @@ class CustomersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 }
-?>

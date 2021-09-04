@@ -8465,7 +8465,7 @@ h1, h2, h3, h4, h5,
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .room-wrap .img {
-    width: 100%;
+    width: 600px;
     height: 400px;
     display: block; }
   .room-wrap .half {

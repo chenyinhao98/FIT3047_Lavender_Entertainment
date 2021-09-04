@@ -34,6 +34,7 @@
                     echo $this->Form->control('supplier_contact_name');
                     echo $this->Form->control('supplier_contact_number');
                     echo $this->Form->control('supplier_email');
+                    echo $this->Form->control('supplier_photo');
                     echo $this->Form->control('supplier_about_us');
                     echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
                     echo $this->Form->control('events._ids', ['options' => $events]);
