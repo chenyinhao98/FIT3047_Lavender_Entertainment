@@ -23,6 +23,8 @@ use Cake\Http\Exception\NotFoundException;
 
 $this->disableAutoLayout();
 
+
+
 $checkConnection = function (string $name) {
     $error = null;
     $connected = false;
@@ -115,8 +117,61 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </nav>
 <!-- END nav -->
 
+<div class="hero-wrap js-fullheight" style="background-image: linear-gradient(rgba(40,12,70,0.2),rgba(40,12,70,0.2)),url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
 
+<section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-lg-12">
 
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row no-gutters">
+                        <div class="col-lg-8 col-md-7 d-flex align-items-stretch">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Sign Up</h3>
+                                <div id="form-message-warning" class="mb-4"></div>
+                                <div id="form-message-success" class="mb-4">
+                                    Create an Account with us Today!
+                                </div>
+                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="name">Full Name</label>
+                                                <input type="text" class="form-control", name="name" id="name" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="email">Email Address</label>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <label class="label" for="subject">Password</label>
+                                                <input type="password" class="form-control" name="Enter Password" placeholder="Enter New Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <label class="label" for="subject">Password</label>
+                                                <input type="password" class="form-control" name="Re-Type Password" placeholder="Re-Type New Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <input type="submit" value="Create Account" class="btn btn-primary">
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+</section>
 
 <footer class="footer">
     <div class="container">
