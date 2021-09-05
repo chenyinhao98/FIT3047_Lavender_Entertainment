@@ -52,6 +52,7 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +117,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </div>
 </nav>
 <!-- END nav -->
-
+<!--
 <div class="hero-wrap js-fullheight" style="background-image: linear-gradient(rgba(40,12,70,0.2),rgba(40,12,70,0.2)),url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
 <br>
@@ -136,13 +137,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                             Sign Into Your Dedicated Account!
                                         </div>
                                         <form method="POST" id="signInPanel" name="signInPanel" class="Panel">
+
+
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="label" for="name">Full Name</label>
-                                                        <input type="text" class="form-control", name="name" id="name" placeholder="Name">
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="label" for="email">Email Address</label>
@@ -157,21 +154,27 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                 </div>
                                                 <div class="col-md-10">
                                                     <div class="form-group">
-                                                        <label class="label" for="subject">Password</label>
-                                                        <input type="password" class="form-control" name="Re-Type Password" placeholder="Re-Type New Password">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="form-group">
-                                                        <input type="submit" value="Create Account" class="btn btn-primary">
+                                                        <input type="submit" value="Sign In" class="btn btn-primary">
                                                         <div class="submitting"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div>*/
     </section>
+-->
+
+<div class ="index large-4 medium 4 large-offset-4 medium-offset-4 columns">
+    <div class="panel">
+        <h2 class="text-center">Sign In</h2>
+        <?= $this->Form->create(); ?>
+            <?= $this->Form->input('customer_email');?>
+            <?= $this->Form->input('customer_firstname', array('type' => 'password'));?>
+            <?= $this->Form->submit('Login', array('class' => 'button'));?>
+        <?= $this->Form->end();?>
+    </div>
+</div>
 
     <footer class="footer">
         <div class="container">
@@ -268,3 +271,4 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 </body>
 </html>
+-->
