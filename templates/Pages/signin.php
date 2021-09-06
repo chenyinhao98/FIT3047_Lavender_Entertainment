@@ -117,7 +117,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </div>
 </nav>
 <!-- END nav -->
-<!--
+
 <div class="hero-wrap js-fullheight" style="background-image: linear-gradient(rgba(40,12,70,0.2),rgba(40,12,70,0.2)),url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
 <br>
@@ -136,6 +136,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                         <div id="form-message-success" class="mb-4">
                                             Sign Into Your Dedicated Account!
                                         </div>
+                                        <?= $this->Form->create();?>
                                         <form method="POST" id="signInPanel" name="signInPanel" class="Panel">
 
 
@@ -153,28 +154,21 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                     </div>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <div class="form-group">
-                                                        <input type="submit" value="Sign In" class="btn btn-primary">
-                                                        <div class="submitting"></div>
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <?= $this->Html->link(__('Sign In'), ['controller'=>'Venues','action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                                                            <div class="submitting"></div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </form>
+                                        <?= $this->Form->end();?>
                                     </div>
-                                </div>*/
+                                </div>
     </section>
--->
 
-<div class ="index large-4 medium 4 large-offset-4 medium-offset-4 columns">
-    <div class="panel">
-        <h2 class="text-center">Sign In</h2>
-        <?= $this->Form->create(); ?>
-            <?= $this->Form->input('customer_email');?>
-            <?= $this->Form->input('customer_firstname', array('type' => 'password'));?>
-            <?= $this->Form->submit('Login', array('class' => 'button'));?>
-        <?= $this->Form->end();?>
-    </div>
-</div>
+
+
+
 
     <footer class="footer">
         <div class="container">
