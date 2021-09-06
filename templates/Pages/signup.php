@@ -109,7 +109,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="rooms.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
             </ul>
         </div>
@@ -135,12 +135,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <div id="form-message-success" class="mb-4">
                                     Create an Account with us Today!
                                 </div>
+                                <?= $this->Form->create();?>
                                 <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="label" for="name">Full Name</label>
-                                                <input type="text" class="form-control", name="name" id="name" placeholder="Name">
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -163,14 +164,17 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                         </div>
                                         <div class="col-md-10">
                                             <div class="form-group">
-                                                <input type="submit" value="Create Account" class="btn btn-primary">
-                                                <div class="submitting"></div>
+                                                <input  type="submit" value="Create Account" class="btn btn-primary">
+                                                <div  class="submitting"  </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                            <?= $this->Html->link(__('Already Have an Account? Sign In Here!'), ['controller'=>'Pages','action' => 'display', 'signin'], ['class' => 'collapse-item']) ?>
+                            </form>
+                                <?= $this->Form->end();?>
                             </div>
                         </div>
+
 </section>
 
 <footer class="footer">

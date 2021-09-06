@@ -110,7 +110,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="rooms.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
             </ul>
         </div>
@@ -141,13 +141,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label class="label" for="email">Email Address</label>
                                                         <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label class="label" for="subject">Password</label>
                                                         <input type="password" class="form-control" name="Enter Password" placeholder="Enter New Password">
@@ -160,6 +160,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                         </div>
                                                 </div>
                                             </div>
+                                            <?= $this->Html->link(__('No Account, Create one Here!'), ['controller'=>'Pages','action' => 'display', 'signup'], ['class' => 'collapse-item']) ?>
                                         </form>
                                         <?= $this->Form->end();?>
                                     </div>

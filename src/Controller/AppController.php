@@ -37,30 +37,39 @@ class AppController extends Controller
      *
      * @return void
      */
+
+
+
     public function initialize(): void
     {
         parent::initialize();
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Auth', [
-            'authenticate' => [
-                'Form' => [
-                    'fields' =>[
-                        'username' => "admin@email.com",
-                        'password' => "1234"
-                    ]
-                ]
-            ],
-            'loginAction' => [
-                'controller' => 'Pages',
-                'action' => 'signIn'
-            ]
-        ]);
+
+
+
+
+
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
     }
+/*$this->loadComponent('Auth', [
+'authenticate' => [
+'Form' => [
+'fields' =>[
+'username' => 'customer_email',
+'password' => 'customer_firstname'
+]
+]
+],
+'loginAction' => [
+'controller' => 'Customers',
+'action' => 'login'
+],
+]);*/
+
 }

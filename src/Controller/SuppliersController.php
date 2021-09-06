@@ -16,7 +16,7 @@ class SuppliersController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function index()
+    public function index() //dkffs
     {
         $suppliers = $this->paginate($this->Suppliers);
 

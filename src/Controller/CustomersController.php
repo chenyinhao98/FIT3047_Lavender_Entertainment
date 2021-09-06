@@ -102,4 +102,16 @@ class CustomersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    /*
+    public function login()
+    {
+        if($this->request->is('post')){
+            $customer = $this->Auth->identify();
+            if($customer){
+                $this->Auth->setCustomer($customer);
+                return $this->redirect(['action' => 'posts']);
+            }
+            $this->Flash->error('Incorrect Login');
+        }
+        }*/
 }
