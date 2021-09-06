@@ -26,7 +26,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
-
+    <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- ?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?> -->
     <?= $this->Html->css(['https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css']) ?>
@@ -173,7 +173,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 <?= $this->Html->script('/js/jquery-migrate-3.0.1.min.js'); ?>
-<?= $this->Html->script('/js/popper.min.js'); ?>
 <?= $this->Html->script('/js/bootstrap.min.js'); ?>
 <?= $this->Html->script('/js/jquery.easing.1.3.js'); ?>
 <?= $this->Html->script('/js/jquery.waypoints.min.js'); ?>
