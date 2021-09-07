@@ -63,7 +63,7 @@ foreach ($venues as $venue):
                                     <li><span>Capacity:</span> <?= $this->Number->format($venue->venue_min_capacity) ?> Persons</li>
                                     <li><span>Address:</span> <?= h($venue->venue_address) ?></li>
                                 </ul>
-                                <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Venue Details <span class="icon-long-arrow-right"></span></a></p>
+                                <p class="pt-1"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'individual']) ?>" class="btn-custom px-3 py-2">View Venue Details <span class="icon-long-arrow-right"></span></a></p>
                             </div>
                         </div>
                     </div>
