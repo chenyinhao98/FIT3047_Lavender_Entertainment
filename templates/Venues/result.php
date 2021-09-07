@@ -32,7 +32,7 @@ if (empty($search_name)){
 }
 foreach ($venues as $venue):
     if ($search_empty == false){
-        if (strpos($venue->venue_name,$search_name) !== false ){
+        if (strpos($venue->venue_address,$search_name) !== false ){
             array_push($search_venue,$venue);
         }
     }
