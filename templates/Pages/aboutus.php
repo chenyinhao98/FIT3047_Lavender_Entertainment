@@ -286,7 +286,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <div class="col-md-6 wrap-about">
                 <div class="img img-2 mb-4" style="background-image: url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);">
                 </div>
-                <h2>The most recommended vacation rental</h2>
+                <h2>The most recommended venue booking</h2>
                 <p>Lavender Entertainment is Australia’s leading venue booking platform. The company has revolutionised how event spaces are sourced and booked.
                     For event bookers - the easy-to-use website and bespoke concierge service make it easier and faster to find and book the perfect venue,
                         saving a huge amount of time and pain in the process. Lavender Entertainment also specialises in promoting unique or hard-to-find event spaces,
