@@ -24,6 +24,7 @@
 $search_venue = array();
 $search_name = $_POST["search_name"];
 $search_empty = false;
+
 if (empty($search_name)){
     foreach ($venues as $venue):
         array_push($search_venue,$venue);
@@ -63,7 +64,8 @@ foreach ($venues as $venue):
                                     <li><span>Capacity:</span> <?= $this->Number->format($venue->venue_min_capacity) ?> Persons</li>
                                     <li><span>Address:</span> <?= h($venue->venue_address) ?></li>
                                 </ul>
-                                <p class="pt-1"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'individual']) ?>" class="btn-custom px-3 py-2">View Venue Details <span class="icon-long-arrow-right"></span></a></p>
+                                
+                                <p class="pt-1"><?= $this->Html->link(__('View Venue Details '), ['action' => 'individual', $venue->id],['class' => 'btn-custom px-3 py-2']) ?> <span class="icon-long-arrow-right"></span></p>
                             </div>
                         </div>
                     </div>
