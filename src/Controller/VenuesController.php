@@ -10,7 +10,8 @@ namespace App\Controller;
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
-{
+{   
+    
     /**
      * Index method
      *
@@ -28,6 +29,24 @@ class VenuesController extends AppController
         $venues = $this->paginate($this->Venues);
 
         $this->set(compact('venues'));
+    }
+    /**
+     * Individual method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function individual($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $this->set(compact('venue'));
+
     }
 
     /**
