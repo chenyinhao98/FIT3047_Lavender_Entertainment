@@ -125,7 +125,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <div class="col-md-12 ftco-animate">
                 <h2 class="subheading">Welcome to Lavender Entertainment</h2>
                 <h1 class="mb-4">Discover a Venue for Your Event</h1>
-                <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
+                <p><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="btn btn-primary">Learn more</a> <a href="<a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="btn btn-white">Contact us</a></p>
             </div>
         </div>
     </div>
