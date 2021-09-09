@@ -48,8 +48,11 @@ if (!Configure::read('debug')) :
     );
 endif;
 
+
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,9 +109,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <ul class="navbar-nav ml-auto" >
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
@@ -132,8 +135,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-lg-12">
-                <?= error_reporting(0);?>
-                <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
+            <?= error_reporting(0);?>
+                  <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
                     <h3 class="mb-3">Book your Venue</h3>
                     <div class="row">
                         <div class="col-md-6">

@@ -147,237 +147,74 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
+                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);"
-         data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i
-                                class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
-                            class="ion-ios-arrow-forward"></i></span></p>
-                <h1 class="mb-0 bread">About Us</h1>
+<div class="container mt-5 p-3 rounded cart">
+    <div class="row no-gutters">
+        <div class="col-md-8">
+            <div class="product-details mr-2">
+                <div class="d-flex flex-row align-items-center"></div><button class="btn btn-primary" type="button"><span><i class="fa fa-long-arrow-left ml-1"></i> Continue Shopping</span></button>
+                <hr>
+                <h6 class="mb-0">Shopping cart</h6>
+                <div class="d-flex justify-content-between"><span>You have 4 items in your cart</span>
+                    <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
+                        <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                    <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/QRwjbm5.jpg" width="40">
+                        <div class="ml-2"><span class="font-weight-bold d-block">Iphone 11 pro</span><span class="spec">256GB, Navy Blue</span></div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                    <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/GQnIUfs.jpg" width="40">
+                        <div class="ml-2"><span class="font-weight-bold d-block">One pro 7T</span><span class="spec">256GB, Navy Blue</span></div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                    <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/o2fKskJ.jpg" width="40">
+                        <div class="ml-2"><span class="font-weight-bold d-block">Google pixel 4 XL</span><span class="spec">256GB, Axe black</span></div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$800</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                    <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/Tja5H1c.jpg" width="40">
+                        <div class="ml-2"><span class="font-weight-bold d-block">Samsung galaxy Note 10&nbsp;</span><span class="spec">256GB, Navy Blue</span></div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$999</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="payment-info" style="background:white">
+                <div class="d-flex justify-content-between align-items-center"><span>Card details</span><img class="rounded" src="https://i.imgur.com/WU501C8.jpg" width="30"></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
+                <div><label class="credit-card-label">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
+                <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
+                <div class="row">
+                    <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
+                    <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
+                </div>
+                <hr class="line">
+                <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$3000.00</span></div>
+                <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20.00</span></div>
+                <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button>
             </div>
         </div>
     </div>
-</section>
-
-<section class="ftco-section bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-                <div class="d-block services-wrap text-center">
-                    <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/image_1.jpg')?>);"></div>
-                    <div class="media-body py-4 px-3">
-                        <h3 class="heading">Browse Venues</h3>
-                        <p>Check out the best suitable Venues</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-                <div class="d-block services-wrap text-center">
-                    <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/image_5.jpg')?>);"></div>
-                    <div class="media-body py-4 px-3">
-                        <h3 class="heading">Be our members</h3>
-                        <p>Become our member, enjoy the privilege and preferential treatment,
-                            to provide you with personalized venues and plans</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-                <div class="d-block services-wrap text-center">
-                    <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/southyarrabar1.jpg')?>);"></div>
-                    <div class="media-body py-4 px-3">
-                        <h3 class="heading">Book a Venue</h3>
-                        <p>Select and Book the perfect venue in no time at all.Time is money,save both</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="ftco-section testimony-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center pb-5 mb-3">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2>Happy Clients &amp; Feedbacks</h2>
-            </div>
-        </div>
-        <div class="row ftco-animate">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel">
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/person_2.jpg')?>);">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>A new appointment experience, thanks Lavender! </p>
-                                <p class="name">Racky Henderson</p>
-                                <span class="position">Father</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(<?=$this->Html->Url->image('/img/person-3.jpg')?>);">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>Fast search engine, can quickly filter the most preferred. </p>
-                                <p class="name">Mark Huff</p>
-                                <span class="position">BusinessWoman</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(<?=$this->Html->Url->image('/img/person-4.jpg')?>);">
-                            </div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>Become their member and enjoy the greatest discount.
-                                    Compared with other websites, the price-performance ratio is very high! </p>
-                                <p class="name">Rodel Golez</p>
-                                <span class="position">Businesswoman</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/person_1.jpg')?>);"></div>
-                            <div class="text pl-4">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="fa fa-quote-left"></i>
-                    </span>
-                                <p>I will recommend a friend to use it next time, the whole process is very convenient </p>
-                                <p class="name">Ken Bosh</p>
-                                <span class="position">Businessman</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section bg-light">
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-md-6 wrap-about">
-                <div class="img img-2 mb-4" style="background-image: url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);">
-                </div>
-                <h2>The most recommended venue booking</h2>
-                <p>Lavender Entertainment is Australia’s leading venue booking platform. The company has revolutionised how event spaces are sourced and booked.
-                    For event bookers - the easy-to-use website and bespoke concierge service make it easier and faster to find and book the perfect venue,
-                        saving a huge amount of time and pain in the process. Lavender Entertainment also specialises in promoting unique or hard-to-find event spaces,
-                        offering bookers a wider range of exciting options. The site’s listings also contain essential information that is specifically required for planning events.
-                    For venues - Lavender is the most effective marketing and lead-generation platform in AUS, generating a high volume of corporate and private event bookings. </p>
-            </div>
-            <div class="col-md-6 wrap-about ftco-animate">
-                <div class="heading-section">
-                    <div class="pl-md-5">
-                        <h2 class="mb-2">What we offer</h2>
-                    </div>
-                </div>
-                <div class="pl-md-5">
-                    <p>Promoting unique or hard-to-find event spaces, offering bookers a wider range of exciting options.
-                        The site’s listings also contain essential information that is specifically required for planning events.</p>
-                    <div class="row">
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-diet"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Wedding</h3>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-workout"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Birthday</h3>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-diet-1"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Party Room</h3>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Farm Houses</h3>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Engagement</h3>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">conference & Seminars</h3>
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Editor's pick</h3>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">Kitty Partys</h3>
-                                <p></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+</div>
 
 <footer class="footer">
     <div class="container">

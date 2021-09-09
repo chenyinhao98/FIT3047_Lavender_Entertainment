@@ -10,7 +10,8 @@ namespace App\Controller;
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
-{
+{   
+    
     /**
      * Index method
      *
