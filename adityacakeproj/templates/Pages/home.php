@@ -48,8 +48,11 @@ if (!Configure::read('debug')) :
     );
 endif;
 
+
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,8 +135,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-lg-12">
-
-                <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
+            <?= error_reporting(0);?>
+                  <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
                     <h3 class="mb-3">Book your Venue</h3>
                     <div class="row">
                         <div class="col-md-6">

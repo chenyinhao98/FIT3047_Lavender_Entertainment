@@ -194,7 +194,7 @@
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">
                             <ul><li>Lorem ipsum</li>
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                     
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">
                             <div class="col-md-12">
