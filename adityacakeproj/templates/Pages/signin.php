@@ -107,11 +107,11 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" >
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="rooms.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
+                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
