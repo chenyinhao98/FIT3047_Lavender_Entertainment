@@ -29,6 +29,24 @@ class VenuesController extends AppController
 
         $this->set(compact('venues'));
     }
+    /**
+     * Individual method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function individual($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $this->set(compact('venue'));
+
+    }
 
     /**
      * View method
