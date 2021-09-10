@@ -49,27 +49,30 @@
                     </div>
                     <div class="media-body py-5 px-5">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>
-                            <div class="col-md-6">
-                                <div class="text-md-right">
-                                    <div class="stars">
-                                        <form action=""> <input class="star star-5" id="star-5" type="radio" name="star"  /> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label> </form>
-                                    </div>
-                                </div>
+                            <div class="col-md-3" style="text-align: right;padding: 15px;">
+                                <p class="star mb-0">
+                                    <?php  $count = 0;
+                                    while($count < $venue->venue_rating){
+                                    $count++;
+                                    ?>
+                                    <span class="fa fa-star fa-2x" style="color:#A295FF"></span>
+                                    <?php } ?>
+                                </p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <p class="font-weight-bold" style="text-align: left; font-size: large;"><?=h($venue->venue_contact_number) ?></p>
-                                <p class="font-weight-bold"style="text-align: left; font-size: large;"><?=h($venue->venue_address) ?></p> </div>
-                            <div class="col-md-6">
-                                <p class="font-weight-bold" style="text-align: right; font-size: large;">$<?=h($venue->venue_payrate) ?> / Guest</p>
+                            <div class="col-md-8">
+                            <h2 class="font-weight-bold" style="text-align: left; font-size: 180%;padding: 10px"><i class="fa fa-phone"></i>   <?=h($venue->venue_contact_number) ?></h2>
+                                <h2 class="font-weight-bold"style="text-align: left; font-size: 180%;padding: 10px"><i class="fa fa-address-card"></i>  <?=h($venue->venue_address) ?></h2> </div>
+                            <div class="col-md-4">
+                                <h2 class="font-weight-bold" style="text-align: right; font-size: 180%;"><i class="fa fa-usd"></i><?=h($venue->venue_payrate) ?>/Guest</h2>
                             </div>
                         </div>
 
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
-                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Google Maps</a>
+                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Book Venue</a>
                             <a href="#" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary">Write A Review!	</a></p>
                     </div>
 
