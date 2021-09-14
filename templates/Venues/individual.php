@@ -68,9 +68,9 @@
                             </div>
                         </div>
 
-                        <p><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
+                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
                             <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Book Venue</a>
-                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary">Write A Review!	</a></p>
+                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
                 </div>
@@ -184,7 +184,7 @@
     </div>
 </section>
 
-<section class="ftco-section bg-light">
+<section class="ftco-section bg-light" id=reviewtab>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -238,3 +238,18 @@
             </div>
         </div>
 </section>
+
+<!-- Shortlist Modal-->
+<div class="modal fade" id="shortlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">This Venue has been shortlisted</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                            </div>
+        </div>
+    </div>
