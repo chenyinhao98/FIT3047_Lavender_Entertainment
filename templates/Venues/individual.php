@@ -80,6 +80,7 @@
 
                 </div>
             </div>
+            
             <div class="col-lg-5 col-md-7 d-flex align-items-stretch ">
                 <div class="contact-wrap w-100 p-md-5 p-4 ">
                     <h3 class="mb-4">Check Availability</h3>
