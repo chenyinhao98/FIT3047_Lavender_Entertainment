@@ -240,3 +240,100 @@
             </div>
         </div>
 </section>
+<<<<<<< Updated upstream
+=======
+
+<!-- Shortlist Modal-->
+<div class="modal fade" id="shortlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><?=h($venue->venue_name) ?> has been shortlisted!</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                            </div>
+        </div>
+    </div>
+
+<!-- Enquiry Modal-->
+<div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                            </div>
+        </div>
+    </div>
+
+<!-- Book Modal-->
+<div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Book <?=h($venue->venue_name) ?> ? </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Do you want to add <?=h($venue->venue_name) ?> to your cart ?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#" data-dismiss="modal" data-toggle="modal" data-target="#recModal">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Recommendation  Modal-->
+
+<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add some of our recommended suppliers to your purchase?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group">
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            First checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Second checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Third checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Fourth checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Fifth checkbox
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+>>>>>>> Stashed changes
