@@ -44,7 +44,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 <body id="page-top">
 
 <!-- Page Wrapper -->
-<div id="wrapper" style="width:100%;">
+<div id="wrapper" style="width: fit-content; block-size: fit-content" class="justify-content">
 
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-dark accordion" style=" background-image:linear-gradient(180deg, #a298fc 10%, #6f47bd 100%)" id="accordionSidebar">
@@ -219,7 +219,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                                 <td><?= $this->Number->format($venue->venue_payrate) ?></td>
                                 <td><?= $this->Number->format($venue->venue_rating) ?></td>
                                 <td><?= h($venue->venue_contact_name) ?></td>
-                                <td><?= h($venue->venue_contact_number) ?></td>
+                                <td><?= $this->Number->format($venue->venue_contact_number) ?></td>
                                 <td><?= h($venue->venue_email) ?></td>
                                 <td><?= h($venue->venue_photo1) ?></td>
                                 <td><?= h($venue->venue_photo2) ?></td>

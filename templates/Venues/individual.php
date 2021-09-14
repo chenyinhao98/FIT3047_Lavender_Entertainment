@@ -68,9 +68,9 @@
                             </div>
                         </div>
 
-                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
-                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Google Maps</a>
-                            <a href="#" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary">Write A Review!	</a></p>
+                        <p><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
+                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Book Venue</a>
+                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary">Write A Review!	</a></p>
                     </div>
 
                 </div>
@@ -122,7 +122,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="submit" value="Enquire"  style="text-align:center; width:100%; padding:10;" class="btn btn-primary">
+                                    
+                                    <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:100%; padding:10;" class="btn btn-primary">Submit	</a>
                                     <div class="submitting"></div>
                                 </div>
                             </div>
@@ -219,7 +220,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="submit" value="Enquire"  style="text-align:center; width:70%; padding:10;" class="btn btn-primary">
+                                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:70%; padding:10;" class="btn btn-primary">Submit	</a>
                                             <div class="submitting"></div></div>
                                     </div>
                                     <div class="col-md-4">
