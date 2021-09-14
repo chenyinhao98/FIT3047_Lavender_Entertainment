@@ -162,7 +162,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact <i class="fa fa-chevron-right"></i></span></p>
+          <p class="breadcrumbs mb-2"><span class="mr-2"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact Us <i class="fa fa-chevron-right"></i></span></p>
             <h1 class="mb-0 bread">Contact Us</h1>
           </div>
         </div>
@@ -176,8 +176,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     				<div id="map" class="map"></div>
     			</div>
     			<div class="col-md-4 p-4 p-md-5 bg-white">
-    				<h2 class="font-weight-bold mb-4">Lets get started</h2>
-    				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    				<h2 class="font-weight-bold mb-4">Lets have a conversation!</h2>
+    				<p>If you have any questions, just fill in the contact form, and we will answer you shortly. If you live nearby, come visit Lavender Entertainment at our comfortable office. We'd love to help you with any venue bookings you want!</p>
     				<p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" class="btn btn-primary">Book Venue Now</a></p>
     			</div>
 					<div class="col-md-12">
@@ -188,7 +188,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 										<h3 class="mb-4">Get in touch</h3>
 										<div id="form-message-warning" class="mb-4"></div> 
 					      		<div id="form-message-success" class="mb-4">
-					            Your message was sent, thank you!
+					            
 					      		</div>
 										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
 											<div class="row">
@@ -218,7 +218,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 												</div>
 												<div class="col-md-12">
 													<div class="form-group">
-														<input type="submit" value="Send Message" class="btn btn-primary">
+                                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
 														<div class="submitting"></div>
 													</div>
 												</div>
@@ -251,7 +251,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					        			<span class="fa fa-paper-plane"></span>
 					        		</div>
 					        		<div class="text pl-3">
-						            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+						            <p><span>Email:</span> <a href="mailto:info@lavenderentertainment.com">info@lavenderentertainment.com</a></p>
 						          </div>
 					          </div>
 					        	<div class="dbox w-100 d-flex align-items-center">
@@ -259,7 +259,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					        			<span class="fa fa-globe"></span>
 					        		</div>
 					        		<div class="text pl-3">
-						            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+						            <p><span>Website:</span> <a href="#">lavenderentertainment.com</a></p>
 						          </div>
 					          </div>
 				          </div>
@@ -270,6 +270,23 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				</div>
     	</div>
     </section>
+
+
+<!-- Enquiry Modal-->
+<div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                            </div>
+        </div>
+</div>
+
 
 <footer class="footer">
     <div class="container">
