@@ -259,7 +259,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					        			<span class="fa fa-globe"></span>
 					        		</div>
 					        		<div class="text pl-3">
-						            <p><span>Website:</span> <a href="#">lavenderentertainment.com</a></p>
+						            <p><span>Website:</span> <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>">lavenderentertainment.com</a></p>
 						          </div>
 					          </div>
 				          </div>
