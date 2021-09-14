@@ -49,27 +49,32 @@
                     </div>
                     <div class="media-body py-5 px-5">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>
-                            <div class="col-md-6">
-                                <div class="text-md-right">
-                                    <div class="stars">
-                                        <form action=""> <input class="star star-5" id="star-5" type="radio" name="star"  /> <label class="star star-5" for="star-5"></label> <input class="star star-4" id="star-4" type="radio" name="star" /> <label class="star star-4" for="star-4"></label> <input class="star star-3" id="star-3" type="radio" name="star" /> <label class="star star-3" for="star-3"></label> <input class="star star-2" id="star-2" type="radio" name="star" /> <label class="star star-2" for="star-2"></label> <input class="star star-1" id="star-1" type="radio" name="star" /> <label class="star star-1" for="star-1"></label> </form>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="text-md-right" style="text-align:right; padding: 20px;">
+                                    <p class="star mb-0" style="color:#A295FF">
+                                        <?php  $count = 0;
+                                        while($count < $venue->venue_rating){
+                                            $count++;
+                                        ?>
+                                        <span class="fa fa-star fa-2x"></span>
+                                        <?php } ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-                                <p class="font-weight-bold" style="text-align: left; font-size: large;"><?=h($venue->venue_contact_number) ?></p>
-                                <p class="font-weight-bold"style="text-align: left; font-size: large;"><?=h($venue->venue_address) ?></p> </div>
-                            <div class="col-md-6">
-                                <p class="font-weight-bold" style="text-align: right; font-size: large;">$<?=h($venue->venue_payrate) ?> / Guest</p>
+                            <div class="col-md-8">
+                                <p class="font-weight-bold" style="text-align: left; font-size: large;"><i class="fa fa-phone fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_contact_number) ?></p>
+                                <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
+                            <div class="col-md-4">
+                                <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
                             </div>
                         </div>
 
-                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
-                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Book Venue</a>
+                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
+                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary" data-toggle="modal" data-target="#bookModal">Book Venue</a>
                             <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
@@ -80,7 +85,7 @@
                     <h3 class="mb-4">Check Availability</h3>
                     <div id="form-message-warning" class="mb-4"></div>
                     <div id="form-message-success" class="mb-4">
-                        Your message was sent, thank you!
+                        
                     </div>
                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                         <div class="row">
@@ -123,7 +128,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     
-                                    <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:100%; padding:10;" class="btn btn-primary">Submit	</a>
+                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
                                     <div class="submitting"></div>
                                 </div>
                             </div>
@@ -245,7 +250,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">This Venue has been shortlisted</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><?=h($venue->venue_name) ?> has been shortlisted!</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -253,3 +258,81 @@
                             </div>
         </div>
     </div>
+
+<!-- Enquiry Modal-->
+<div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                            </div>
+        </div>
+    </div>
+
+<!-- Book Modal-->
+<div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Book <?=h($venue->venue_name) ?> ? </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Do you want to add <?=h($venue->venue_name) ?> to your cart ?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#" data-dismiss="modal" data-toggle="modal" data-target="#recModal">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Recommendation Modal-->
+<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add some of our recommended suppliers to your purchase?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group">
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            First checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Second checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Third checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Fourth checkbox
+                        </label>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            Fifth checkbox
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
