@@ -10,14 +10,21 @@ namespace App\Controller;
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
-{   
-    
+{
+
     /**
      * Index method
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
     public function index()
+    {
+        $venues = $this->paginate($this->Venues);
+
+        $this->set(compact('venues'));
+    }
+
+    public function home()
     {
         $venues = $this->paginate($this->Venues);
 
@@ -39,7 +46,7 @@ class VenuesController extends AppController
      */
     public function individual($id=null)
     {
-        
+
 
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events'],
