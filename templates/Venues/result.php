@@ -6,6 +6,7 @@
  */
 ?>
 
+
 <section class="hero-wrap hero-wrap-2" style="background-image: url(<?=$this->Html->Url->image('/img/result_background.png')?>); data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -18,18 +19,41 @@
     </div>
 </section>
 
+
+
+<?php
+$search_venue = array();
+$search_name = $_POST["search_name"];
+$search_empty = false;
+
+if (empty($search_name)){
+    foreach ($venues as $venue):
+        array_push($search_venue,$venue);
+    endforeach;
+    $search_empty = true;
+}
+foreach ($venues as $venue):
+    if ($search_empty == false){
+        if (strpos($venue->venue_address,$search_name) !== false ){
+            array_push($search_venue,$venue);
+        }
+    }
+    endforeach;
+?>
+
+<section class = "container">
 <section class="ftco-section bg-light ftco-no-pt ftco-no-pb">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
-            <?php foreach ($venues as $venue): ?>
+            <?php foreach ($search_venue as $venue): ?>
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
-                        <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_email))?>');"></a>
+                        <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_photo1))?>');"></a>
                         <div class="half left-arrow d-flex align-items-center">
                             <div class="text p-4 p-xl-5 text-center">
                                 <p class="star mb-0">
                                 <?php  $count = 0;
-                                while($count < $venue->venue_min_hour){
+                                while($count < $venue->venue_rating){
                                     $count++;
                                 ?>
                                 <span class="fa fa-star"></span>
@@ -41,7 +65,8 @@
                                     <li><span>Capacity:</span> <?= $this->Number->format($venue->venue_min_capacity) ?> Persons</li>
                                     <li><span>Address:</span> <?= h($venue->venue_address) ?></li>
                                 </ul>
-                                <p class="pt-1"><a href="room-single.html" class="btn-custom px-3 py-2">View Venue Details <span class="icon-long-arrow-right"></span></a></p>
+
+                                <p class="pt-1"><?= $this->Html->link(__('View Venue Details '), ['action' => 'individual', $venue->id],['class' => 'btn-custom px-3 py-2']) ?> <span class="icon-long-arrow-right"></span></p>
                             </div>
                         </div>
                     </div>
@@ -49,4 +74,5 @@
             <?php endforeach; ?>
         </div>
     </div>
+</section>
 </section>
