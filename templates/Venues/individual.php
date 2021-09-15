@@ -49,41 +49,44 @@
                     </div>
                     <div class="media-body py-5 px-5">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>
-                            <div class="col-md-3" style="text-align: right;padding: 15px;">
-                                <p class="star mb-0">
-                                    <?php  $count = 0;
-                                    while($count < $venue->venue_rating){
-                                    $count++;
-                                    ?>
-                                    <span class="fa fa-star fa-2x" style="color:#A295FF"></span>
-                                    <?php } ?>
-                                </p>
+                            <div class="col-md-4">
+                                <div class="text-md-right" style="text-align:right; padding: 20px;">
+                                    <p class="star mb-0" style="color:#A295FF">
+                                        <?php  $count = 0;
+                                        while($count < $venue->venue_rating){
+                                            $count++;
+                                        ?>
+                                        <span class="fa fa-star fa-2x"></span>
+                                        <?php } ?>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                            <h2 class="font-weight-bold" style="text-align: left; font-size: 180%;padding: 10px"><i class="fa fa-phone"></i>   <?=h($venue->venue_contact_number) ?></h2>
-                                <h2 class="font-weight-bold"style="text-align: left; font-size: 180%;padding: 10px"><i class="fa fa-address-card"></i>  <?=h($venue->venue_address) ?></h2> </div>
+                                <p class="font-weight-bold" style="text-align: left; font-size: large;"><i class="fa fa-phone fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_contact_number) ?></p>
+                                <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
                             <div class="col-md-4">
-                                <h2 class="font-weight-bold" style="text-align: right; font-size: 180%;"><i class="fa fa-usd"></i><?=h($venue->venue_payrate) ?>/Guest</h2>
+                                <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
                             </div>
                         </div>
 
-                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary"><i class="fa fa-heart" aria-hidden="true"></i>Shortlist</a>
-                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary">Book Venue</a>
-                            <a href="#" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary">Write A Review!	</a></p>
+                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
+                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary" data-toggle="modal" data-target="#bookModal">Book Venue</a>
+                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
                 </div>
             </div>
+            
             <div class="col-lg-5 col-md-7 d-flex align-items-stretch ">
                 <div class="contact-wrap w-100 p-md-5 p-4 ">
                     <h3 class="mb-4">Check Availability</h3>
                     <div id="form-message-warning" class="mb-4"></div>
                     <div id="form-message-success" class="mb-4">
-                        Your message was sent, thank you!
+                        
                     </div>
                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                         <div class="row">
@@ -125,7 +128,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="submit" value="Enquire"  style="text-align:center; width:100%; padding:10;" class="btn btn-primary">
+                                    
+                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
                                     <div class="submitting"></div>
                                 </div>
                             </div>
@@ -186,7 +190,7 @@
     </div>
 </section>
 
-<section class="ftco-section bg-light">
+<section class="ftco-section bg-light" id=reviewtab>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -222,7 +226,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <input type="submit" value="Enquire"  style="text-align:center; width:70%; padding:10;" class="btn btn-primary">
+                                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:70%; padding:10;" class="btn btn-primary">Submit	</a>
                                             <div class="submitting"></div></div>
                                     </div>
                                     <div class="col-md-4">
@@ -240,8 +244,6 @@
             </div>
         </div>
 </section>
-<<<<<<< Updated upstream
-=======
 
 <!-- Shortlist Modal-->
 <div class="modal fade" id="shortlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -292,8 +294,7 @@
             </div>
         </div>
     </div>
-<!-- Recommendation  Modal-->
-
+<!-- Recommendation Modal-->
 <div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -336,4 +337,3 @@
         </div>
     </div>
 
->>>>>>> Stashed changes
