@@ -8025,8 +8025,7 @@ h1, h2, h3, h4, h5,
   font-family: "Playfair Display", serif; }
 
 .container {
-  max-width: 100vmax;
-    align-items: center;
+  max-width: 1400px;
 }
 
 .wrap {

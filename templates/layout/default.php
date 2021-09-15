@@ -85,7 +85,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!-- END nav -->
 
 <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
-    <div class="container">
+    <div class="container" style="max-width: 100vmax; align-items: center;">
         <div class="row justify-content-end">
                 <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
