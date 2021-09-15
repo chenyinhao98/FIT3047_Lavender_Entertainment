@@ -20,6 +20,7 @@
 </section>
 
 
+
 <?php
 $search_venue = array();
 $search_name = $_POST["search_name"];
@@ -40,7 +41,7 @@ foreach ($venues as $venue):
     endforeach;
 ?>
 
-
+<section class = "container">
 <section class="ftco-section bg-light ftco-no-pt ftco-no-pb">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
@@ -64,7 +65,7 @@ foreach ($venues as $venue):
                                     <li><span>Capacity:</span> <?= $this->Number->format($venue->venue_min_capacity) ?> Persons</li>
                                     <li><span>Address:</span> <?= h($venue->venue_address) ?></li>
                                 </ul>
-                                
+
                                 <p class="pt-1"><?= $this->Html->link(__('View Venue Details '), ['action' => 'individual', $venue->id],['class' => 'btn-custom px-3 py-2']) ?> <span class="icon-long-arrow-right"></span></p>
                             </div>
                         </div>
@@ -73,4 +74,5 @@ foreach ($venues as $venue):
             <?php endforeach; ?>
         </div>
     </div>
+</section>
 </section>

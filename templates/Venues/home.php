@@ -11,8 +11,10 @@
  * @link      https://cakephp.org CakePHP(tm) Project
  * @since     0.10.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
+/**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
+ * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -231,6 +233,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <? //$hh = 'Clayton' ?>
+                                <!--<p class="pt-1"><?//= $this->Html->link(__('Book Venue '), ['action' => 'result', $hh],['class' => 'btn-custom px-3 py-2']) ?> <span class="icon-long-arrow-right"></span></p>-->
+
+
                                 <?= $this->Form->button('Book My Venues Now',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
                             </div>
                         </div>

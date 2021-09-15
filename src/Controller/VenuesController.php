@@ -5,7 +5,7 @@ namespace App\Controller;
 
 /**
  * Venues Controller
- *
+ * @param string|null $name
  * @property \App\Model\Table\VenuesTable $Venues
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -31,11 +31,35 @@ class VenuesController extends AppController
         $this->set(compact('venues'));
     }
 
-    public function result()
+    public function result($name=null)
     {
         $venues = $this->paginate($this->Venues);
-
         $this->set(compact('venues'));
+
+        /*
+        $query = $this->Venues->find()->where(['venue_address LIKE' => '%' . $name .'%']);
+        //this line works with hardcoded value such as 'Clayton'
+        $this->set(compact('venues','query'));
+        */
+
+        /*
+        $search_venue = array();
+
+        if (empty($name)){
+            for ($x = 0; $x <= count($venues);$x++){
+                $this->$search_venue->save($venues[$x]);
+            }
+        }
+        else{
+            for ($x = 0; $x <= count($venues);$x++){
+                if (strpos($venues[$x] ->venue_address,$name) !== false ){
+                    array_push($search_venue,$venues[$x]);
+                }
+            }
+        }
+       */
+
+
     }
     /**
      * Individual method
