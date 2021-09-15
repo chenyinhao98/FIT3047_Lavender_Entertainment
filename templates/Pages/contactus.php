@@ -139,14 +139,14 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>">Lavender<span>Entertainment</span></a>
+        <a class="navbar-brand" href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>">Lavender<span>Entertainment</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
@@ -168,7 +168,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </div>
       </div>
     </section>
-   
+
    	<section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row no-gutters">
@@ -186,7 +186,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 								<div class="col-lg-8 col-md-7 d-flex align-items-stretch">
 									<div class="contact-wrap w-100 p-md-5 p-4">
 										<h3 class="mb-4">Get in touch</h3>
-										<div id="form-message-warning" class="mb-4"></div> 
+										<div id="form-message-warning" class="mb-4"></div>
 					      		<div id="form-message-success" class="mb-4">
 					            
 					      		</div>
@@ -198,7 +198,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
 													</div>
 												</div>
-												<div class="col-md-6"> 
+												<div class="col-md-6">
 													<div class="form-group">
 														<label class="label" for="email">Email Address</label>
 														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
