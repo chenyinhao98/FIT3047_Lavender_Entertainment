@@ -137,13 +137,15 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-lg-12">
-            <?= error_reporting(0);?>
-                  <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
+                  <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
                     <h3 class="mb-3">Book your Venue</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <?= $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Suburb"]); ?>
+                                <input class="form-control" type="text" name="search_name" placeholder="Suburb"/>
+                                <!-- CODE for PHP form
+                                = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Suburb"]);
+                                -->
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -153,11 +155,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                         <select name="" id="" class="form-control">
                                             <option value="">Event Type</option>
-                                            <option value="">Wedding</option>
-                                            <option value="">Birthday Party</option>
-                                            <option value="">3</option>
-                                            <option value="">4</option>
-                                            <option value="">5</option>
+                                            <?//php foreach ($eTs as $eventType): ?>
+                                            <option value=""><?//= h($eventType->event_name) ?></option>
+                                            <?//php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -233,10 +233,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <? //$hh = 'Clayton' ?>
-                                <!--<p class="pt-1"><?//= $this->Html->link(__('Book Venue '), ['action' => 'result', $hh],['class' => 'btn-custom px-3 py-2']) ?> <span class="icon-long-arrow-right"></span></p>-->
-
-
                                 <?= $this->Form->button('Book My Venues Now',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
                             </div>
                         </div>

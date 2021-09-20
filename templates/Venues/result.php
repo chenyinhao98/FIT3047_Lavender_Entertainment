@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $query
  */
 ?>
 
@@ -22,6 +23,7 @@
 
 
 <?php
+/*
 $search_venue = array();
 $search_name = $_POST["search_name"];
 $search_empty = false;
@@ -39,13 +41,14 @@ foreach ($venues as $venue):
         }
     }
     endforeach;
+*/
 ?>
 
 <section class = "container">
 <section class="ftco-section bg-light ftco-no-pt ftco-no-pb">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
-            <?php foreach ($search_venue as $venue): ?>
+            <?php foreach ($query as $venue): ?>
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
                         <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_photo1))?>');"></a>

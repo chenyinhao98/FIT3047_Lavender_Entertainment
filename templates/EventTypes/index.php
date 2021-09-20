@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $eventTypes
  */
 
 echo $this->Html->css('/vendor/datatables/dataTables.bootstrap4.min.css', ['block'=>true]);

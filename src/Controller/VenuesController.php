@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use function React\Promise\all;
+
 /**
  * Venues Controller
  * @param string|null $name
@@ -28,39 +30,18 @@ class VenuesController extends AppController
     {
         $venues = $this->paginate($this->Venues);
 
+        //$eTs = $this->EventTypes->find('all');
         $this->set(compact('venues'));
     }
 
-    public function result($name=null)
+    public function result()
     {
         $venues = $this->paginate($this->Venues);
-        $this->set(compact('venues'));
-
-        /*
-        $query = $this->Venues->find()->where(['venue_address LIKE' => '%' . $name .'%']);
-        //this line works with hardcoded value such as 'Clayton'
+        $searchAddress = $this->getRequest()->getQuery('search_name');
+        $query = $this->Venues->find()->where(['venue_address LIKE' => '%' . $searchAddress . '%']);
         $this->set(compact('venues','query'));
-        */
-
-        /*
-        $search_venue = array();
-
-        if (empty($name)){
-            for ($x = 0; $x <= count($venues);$x++){
-                $this->$search_venue->save($venues[$x]);
-            }
-        }
-        else{
-            for ($x = 0; $x <= count($venues);$x++){
-                if (strpos($venues[$x] ->venue_address,$name) !== false ){
-                    array_push($search_venue,$venues[$x]);
-                }
-            }
-        }
-       */
-
-
     }
+
     /**
      * Individual method
      *
@@ -70,8 +51,6 @@ class VenuesController extends AppController
      */
     public function individual($id=null)
     {
-
-
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events'],
         ]);
