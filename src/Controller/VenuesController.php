@@ -38,7 +38,15 @@ class VenuesController extends AppController
     {
         $venues = $this->paginate($this->Venues);
         $searchAddress = $this->getRequest()->getQuery('search_name');
-        $query = $this->Venues->find()->where(['venue_address LIKE' => '%' . $searchAddress . '%']);
+        $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
+        $searchPrice = $this->getRequest()->getQuery('venue_price');
+
+        $numberArray = explode(',',$attendeeNumber);
+        $priceArray = explode(',',$searchPrice);
+        $query = $this->Venues->find()
+            ->where(['venue_min_capacity >=' => $numberArray[0],'AND' => ['venue_min_capacity <' => $numberArray[1]]])
+            ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
         $this->set(compact('venues','query'));
     }
 
