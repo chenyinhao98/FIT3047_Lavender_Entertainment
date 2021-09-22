@@ -8,6 +8,7 @@ use Cake\ORM\Entity;
 /**
  * EventsSupplier Entity
  *
+ * @property int $id
  * @property int $event_id
  * @property int $supplier_id
  *

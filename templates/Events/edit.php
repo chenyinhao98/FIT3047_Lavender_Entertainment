@@ -2,10 +2,9 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Event $event
- * @var string[]|\Cake\Collection\CollectionInterface $customers
+ * @var string[]|\Cake\Collection\CollectionInterface $users
  * @var string[]|\Cake\Collection\CollectionInterface $venues
  * @var string[]|\Cake\Collection\CollectionInterface $eventTypes
- * @var string[]|\Cake\Collection\CollectionInterface $payments
  * @var string[]|\Cake\Collection\CollectionInterface $suppliers
  * @var string[]|\Cake\Collection\CollectionInterface $talents
  */
@@ -29,14 +28,12 @@
                 <legend><?= __('Edit Event') ?></legend>
                 <?php
                     echo $this->Form->control('event_name');
-                    echo $this->Form->control('customer_id', ['options' => $customers]);
+                    echo $this->Form->control('user_id', ['options' => $users]);
                     echo $this->Form->control('venue_id', ['options' => $venues]);
                     echo $this->Form->control('event_attendance');
-                    echo $this->Form->control('event_date');
                     echo $this->Form->control('event_type_id', ['options' => $eventTypes]);
                     echo $this->Form->control('event_startdate');
                     echo $this->Form->control('event_enddate');
-                    echo $this->Form->control('payment_id', ['options' => $payments]);
                     echo $this->Form->control('suppliers._ids', ['options' => $suppliers]);
                     echo $this->Form->control('talents._ids', ['options' => $talents]);
                 ?>

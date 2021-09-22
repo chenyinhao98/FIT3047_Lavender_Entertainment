@@ -3,17 +3,14 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use function React\Promise\all;
-
 /**
  * Venues Controller
- * @param string|null $name
+ *
  * @property \App\Model\Table\VenuesTable $Venues
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
 {
-
     /**
      * Index method
      *
@@ -44,19 +41,12 @@ class VenuesController extends AppController
         $numberArray = explode(',',$attendeeNumber);
         $priceArray = explode(',',$searchPrice);
         $query = $this->Venues->find()
-            ->where(['venue_min_capacity >=' => $numberArray[0],'AND' => ['venue_min_capacity <' => $numberArray[1]]])
+            ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
             ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
             ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
         $this->set(compact('venues','query'));
     }
 
-    /**
-     * Individual method
-     *
-     * @param string|null $id Venue id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function individual($id=null)
     {
         $venue = $this->Venues->get($id, [
@@ -77,7 +67,7 @@ class VenuesController extends AppController
     public function view($id = null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
 
         $this->set(compact('venue'));

@@ -33,7 +33,7 @@ class SuppliersController extends AppController
     public function view($id = null)
     {
         $supplier = $this->Suppliers->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events', 'SupplierAvailability', 'SupplierSuburb'],
         ]);
 
         $this->set(compact('supplier'));

@@ -26,9 +26,9 @@ class EventTypesTableTest extends TestCase
     protected $fixtures = [
         'app.EventTypes',
         'app.Events',
-        'app.Venues',
         'app.Suppliers',
         'app.Talents',
+        'app.Venues',
     ];
 
     /**
