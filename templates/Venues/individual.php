@@ -8,19 +8,11 @@
 <?= $this->Form->create($venue, ['type' => 'get']);?>
 <p></p>
 
-<?php /*foreach ($venues as $venue):
-    $sql = "SELECT id, firstname, lastname FROM MyGuests";
-    $result = $conn->query($sql);
-    $venue_id = $_REQUEST['venue_id'];
-    $venue_auth = $_GET[venue_id];
-    if ($venue->id == $venue_auth){
-        $selected = $venue;
-    }?> 
-    <?php  endforeach; */?>
 
-<section class="ftco-section bg-light " style="background:gray">
-    <div class="container">
-        <div class="row no-gutters">
+
+<section class="ftco-section about-section bg-light " style="background:gray">
+    <div class="container" >
+        <div class="row justify-content-left pb-5 mb-3">
             <div class="col-md-7 d-flex services align-self-stretch px-3 ftco-animate">
                 <div class="d-block services-wrap text-left">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -75,7 +67,7 @@
 
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
                             <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary" data-toggle="modal" data-target="#bookModal">Book Venue</a>
-                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
+                            <a href="#page-top" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary scroll-to-top rounded" >Write A Review!	</a></p>
                     </div>
 
                 </div>
@@ -142,8 +134,7 @@
 
     </div>
 
-    </div>
-
+</div>
 </section>
 
 
@@ -189,8 +180,8 @@
         </div>
     </div>
 </section>
-
-<section class="ftco-section bg-light" id=reviewtab>
+<section id = page-top>
+<section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
