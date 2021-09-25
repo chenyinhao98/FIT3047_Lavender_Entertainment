@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Talents Model
  *
+ * @property \App\Model\Table\TalentAvailabilityTable&\Cake\ORM\Association\HasMany $TalentAvailability
+ * @property \App\Model\Table\TalentSuburbTable&\Cake\ORM\Association\HasMany $TalentSuburb
  * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsToMany $EventTypes
  * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\BelongsToMany $Events
  *
@@ -44,6 +46,12 @@ class TalentsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->hasMany('TalentAvailability', [
+            'foreignKey' => 'talent_id',
+        ]);
+        $this->hasMany('TalentSuburb', [
+            'foreignKey' => 'talent_id',
+        ]);
         $this->belongsToMany('EventTypes', [
             'foreignKey' => 'talent_id',
             'targetForeignKey' => 'event_type_id',
@@ -87,19 +95,9 @@ class TalentsTable extends Table
             ->notEmptyString('talent_address');
 
         $validator
-            ->numeric('talent_travel_radius')
-            ->requirePresence('talent_travel_radius', 'create')
-            ->notEmptyString('talent_travel_radius');
-
-        $validator
             ->numeric('talent_payrate')
             ->requirePresence('talent_payrate', 'create')
             ->notEmptyString('talent_payrate');
-
-        $validator
-            ->numeric('talent_min_hour')
-            ->requirePresence('talent_min_hour', 'create')
-            ->notEmptyString('talent_min_hour');
 
         $validator
             ->scalar('talent_contact_name')
@@ -120,6 +118,8 @@ class TalentsTable extends Table
             ->notEmptyString('talent_email');
 
         $validator
+            ->scalar('talent_photo')
+            ->maxLength('talent_photo', 256)
             ->allowEmptyString('talent_photo');
 
         $validator

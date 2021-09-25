@@ -23,8 +23,8 @@
                     <td><?= h($event->event_name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Customer') ?></th>
-                    <td><?= $event->has('customer') ? $this->Html->link($event->customer->id, ['controller' => 'Customers', 'action' => 'view', $event->customer->id]) : '' ?></td>
+                    <th><?= __('User') ?></th>
+                    <td><?= $event->has('user') ? $this->Html->link($event->user->id, ['controller' => 'Users', 'action' => 'view', $event->user->id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Venue') ?></th>
@@ -35,20 +35,12 @@
                     <td><?= $event->has('event_type') ? $this->Html->link($event->event_type->id, ['controller' => 'EventTypes', 'action' => 'view', $event->event_type->id]) : '' ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Payment') ?></th>
-                    <td><?= $event->has('payment') ? $this->Html->link($event->payment->id, ['controller' => 'Payments', 'action' => 'view', $event->payment->id]) : '' ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($event->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Event Attendance') ?></th>
                     <td><?= $this->Number->format($event->event_attendance) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Event Date') ?></th>
-                    <td><?= $this->Number->format($event->event_date) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Event Startdate') ?></th>
@@ -69,10 +61,7 @@
                             <th><?= __('Supplier Type') ?></th>
                             <th><?= __('Supplier Name') ?></th>
                             <th><?= __('Supplier Address') ?></th>
-                            <th><?= __('Supplier Travel Radius') ?></th>
                             <th><?= __('Supplier Payrate') ?></th>
-                            <th><?= __('Supplier Min Hour') ?></th>
-                            <th><?= __('Supplier Advertise Fee') ?></th>
                             <th><?= __('Supplier Contact Name') ?></th>
                             <th><?= __('Supplier Contact Number') ?></th>
                             <th><?= __('Supplier Email') ?></th>
@@ -86,10 +75,7 @@
                             <td><?= h($suppliers->supplier_type) ?></td>
                             <td><?= h($suppliers->supplier_name) ?></td>
                             <td><?= h($suppliers->supplier_address) ?></td>
-                            <td><?= h($suppliers->supplier_travel_radius) ?></td>
                             <td><?= h($suppliers->supplier_payrate) ?></td>
-                            <td><?= h($suppliers->supplier_min_hour) ?></td>
-                            <td><?= h($suppliers->supplier_advertise_fee) ?></td>
                             <td><?= h($suppliers->supplier_contact_name) ?></td>
                             <td><?= h($suppliers->supplier_contact_number) ?></td>
                             <td><?= h($suppliers->supplier_email) ?></td>
@@ -116,9 +102,7 @@
                             <th><?= __('Talent Type') ?></th>
                             <th><?= __('Talent Name') ?></th>
                             <th><?= __('Talent Address') ?></th>
-                            <th><?= __('Talent Travel Radius') ?></th>
                             <th><?= __('Talent Payrate') ?></th>
-                            <th><?= __('Talent Min Hour') ?></th>
                             <th><?= __('Talent Contact Name') ?></th>
                             <th><?= __('Talent Contact Number') ?></th>
                             <th><?= __('Talent Email') ?></th>
@@ -132,9 +116,7 @@
                             <td><?= h($talents->talent_type) ?></td>
                             <td><?= h($talents->talent_name) ?></td>
                             <td><?= h($talents->talent_address) ?></td>
-                            <td><?= h($talents->talent_travel_radius) ?></td>
                             <td><?= h($talents->talent_payrate) ?></td>
-                            <td><?= h($talents->talent_min_hour) ?></td>
                             <td><?= h($talents->talent_contact_name) ?></td>
                             <td><?= h($talents->talent_contact_number) ?></td>
                             <td><?= h($talents->talent_email) ?></td>

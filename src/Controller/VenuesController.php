@@ -3,15 +3,17 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Venues Controller
- * @param string|null $name
+ *
  * @property \App\Model\Table\VenuesTable $Venues
+ * @property \App\Model\Table\EventTypesTable $EventTypes
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
 {
-
     /**
      * Index method
      *
@@ -26,54 +28,47 @@ class VenuesController extends AppController
 
     public function home()
     {
+        $this->loadModel('EventTypes');
+        $types = $this->EventTypes->find();
+
         $venues = $this->paginate($this->Venues);
 
-        $this->set(compact('venues'));
+        $this->set(compact('venues','types'));
     }
 
-    public function result($name=null)
+    public function result()
     {
+        $this->loadModel('');
+
         $venues = $this->paginate($this->Venues);
-        $this->set(compact('venues'));
-
-        /*
-        $query = $this->Venues->find()->where(['venue_address LIKE' => '%' . $name .'%']);
-        //this line works with hardcoded value such as 'Clayton'
-        $this->set(compact('venues','query'));
-        */
-
-        /*
-        $search_venue = array();
-
-        if (empty($name)){
-            for ($x = 0; $x <= count($venues);$x++){
-                $this->$search_venue->save($venues[$x]);
-            }
-        }
-        else{
-            for ($x = 0; $x <= count($venues);$x++){
-                if (strpos($venues[$x] ->venue_address,$name) !== false ){
-                    array_push($search_venue,$venues[$x]);
-                }
-            }
-        }
-       */
+        $searchAddress = $this->getRequest()->getQuery('search_name');
+        $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
+        $searchPrice = $this->getRequest()->getQuery('venue_price');
+        $searchType = $this->getRequest()->getQuery('venue_type');
 
 
+        $numberArray = explode(',',$attendeeNumber);
+        $priceArray = explode(',',$searchPrice);
+        $newQuery = $this->Venues->find()
+            ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+            ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
+
+        //$x = 0;
+        //while($x < $newQuery.count()) {
+        //    $type = $this->Venues->EventTypes->find()->matching('Venues',function(\cake\ORM\Query $query) use ($newQuery){
+
+        //    })
+        //        ->where(['venue']);
+        //    $x++;
+        //}
+        $this->set(compact('venues','newQuery'));
     }
-    /**
-     * Individual method
-     *
-     * @param string|null $id Venue id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
+
     public function individual($id=null)
     {
-
-
         $venue = $this->Venues->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events','VenueAvailability'],
         ]);
 
         $this->set(compact('venue'));
@@ -90,7 +85,7 @@ class VenuesController extends AppController
     public function view($id = null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
 
         $this->set(compact('venue'));

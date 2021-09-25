@@ -28,51 +28,6 @@
                 </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Venues') ?></h4>
-                <?php if (!empty($eventType->venues)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Venue Name') ?></th>
-                            <th><?= __('Venue Address') ?></th>
-                            <th><?= __('Venue Min Capacity') ?></th>
-                            <th><?= __('Venue Payrate') ?></th>
-                            <th><?= __('Venue Min Hour') ?></th>
-                            <th><?= __('Venue Contact Name') ?></th>
-                            <th><?= __('Venue Contact Number') ?></th>
-                            <th><?= __('Venue Email') ?></th>
-                            <th><?= __('Venue Photo1') ?></th>
-                            <th><?= __('Venue Photo2') ?></th>
-                            <th><?= __('Venue About Us') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($eventType->venues as $venues) : ?>
-                        <tr>
-                            <td><?= h($venues->id) ?></td>
-                            <td><?= h($venues->venue_name) ?></td>
-                            <td><?= h($venues->venue_address) ?></td>
-                            <td><?= h($venues->venue_min_capacity) ?></td>
-                            <td><?= h($venues->venue_payrate) ?></td>
-                            <td><?= h($venues->venue_min_hour) ?></td>
-                            <td><?= h($venues->venue_contact_name) ?></td>
-                            <td><?= h($venues->venue_contact_number) ?></td>
-                            <td><?= h($venues->venue_email) ?></td>
-                            <td><?= h($venues->venue_photo1) ?></td>
-                            <td><?= h($venues->venue_photo2) ?></td>
-                            <td><?= h($venues->venue_about_us) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Venues', 'action' => 'view', $venues->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Venues', 'action' => 'edit', $venues->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Venues', 'action' => 'delete', $venues->id], ['confirm' => __('Are you sure you want to delete # {0}?', $venues->id)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="related">
                 <h4><?= __('Related Suppliers') ?></h4>
                 <?php if (!empty($eventType->suppliers)) : ?>
                 <div class="table-responsive">
@@ -82,10 +37,7 @@
                             <th><?= __('Supplier Type') ?></th>
                             <th><?= __('Supplier Name') ?></th>
                             <th><?= __('Supplier Address') ?></th>
-                            <th><?= __('Supplier Travel Radius') ?></th>
                             <th><?= __('Supplier Payrate') ?></th>
-                            <th><?= __('Supplier Min Hour') ?></th>
-                            <th><?= __('Supplier Advertise Fee') ?></th>
                             <th><?= __('Supplier Contact Name') ?></th>
                             <th><?= __('Supplier Contact Number') ?></th>
                             <th><?= __('Supplier Email') ?></th>
@@ -99,10 +51,7 @@
                             <td><?= h($suppliers->supplier_type) ?></td>
                             <td><?= h($suppliers->supplier_name) ?></td>
                             <td><?= h($suppliers->supplier_address) ?></td>
-                            <td><?= h($suppliers->supplier_travel_radius) ?></td>
                             <td><?= h($suppliers->supplier_payrate) ?></td>
-                            <td><?= h($suppliers->supplier_min_hour) ?></td>
-                            <td><?= h($suppliers->supplier_advertise_fee) ?></td>
                             <td><?= h($suppliers->supplier_contact_name) ?></td>
                             <td><?= h($suppliers->supplier_contact_number) ?></td>
                             <td><?= h($suppliers->supplier_email) ?></td>
@@ -129,9 +78,7 @@
                             <th><?= __('Talent Type') ?></th>
                             <th><?= __('Talent Name') ?></th>
                             <th><?= __('Talent Address') ?></th>
-                            <th><?= __('Talent Travel Radius') ?></th>
                             <th><?= __('Talent Payrate') ?></th>
-                            <th><?= __('Talent Min Hour') ?></th>
                             <th><?= __('Talent Contact Name') ?></th>
                             <th><?= __('Talent Contact Number') ?></th>
                             <th><?= __('Talent Email') ?></th>
@@ -145,9 +92,7 @@
                             <td><?= h($talents->talent_type) ?></td>
                             <td><?= h($talents->talent_name) ?></td>
                             <td><?= h($talents->talent_address) ?></td>
-                            <td><?= h($talents->talent_travel_radius) ?></td>
                             <td><?= h($talents->talent_payrate) ?></td>
-                            <td><?= h($talents->talent_min_hour) ?></td>
                             <td><?= h($talents->talent_contact_name) ?></td>
                             <td><?= h($talents->talent_contact_number) ?></td>
                             <td><?= h($talents->talent_email) ?></td>
@@ -165,6 +110,51 @@
                 <?php endif; ?>
             </div>
             <div class="related">
+                <h4><?= __('Related Venues') ?></h4>
+                <?php if (!empty($eventType->venues)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Venue Name') ?></th>
+                            <th><?= __('Venue Address') ?></th>
+                            <th><?= __('Venue Capacity') ?></th>
+                            <th><?= __('Venue Payrate') ?></th>
+                            <th><?= __('Venue Rating') ?></th>
+                            <th><?= __('Venue Contact Name') ?></th>
+                            <th><?= __('Venue Contact Number') ?></th>
+                            <th><?= __('Venue Email') ?></th>
+                            <th><?= __('Venue Photo1') ?></th>
+                            <th><?= __('Venue Photo2') ?></th>
+                            <th><?= __('Venue About Us') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($eventType->venues as $venues) : ?>
+                        <tr>
+                            <td><?= h($venues->id) ?></td>
+                            <td><?= h($venues->venue_name) ?></td>
+                            <td><?= h($venues->venue_address) ?></td>
+                            <td><?= h($venues->venue_capacity) ?></td>
+                            <td><?= h($venues->venue_payrate) ?></td>
+                            <td><?= h($venues->venue_rating) ?></td>
+                            <td><?= h($venues->venue_contact_name) ?></td>
+                            <td><?= h($venues->venue_contact_number) ?></td>
+                            <td><?= h($venues->venue_email) ?></td>
+                            <td><?= h($venues->venue_photo1) ?></td>
+                            <td><?= h($venues->venue_photo2) ?></td>
+                            <td><?= h($venues->venue_about_us) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Venues', 'action' => 'view', $venues->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Venues', 'action' => 'edit', $venues->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Venues', 'action' => 'delete', $venues->id], ['confirm' => __('Are you sure you want to delete # {0}?', $venues->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
                 <h4><?= __('Related Events') ?></h4>
                 <?php if (!empty($eventType->events)) : ?>
                 <div class="table-responsive">
@@ -172,28 +162,24 @@
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Event Name') ?></th>
-                            <th><?= __('Customer Id') ?></th>
+                            <th><?= __('User Id') ?></th>
                             <th><?= __('Venue Id') ?></th>
                             <th><?= __('Event Attendance') ?></th>
-                            <th><?= __('Event Date') ?></th>
                             <th><?= __('Event Type Id') ?></th>
                             <th><?= __('Event Startdate') ?></th>
                             <th><?= __('Event Enddate') ?></th>
-                            <th><?= __('Payment Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($eventType->events as $events) : ?>
                         <tr>
                             <td><?= h($events->id) ?></td>
                             <td><?= h($events->event_name) ?></td>
-                            <td><?= h($events->customer_id) ?></td>
+                            <td><?= h($events->user_id) ?></td>
                             <td><?= h($events->venue_id) ?></td>
                             <td><?= h($events->event_attendance) ?></td>
-                            <td><?= h($events->event_date) ?></td>
                             <td><?= h($events->event_type_id) ?></td>
                             <td><?= h($events->event_startdate) ?></td>
                             <td><?= h($events->event_enddate) ?></td>
-                            <td><?= h($events->payment_id) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Events', 'action' => 'view', $events->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Events', 'action' => 'edit', $events->id]) ?>

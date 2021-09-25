@@ -12,16 +12,15 @@ use Cake\ORM\Entity;
  * @property string $supplier_type
  * @property string $supplier_name
  * @property string $supplier_address
- * @property float $supplier_travel_radius
  * @property string $supplier_payrate
- * @property float $supplier_min_hour
- * @property float $supplier_advertise_fee
  * @property string $supplier_contact_name
  * @property string $supplier_contact_number
  * @property string $supplier_email
  * @property string|null $supplier_photo
  * @property string|null $supplier_about_us
  *
+ * @property \App\Model\Entity\SupplierAvailability[] $supplier_availability
+ * @property \App\Model\Entity\SupplierSuburb[] $supplier_suburb
  * @property \App\Model\Entity\EventType[] $event_types
  * @property \App\Model\Entity\Event[] $events
  */
@@ -40,15 +39,14 @@ class Supplier extends Entity
         'supplier_type' => true,
         'supplier_name' => true,
         'supplier_address' => true,
-        'supplier_travel_radius' => true,
         'supplier_payrate' => true,
-        'supplier_min_hour' => true,
-        'supplier_advertise_fee' => true,
         'supplier_contact_name' => true,
         'supplier_contact_number' => true,
         'supplier_email' => true,
         'supplier_photo' => true,
         'supplier_about_us' => true,
+        'supplier_availability' => true,
+        'supplier_suburb' => true,
         'event_types' => true,
         'events' => true,
     ];

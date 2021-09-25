@@ -17,14 +17,11 @@ class SuppliersFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'supplier_type' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'supplier_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'supplier_address' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplier_travel_radius' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
         'supplier_payrate' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'supplier_min_hour' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'supplier_advertise_fee' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
         'supplier_contact_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'supplier_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'supplier_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
@@ -52,10 +49,7 @@ class SuppliersFixture extends TestFixture
                 'supplier_type' => 'Lorem ipsum dolor sit amet',
                 'supplier_name' => 'Lorem ipsum dolor sit amet',
                 'supplier_address' => 'Lorem ipsum dolor sit amet',
-                'supplier_travel_radius' => 1,
                 'supplier_payrate' => 'Lorem ipsum dolor sit amet',
-                'supplier_min_hour' => 1,
-                'supplier_advertise_fee' => 1,
                 'supplier_contact_name' => 'Lorem ipsum dolor sit amet',
                 'supplier_contact_number' => 'Lorem ipsum dolor sit amet',
                 'supplier_email' => 'Lorem ipsum dolor sit amet',
