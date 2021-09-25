@@ -15,6 +15,8 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var \App\Model\Entity\EventType $eventType
+ * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $types
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -154,11 +156,11 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <div class="form-field">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select name="" id="" class="form-control">
+                                        <select name="venue_type" id="" class="form-control">
                                             <option value="">Event Type</option>
-                                            <?//php foreach ($eTs as $eventType): ?>
-                                            <option value=""><?//= h($eventType->event_name) ?></option>
-                                            <?//php endforeach; ?>
+                                            <?php foreach ($types as $eventType): ?>
+                                            <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>

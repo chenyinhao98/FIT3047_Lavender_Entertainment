@@ -3,10 +3,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Venues Controller
  *
  * @property \App\Model\Table\VenuesTable $Venues
+ * @property \App\Model\Table\EventTypesTable $EventTypes
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
@@ -25,32 +28,47 @@ class VenuesController extends AppController
 
     public function home()
     {
+        $this->loadModel('EventTypes');
+        $types = $this->EventTypes->find();
+
         $venues = $this->paginate($this->Venues);
 
-        //$eTs = $this->EventTypes->find('all');
-        $this->set(compact('venues'));
+        $this->set(compact('venues','types'));
     }
 
     public function result()
     {
+        $this->loadModel('');
+
         $venues = $this->paginate($this->Venues);
         $searchAddress = $this->getRequest()->getQuery('search_name');
         $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
         $searchPrice = $this->getRequest()->getQuery('venue_price');
+        $searchType = $this->getRequest()->getQuery('venue_type');
+
 
         $numberArray = explode(',',$attendeeNumber);
         $priceArray = explode(',',$searchPrice);
-        $query = $this->Venues->find()
+        $newQuery = $this->Venues->find()
             ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
             ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
             ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
-        $this->set(compact('venues','query'));
+
+        //$x = 0;
+        //while($x < $newQuery.count()) {
+        //    $type = $this->Venues->EventTypes->find()->matching('Venues',function(\cake\ORM\Query $query) use ($newQuery){
+
+        //    })
+        //        ->where(['venue']);
+        //    $x++;
+        //}
+        $this->set(compact('venues','newQuery'));
     }
 
     public function individual($id=null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events','VenueAvailability'],
         ]);
 
         $this->set(compact('venue'));
