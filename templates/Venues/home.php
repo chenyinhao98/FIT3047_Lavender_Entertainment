@@ -206,15 +206,15 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <div class="form-group">
                                 <div class="input-wrap">
                                     <div class="icon"><span class="ion-md-calendar"></span></div>
-                                    <input type="text" class="form-control appointment_date-check-out" placeholder="Start Date">
+                                    <input type="text" class="form-control appointment_date-check-in" placeholder="Start Date">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="input-wrap">
-                                    <div class="icon"><span class="ion-ios-clock"></span></div>
-                                    <input type="text" class="form-control appointment_time" placeholder="Start Time">
+                                    <div class="icon"><span class="ion-md-calender"></span></div>
+                                    <input type="text" class="form-control appointment_date-check-out" placeholder="End Date">
                                 </div>
                             </div>
                         </div>
