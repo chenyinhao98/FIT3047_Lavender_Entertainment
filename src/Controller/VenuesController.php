@@ -38,9 +38,10 @@ class VenuesController extends AppController
 
     public function result()
     {
-        $this->loadModel('');
-
+        $this->loadModel('EventTypes');
         $venues = $this->paginate($this->Venues);
+        $eventType = null;
+
         $searchAddress = $this->getRequest()->getQuery('search_name');
         $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
         $searchPrice = $this->getRequest()->getQuery('venue_price');
@@ -49,20 +50,25 @@ class VenuesController extends AppController
 
         $numberArray = explode(',',$attendeeNumber);
         $priceArray = explode(',',$searchPrice);
-        $newQuery = $this->Venues->find()
+        $result = $this->Venues->find()
             ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
             ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
             ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
 
-        //$x = 0;
-        //while($x < $newQuery.count()) {
-        //    $type = $this->Venues->EventTypes->find()->matching('Venues',function(\cake\ORM\Query $query) use ($newQuery){
-
-        //    })
-        //        ->where(['venue']);
-        //    $x++;
-        //}
-        $this->set(compact('venues','newQuery'));
+        /*
+        $x = 0;
+        foreach($newQuery as $v){
+            $type = $this->Venues->EventTypes->find()->matching('Venues',function(\cake\ORM\Query $query) use ($v){
+                return $query->where();
+            })
+                ->where(['venue_id' => $v->id]);
+            foreach ($type as $t){
+                if ($t->search)
+            }
+            $x++;
+        }
+        */
+        $this->set(compact('venues','result','eventType'));
     }
 
     public function individual($id=null)
@@ -84,6 +90,7 @@ class VenuesController extends AppController
      */
     public function view($id = null)
     {
+
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
