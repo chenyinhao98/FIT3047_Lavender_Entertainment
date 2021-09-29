@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Venues Model
  *
  * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\HasMany $Events
+ * @property \App\Model\Table\VenueAvailabilityTable&\Cake\ORM\Association\HasMany $VenueAvailability
  * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsToMany $EventTypes
  *
  * @method \App\Model\Entity\Venue newEmptyEntity()
@@ -47,6 +48,9 @@ class VenuesTable extends Table
         $this->hasMany('Events', [
             'foreignKey' => 'venue_id',
         ]);
+        $this->hasMany('VenueAvailability', [
+            'foreignKey' => 'venue_id',
+        ]);
         $this->belongsToMany('EventTypes', [
             'foreignKey' => 'venue_id',
             'targetForeignKey' => 'event_type_id',
@@ -79,9 +83,9 @@ class VenuesTable extends Table
             ->notEmptyString('venue_address');
 
         $validator
-            ->integer('venue_min_capacity')
-            ->requirePresence('venue_min_capacity', 'create')
-            ->notEmptyString('venue_min_capacity');
+            ->integer('venue_capacity')
+            ->requirePresence('venue_capacity', 'create')
+            ->notEmptyString('venue_capacity');
 
         $validator
             ->numeric('venue_payrate')

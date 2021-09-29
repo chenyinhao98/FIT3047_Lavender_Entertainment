@@ -10,19 +10,16 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $event_name
- * @property int $customer_id
+ * @property int $user_id
  * @property int $venue_id
  * @property int $event_attendance
- * @property int $event_date
  * @property int $event_type_id
  * @property \Cake\I18n\FrozenTime $event_startdate
  * @property \Cake\I18n\FrozenTime $event_enddate
- * @property int $payment_id
  *
- * @property \App\Model\Entity\Customer $customer
+ * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Venue $venue
  * @property \App\Model\Entity\EventType $event_type
- * @property \App\Model\Entity\Payment $payment
  * @property \App\Model\Entity\Supplier[] $suppliers
  * @property \App\Model\Entity\Talent[] $talents
  */
@@ -39,18 +36,15 @@ class Event extends Entity
      */
     protected $_accessible = [
         'event_name' => true,
-        'customer_id' => true,
+        'user_id' => true,
         'venue_id' => true,
         'event_attendance' => true,
-        'event_date' => true,
         'event_type_id' => true,
         'event_startdate' => true,
         'event_enddate' => true,
-        'payment_id' => true,
-        'customer' => true,
+        'user' => true,
         'venue' => true,
         'event_type' => true,
-        'payment' => true,
         'suppliers' => true,
         'talents' => true,
     ];

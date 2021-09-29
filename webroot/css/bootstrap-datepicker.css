@@ -8,7 +8,7 @@
  *
  */
 .datepicker {
-  padding: 4px;
+  padding: 5px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -303,7 +303,7 @@
   background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
   background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-linear-gradient(top, #A295FF, #A295FF);
   background-image: -o-linear-gradient(top, #0088cc, #0044cc);
   background-image: linear-gradient(top, #0088cc, #0044cc);
   background-repeat: repeat-x;
@@ -502,11 +502,10 @@
   *border-right-width: 2px;
   *border-bottom-width: 2px;
   color: #333333;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 .datepicker.dropdown-menu th,
 .datepicker.dropdown-menu td {
-  padding: 4px 5px;
+  padding: 8px 10px;
 }

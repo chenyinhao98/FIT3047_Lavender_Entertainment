@@ -3,10 +3,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Venues Controller
  *
  * @property \App\Model\Table\VenuesTable $Venues
+ * @property \App\Model\Table\EventTypesTable $EventTypes
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
@@ -23,11 +26,59 @@ class VenuesController extends AppController
         $this->set(compact('venues'));
     }
 
-    public function result()
+    public function home()
     {
+        $this->loadModel('EventTypes');
+        $types = $this->EventTypes->find();
+
         $venues = $this->paginate($this->Venues);
 
-        $this->set(compact('venues'));
+        $this->set(compact('venues','types'));
+    }
+
+    public function result()
+    {
+        $this->loadModel('EventTypes');
+        $venues = $this->paginate($this->Venues);
+        $eventType = null;
+
+        $searchAddress = $this->getRequest()->getQuery('search_name');
+        $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
+        $searchPrice = $this->getRequest()->getQuery('venue_price');
+        $searchType = $this->getRequest()->getQuery('venue_type');
+
+
+        $numberArray = explode(',',$attendeeNumber);
+        $priceArray = explode(',',$searchPrice);
+        $result = $this->Venues->find()
+            ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+            ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
+
+        /*
+        $x = 0;
+        foreach($newQuery as $v){
+            $type = $this->Venues->EventTypes->find()->matching('Venues',function(\cake\ORM\Query $query) use ($v){
+                return $query->where();
+            })
+                ->where(['venue_id' => $v->id]);
+            foreach ($type as $t){
+                if ($t->search)
+            }
+            $x++;
+        }
+        */
+        $this->set(compact('venues','result','eventType'));
+    }
+
+    public function individual($id=null)
+    {
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events','VenueAvailability'],
+        ]);
+
+        $this->set(compact('venue'));
+
     }
 
     /**
@@ -39,8 +90,9 @@ class VenuesController extends AppController
      */
     public function view($id = null)
     {
+
         $venue = $this->Venues->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
 
         $this->set(compact('venue'));
@@ -111,30 +163,4 @@ class VenuesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    public function display(string ...$path): ?Response
-    {
-        if (!$path) {
-            return $this->redirect('/');}
-        if (in_array('..', $path, true) || in_array('.', $path, true)) {
-            throw new ForbiddenException();}
-        $page = $subpage = null;
-
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        $this->set(compact('page', 'subpage'));
-
-        try {
-            return $this->render(implode('/', $path));
-        } catch (MissingTemplateException $exception) {
-            if (Configure::read('debug')) {
-                throw $exception;
-            }
-            throw new NotFoundException();
-        }}}
-
-
-
+}

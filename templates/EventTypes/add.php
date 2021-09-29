@@ -67,7 +67,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add New Venues'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -85,8 +87,10 @@
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
                 </div>
-            </div>
         </li>
 
         <!-- Nav Item - Talent Collapse Menu -->
@@ -102,6 +106,8 @@
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -118,7 +124,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Event Type Options:</h6>
                     <?= $this->Html->link(__('View All Event Types'), ['controller'=> 'EventTypes','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <a style="color:#a298fc;" class="collapse-item active">Add New Event Type</a>
+                    <a style="color:#a298fc;" class="collapse-item active">Add Event Type</a>
                 </div>
             </div>
         </li>
@@ -208,32 +214,23 @@
 
             <!-- Begin Page Content -->
             <br>
-            <?= $this->Form->create($eventType)?>
-            <fieldset style="padding-left: 5%; padding-right:5%">
-                <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;" >
-                    <legend><?= __('Add New Event Type') ?></legend>
-                </h1>
-                <br>
-                <?php
-                echo $this->Form->control('event_name');
-                ?><br>
-                <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
-                <?= $this->Form->end() ?>
-            </fieldset>
-            <br>
+            <div class="suppliers form content">
+                <?= $this->Form->create($eventType) ?>
+                <fieldset style="padding-left: 5%; padding-right:5%">
+                    <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;">
+                        <legend><?= __('Add Event Type') ?></legend></h1><br>
+                    <?php
+                    echo $this->Form->control('event_name');
+                    ?><br>
+                    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
+                    <?= $this->Form->end() ?>
+                </fieldset>
+            </div>
         </div>
-        <div class="container-fluid">
-            <!-- content goes here !-->
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
-        </div>
-        <!-- End of Main Content -->
-
-
     </div>
-    <!-- End of Content Wrapper -->
-
 </div>
+</div>
+<!-- End of Main Content -->
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
@@ -275,4 +272,3 @@
 </body>
 
 </html>
-

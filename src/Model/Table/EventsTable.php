@@ -11,10 +11,9 @@ use Cake\Validation\Validator;
 /**
  * Events Model
  *
- * @property \App\Model\Table\CustomersTable&\Cake\ORM\Association\BelongsTo $Customers
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\VenuesTable&\Cake\ORM\Association\BelongsTo $Venues
  * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsTo $EventTypes
- * @property \App\Model\Table\PaymentsTable&\Cake\ORM\Association\BelongsTo $Payments
  * @property \App\Model\Table\SuppliersTable&\Cake\ORM\Association\BelongsToMany $Suppliers
  * @property \App\Model\Table\TalentsTable&\Cake\ORM\Association\BelongsToMany $Talents
  *
@@ -48,8 +47,8 @@ class EventsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Customers', [
-            'foreignKey' => 'customer_id',
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
         $this->belongsTo('Venues', [
@@ -58,10 +57,6 @@ class EventsTable extends Table
         ]);
         $this->belongsTo('EventTypes', [
             'foreignKey' => 'event_type_id',
-            'joinType' => 'INNER',
-        ]);
-        $this->belongsTo('Payments', [
-            'foreignKey' => 'payment_id',
             'joinType' => 'INNER',
         ]);
         $this->belongsToMany('Suppliers', [
@@ -100,11 +95,6 @@ class EventsTable extends Table
             ->notEmptyString('event_attendance');
 
         $validator
-            ->integer('event_date')
-            ->requirePresence('event_date', 'create')
-            ->notEmptyString('event_date');
-
-        $validator
             ->dateTime('event_startdate')
             ->requirePresence('event_startdate', 'create')
             ->notEmptyDateTime('event_startdate');
@@ -126,10 +116,9 @@ class EventsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['customer_id'], 'Customers'), ['errorField' => 'customer_id']);
+        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
         $rules->add($rules->existsIn(['venue_id'], 'Venues'), ['errorField' => 'venue_id']);
         $rules->add($rules->existsIn(['event_type_id'], 'EventTypes'), ['errorField' => 'event_type_id']);
-        $rules->add($rules->existsIn(['payment_id'], 'Payments'), ['errorField' => 'payment_id']);
 
         return $rules;
     }

@@ -26,7 +26,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
-    <script src="vendor/jquery/jquery.min.js"></script>
+
 
     <!-- ?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?> -->
     <?= $this->Html->css(['https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css']) ?>
@@ -73,11 +73,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="rooms.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
+                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
@@ -85,7 +85,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!-- END nav -->
 
 <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
-    <div class="container">
+    <div class="container" style="max-width: 100vmax; align-items: center;">
         <div class="row justify-content-end">
                 <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
@@ -173,6 +173,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 <?= $this->Html->script('/js/jquery-migrate-3.0.1.min.js'); ?>
+<?= $this->Html->script('/js/popper.min.js'); ?>
 <?= $this->Html->script('/js/bootstrap.min.js'); ?>
 <?= $this->Html->script('/js/jquery.easing.1.3.js'); ?>
 <?= $this->Html->script('/js/jquery.waypoints.min.js'); ?>

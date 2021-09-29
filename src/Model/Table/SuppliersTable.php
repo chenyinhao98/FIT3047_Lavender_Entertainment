@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Suppliers Model
  *
+ * @property \App\Model\Table\SupplierAvailabilityTable&\Cake\ORM\Association\HasMany $SupplierAvailability
+ * @property \App\Model\Table\SupplierSuburbTable&\Cake\ORM\Association\HasMany $SupplierSuburb
  * @property \App\Model\Table\EventTypesTable&\Cake\ORM\Association\BelongsToMany $EventTypes
  * @property \App\Model\Table\EventsTable&\Cake\ORM\Association\BelongsToMany $Events
  *
@@ -44,6 +46,12 @@ class SuppliersTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->hasMany('SupplierAvailability', [
+            'foreignKey' => 'supplier_id',
+        ]);
+        $this->hasMany('SupplierSuburb', [
+            'foreignKey' => 'supplier_id',
+        ]);
         $this->belongsToMany('EventTypes', [
             'foreignKey' => 'supplier_id',
             'targetForeignKey' => 'event_type_id',
@@ -87,25 +95,10 @@ class SuppliersTable extends Table
             ->notEmptyString('supplier_address');
 
         $validator
-            ->numeric('supplier_travel_radius')
-            ->requirePresence('supplier_travel_radius', 'create')
-            ->notEmptyString('supplier_travel_radius');
-
-        $validator
             ->scalar('supplier_payrate')
             ->maxLength('supplier_payrate', 256)
             ->requirePresence('supplier_payrate', 'create')
             ->notEmptyString('supplier_payrate');
-
-        $validator
-            ->numeric('supplier_min_hour')
-            ->requirePresence('supplier_min_hour', 'create')
-            ->notEmptyString('supplier_min_hour');
-
-        $validator
-            ->numeric('supplier_advertise_fee')
-            ->requirePresence('supplier_advertise_fee', 'create')
-            ->notEmptyString('supplier_advertise_fee');
 
         $validator
             ->scalar('supplier_contact_name')

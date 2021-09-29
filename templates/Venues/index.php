@@ -70,6 +70,8 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Venue Options:</h6>
                     <a style="color:#a298fc;" class="collapse-item active">View All Venues</a>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -87,6 +89,8 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -103,7 +107,9 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add New Talents'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -147,22 +153,22 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Search for..." aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
+                    <!-- Dropdown - Messages -->
+                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                         aria-labelledby="searchDropdown">
+                        <form class="form-inline mr-auto w-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                       placeholder="Search for..." aria-label="Search"
+                                       aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
                     </li>
 
                     <hr class="topbar-divider">
@@ -192,47 +198,49 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Venues') ?></h3></h1>
             </div>
             <div class="venues index content">
-                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%;">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
-                        <thead>
-                        <tr style="font-size: 10px; padding: 0 !important; margin: 0 !important; ">
-                            <th><?= $this->Paginator->sort('Venue Name') ?></th>
-                            <th><?= $this->Paginator->sort('Address') ?></th>
-                            <th><?= $this->Paginator->sort('Capacity') ?></th>
-                            <th><?= $this->Paginator->sort('Hourly Rate') ?></th>
-                            <th><?= $this->Paginator->sort('Rating') ?></th>
-                            <th><?= $this->Paginator->sort('Contact Name') ?></th>
-                            <th><?= $this->Paginator->sort('Contact Number') ?></th>
-                            <th><?= $this->Paginator->sort('Email') ?></th>
-                            <th><?= $this->Paginator->sort('Photo 1') ?></th>
-                            <th><?= $this->Paginator->sort('Photo 2') ?></th>
-                            <th><?= $this->Paginator->sort('About') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($venues as $venue): ?>
-                            <tr style="font-size: 10px;">
-                                <td><?= h($venue->venue_name) ?></td>
-                                <td><?= h($venue->venue_address) ?></td>
-                                <td><?= $this->Number->format($venue->venue_min_capacity) ?></td>
-                                <td><?= $this->Number->format($venue->venue_payrate) ?></td>
-                                <td><?= $this->Number->format($venue->venue_rating) ?></td>
-                                <td><?= h($venue->venue_contact_name) ?></td>
-                                <td><?= h($venue->venue_contact_number) ?></td>
-                                <td><?= h($venue->venue_email) ?></td>
-                                <td><?= h($venue->venue_photo1) ?></td>
-                                <td><?= h($venue->venue_photo2) ?></td>
-                                <td><?= h($venue->venue_about_us) ?></td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?> <br>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $venue->id]) ?> <br>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete {0}?', $venue->venue_name)]) ?>
-                                </td>
+                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%; font-size: 55%">
+                        <table class="table table-bordered" id="dataTable">
+                            <thead>
+                            <tr>
+                                <th><?= $this->Paginator->sort('id') ?></th>
+                                <th><?= $this->Paginator->sort('venue_name') ?></th>
+                                <th><?= $this->Paginator->sort('venue_address') ?></th>
+                                <th><?= $this->Paginator->sort('venue_capacity') ?></th>
+                                <th><?= $this->Paginator->sort('venue_payrate') ?></th>
+                                <th><?= $this->Paginator->sort('venue_rating') ?></th>
+                                <th><?= $this->Paginator->sort('venue_contact_name') ?></th>
+                                <th><?= $this->Paginator->sort('venue_contact_number') ?></th>
+                                <th><?= $this->Paginator->sort('venue_email') ?></th>
+                                <th><?= $this->Paginator->sort('venue_photo1') ?></th>
+                                <th><?= $this->Paginator->sort('venue_photo2') ?></th>
+                                <th><?= $this->Paginator->sort('venue_about_us') ?></th>
+                                <th class="actions"><?= __('Actions') ?></th>
                             </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($venues as $venue): ?>
+                                <tr>
+                                    <td><?= $this->Number->format($venue->id) ?></td>
+                                    <td><?= h($venue->venue_name) ?></td>
+                                    <td><?= h($venue->venue_address) ?></td>
+                                    <td><?= $this->Number->format($venue->venue_capacity) ?></td>
+                                    <td><?= $this->Number->format($venue->venue_payrate) ?></td>
+                                    <td><?= $this->Number->format($venue->venue_rating) ?></td>
+                                    <td><?= h($venue->venue_contact_name) ?></td>
+                                    <td><?= h($venue->venue_contact_number) ?></td>
+                                    <td><?= h($venue->venue_email) ?></td>
+                                    <td><?= h($venue->venue_photo1) ?></td>
+                                    <td><?= h($venue->venue_photo2) ?></td>
+                                    <td><?= h($venue->venue_about_us) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?>
+                                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $venue->id]) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete # {0}?', $venue->id)]) ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
                 </div>
             </div>
             <div class="container-fluid">
@@ -283,7 +291,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-<?= $this->fetch('script') ?>
+    <?= $this->fetch('script') ?>
 
     <script>
         $(document).ready(function(){
