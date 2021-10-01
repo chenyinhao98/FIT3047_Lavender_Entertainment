@@ -28,12 +28,6 @@ use Cake\Http\MiddlewareQueue;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
-use Authentication\AuthenticationService;
-use Authentication\AuthenticationServiceInterface;
-use Authentication\AuthenticationServiceProviderInterface;
-use Authentication\Middleware\AuthenticationMiddleware;
-use Cake\Routing\Router;
-use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Application setup class.
@@ -143,5 +137,4 @@ class Application extends BaseApplication
 
         // Load more plugins here
     }
-
 }

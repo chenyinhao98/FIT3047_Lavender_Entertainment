@@ -131,7 +131,7 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
     public function beforeFilter(EventInterface $event){
-        $this->Auth->allow(['controller' => 'Pages', 'action' => 'display', 'home']);
+        $this->Auth->allow(['register']);
     }
 
 

@@ -33,7 +33,7 @@ class TalentsController extends AppController
     public function view($id = null)
     {
         $talent = $this->Talents->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events', 'TalentAvailability', 'TalentSuburb'],
         ]);
 
         $this->set(compact('talent'));

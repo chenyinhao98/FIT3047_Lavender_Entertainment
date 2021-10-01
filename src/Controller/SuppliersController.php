@@ -16,7 +16,7 @@ class SuppliersController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function index() //dkffs
+    public function index()
     {
         $suppliers = $this->paginate($this->Suppliers);
 
@@ -33,7 +33,7 @@ class SuppliersController extends AppController
     public function view($id = null)
     {
         $supplier = $this->Suppliers->get($id, [
-            'contain' => ['EventTypes', 'Events'],
+            'contain' => ['EventTypes', 'Events', 'SupplierAvailability', 'SupplierSuburb'],
         ]);
 
         $this->set(compact('supplier'));
