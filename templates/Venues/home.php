@@ -105,7 +105,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>"><span>Lavender</span>Entertainment</a>
+        <a class="navbar-brand" href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>"><span>Lavender</span>Entertainment</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
         </button>
@@ -206,15 +206,15 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <div class="form-group">
                                 <div class="input-wrap">
                                     <div class="icon"><span class="ion-md-calendar"></span></div>
-                                    <input type="text" class="form-control appointment_date-check-out" placeholder="Start Date">
+                                    <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Start Date">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="input-wrap">
-                                    <div class="icon"><span class="ion-ios-clock"></span></div>
-                                    <input type="text" class="form-control appointment_time" placeholder="Start Time">
+                                    <div class="icon"><span class="ion-md-calender"></span></div>
+                                    <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="End Date">
                                 </div>
                             </div>
                         </div>

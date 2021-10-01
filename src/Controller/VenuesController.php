@@ -3,17 +3,27 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Database\Expression\QueryExpression;
+use Cake\ORM\Query;
 use Cake\ORM\TableRegistry;
+use App\Model\Entity\Venue;
 
 /**
  * Venues Controller
  *
  * @property \App\Model\Table\VenuesTable $Venues
  * @property \App\Model\Table\EventTypesTable $EventTypes
+ * @property \App\Model\Table\VenueAvailabilityTable $VenueAvailability
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
 {
+
+    public $paginate = [
+        'limit' => 100
+    ];
+
+
     /**
      * Index method
      *
@@ -38,31 +48,58 @@ class VenuesController extends AppController
 
     public function result()
     {
-        $this->loadModel('');
+        $this->loadModel('EventTypes');
+        $this->loadModel('VenueAvailability');
 
         $venues = $this->paginate($this->Venues);
+
+
         $searchAddress = $this->getRequest()->getQuery('search_name');
         $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
         $searchPrice = $this->getRequest()->getQuery('venue_price');
         $searchType = $this->getRequest()->getQuery('venue_type');
 
+        $searchStartDate = $this->getRequest()->getQuery('search_start_date');
+        $searchEndDate = $this->getRequest()->getQuery('search_end_date');
+
+        //date format transmission
+        if ($searchStartDate != ''){
+            $startDateArray = explode('/',$searchStartDate);
+            $searchStartDate = $startDateArray[2] . '-' . $startDateArray[0] . '-' . $startDateArray[1];
+        }
+
+        if ($searchEndDate != '') {
+            $endDateArray = explode('/',$searchEndDate);
+            $searchEndDate = $endDateArray[2] . '-' . $endDateArray[0] . '-' . $endDateArray[1];
+        }
 
         $numberArray = explode(',',$attendeeNumber);
         $priceArray = explode(',',$searchPrice);
-        $newQuery = $this->Venues->find()
+
+
+        $invalidIds = array();
+        foreach($venues as $venue) {
+            $available = $this->VenueAvailability->find()
+                ->where(['venue_id' => $venue->id]) //Make this constant only for testing
+                ->andWhere(['date' => $searchStartDate])
+                ->andWhere(['avaliable' => 0]); //this is a Boolean entity
+            echo $available->all()->first();
+            if(empty($available->all()->first())){
+
+            }
+            else{
+                array_push($invalidIds,$venue->id);
+            }
+        }
+
+        $results = $this->Venues->find()
             ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
             ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
+            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
+            ->andwhere(['id NOT IN' => $invalidIds]);
 
-        //$x = 0;
-        //while($x < $newQuery.count()) {
-        //    $type = $this->Venues->EventTypes->find()->matching('Venues',function(\cake\ORM\Query $query) use ($newQuery){
 
-        //    })
-        //        ->where(['venue']);
-        //    $x++;
-        //}
-        $this->set(compact('venues','newQuery'));
+        $this->set(compact('venues','results'));
     }
 
     public function individual($id=null)
@@ -72,6 +109,10 @@ class VenuesController extends AppController
         ]);
 
         $this->set(compact('venue'));
+
+        $this->loadModel('Suppliers');
+        $this->loadModel('Talents');
+
 
     }
 
@@ -84,6 +125,7 @@ class VenuesController extends AppController
      */
     public function view($id = null)
     {
+
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);

@@ -11,7 +11,7 @@
 
 
 <section class="ftco-section about-section bg-light " style="background:gray">
-    <div class="container" >
+    <div class="container">
         <div class="row justify-content-left pb-5 mb-3">
             <div class="col-md-7 d-flex services align-self-stretch px-3 ftco-animate">
                 <div class="d-block services-wrap text-left">
@@ -19,7 +19,7 @@
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            
+
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -28,7 +28,7 @@
                             <div class="carousel-item">
                                 <img class="d-block w-100 " style="height: 421px;" src="<?=$this->Html->Url->image(h($venue->venue_photo2)) ?>" alt="Second Picture">
                             </div>
-                            
+
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -72,13 +72,13 @@
 
                 </div>
             </div>
-            
+
             <div class="col-lg-5 col-md-7 d-flex align-items-stretch ">
                 <div class="contact-wrap w-100 p-md-5 p-4 ">
                     <h3 class="mb-4">Check Availability</h3>
                     <div id="form-message-warning" class="mb-4"></div>
                     <div id="form-message-success" class="mb-4">
-                        
+
                     </div>
                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                         <div class="row">
@@ -120,7 +120,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    
+
                                     <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
                                     <div class="submitting"></div>
                                 </div>
@@ -205,7 +205,7 @@
 
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">
