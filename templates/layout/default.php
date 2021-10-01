@@ -77,7 +77,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
->>>>>>> origin/master
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
@@ -88,8 +87,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
     <div class="container" style="max-width: 100vmax; align-items: center;">
         <div class="row justify-content-end">
-                <?= $this->Flash->render() ?>
-                <?= $this->fetch('content') ?>
+            <?= $this->Flash->render() ?>
+            <?= $this->fetch('content') ?>
         </div>
     </div>
 </section>

@@ -227,7 +227,7 @@
                     echo $this->Form->control('venue_rating');
                     echo $this->Form->control('venue_contact_name');
                     echo $this->Form->control('venue_contact_number');
-                    echo $this->Form->control('venue_email');
+                    echo $this->Form->control('venue_email', ['type' => 'email']);
                     echo $this->Form->control('venue_photo1', array('type' => 'file'));
                     echo $this->Form->control('venue_photo2', array('type' => 'file'));
                     echo $this->Form->control('venue_about_us');

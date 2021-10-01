@@ -113,16 +113,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <ul class="navbar-nav ml-auto" >
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
-<<<<<<< HEAD
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
-=======
-<<<<<<<< HEAD:templates/Venues/home.php
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
-========
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
->>>>>>> 139fcca6982a5868e2a4988562469f0ff901a713
->>>>>>>> origin/master:templates/Pages/home.php
->>>>>>> origin/master
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
@@ -148,51 +139,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row justify-content-end" >
             <div class="col-lg-12">
-<<<<<<< HEAD
                 <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
-=======
-<<<<<<<< HEAD:templates/Venues/home.php
-                  <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
-                    <h3 class="mb-3">Book your Venue</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- search keywords -->
-                                <input class="form-control" type="text" name="search_name" placeholder="Suburb"/>
-                                <!-- CODE for PHP form
-                                = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Suburb"]);
-                                -->
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="form-field">
-                                    <div class="select-wrap">
-                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select name="venue_type" id="" class="form-control">
-                                            <option value="">Event Type</option>
-                                            <?php foreach ($types as $eventType): ?>
-                                            <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-========
-
-                <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
->>>>>>> origin/master
                 <h3 class="mb-3">Book your Venue</h3>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-<<<<<<< HEAD
                             <!-- search keywords -->
                             <input class="form-control" type="text" name="search_name" placeholder="Suburb"/>
                             <!-- CODE for PHP form
                             = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Suburb"]);
                             -->
-=======
-                            <?= $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Suburb"]); ?>
->>>>>>> origin/master
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -200,70 +156,22 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <div class="form-field">
                                 <div class="select-wrap">
                                     <div class="icon"><span class="fa fa-chevron-down"></span></div>
-<<<<<<< HEAD
                                     <select name="venue_type" id="" class="form-control">
                                         <option value="">Event Type</option>
                                         <?php foreach ($types as $eventType): ?>
                                             <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
                                         <?php endforeach; ?>
                                     </select>
-=======
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Event Type</option>
-                                        <option value="">Wedding</option>
-                                        <option value="">Birthday Party</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">5</option>
-                                    </select>
->>>>>>>> origin/master:templates/Pages/home.php
->>>>>>> origin/master
                                 </div>
                             </div>
                         </div>
                     </div>
 
 
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:templates/Venues/home.php
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="form-field">
-                                    <div class="select-wrap">
-                                        <!-- number of attendees-->
-                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select name="attendee_number" id="" class="form-control">
-                                            <option value='0,500'>Attendees</option>
-                                            <option value='0,10'>Less than 10</option>
-                                            <option value='11,50'>11-50</option>
-                                            <option value='51,100'>51-100</option>
-                                            <option value='100,500'>More than 100</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="form-field">
-                                    <div class="select-wrap">
-                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                        <select name="venue_price" id="" class="form-control">
-                                            <option value="0,500">Price</option>
-                                            <option value="0,20">Under $20/h</option>
-                                            <option value="21,50">$21-50/h</option>
-                                            <option value="51,100">$51-100/h</option>
-                                            <option value="100,500">over $100/h</option>
-                                        </select>
-                                    </div>
-========
->>>>>>> origin/master
                     <div class="col-md-6">
                         <div class="form-group">
                             <div class="form-field">
                                 <div class="select-wrap">
-<<<<<<< HEAD
                                     <!-- number of attendees-->
                                     <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                     <select name="attendee_number" id="" class="form-control">
@@ -272,15 +180,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                         <option value='11,50'>11-50</option>
                                         <option value='51,100'>51-100</option>
                                         <option value='100,500'>More than 100</option>
-=======
-                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Attendees</option>
-                                        <option value="">Less than 5</option>
-                                        <option value="">5-9</option>
-                                        <option value="">10-19</option>
-                                        <option value="">More than 20</option>
->>>>>>> origin/master
                                     </select>
                                 </div>
                             </div>
@@ -291,7 +190,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <div class="form-field">
                                 <div class="select-wrap">
                                     <div class="icon"><span class="fa fa-chevron-down"></span></div>
-<<<<<<< HEAD
                                     <select name="venue_price" id="" class="form-control">
                                         <option value="0,500">Price</option>
                                         <option value="0,20">Under $20/h</option>
@@ -299,62 +197,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                         <option value="51,100">$51-100/h</option>
                                         <option value="100,500">over $100/h</option>
                                     </select>
-=======
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Price</option>
-                                        <option value="">Under $15/h</option>
-                                        <option value="">$15-29/h</option>
-                                        <option value="">$30-49/h</option>
-                                        <option value="">over $50/h</option>
-                                    </select>
->>>>>>>> origin/master:templates/Pages/home.php
->>>>>>> origin/master
                                 </div>
                             </div>
                         </div>
                     </div>
 
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:templates/Venues/home.php
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="input-wrap">
-                                    <div class="icon"><span class="ion-md-calendar"></span></div>
-                                    <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Start Date">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="input-wrap">
-                                    <div class="icon"><span class="ion-md-calender"></span></div>
-                                    <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="End Date">
-                                </div>
-========
                     <div class="col-md-6">
                         <div class="form-group">
                             <div class="input-wrap">
                                 <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" class="form-control appointment_date-check-out" placeholder="Start Date">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-ios-clock"></span></div>
-                                <input type="text" class="form-control appointment_time" placeholder="Start Time">
-                            </div>
-                        </div>
-                    </div>
->>>>>>> origin/master
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-md-calendar"></span></div>
-<<<<<<< HEAD
-                                <input type="text" class="form-control appointment_date-check-in" placeholder="Start Date">
+                                <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Start Date">
                             </div>
                         </div>
                     </div>
@@ -362,20 +214,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <div class="form-group">
                             <div class="input-wrap">
                                 <div class="icon"><span class="ion-md-calender"></span></div>
-                                <input type="text" class="form-control appointment_date-check-out" placeholder="End Date">
-=======
-                                <input type="text" class="form-control appointment_date-check-in" placeholder="End Date">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-ios-clock"></span></div>
-                                <input type="text" class="form-control appointment_time" placeholder="End Time">
->>>>>>>> origin/master:templates/Pages/home.php
->>>>>>> origin/master
+                                <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="End Date">
                             </div>
                         </div>
                     </div>
