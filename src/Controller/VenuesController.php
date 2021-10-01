@@ -50,6 +50,29 @@ class VenuesController extends AppController
     }
 
     /**
+     * Add method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function cart($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $this->set(compact('venue'));
+
+    }
+
+
+
+    
+
+    /**
      * View method
      *
      * @param string|null $id Venue id.
@@ -130,4 +153,55 @@ class VenuesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    
+
+    public function getCount() {
+        $Venues = $this->readVenues();
+         
+        if (count($Venues)<1) {
+            return 0;
+        }
+         
+        $count = 0;
+        foreach ($Venues as $venue) {
+            $count=$count+$venue;
+        }
+         
+        return $count;
+    }
+ 
+    /*
+     * save data to session
+     */
+    public function saveVenue($data) {
+        return CakeSession::write('cart',$data);
+    }
+ 
+    /*
+     * read cart data from session
+     */
+    public function readVenues() {
+        return CakeSession::read('cart');
+    }
+
+    /**
+     * Invoice method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function invoice($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $this->set(compact('venue'));
+
+    }
+ 
 }
