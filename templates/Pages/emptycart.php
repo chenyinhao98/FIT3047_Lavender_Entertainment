@@ -15,7 +15,6 @@
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
- * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
  */
 
 use Cake\Cache\Cache;
@@ -109,7 +108,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </div>
 </div>
 
-
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>">Lavender<span>Entertainment</span></a>
@@ -123,135 +121,72 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'cart',$venue->id]) ?>" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url(<?=$this->Html->Url->image('/img/result_background.png')?>); data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-          <p class="breadcrumbs mb-2"><span class="mr-2"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact Us <i class="fa fa-chevron-right"></i></span></p>
-            <h1 class="mb-0 bread">Contact Us</h1>
-          </div>
+<body>
+<div class="container mt-5 p-3 rounded cart">
+    <div class="row no-gutters">
+        <div class="col-md-8">
+            <div class="product-details mr-2">
+            <p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" ><i class="fa fa-long-arrow-left ml-1" aria-hidden="true"></i> Continue Shopping</a>
+                <a href="3" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" input type="update" name="update" value="Submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update Cart</a>
+                <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" ><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart	</a></p>                
+            <hr>
+                <h6 class="mb-0">Shopping cart</h6>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                    <div class="col-md-12"> <h2 class="font-weight-bold">Your Cart is empty</h2></div>                
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-   
-   	<section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-md-8">
-    				<div id="map" class="map"></div>
-    			</div>
-    			<div class="col-md-4 p-4 p-md-5 bg-white">
-    				<h2 class="font-weight-bold mb-4">Lets have a conversation!</h2>
-    				<p>If you have any questions, just fill in the contact form, and we will answer you shortly. If you live nearby, come visit Lavender Entertainment at our comfortable office. We'd love to help you with any venue bookings you want!</p>
-    				<p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" class="btn btn-primary">Book Venue Now</a></p>
-    			</div>
-					<div class="col-md-12">
-						<div class="wrapper">
-							<div class="row no-gutters">
-								<div class="col-lg-8 col-md-7 d-flex align-items-stretch">
-									<div class="contact-wrap w-100 p-md-5 p-4">
-										<h3 class="mb-4">Get in touch</h3>
-										<div id="form-message-warning" class="mb-4"></div> 
-					      		<div id="form-message-success" class="mb-4">
-					            
-					      		</div>
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="label" for="name">Full Name</label>
-														<input type="text" class="form-control" name="name" id="name" placeholder="Name">
-													</div>
-												</div>
-												<div class="col-md-6"> 
-													<div class="form-group">
-														<label class="label" for="email">Email Address</label>
-														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="subject">Subject</label>
-														<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group">
-														<label class="label" for="#">Message</label>
-														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-													</div>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group">
-                                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
-														<div class="submitting"></div>
-													</div>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-								<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
-									<div class="info-wrap bg-primary w-100 p-md-5 p-4">
-										<h3>Let's get in touch</h3>
-										<p class="mb-4">We're open for any suggestion or just to have a chat</p>
-					        	<div class="dbox w-100 d-flex align-items-start">
-					        		<div class="icon d-flex align-items-center justify-content-center">
-					        			<span class="fa fa-map-marker"></span>
-					        		</div>
-					        		<div class="text pl-3">
-						            <p><span>Address:</span> 8 Franklin St, Melbourne, VIC 3000</p>
-						          </div>
-					          </div>
-					        	<div class="dbox w-100 d-flex align-items-center">
-					        		<div class="icon d-flex align-items-center justify-content-center">
-					        			<span class="fa fa-phone"></span>
-					        		</div>
-					        		<div class="text pl-3">
-						            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-						          </div>
-					          </div>
-					        	<div class="dbox w-100 d-flex align-items-center">
-					        		<div class="icon d-flex align-items-center justify-content-center">
-					        			<span class="fa fa-paper-plane"></span>
-					        		</div>
-					        		<div class="text pl-3">
-						            <p><span>Email:</span> <a href="mailto:info@lavenderentertainment.com">info@lavenderentertainment.com</a></p>
-						          </div>
-					          </div>
-					        	<div class="dbox w-100 d-flex align-items-center">
-					        		<div class="icon d-flex align-items-center justify-content-center">
-					        			<span class="fa fa-globe"></span>
-					        		</div>
-					        		<div class="text pl-3">
-						            <p><span>Website:</span> <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>">lavenderentertainment.com</a></p>
-						          </div>
-					          </div>
-				          </div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-    	</div>
-    </section>
 
+        <div class="col-md-4">
+            <div class="payment-info" style="background:white">
+                <div class="d-flex justify-content-between align-items-center"><span>Card details</span><img class="rounded" src="https://i.imgur.com/WU501C8.jpg" width="30"></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
+                <label class="radio"><a href="https://www.paypal.com/in/signin"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span></a></label>
+                <div><label class="credit-card-label">Name on card</label><input type="text" color="Black" class="form-control credit-inputs" placeholder="Name"></div>
+                <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
+                
+                <div class="row">
+                    <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
+                    <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
+                </div>
+                <hr class="line">
+                    <?php
+                        if(isset($_POST['update']))
+                        {
+                        $a = $_POST['payrate'];
+                        $b = $_POST['guest-count'];
+                        $mul = $a * $b; // Multiplication of two numbers
+                        $tax = $mul + 0.2*$mul;
+                        }
+                    ?>
+                <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$0</span></div>
+                <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$0</span></div>
+                <p class="pt-1"><a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#emptyModal">Checkout	</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Enquiry Modal-->
-<div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- Empty Redirect Modal-->
+<div class="modal fade" id="emptyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Please book a venue to Checkout!</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -259,6 +194,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             </div>
         </div>
 </div>
+
+
+
+</body>
 
 
 <footer class="footer">

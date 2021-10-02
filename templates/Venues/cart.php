@@ -9,23 +9,18 @@
 <p></p>
 
 <body>
-
-
 <div class="container mt-5 p-3 rounded cart">
     <div class="row no-gutters">
         <div class="col-md-8">
             <div class="product-details mr-2">
             <div class="col-md-8">
-                <div class="d-flex flex-row align-items-center"></div><button class="btn btn-primary" type="button"><span><i class="fa fa-long-arrow-left ml-1"></i> Continue Shopping</span></button></div>
-            <div class="col-md-4">
-                <div class="d-flex flex-row align-items-center"></div><button class="btn btn-primary" input type="update" name="update" value="Submit"><span> Update Cart</span></button> </div>
+                <div class="d-flex flex-row align-items-center"></div></div>
+                <p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" ><i class="fa fa-long-arrow-left ml-1" aria-hidden="true"></i> Continue Shopping</a>
+                <a href="3" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" input type="update" name="update" value="Submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update Cart</a>
+                <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" ><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart	</a></p>
                 <hr>
                 <h6 class="mb-0">Shopping cart</h6>
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
-                        <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
-                    </div>
-                </div>
+                <div class="d-flex justify-content-between"></div>
                 <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                     <div class="d-flex flex-row"><img class="rounded" src="<?=$this->Html->Url->image(h($venue->venue_photo1)) ?>" width="250" length="250">
                         <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>                
