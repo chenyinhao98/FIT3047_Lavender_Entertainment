@@ -64,6 +64,21 @@ class VenuesController extends AppController
             'contain' => ['EventTypes', 'Events'],
         ]);
 
+        $guestNumber = $this->getRequest()->getQuery('guest_count');
+        $venueRate = $this->getRequest()->getQuery('venue_payrate');
+
+        $subtotal = $guestNumber*$venueRate;
+
+        if(isset($_GET['update'])) { //Use $_GET if it's a GET request
+            //Save the values in variable
+            $guestcount = $_GET['guest-count']; 
+            $rate = $_GET['venue_payrate'];
+     
+            //Calculate here
+            $total = $guestcount * $rate;
+        
+
+        }
         $this->set(compact('venue'));
 
     }
