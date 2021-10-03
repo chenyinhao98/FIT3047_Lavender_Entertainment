@@ -70,6 +70,40 @@ class VenuesController extends AppController
         if ($searchStartDate != ''){
             $startDateArray = explode('/',$searchStartDate);
             $searchStartDate = $startDateArray[2] . '-' . $startDateArray[0] . '-' . $startDateArray[1];
+
+            $invalidIds = array();
+            foreach($venues as $venue) {
+                $available = $this->VenueAvailability->find()
+                    ->where(['venue_id' => $venue->id]) //Make this constant only for testing
+                    ->andWhere(['date' => $searchStartDate])
+                    ->andWhere(['avaliable' => 0]); //this is a Boolean entity
+                echo $available->all()->first();
+                if(empty($available->all()->first())){
+
+                }
+                else{
+                    array_push($invalidIds,$venue->id);
+                }
+            }
+
+            $numberArray = explode(',',$attendeeNumber);
+            $priceArray = explode(',',$searchPrice);
+
+
+            $results = $this->Venues->find()
+                ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+                ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+                ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
+                ->andwhere(['id NOT IN' => $invalidIds]);
+        }
+        else{
+            $numberArray = explode(',',$attendeeNumber);
+            $priceArray = explode(',',$searchPrice);
+
+            $results = $this->Venues->find()
+                ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+                ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+                ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
         }
 
         if ($searchEndDate != '') {
@@ -77,30 +111,7 @@ class VenuesController extends AppController
             $searchEndDate = $endDateArray[2] . '-' . $endDateArray[0] . '-' . $endDateArray[1];
         }
 
-        $numberArray = explode(',',$attendeeNumber);
-        $priceArray = explode(',',$searchPrice);
 
-
-        $invalidIds = array();
-        foreach($venues as $venue) {
-            $available = $this->VenueAvailability->find()
-                ->where(['venue_id' => $venue->id]) //Make this constant only for testing
-                ->andWhere(['date' => $searchStartDate])
-                ->andWhere(['avaliable' => 0]); //this is a Boolean entity
-            echo $available->all()->first();
-            if(empty($available->all()->first())){
-
-            }
-            else{
-                array_push($invalidIds,$venue->id);
-            }
-        }
-
-        $results = $this->Venues->find()
-            ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
-            ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
-            ->andwhere(['id NOT IN' => $invalidIds]);
 
 
         $this->set(compact('venues','results'));
@@ -202,5 +213,61 @@ class VenuesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Cart method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function cart($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $guestNumber = $this->getRequest()->getQuery('guest_count');
+        
+
+        $payrate= $venue->venue_payrate;
+
+
+///////
+        if(isset($_GET['update'])) { //Use $_GET if it's a GET request
+            //Save the values in variable
+            $guestcount = $_GET['guest-count']; 
+            $rate = $_GET['venue_payrate'];
+     
+            //Calculate here
+            $total = $guestcount * $rate;
+        
+
+        }
+        $this->set(compact('venue','subtotal'));
+
+
+    }
+
+    /**
+     * Invoice method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function invoice($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $this->set(compact('venue'));
+
     }
 }
