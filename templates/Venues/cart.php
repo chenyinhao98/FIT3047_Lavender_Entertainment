@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var int $payrate
  */
 ?>
 <?= $this->Form->create($venue, ['type' => 'get']);?>
@@ -16,7 +17,7 @@
             <div class="col-md-8">
                 <div class="d-flex flex-row align-items-center"></div></div>
                 <p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" ><i class="fa fa-long-arrow-left ml-1" aria-hidden="true"></i> Continue Shopping</a>
-                <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" input type="update" name="update" value="Submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update Cart</a>
+                <a href="" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" input type="update" name="update" value="Submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update Cart</a>
                 <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" ><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart	</a></p>
                 <hr>
                 <h6 class="mb-0">Shopping cart</h6>
@@ -25,8 +26,10 @@
                     <div class="d-flex flex-row"><img class="rounded" src="<?=$this->Html->Url->image(h($venue->venue_photo1)) ?>" width="250" length="250">
                         <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>                
                     </div>
-                    <div class="col-md-4">
-                        <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Number of Guests</label><input type="number" name="guest_count" class="form-control" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" id="guest_count"></div>
+                    <div class="col-md-4"
+                    >   
+                        <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Number of Guests</label><input type="number" id="guest_count" name="guest_count" class="form-control" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" ></div>
+                        
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex flex-row align-items-center" style="text-align: right"><span class="d-block ml-5 font-weight-bold" name="paye">$<?=h($venue->venue_payrate) ?> / Guest</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
@@ -49,9 +52,8 @@
                     <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
                 </div>
                 <hr class="line">
-                    
-                <div class="d-flex justify-content-between information"><span>Subtotal</span><span><? echo $subtotal; ?></span></div>
-                <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>test</span></div>
+                <div class="d-flex justify-content-between information"><span>Subtotal</span><span><?= $payrate ?></span></div>
+                <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span></span></div>
                 <p class="pt-1"><?= $this->Html->link(__('Checkout'), ['action' => 'invoice', $venue->id],['class' => 'btn btn-primary btn-block d-flex justify-content-between mt-3']) ?>
             </div>
         </div>

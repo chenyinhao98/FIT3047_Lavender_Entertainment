@@ -50,7 +50,7 @@ class VenuesController extends AppController
     }
 
     /**
-     * Add method
+     * Cart method
      *
      * @param string|null $id Venue id.
      * @return \Cake\Http\Response|null|void Renders view
@@ -65,10 +65,12 @@ class VenuesController extends AppController
         ]);
 
         $guestNumber = $this->getRequest()->getQuery('guest_count');
-        $venueRate = $this->getRequest()->getQuery('venue_payrate');
+        
 
-        $subtotal = $guestNumber*$venueRate;
+        $payrate= $venue->venue_payrate;
 
+
+///////
         if(isset($_GET['update'])) { //Use $_GET if it's a GET request
             //Save the values in variable
             $guestcount = $_GET['guest-count']; 
@@ -79,7 +81,8 @@ class VenuesController extends AppController
         
 
         }
-        $this->set(compact('venue'));
+        $this->set(compact('venue','subtotal'));
+
 
     }
 
