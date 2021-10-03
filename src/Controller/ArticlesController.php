@@ -18,7 +18,7 @@ use Cake\ORM\TableRegistry;
 throw new MissingTableClassException([$message]);
 class ArticlesController extends AppController
 {
-    public function initialize()
+    public function initialize():void
     {
         parent::initialize();
         $this->Auth->allow(['tags', 'view', 'advancedSearch', 'simpleSearch']);
@@ -263,9 +263,6 @@ class ArticlesController extends AppController
     public function view($slug = null)
     {
         $article = $this->Articles->findBySlug($slug)->firstOrFail();
-
-        // Only show published articles to guest users. Alternatively, admin users can see any article regardless
-        // of the published status.
         if ($article->published || Role::isAdmin($this->Auth->user())) {
             $view = new ArticleView([
                 'article_id' => $article->id,
