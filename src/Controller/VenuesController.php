@@ -235,4 +235,23 @@ class VenuesController extends AppController
 
 
     }
+
+    /**
+     * Invoice method
+     *
+     * @param string|null $id Venue id.
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function invoice($id=null)
+    {
+        
+
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
+
+        $this->set(compact('venue'));
+
+    }
 }
