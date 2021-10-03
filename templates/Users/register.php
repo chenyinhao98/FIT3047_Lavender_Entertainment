@@ -152,7 +152,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <label class="label" for="email">Username</label>
+                                                        <label class="label" for="username">Username</label>
                                                         <input type="username" class="form-control" name="username" id="username" placeholder="username">
                                                     </div>
                                                 </div>

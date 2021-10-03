@@ -141,14 +141,14 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <label class="label" for="email">Username</label>
+                                                        <label class="label" for="username">Username</label>
                                                         <input type="username" class="form-control" name="username" id="username" placeholder="username">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label class="label" for="subject">Password</label>
-                                                        <?=$this->Form->input('password',array('type'=>'password'));?>
+                                                        <?=$this->Form->input('password', array('type'=>'password'));?>
 
                                                     </div>
                                                 </div>
@@ -159,8 +159,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
                                                     </div>
                                                 </div>
+                                                <?= $this->Html->link(__('No Account, Create one Here!'), ['controller'=>'Users','action' => 'register'], ['class' => 'collapse-item']) ?>
                                             </div>
-                                            <?= $this->Html->link(__('No Account, Create one Here!'), ['controller'=>'Users','action' => 'register'], ['class' => 'collapse-item']) ?>
+
                                             <?= $this->Form->end(); ?>
                                     </div>
                                 </div>

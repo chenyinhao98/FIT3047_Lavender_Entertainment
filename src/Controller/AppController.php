@@ -15,10 +15,8 @@ declare(strict_types=1);
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-
-use Cake\Controller\Controller;
 use Cake\Event\EventInterface;
-use phpDocumentor\Reflection\Types\Array_;
+use Cake\Controller\Controller;
 
 /**
  * Application Controller
@@ -26,23 +24,10 @@ use phpDocumentor\Reflection\Types\Array_;
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- *
  * @link https://book.cakephp.org/4/en/controllers.html#the-app-controller
  */
 class AppController extends Controller
 {
-    /**
-     * @var \Cake\Datasource\RepositoryInterface|null
-     */
-    /**
-     * @var \Cake\Datasource\RepositoryInterface|null
-     */
-    /**
-     * @var \Cake\Datasource\RepositoryInterface|null
-     */
-
-
-
     /**
      * Initialization hook method.
      *
@@ -55,7 +40,6 @@ class AppController extends Controller
     public function initialize(): void
     {
         parent::initialize();
-
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
@@ -93,15 +77,10 @@ class AppController extends Controller
     public function beforeFilter(EventInterface $event){
         $this->Auth->allow(['controller' => 'Pages', 'action' => 'display', 'home']);
     }
-
-    //...
-
-
-    /*
-     * Enable the following component for recommended CakePHP form protection settings.
-     * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
-     */
-    //$this->loadComponent('FormProtection');
-
+        /*
+         * Enable the following component for recommended CakePHP form protection settings.
+         * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
+         */
+        //$this->loadComponent('FormProtection');
 
 }
