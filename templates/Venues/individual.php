@@ -8,26 +8,18 @@
 <?= $this->Form->create($venue, ['type' => 'get']);?>
 <p></p>
 
-<?php /*foreach ($venues as $venue):
-    $sql = "SELECT id, firstname, lastname FROM MyGuests";
-    $result = $conn->query($sql);
-    $venue_id = $_REQUEST['venue_id'];
-    $venue_auth = $_GET[venue_id];
-    if ($venue->id == $venue_auth){
-        $selected = $venue;
-    }?> 
-    <?php  endforeach; */?>
 
-<section class="ftco-section bg-light " style="background:gray">
+
+<section class="ftco-section about-section bg-light " style="background:gray">
     <div class="container">
-        <div class="row no-gutters">
+        <div class="row justify-content-left pb-5 mb-3">
             <div class="col-md-7 d-flex services align-self-stretch px-3 ftco-animate">
                 <div class="d-block services-wrap text-left">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            
+
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -36,7 +28,7 @@
                             <div class="carousel-item">
                                 <img class="d-block w-100 " style="height: 421px;" src="<?=$this->Html->Url->image(h($venue->venue_photo2)) ?>" alt="Second Picture">
                             </div>
-                            
+
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,22 +65,20 @@
                             </div>
                         </div>
 
-                        
-
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
-                            <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
-                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
+                            <a href="#" style="text-align:center; width: 32.5%; padding:10; " class="btn btn-primary" data-toggle="modal" data-target="#bookModal">Book Venue</a>
+                            <a href="#page-top" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary scroll-to-top rounded" >Write A Review!	</a></p>
                     </div>
 
                 </div>
             </div>
-            
+
             <div class="col-lg-5 col-md-7 d-flex align-items-stretch ">
                 <div class="contact-wrap w-100 p-md-5 p-4 ">
                     <h3 class="mb-4">Check Availability</h3>
                     <div id="form-message-warning" class="mb-4"></div>
                     <div id="form-message-success" class="mb-4">
-                        
+
                     </div>
                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                         <div class="row">
@@ -130,7 +120,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    
+
                                     <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
                                     <div class="submitting"></div>
                                 </div>
@@ -144,8 +134,7 @@
 
     </div>
 
-    </div>
-
+</div>
 </section>
 
 
@@ -191,8 +180,8 @@
         </div>
     </div>
 </section>
-
-<section class="ftco-section bg-light" id=reviewtab>
+<section id = page-top>
+<section class="ftco-section bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -216,7 +205,7 @@
 
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">

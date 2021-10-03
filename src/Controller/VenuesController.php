@@ -66,6 +66,40 @@ class VenuesController extends AppController
         if ($searchStartDate != ''){
             $startDateArray = explode('/',$searchStartDate);
             $searchStartDate = $startDateArray[2] . '-' . $startDateArray[0] . '-' . $startDateArray[1];
+
+            $invalidIds = array();
+            foreach($venues as $venue) {
+                $available = $this->VenueAvailability->find()
+                    ->where(['venue_id' => $venue->id]) //Make this constant only for testing
+                    ->andWhere(['date' => $searchStartDate])
+                    ->andWhere(['avaliable' => 0]); //this is a Boolean entity
+                echo $available->all()->first();
+                if(empty($available->all()->first())){
+
+                }
+                else{
+                    array_push($invalidIds,$venue->id);
+                }
+            }
+
+            $numberArray = explode(',',$attendeeNumber);
+            $priceArray = explode(',',$searchPrice);
+
+
+            $results = $this->Venues->find()
+                ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+                ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+                ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
+                ->andwhere(['id NOT IN' => $invalidIds]);
+        }
+        else{
+            $numberArray = explode(',',$attendeeNumber);
+            $priceArray = explode(',',$searchPrice);
+
+            $results = $this->Venues->find()
+                ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+                ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+                ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
         }
 
         if ($searchEndDate != '') {
@@ -73,30 +107,7 @@ class VenuesController extends AppController
             $searchEndDate = $endDateArray[2] . '-' . $endDateArray[0] . '-' . $endDateArray[1];
         }
 
-        $numberArray = explode(',',$attendeeNumber);
-        $priceArray = explode(',',$searchPrice);
 
-
-        $invalidIds = array();
-        foreach($venues as $venue) {
-            $available = $this->VenueAvailability->find()
-                ->where(['venue_id' => $venue->id]) //Make this constant only for testing
-                ->andWhere(['date' => $searchStartDate])
-                ->andWhere(['avaliable' => 0]); //this is a Boolean entity
-            echo $available->all()->first();
-            if(empty($available->all()->first())){
-
-            }
-            else{
-                array_push($invalidIds,$venue->id);
-            }
-        }
-
-        $results = $this->Venues->find()
-            ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
-            ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-            ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
-            ->andwhere(['id NOT IN' => $invalidIds]);
 
 
         $this->set(compact('venues','results'));
