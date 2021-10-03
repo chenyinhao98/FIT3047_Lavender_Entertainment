@@ -7,27 +7,42 @@
 ?>
 <?= $this->Form->create($venue, ['type' => 'get']);?>
 <p></p>  
-  
-<div class="receipt-content">
-    
-		<div class="row">
-			<div class="col-md-12">
-				<div class="invoice-wrapper">
-					<div class="intro">
-						Hi <strong>User Name</strong>, 
-						<br>
-						This is the receipt for a payment of <strong></strong> (USD) for your works
-					</div>
 
-					<div class="payment-info">
-						<div class="row">
-							<div class="col-sm-6">
-								<span>Payment No.</span>
-								<strong>434334343</strong>
-							</div>
-							<div class="col-sm-6 text-right">
-								<span>Payment Date</span>
-								<strong>Jul 09, 2014 - 12:20 pm</strong>
+
+
+    <div class="container">
+        <div class="row no-gutters"> 
+		<p><div class="col md-12" style="font-size: 24px; color: green; text-align: left" id="checkmark">
+		
+		<h2 class="font-weight-bold" style="text-align:center; width: 700px; padding: 10px; color: green; align:left";><i class="fa fa-check-circle fa-3x"></i><span>  Your Order has been booked!  </span></h2></p>
+			
+		</div>
+
+			<div class="receipt-content" style="margin: center">
+    
+				<div class="row">
+					<div class="col-md-12">
+						<div class="invoice-wrapper">
+							<div class="intro">
+							Hi <strong>User Name</strong>, 
+							<br>
+							This is the receipt for a payment of <strong></strong> (AUD) for your booking
+						</div>
+
+						<div class="payment-info">
+							<div class="row">
+								<div class="col-sm-6">
+								<?php 
+									$a = mt_rand(100000,999999); 
+								?>
+									<span>Payment No.</span>
+									<strong><span id="random">32424254</span></strong>
+								</div>
+								<div class="col-sm-6 text-right">
+									<span>Payment Date</span>
+									<strong><span id="date1"></span></strong>
+									
+									
 							</div>
 						</div>
 					</div>
@@ -37,30 +52,30 @@
 							<div class="col-sm-6">
 								<span>Client</span>
 								<strong>
-									Andres felipe posada
+									User Name
 								</strong>
 								<p>
 									989 5th Avenue <br>
-									City of monterrey <br>
-									55839 <br>
-									USA <br>
+									Melbourne <br>
+									Victoria <br>
+									Australia <br>
 									<a href="#">
-										jonnydeff@gmail.com
+										user@email.com
 									</a>
 								</p>
 							</div>
 							<div class="col-sm-6 text-right">
 								<span>Payment To</span>
 								<strong>
-									Juan fernando arias
+									Lavender Entertainment
 								</strong>
 								<p>
 									344 9th Avenue <br>
-									San Francisco <br>
-									99383 <br>
-									USA <br>
+									Melbourne <br>
+									Victoria <br>
+									Australia <br>
 									<a href="#">
-										juanfer@gmail.com
+										client@email.com
 									</a>
 								</p>
 							</div>
@@ -76,13 +91,22 @@
 							</div>
 						</div>
 						<div class="items">
+						<div class="row item">
+								<div class="col-xs-4 desc">
+									<span><?=h($venue->venue_name) ?></span>
+								</div>
+								<div class="col-xs-3 qty">
+								<span id="data"></span>
+								</div>
+								<div class="col-xs-5 amount text-right">
+								<span id="data1"></span>
+								</div>
 						
 						</div>
 						<div class="total text-right">
 							<p class="extra-notes">
-								<strong>Extra Notes</strong>
-								Please send all items at the same time to shipping address by next week.
-								Thanks a lot.
+								<strong>Extra Notes</strong> 
+								Thank you for choosing Lavender Entertainment
 							</p>
 							<div class="field">
 								Subtotal <span>$379.00</span>
@@ -106,4 +130,48 @@
 			</div>
 		</div>
 	
-</div>                    
+</div>       
+
+<script>  
+function randomString() {  
+            //initialize a variable having alpha-numeric characters  
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";  
+  
+            //specify the length for the new string to be generated  
+    var string_length = 8;  
+    var randomstring = '';  
+  
+            //put a loop to select a character randomly in each iteration  
+    for (var i=0; i<string_length; i++) {  
+        var rnum = Math.floor(Math.random() * chars.length);  
+        randomstring += chars.substring(rnum,rnum+1);  
+    }  
+             //display the generated string   
+    document.getElementById("randomfield").innerHTML = randomstring; 
+	
+}  
+</script>
+
+<script>
+//displaying the value from local storage to another page by their respective Ids
+document.getElementById("data").innerHTML=localStorage.getItem("txtValue");
+document.getElementById("data1").innerHTML=localStorage.getItem("txtValue1");
+
+</script>
+
+<script>
+
+var today = new Date();
+
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+document.getElementById("date1").innerHTML =date;
+
+</script>
+
+<script id="random">
+	function getRandomNumber(100000, 9999999) {
+  let r = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 100000;
+  return r;
+}
+</script>
