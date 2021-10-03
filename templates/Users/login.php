@@ -136,34 +136,34 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                         <div id="form-message-success" class="mb-4">
                                             Sign Into Your Dedicated Account!
                                         </div>
-        <?= $this->Form->create();?>
-        <form method="POST" id="signInPanel" name="signInPanel" class="Panel">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label class="label" for="email">Username</label>
-                        <input type="username" class="form-control" name="username" id="username" placeholder="username">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label class="label" for="subject">Password</label>
-                        <?=$this->Form->input('password',array('type'=>'password'));?>
+                                        <?= $this->Form->create();?>
+                                        <form method="POST" id="signInPanel" name="signInPanel" class="Panel">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label class="label" for="email">Username</label>
+                                                        <input type="username" class="form-control" name="username" id="username" placeholder="username">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label class="label" for="subject">Password</label>
+                                                        <?=$this->Form->input('password',array('type'=>'password'));?>
 
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <div class="form-group">
-                        <?= $this->Form->submit('Sign In', array('class' => 'btn btn-primary')); ?>
-                <div class="submitting"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        <?= $this->Form->submit('Sign In', array('class' => 'btn btn-primary')); ?>
+                                                        <div class="submitting"></div>
 
-                    </div>
-                </div>
-            </div>
-            <?= $this->Html->link(__('No Account, Create one Here!'), ['controller'=>'Users','action' => 'register'], ['class' => 'collapse-item']) ?>
-            <?= $this->Form->end(); ?>
-            </div>
-</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?= $this->Html->link(__('No Account, Create one Here!'), ['controller'=>'Users','action' => 'register'], ['class' => 'collapse-item']) ?>
+                                            <?= $this->Form->end(); ?>
+                                    </div>
+                                </div>
     </section>
 
 

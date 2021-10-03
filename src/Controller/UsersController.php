@@ -2,9 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
-
 use Cake\Event\EventInterface;
-
 /**
  * Users Controller
  *
@@ -104,7 +102,6 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
     public function login(){
         if($this->request->is('post')){
             $user = $this->Auth->identify();
@@ -137,19 +134,5 @@ class UsersController extends AppController
         $this->Auth->allow(['register']);
     }
 
-
-
-    /*
-    public function login()
-    {
-        if($this->request->is('post')){
-            $customer = $this->Auth->identify();
-            if($customer){
-                $this->Auth->setCustomer($customer);
-                return $this->redirect(['action' => 'posts']);
-            }
-            $this->Flash->error('Incorrect Login');
-        }
-        }*/
 
 }
