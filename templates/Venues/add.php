@@ -139,7 +139,7 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Content Edit Options:</h6>
-                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'Articles','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
