@@ -224,14 +224,12 @@ class VenuesController extends AppController
      */
     public function cart($id=null)
     {
-        
-
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events'],
         ]);
 
         $guestNumber = $this->getRequest()->getQuery('guest_count');
-        
+
 
         $payrate= $venue->venue_payrate;
 
@@ -239,12 +237,12 @@ class VenuesController extends AppController
 ///////
         if(isset($_GET['update'])) { //Use $_GET if it's a GET request
             //Save the values in variable
-            $guestcount = $_GET['guest-count']; 
+            $guestcount = $_GET['guest-count'];
             $rate = $_GET['venue_payrate'];
-     
+
             //Calculate here
             $total = $guestcount * $rate;
-        
+
 
         }
         $this->set(compact('venue','subtotal'));
@@ -261,7 +259,22 @@ class VenuesController extends AppController
      */
     public function invoice($id=null)
     {
-        
+        //this part of code is for availability
+        /*
+        $this->loadModel('VenueAvailability');
+
+        $venueAvailability = $this->VenueAvailability->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $venueAvailability = $this->Venues->patchEntity($venueAvailability, $this->request->getData());
+            if ($this->VenueAvailability->save($venueAvailability)) {
+                $this->Flash->success(__('The venue has been saved.'));
+            }
+            $this->Flash->error(__('The venue could not be saved. Please, try again.'));
+        }
+
+        */
+
+        //this part of code is for availability
 
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events'],
