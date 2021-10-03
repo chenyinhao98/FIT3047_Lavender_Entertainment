@@ -58,119 +58,156 @@ class AboutUsCmsTable extends Table
             ->scalar('first_section_header_1')
             ->maxLength('first_section_header_1', 100)
             ->requirePresence('first_section_header_1', 'create')
-            ->notEmptyString('first_section_header_1');
+            ->allowEmptyString('first_section_header_1');
 
         $validator
             ->scalar('first_section_body_1')
             ->maxLength('first_section_body_1', 225)
             ->requirePresence('first_section_body_1', 'create')
-            ->notEmptyString('first_section_body_1');
+            ->allowEmptyString('first_section_body_1');
 
         $validator
-            ->scalar('first_section_photo_1')
-            ->maxLength('first_section_photo_1', 225)
-            ->requirePresence('first_section_photo_1', 'create')
-            ->notEmptyString('first_section_photo_1');
+            ->allowEmptyFile('first_section_photo_1')
+            ->add('first_section_photo_1',[
+                'mimeType'=>[
+                    'rule'=>['mimeType',['image/jpg','image/png','image/jpeg']],
+                    'message'=>'Please upload only jpg or png image files.',
+                ],
+                'fileSize'=>[
+                    'rule'=>['fileSize','<=','10MB'],
+                    'message'=>'Image size must be less than 10MB.',
+                ]
+            ]);
 
         $validator
             ->scalar('first_section_header_2')
             ->maxLength('first_section_header_2', 100)
             ->requirePresence('first_section_header_2', 'create')
-            ->notEmptyString('first_section_header_2');
+            ->allowEmptyString('first_section_header_2');
 
         $validator
             ->scalar('first_section_body_2')
             ->maxLength('first_section_body_2', 225)
             ->requirePresence('first_section_body_2', 'create')
-            ->notEmptyString('first_section_body_2');
+            ->allowEmptyString('first_section_body_2');
 
         $validator
-            ->scalar('first_section_photo_2')
-            ->maxLength('first_section_photo_2', 225)
-            ->requirePresence('first_section_photo_2', 'create')
-            ->notEmptyString('first_section_photo_2');
+            ->allowEmptyFile('first_section_photo_2')
+            ->add('first_section_photo_2',[
+                'mimeType'=>[
+                    'rule'=>['mimeType',['image/jpg','image/png','image/jpeg']],
+                    'message'=>'Please upload only jpg or png image files.',
+                ],
+                'fileSize'=>[
+                    'rule'=>['fileSize','<=','10MB'],
+                    'message'=>'Image size must be less than 10MB.',
+                ]
+            ]);
 
         $validator
             ->scalar('first_section_header_3')
             ->maxLength('first_section_header_3', 100)
             ->requirePresence('first_section_header_3', 'create')
-            ->notEmptyString('first_section_header_3');
+            ->allowEmptyString('first_section_header_3');
 
         $validator
             ->scalar('first_section_body_3')
             ->maxLength('first_section_body_3', 225)
             ->requirePresence('first_section_body_3', 'create')
-            ->notEmptyString('first_section_body_3');
+            ->allowEmptyString('first_section_body_3');
 
         $validator
-            ->scalar('first_section_photo_3')
-            ->maxLength('first_section_photo_3', 225)
-            ->requirePresence('first_section_photo_3', 'create')
-            ->notEmptyString('first_section_photo_3');
+            ->allowEmptyFile('first_section_photo_3')
+            ->add('first_section_photo_3',[
+                'mimeType'=>[
+                    'rule'=>['mimeType',['image/jpg','image/png','image/jpeg']],
+                    'message'=>'Please upload only jpg or png image files.',
+                ],
+                'fileSize'=>[
+                    'rule'=>['fileSize','<=','10MB'],
+                    'message'=>'Image size must be less than 10MB.',
+                ]
+            ]);
 
         $validator
             ->scalar('what_we_offer_photo')
-            ->maxLength('what_we_offer_photo', 225)
-            ->requirePresence('what_we_offer_photo', 'create')
-            ->notEmptyString('what_we_offer_photo');
+            ->allowEmptyFile('what_we_offer_photo')
+            ->add('what_we_offer_photo',[
+                'mimeType'=>[
+                    'rule'=>['mimeType',['image/jpg','image/png','image/jpeg']],
+                    'message'=>'Please upload only jpg or png image files.',
+                ],
+                'fileSize'=>[
+                    'rule'=>['fileSize','<=','10MB'],
+                    'message'=>'Image size must be less than 10MB.',
+                ]
+            ]);
 
         $validator
             ->scalar('what_we_offer_body')
             ->maxLength('what_we_offer_body', 225)
             ->requirePresence('what_we_offer_body', 'create')
-            ->notEmptyString('what_we_offer_body');
+            ->allowEmptyString('what_we_offer_body');
 
         $validator
             ->scalar('what_we_offer_dot_1')
+            ->maxLength('what_we_offer_dot_1', 225)
             ->requirePresence('what_we_offer_dot_1', 'create')
-            ->notEmptyString('what_we_offer_dot_1');
+            ->allowEmptyString('what_we_offer_dot_1');
 
         $validator
             ->scalar('what_we_offer_dot_2')
+            ->maxLength('what_we_offer_dot_2', 225)
             ->requirePresence('what_we_offer_dot_2', 'create')
-            ->notEmptyString('what_we_offer_dot_2');
+            ->allowEmptyString('what_we_offer_dot_2');
 
         $validator
             ->scalar('what_we_offer_dot_3')
+            ->maxLength('what_we_offer_dot_3', 225)
             ->requirePresence('what_we_offer_dot_3', 'create')
-            ->notEmptyString('what_we_offer_dot_3');
+            ->allowEmptyString('what_we_offer_dot_3');
 
         $validator
             ->scalar('what_we_offer_dot_4')
+            ->maxLength('what_we_offer_dot_4', 225)
             ->requirePresence('what_we_offer_dot_4', 'create')
-            ->notEmptyString('what_we_offer_dot_4');
+            ->allowEmptyString('what_we_offer_dot_4');
 
         $validator
             ->scalar('what_we_offer_dot_5')
+            ->maxLength('what_we_offer_dot_5', 225)
             ->requirePresence('what_we_offer_dot_5', 'create')
-            ->notEmptyString('what_we_offer_dot_5');
+            ->allowEmptyString('what_we_offer_dot_5');
 
         $validator
             ->scalar('what_we_offer_dot_6')
+            ->maxLength('what_we_offer_dot_6', 225)
             ->requirePresence('what_we_offer_dot_6', 'create')
-            ->notEmptyString('what_we_offer_dot_6');
+            ->allowEmptyString('what_we_offer_dot_6');
 
         $validator
             ->scalar('what_we_offer_dot_7')
+            ->maxLength('what_we_offer_dot_7', 225)
             ->requirePresence('what_we_offer_dot_7', 'create')
-            ->notEmptyString('what_we_offer_dot_7');
+            ->allowEmptyString('what_we_offer_dot_7');
 
         $validator
             ->scalar('what_we_offer_dot_8')
+            ->maxLength('what_we_offer_dot_8', 225)
             ->requirePresence('what_we_offer_dot_8', 'create')
-            ->notEmptyString('what_we_offer_dot_8');
+            ->allowEmptyString('what_we_offer_dot_8');
 
         $validator
             ->scalar('annoucement_heading')
             ->maxLength('annoucement_heading', 100)
             ->requirePresence('annoucement_heading', 'create')
-            ->notEmptyString('annoucement_heading');
+            ->allowEmptyString('annoucement_heading');
 
         $validator
             ->scalar('annoucment_body')
-            ->maxLength('annoucment_body', 225)
+            ->maxLength('annoucment_body', 1225)
             ->requirePresence('annoucment_body', 'create')
-            ->notEmptyString('annoucment_body');
+            ->allowEmptyString('annoucment_body');
 
         return $validator;
     }

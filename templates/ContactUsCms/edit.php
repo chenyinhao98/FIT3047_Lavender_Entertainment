@@ -1,13 +1,9 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Venue $venue
- * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
+ * @var \App\Model\Entity\ContactUsCm $ContactUsCm
  */
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 
     <?= $this->Html->charset() ?>
@@ -55,21 +51,21 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
+
         <!-- Nav Item - Venue Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link collapsed services-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-home"></i>
                 <span>Venues</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
-                    <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <a style="color:#a298fc;" class="collapse-item active">Add New Venue</a>
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
-
                 </div>
             </div>
         </li>
@@ -86,26 +82,26 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
                 </div>
-            </div>
         </li>
 
         <!-- Nav Item - Talent Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTalent"
                aria-expanded="true" aria-controls="collapseTalent">
                 <i class="fas fa-user-friends"></i>
                 <span>Talent</span>
             </a>
-            <div id="collapseTalent" class="collapse show" aria-labelledby="headingTalent"
+            <div id="collapseTalent" class="collapse" aria-labelledby="headingTalent"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <a style="color:#a298fc;" class="collapse-item active">Add New Talent</a>
+                    <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
@@ -128,6 +124,7 @@
                 </div>
             </div>
         </li>
+
         <!-- Nav Item - CMS Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
@@ -140,10 +137,11 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Content Edit Options:</h6>
                     <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
     </ul>
@@ -228,79 +226,29 @@
             </nav>
             <!-- End of Topbar -->
 
-            <!-- Begin Page Content -->
-            <br>
-            <div class="suppliers form content">
-                <?= $this->Form->create($talent) ?>
-                <fieldset style="padding-left: 5%; padding-right:5%">
-                    <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;">
-                        <legend><?= __('Add Talent') ?></legend></h1><br>
-                    <?php
-                    echo $this->Form->control('talent_type');
-                    echo $this->Form->control('talent_name');
-                    echo $this->Form->control('talent_address');
-                    echo $this->Form->control('talent_payrate');
-                    echo $this->Form->control('talent_contact_name');
-                    echo $this->Form->control('talent_contact_number');
-                    echo $this->Form->control('talent_email');
-                    echo $this->Form->control('talent_photo', array('type' => 'file'));
-                    echo $this->Form->control('talent_about_us');
-                    echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
-                    echo $this->Form->control('events._ids', ['options' => $events]);
-                    ?><br>
+    </aside>
+            <?= $this->Form->create($ContactUsCm) ?>
+            <fieldset style="padding-left: 5%; padding-right:5%">
+                <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;">
+                    <legend><?= __('"Contact us" editing') ?></legend><br>
+                </h1>
+                <?php
+                    echo $this->Form->control('header_1');
+                    echo $this->Form->control('body_1');
 
-                    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
-                    <?= $this->Form->end() ?>
-                </fieldset><br>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<div class="container-fluid">
-    <!-- content goes here !-->
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
-</div>
-<!-- End of Main Content -->
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
+                ?>
+            </fieldset>
+            <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary','style' => 'margin-left: 5rem']) ?>
+            <?= $this->Form->end() ?>
+            </fieldset><br>
         </div>
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-
-
-</body>
-
-</html>
+            <aside class="column">
+                <div class="side-nav">
+                    <?= $this->Html->link(__('CMS list history'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+                </div>
+            </aside>
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>

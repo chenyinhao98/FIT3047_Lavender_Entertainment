@@ -139,8 +139,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Content Edit Options:</h6>
-                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -258,8 +258,8 @@
                     echo $this->Form->control('what_we_offer_dot_8');
                     echo $this->Form->control('annoucement_heading');
                     echo $this->Form->control('annoucment_body');
-                ?><br>
-
+                ?>
+            </fieldset>
                 <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
                 <?= $this->Form->end() ?>
             </fieldset><br>
