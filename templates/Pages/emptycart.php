@@ -117,7 +117,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
@@ -135,16 +135,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <div class="product-details mr-2">
             <p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" ><i class="fa fa-long-arrow-left ml-1" aria-hidden="true"></i> Continue Shopping</a>
                 <a href="3" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" input type="update" name="update" value="Submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update Cart</a>
-                <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" ><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart	</a></p>                
+                <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" ><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart	</a></p>
             <hr>
                 <h6 class="mb-0">Shopping cart</h6>
                 <div class="d-flex justify-content-between">
                     <div class="d-flex flex-row align-items-center">
-                        
+
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                    <div class="col-md-12"> <h2 class="font-weight-bold">Your Cart is empty</h2></div>                
+                    <div class="col-md-12"> <h2 class="font-weight-bold">Your Cart is empty</h2></div>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <label class="radio"><a href="https://www.paypal.com/in/signin"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span></a></label>
                 <div><label class="credit-card-label">Name on card</label><input type="text" color="Black" class="form-control credit-inputs" placeholder="Name"></div>
                 <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
-                
+
                 <div class="row">
                     <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
                     <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
