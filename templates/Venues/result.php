@@ -54,7 +54,6 @@ foreach ($venues as $venue):
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
             <?php foreach ($results as $venue): ?>
->>>>>>> origin/master
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
                         <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_photo1))?>');"></a>

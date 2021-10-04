@@ -43,6 +43,8 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+
         $this->loadComponent('Auth', [
             'authenticate' => [
                 'Form' => [
@@ -58,8 +60,11 @@ class AppController extends Controller
             ]
         ]);
 
+
     }
     private ?\Cake\Datasource\RepositoryInterface $viewVars = null;
+
+
     public function beforeRender(EventInterface $event)
     {
         if(!array_key_exists('_serialize', (array) $this->viewVars) &&
@@ -84,3 +89,4 @@ class AppController extends Controller
         //$this->loadComponent('FormProtection');
 
 }
+

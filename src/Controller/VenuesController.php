@@ -77,7 +77,6 @@ class VenuesController extends AppController
                     ->where(['venue_id' => $venue->id]) //Make this constant only for testing
                     ->andWhere(['date' => $searchStartDate])
                     ->andWhere(['avaliable' => 0]); //this is a Boolean entity
-                echo $available->all()->first();
                 if(empty($available->all()->first())){
 
                 }
@@ -110,8 +109,6 @@ class VenuesController extends AppController
             $endDateArray = explode('/',$searchEndDate);
             $searchEndDate = $endDateArray[2] . '-' . $endDateArray[0] . '-' . $endDateArray[1];
         }
-
-
 
 
         $this->set(compact('venues','results'));
