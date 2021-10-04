@@ -8,6 +8,7 @@ use Cake\Database\Expression\QueryExpression;
 use Cake\ORM\Query;
 use Cake\ORM\TableRegistry;
 use App\Model\Entity\Venue;
+use function React\Promise\all;
 
 
 /**
@@ -17,6 +18,8 @@ use App\Model\Entity\Venue;
  * @property \App\Model\Table\EventTypesTable $EventTypes
 
  * @property \App\Model\Table\VenueAvailabilityTable $VenueAvailability
+ * @property \App\Model\Table\SuppliersTable $Suppliers
+ * @property \App\Model\Table\TalentsTable $Talents
 >>>>>>> origin/master
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -116,17 +119,73 @@ class VenuesController extends AppController
 
     public function individual($id=null)
     {
-
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events','VenueAvailability'],
         ]);
 
-        $this->set(compact('venue'));
+        //Get EventType
+        $venueEventTypes = $venue->event_types;
+        $venueEventTypesIds = array();
+        foreach($venueEventTypes as $x){
+            array_push($venueEventTypesIds,$x->id);
+        }
 
+        foreach ($venueEventTypesIds as $x){
+            echo $x;
+    }
         $this->loadModel('Suppliers');
         $this->loadModel('Talents');
 
+        //Supplier Recommendation
+        $supplierEventTypes = $this->Suppliers->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
+        $supplierResultsIds = array();
+        foreach ($supplierEventTypes as $x){
+            foreach($x as $y){
+                echo $y;
+                if(in_array($y->id,$venueEventTypesIds)){
+                    if (!in_array($y->_joinData->supplier_id,$supplierResultsIds)){
+                            array_push($supplierResultsIds,$y->_joinData->supplier_id);
+                    }
+                }
+            }
+        }
+        if (!empty($supplierResultsIds)){
+            $supplierResults = $this->Suppliers->find()
+                ->where(['id IN' => $supplierResultsIds]);
+        }
+        else{
+            $supplierResults = null;
+        }
 
+
+        //Talent Recommendation
+        $talentEventTypes = $this->Talents->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
+
+            $talentResultsIds = array();
+            foreach ($talentEventTypes as $x) {
+                foreach ($x as $y) {
+                    //echo $y;
+                    if (in_array($y->id, $venueEventTypesIds)) {
+                        if (!in_array($y->_joinData->talent_id, $talentResultsIds)) {
+                            array_push($talentResultsIds, $y->_joinData->talent_id);
+                        }
+
+                    }
+                }
+            }
+        if (!empty($talentResultsIds)) {
+            $talentResults = $this->Talents->find()
+                ->where(['id IN' => $talentResultsIds]);
+        }
+        else{
+            $talentResults = null;
+        }
+
+        $this->set(compact('venue','talentResults','supplierResults'));
     }
 
     /**
