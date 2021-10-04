@@ -28,11 +28,11 @@
                     </div>
                     <div class="col-md-2"
                     >   
-                        <form><div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Guests</label><input type="number" id="guest_count" name="guest_count" class="form-control" required="required"></div></form>
+                        <form><div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Guests</label><input type="number" min="0" max="" id="guest_count" name="guest_count" class="form-control" required="required"></div></form>
                         
                     </div>
                     <div class="col-md-2">
-                    <form><div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Rate($/Guest)</label><input type="number" id="check" name="guest_count" class="form-control" value="<?=h($venue->venue_payrate) ?>" readonly required="required"></div></form>
+                    <form><div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Rate($/Guest)</label><input type="number" min="1" step="1" max="<?=h($venue->venue_min_capacity) ?>" id="check" name="guest_count" class="form-control" value="<?=h($venue->venue_payrate) ?>" readonly required="required"></div></form>
                         
                     </div>
                 </div>
