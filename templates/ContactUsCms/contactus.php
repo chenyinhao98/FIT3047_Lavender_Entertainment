@@ -117,7 +117,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
@@ -148,7 +148,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     			</div>
     			<div class="col-md-4 p-4 p-md-5 bg-white">
     				<div class="font-weight-bold mb-4">
-                        <h2 class="heading" <?= h($ContactUsCm->header_1) ?></p></h2>
+                        <h2 class="heading"<p><?= h($ContactUsCm->header_1) ?></p></h2>
     				<p><?= h($ContactUsCm->body_1) ?></p>
                 </div>
     				<p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" class="btn btn-primary">Book Venue Now</a></p>

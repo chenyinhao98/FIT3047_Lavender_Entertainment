@@ -11,7 +11,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $header_1
  * @property string $body_1
-
  */
 class ContactUsCm extends Entity
 {
@@ -27,6 +26,5 @@ class ContactUsCm extends Entity
     protected $_accessible = [
         'header_1' => true,
         'body_1' => true,
-
     ];
 }

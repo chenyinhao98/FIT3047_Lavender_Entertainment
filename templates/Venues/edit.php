@@ -131,7 +131,7 @@
                 </div>
             </div>
         </li>
-        <!-- Nav Item - Supplier CMS Menu -->
+        <!-- Nav Item -  CMS Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
                aria-expanded="true" aria-controls="collapseCms">
@@ -143,7 +143,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Content Edit Options:</h6>
                     <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
 
                 </div>
             </div>
