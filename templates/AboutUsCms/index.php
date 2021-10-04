@@ -34,7 +34,7 @@
                     <td><?= $this->Number->format($aboutUsCm->id) ?></td>
                     <td><?= h($aboutUsCm->first_section_header_1) ?></td>
                     <td><?= h($aboutUsCm->first_section_body_1) ?></td>
-                    <td><?= @$this->Html->image($aboutUsCm->first_section_photo_1)?></td>
+                    <td><?= @$this->Html->image($aboutUsCm->first_section_photo_1,array('width'=>'340px','height'=>'220px'))?></td>
                     <td><?= h($aboutUsCm->first_section_header_2) ?></td>
                     <td><?= h($aboutUsCm->first_section_body_2) ?></td>
                     <td><?= @$this->Html->image($aboutUsCm->first_section_photo_2)?></td>
