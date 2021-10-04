@@ -143,7 +143,7 @@ class VenuesController extends AppController
         $supplierResultsIds = array();
         foreach ($supplierEventTypes as $x){
             foreach($x as $y){
-                echo $y;
+                //echo $y;
                 if(in_array($y->id,$venueEventTypesIds)){
                     if (!in_array($y->_joinData->supplier_id,$supplierResultsIds)){
                             array_push($supplierResultsIds,$y->_joinData->supplier_id);
@@ -197,7 +197,6 @@ class VenuesController extends AppController
      */
     public function view($id = null)
     {
-
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
