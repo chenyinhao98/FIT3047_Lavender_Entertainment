@@ -15,12 +15,12 @@
     $venue_auth = $_GET[venue_id];
     if ($venue->id == $venue_auth){
         $selected = $venue;
-    }?>
+    }?> 
     <?php  endforeach; */?>
-<?//= $this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
-<!--<input name=''>-->
-<?//= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
-<?//= $this->Form->end(); ?>
+<?php /*$this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
+<input name=''>
+<?= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
+<?= $this->Form->end(); ?> */ ?>
 
 <section class="ftco-section bg-light " style="background:gray">
     <div class="container">
@@ -31,7 +31,7 @@
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-
+                            
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -40,7 +40,7 @@
                             <div class="carousel-item">
                                 <img class="d-block w-100 " style="height: 421px;" src="<?=$this->Html->Url->image(h($venue->venue_photo2)) ?>" alt="Second Picture">
                             </div>
-
+                            
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,25 +74,28 @@
                                 <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
                             <div class="col-md-4">
                                 <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
+                                <div class="input-wrap">
+                                <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="Availabilty Date">
+                            </div>
                             </div>
                         </div>
 
-
+                        
 
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
-                            <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
+                        <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#recModal">Book Venue</a>
                             <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
                 </div>
             </div>
-
+            
             <div class="col-lg-5 col-md-7 d-flex align-items-stretch ">
                 <div class="contact-wrap w-100 p-md-5 p-4 ">
                     <h3 class="mb-4">Check Availability</h3>
                     <div id="form-message-warning" class="mb-4"></div>
                     <div id="form-message-success" class="mb-4">
-
+                        
                     </div>
                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                         <div class="row">
@@ -134,7 +137,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-
+                                    
                                     <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
                                     <div class="submitting"></div>
                                 </div>
@@ -210,17 +213,17 @@
                     <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">
-                            <ul><li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
+                            <ul><li id="one">Lorem ipsum</li>
+                                <li id="two">Lorem ipsum</li>
+                                <li id="three">Lorem ipsum</li>
+                                <li id="four">Lorem ipsum</li>
                                 <li>Lorem ipsum</li>
                                 <li>Lorem ipsum</li>
                                 <li>Lorem ipsum</li> </ul>
 
                         </div>
                     </div>
-
+                    
                     <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">
@@ -315,7 +318,7 @@
                     <div class="list-group">
                         <label class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="">
-                            First checkbox
+                            <span><? document.getElementById("one")?></span>
                         </label>
                         <label class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="">
@@ -337,7 +340,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#">Yes</a>
+                    <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
                 </div>
             </div>
         </div>
