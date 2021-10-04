@@ -3,11 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
-<<<<<<< HEAD
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $result
-=======
- * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $results
->>>>>>> origin/master
  * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $eventType
  */
 ?>
@@ -54,7 +50,6 @@ foreach ($venues as $venue):
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
             <?php foreach ($results as $venue): ?>
-
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
                         <a href="#" class="img" style="background-image: url('<?=$this->Html->Url->image(h($venue->venue_photo1))?>');"></a>
