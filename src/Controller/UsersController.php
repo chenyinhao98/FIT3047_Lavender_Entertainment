@@ -109,7 +109,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect(['controller' => 'venues']);
             }
-            $this->Flash->error(__('Incorrect Sign In'));
+            $this->Flash->error('Incorrect Sign In');
         }
     }
     public function logout(){

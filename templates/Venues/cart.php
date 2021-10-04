@@ -24,12 +24,12 @@
                 <div class="d-flex justify-content-between"></div>
                 <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                     <div class="d-flex flex-row"><img class="rounded" src="<?=$this->Html->Url->image(h($venue->venue_photo1)) ?>" width="250" length="250">
-                        <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>                
+                        <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2></div>
                     </div>
                     <div class="col-md-4"
-                    >   
-                        <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Number of Guests</label><input type="number" id="guest_count" name="guest_count" class="form-control" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" ></div>
-                        
+                    >
+                        <div class="input number required"  style="text-align: left"><label for="guest-count" class="form-label">Number of Guests</label><input type="number" min="0" id="guest_count" name="guest_count" class="form-control" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" ></div>
+
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex flex-row align-items-center" style="text-align: right"><span class="d-block ml-5 font-weight-bold" name="paye">$<?=h($venue->venue_payrate) ?> / Guest</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
@@ -46,7 +46,7 @@
                 <label class="radio"><a href="https://www.paypal.com/in/signin"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span></a></label>
                 <div><label class="credit-card-label">Name on card</label><input type="text" color="Black" class="form-control credit-inputs" placeholder="Name"></div>
                 <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
-                
+
                 <div class="row">
                     <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
                     <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
