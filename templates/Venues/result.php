@@ -26,9 +26,6 @@
 
 
 <?php
- if ($searchStartDate == null){
-     echo 'yes';
-};
 /*
 $search_venue = array();
 $search_name = $_POST["search_name"];
@@ -54,6 +51,7 @@ foreach ($venues as $venue):
 <section class="ftco-section bg-light ftco-no-pt ftco-no-pb">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
+            <?php if ($results != null){ ?>
             <?php foreach ($results as $venue): ?>
                 <div class="col-lg-6">
                     <div class="room-wrap d-md-flex">
@@ -80,7 +78,8 @@ foreach ($venues as $venue):
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach;
+            }?>
             <?php if ($invalidResults != null){ ?>
             <?php foreach ($invalidResults as $venue): ?>
                 <div class="col-lg-6">
