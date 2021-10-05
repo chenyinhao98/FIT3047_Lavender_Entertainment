@@ -9648,7 +9648,8 @@ label.radio input:checked+span {
 }
 
 .spec {
-  font-size: 11px
+  font-size: 11px;
+}
 
   .receipt-content .invoice-wrapper {
     background: #FFF;
