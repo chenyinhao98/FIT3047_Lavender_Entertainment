@@ -208,9 +208,7 @@ textarea {
 
 button,
 input {
-  overflow: visible;
-  background-color: transparent;
-  border: transparent; }
+  overflow: visible; }
 
 button,
 select {
@@ -9544,7 +9542,7 @@ input.star-4:checked~label.star:before {
 }
 
 .payment-info {
-  background: lavender;
+  background: blue;
   padding: 10px;
   border-radius: 6px;
   color: rgb(0, 0, 0);
@@ -9656,7 +9654,7 @@ label.radio input:checked+span {
 
 .receipt-content .invoice-wrapper {
   background: #FFF;
-  border: 10px solid #CDD3E2;
+  border: 1px solid #CDD3E2;
   box-shadow: 0px 0px 1px #CCC;
   padding: 40px 40px 60px;
   margin-top: 40px;
@@ -9858,8 +9856,4 @@ label.radio input:checked+span {
   text-align: center;
   font-size: 12px;
   color: #969CAD; 
-}
-
-#checkmark{
-  padding: 22% 0;
-}
+}                    
