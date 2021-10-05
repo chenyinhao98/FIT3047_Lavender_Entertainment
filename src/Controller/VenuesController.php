@@ -67,7 +67,8 @@ class VenuesController extends AppController
         $guestNumber = $this->getRequest()->getQuery('guest_count');
         
 
-        $payrate= $venue->venue_payrate;
+        $payrate= intval($venue->venue_payrate);
+
 
 
 ///////
@@ -81,7 +82,7 @@ class VenuesController extends AppController
         
 
         }
-        $this->set(compact('venue','subtotal'));
+        $this->set(compact('venue','payrate'));
 
 
     }

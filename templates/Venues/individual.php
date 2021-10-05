@@ -17,10 +17,10 @@
         $selected = $venue;
     }?> 
     <?php  endforeach; */?>
-<?= $this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
+<?php /*$this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
 <input name=''>
 <?= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
-<?= $this->Form->end(); ?>
+<?= $this->Form->end(); ?> */ ?>
 
 <section class="ftco-section bg-light " style="background:gray">
     <div class="container">
