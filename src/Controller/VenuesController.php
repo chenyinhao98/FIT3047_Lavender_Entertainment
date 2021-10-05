@@ -98,6 +98,11 @@ class VenuesController extends AppController
                 ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
                 ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
                 ->andwhere(['id NOT IN' => $invalidIds]);
+            $invalidResults = $this->Venues->find()
+                ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
+                ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
+                ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]])
+                ->andwhere(['id IN' => $invalidIds]);
         }
         else{
             $numberArray = explode(',',$attendeeNumber);
@@ -107,6 +112,7 @@ class VenuesController extends AppController
                 ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <' => $numberArray[1]]])
                 ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
                 ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <' => $priceArray[1]]]);
+            $invalidResults = null;
         }
 
         if ($searchEndDate != '') {
@@ -114,10 +120,7 @@ class VenuesController extends AppController
             $searchEndDate = $endDateArray[2] . '-' . $endDateArray[0] . '-' . $endDateArray[1];
         }
 
-
-
-
-        $this->set(compact('venues','results'));
+        $this->set(compact('venues','results','invalidResults'));
     }
 
     public function individual($id=null)
