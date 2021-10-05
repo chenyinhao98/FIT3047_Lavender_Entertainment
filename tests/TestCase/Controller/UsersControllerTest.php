@@ -23,12 +23,20 @@ class UsersControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Users',
+<<<<<<< HEAD
+=======
+        'app.Events',
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
     ];
 
     /**
      * Test index method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Controller\UsersController::index()
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
      */
     public function testIndex(): void
     {
@@ -39,6 +47,10 @@ class UsersControllerTest extends TestCase
      * Test view method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Controller\UsersController::view()
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
      */
     public function testView(): void
     {
@@ -49,6 +61,10 @@ class UsersControllerTest extends TestCase
      * Test add method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Controller\UsersController::add()
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
      */
     public function testAdd(): void
     {
@@ -59,6 +75,10 @@ class UsersControllerTest extends TestCase
      * Test edit method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Controller\UsersController::edit()
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
      */
     public function testEdit(): void
     {
@@ -69,6 +89,10 @@ class UsersControllerTest extends TestCase
      * Test delete method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Controller\UsersController::delete()
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
      */
     public function testDelete(): void
     {

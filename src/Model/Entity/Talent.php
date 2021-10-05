@@ -12,15 +12,15 @@ use Cake\ORM\Entity;
  * @property string $talent_type
  * @property string $talent_name
  * @property string $talent_address
- * @property float $talent_travel_radius
  * @property float $talent_payrate
- * @property float $talent_min_hour
  * @property string $talent_contact_name
  * @property string $talent_contact_number
  * @property string $talent_email
- * @property string|resource|null $talent_photo
+ * @property string|null $talent_photo
  * @property string|null $talent_about_us
  *
+ * @property \App\Model\Entity\TalentAvailability[] $talent_availability
+ * @property \App\Model\Entity\TalentSuburb[] $talent_suburb
  * @property \App\Model\Entity\EventType[] $event_types
  * @property \App\Model\Entity\Event[] $events
  */
@@ -39,14 +39,14 @@ class Talent extends Entity
         'talent_type' => true,
         'talent_name' => true,
         'talent_address' => true,
-        'talent_travel_radius' => true,
         'talent_payrate' => true,
-        'talent_min_hour' => true,
         'talent_contact_name' => true,
         'talent_contact_number' => true,
         'talent_email' => true,
         'talent_photo' => true,
         'talent_about_us' => true,
+        'talent_availability' => true,
+        'talent_suburb' => true,
         'event_types' => true,
         'events' => true,
     ];

@@ -68,6 +68,12 @@
                     <h6 class="collapse-header">Venue Options:</h6>
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -84,8 +90,16 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
                     <a style="color:#a298fc;" class="collapse-item active">Add New Supplier</a>                </div>
             </div>
+=======
+                    <a style="color:#a298fc;" class="collapse-item active">Add New Supplier</a>
+                    <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
+                </div>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
         </li>
 
         <!-- Nav Item - Talent Collapse Menu -->
@@ -101,6 +115,12 @@
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -207,6 +227,7 @@
 
             <!-- Begin Page Content -->
             <br>
+<<<<<<< HEAD
             <?= $this->Form->create($supplier) ?>
             <fieldset style="padding-left: 5%; padding-right:5%">
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;" >
@@ -235,18 +256,50 @@
 
 
         </div>
+=======
+            <div class="suppliers form content">
+                <?= $this->Form->create($supplier) ?>
+                <fieldset style="padding-left: 5%; padding-right:5%">
+                    <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;">
+                    <legend><?= __('Add Supplier') ?></legend></h1><br>
+                    <?php
+                    echo $this->Form->control('supplier_type');
+                    echo $this->Form->control('supplier_name');
+                    echo $this->Form->control('supplier_address');
+                    echo $this->Form->control('supplier_payrate');
+                    echo $this->Form->control('supplier_contact_name');
+                    echo $this->Form->control('supplier_contact_number');
+                    echo $this->Form->control('supplier_email');
+                    echo $this->Form->control('supplier_photo', array('type' => 'file'));
+                    echo $this->Form->control('supplier_about_us');
+                    echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
+                    echo $this->Form->control('events._ids', ['options' => $events]);
+                    ?><br>
+
+                    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
+                    <?= $this->Form->end() ?>
+                </fieldset><br>
+            </div>
+        </div>
+    </div>
+</div>
+            <br>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
         <div class="container-fluid">
             <!-- content goes here !-->
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
         <!-- End of Main Content -->
+<<<<<<< HEAD
 
 
     </div>
     <!-- End of Content Wrapper -->
 
 </div>
+=======
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->

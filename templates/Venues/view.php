@@ -500,8 +500,8 @@ foreach ($venues as $venue):
                     <td><?= $this->Number->format($venue->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Venue Min Capacity') ?></th>
-                    <td><?= $this->Number->format($venue->venue_min_capacity) ?></td>
+                    <th><?= __('Venue Capacity') ?></th>
+                    <td><?= $this->Number->format($venue->venue_capacity) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Venue Payrate') ?></th>
@@ -545,32 +545,59 @@ foreach ($venues as $venue):
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Event Name') ?></th>
-                            <th><?= __('Customer Id') ?></th>
+                            <th><?= __('User Id') ?></th>
                             <th><?= __('Venue Id') ?></th>
                             <th><?= __('Event Attendance') ?></th>
-                            <th><?= __('Event Date') ?></th>
                             <th><?= __('Event Type Id') ?></th>
                             <th><?= __('Event Startdate') ?></th>
                             <th><?= __('Event Enddate') ?></th>
-                            <th><?= __('Payment Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($venue->events as $events) : ?>
                         <tr>
                             <td><?= h($events->id) ?></td>
                             <td><?= h($events->event_name) ?></td>
-                            <td><?= h($events->customer_id) ?></td>
+                            <td><?= h($events->user_id) ?></td>
                             <td><?= h($events->venue_id) ?></td>
                             <td><?= h($events->event_attendance) ?></td>
-                            <td><?= h($events->event_date) ?></td>
                             <td><?= h($events->event_type_id) ?></td>
                             <td><?= h($events->event_startdate) ?></td>
                             <td><?= h($events->event_enddate) ?></td>
-                            <td><?= h($events->payment_id) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Events', 'action' => 'view', $events->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Events', 'action' => 'edit', $events->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Events', 'action' => 'delete', $events->id], ['confirm' => __('Are you sure you want to delete # {0}?', $events->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
+                <h4><?= __('Related Venue Availability') ?></h4>
+                <?php if (!empty($venue->venue_availability)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Venue Id') ?></th>
+                            <th><?= __('Date') ?></th>
+                            <th><?= __('Description') ?></th>
+                            <th><?= __('Avaliable') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($venue->venue_availability as $venueAvailability) : ?>
+                        <tr>
+                            <td><?= h($venueAvailability->id) ?></td>
+                            <td><?= h($venueAvailability->venue_id) ?></td>
+                            <td><?= h($venueAvailability->date) ?></td>
+                            <td><?= h($venueAvailability->description) ?></td>
+                            <td><?= h($venueAvailability->avaliable) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'VenueAvailability', 'action' => 'view', $venueAvailability->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'VenueAvailability', 'action' => 'edit', $venueAvailability->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'VenueAvailability', 'action' => 'delete', $venueAvailability->id], ['confirm' => __('Are you sure you want to delete # {0}?', $venueAvailability->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

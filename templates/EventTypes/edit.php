@@ -1,8 +1,15 @@
 <?php
 /**
  * @var \App\View\AppView $this
+<<<<<<< HEAD
  * @var \App\Model\Entity\Venue $venue
  * @var string[]|\Cake\Collection\CollectionInterface $eventTypes
+=======
+ * @var \App\Model\Entity\EventType $eventType
+ * @var string[]|\Cake\Collection\CollectionInterface $suppliers
+ * @var string[]|\Cake\Collection\CollectionInterface $talents
+ * @var string[]|\Cake\Collection\CollectionInterface $venues
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
  */
 ?>
 
@@ -215,7 +222,14 @@
                     <legend><?= __('Edit Event Type') ?></legend><br>
                 </h1>
                 <?php
+<<<<<<< HEAD
                 echo $this->Form->control('event_name');
+=======
+                    echo $this->Form->control('event_name');
+                    echo $this->Form->control('suppliers._ids', ['options' => $suppliers]);
+                    echo $this->Form->control('talents._ids', ['options' => $talents]);
+                    echo $this->Form->control('venues._ids', ['options' => $venues]);
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 ?>
                 <br>
                 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>

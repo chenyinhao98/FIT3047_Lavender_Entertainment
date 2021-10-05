@@ -70,6 +70,12 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Venue Options:</h6>
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -85,8 +91,15 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Supplier Options:</h6>
+<<<<<<< HEAD
                     <a style="color:#a298fc;" class="collapse-item active">View All Talents</a>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
+=======
+                    <a style="color:#a298fc;" class="collapse-item active">View All Suppliers</a>
+                    <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -104,6 +117,11 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Talents'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -193,6 +211,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Suppliers') ?></h3></h1>
             </div>
             <div class="venues index content">
+<<<<<<< HEAD
                 <div class="table-responsive" style="padding-left: 1%; padding-right: 1%;">
                     <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
                         <thead>
@@ -204,6 +223,17 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                             <th><?= $this->Paginator->sort('supplier_payrate') ?></th>
                             <th><?= $this->Paginator->sort('supplier_min_hour') ?></th>
                             <th><?= $this->Paginator->sort('supplier_advertise_fee') ?></th>
+=======
+                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%; font-size: 80%">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
+                        <thead>
+                        <tr>
+                            <th><?= $this->Paginator->sort('id') ?></th>
+                            <th><?= $this->Paginator->sort('supplier_type') ?></th>
+                            <th><?= $this->Paginator->sort('supplier_name') ?></th>
+                            <th><?= $this->Paginator->sort('supplier_address') ?></th>
+                            <th><?= $this->Paginator->sort('supplier_payrate') ?></th>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                             <th><?= $this->Paginator->sort('supplier_contact_name') ?></th>
                             <th><?= $this->Paginator->sort('supplier_contact_number') ?></th>
                             <th><?= $this->Paginator->sort('supplier_email') ?></th>
@@ -214,6 +244,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         </thead>
                         <tbody>
                         <?php foreach ($suppliers as $supplier): ?>
+<<<<<<< HEAD
                             <tr style="font-size: 10px;">
                                 <td><?= h($supplier->supplier_type) ?></td>
                                 <td><?= h($supplier->supplier_name) ?></td>
@@ -222,14 +253,27 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                                 <td><?= h($supplier->supplier_payrate) ?></td>
                                 <td><?= $this->Number->format($supplier->supplier_min_hour) ?></td>
                                 <td><?= $this->Number->format($supplier->supplier_advertise_fee) ?></td>
+=======
+                            <tr>
+                                <td><?= $this->Number->format($supplier->id) ?></td>
+                                <td><?= h($supplier->supplier_type) ?></td>
+                                <td><?= h($supplier->supplier_name) ?></td>
+                                <td><?= h($supplier->supplier_address) ?></td>
+                                <td><?= h($supplier->supplier_payrate) ?></td>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                                 <td><?= h($supplier->supplier_contact_name) ?></td>
                                 <td><?= h($supplier->supplier_contact_number) ?></td>
                                 <td><?= h($supplier->supplier_email) ?></td>
                                 <td><?= h($supplier->supplier_photo) ?></td>
                                 <td><?= h($supplier->supplier_about_us) ?></td>
                                 <td class="actions">
+<<<<<<< HEAD
                                     <?= $this->Html->link(__('View'), ['action' => 'view', $supplier->id]) ?><br>
                                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $supplier->id]) ?><br>
+=======
+                                    <?= $this->Html->link(__('View'), ['action' => 'view', $supplier->id]) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $supplier->id]) ?>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $supplier->id], ['confirm' => __('Are you sure you want to delete # {0}?', $supplier->id)]) ?>
                                 </td>
                             </tr>

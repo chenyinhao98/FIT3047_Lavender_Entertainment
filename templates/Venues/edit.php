@@ -69,6 +69,11 @@
                     <h6 class="collapse-header">Venue Options:</h6>
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -86,6 +91,12 @@
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -103,6 +114,11 @@
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+                    <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -120,6 +136,10 @@
                     <h6 class="collapse-header">Event Type Options:</h6>
                     <?= $this->Html->link(__('View All Event Types'), ['controller'=> 'EventTypes','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Event Types'), ['controller'=> 'EventTypes','action' => 'add'], ['class' => 'collapse-item']) ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -212,6 +232,7 @@
             <?= $this->Form->create($venue) ?>
             <fieldset style="padding-left: 5%; padding-right:5%">
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;" >
+<<<<<<< HEAD
                     <legend><?= __('Edit Venue') ?></legend><br>
                 </h1>
                     <?php
@@ -232,6 +253,29 @@
                 <?= $this->Form->end() ?>
             </fieldset>
 
+=======
+                    <legend>Edit Venue</legend><br>
+                </h1>
+                <?php
+                echo $this->Form->control('venue_name');
+                echo $this->Form->control('venue_address');
+                echo $this->Form->control('venue_capacity');
+                echo $this->Form->control('venue_payrate');
+                echo $this->Form->control('venue_rating');
+                echo $this->Form->control('venue_contact_name');
+                echo $this->Form->control('venue_contact_number', ['type' => 'integer']);
+                echo $this->Form->control('venue_email', ['type' => 'email']);
+                echo $this->Form->control('venue_photo1', array('type' => 'file'));
+                echo $this->Form->control('venue_photo2', array('type' => 'file'));
+                echo $this->Form->control('venue_about_us');
+                echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
+                ?><br>
+                <?= $this->Form->button(__('Submit'),  ['class'=>'btn btn-primary']) ?>
+                <?= $this->Form->end() ?>
+            </fieldset>
+
+
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
             <br>
 
 

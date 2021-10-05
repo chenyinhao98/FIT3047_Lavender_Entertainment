@@ -1,8 +1,15 @@
 <?php
 /**
  * @var \App\View\AppView $this
+<<<<<<< HEAD
  * @var \App\Model\Entity\Venue $venue
  * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
+=======
+ * @var \App\Model\Entity\EventType $eventType
+ * @var \Cake\Collection\CollectionInterface|string[] $suppliers
+ * @var \Cake\Collection\CollectionInterface|string[] $talents
+ * @var \Cake\Collection\CollectionInterface|string[] $venues
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
  */
 ?>
 <!DOCTYPE html>
@@ -215,10 +222,18 @@
                 </h1>
                 <br>
                 <?php
+<<<<<<< HEAD
                 echo $this->Form->control('event_name');
                 ?><br>
                 <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
                 <?= $this->Form->end() ?>
+=======
+                    echo $this->Form->control('event_name');
+                    echo $this->Form->control('suppliers._ids', ['options' => $suppliers]);
+                    echo $this->Form->control('talents._ids', ['options' => $talents]);
+                    echo $this->Form->control('venues._ids', ['options' => $venues]);
+                ?>
+>>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
             </fieldset>
             <br>
         </div>
