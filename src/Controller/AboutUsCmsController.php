@@ -39,7 +39,6 @@ class AboutUsCmsController extends AppController
         $this->set(compact('aboutUsCm'));
     }
 
-
     public function aboutus($id = null)
     {
         $aboutUsCm = $this->AboutUsCms->get($id, [
@@ -83,6 +82,7 @@ class AboutUsCmsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $aboutUsCm = $this->AboutUsCms->patchEntity($aboutUsCm, $this->request->getData());
+
             if(!$aboutUsCm->getErrors) {
                 $image = $this->request->getData('image_file');
                 $name = $image->getClientFilename();
@@ -120,6 +120,7 @@ class AboutUsCmsController extends AppController
 
                 $aboutUsCm->what_we_offer_photo=$name4;
             }
+
             if ($this->AboutUsCms->save($aboutUsCm)) {
                 $this->Flash->success(__('The about us cm has been saved.'));
 
@@ -165,5 +166,4 @@ class AboutUsCmsController extends AppController
     }
     $this->set(compact('settings'));
 }
-
 }

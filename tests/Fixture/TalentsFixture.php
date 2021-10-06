@@ -17,7 +17,6 @@ class TalentsFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-<<<<<<< HEAD
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'talent_type' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'talent_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
@@ -29,17 +28,6 @@ class TalentsFixture extends TestFixture
         'talent_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'talent_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'talent_photo' => ['type' => 'binary', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-=======
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'talent_type' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talent_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talent_address' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talent_payrate' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'talent_contact_name' => ['type' => 'string', 'length' => 64, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talent_contact_number' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talent_email' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-        'talent_photo' => ['type' => 'string', 'length' => 256, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         'talent_about_us' => ['type' => 'string', 'length' => 512, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
@@ -63,13 +51,9 @@ class TalentsFixture extends TestFixture
                 'talent_type' => 'Lorem ipsum dolor sit amet',
                 'talent_name' => 'Lorem ipsum dolor sit amet',
                 'talent_address' => 'Lorem ipsum dolor sit amet',
-<<<<<<< HEAD
                 'talent_travel_radius' => 1,
                 'talent_payrate' => 1,
                 'talent_min_hour' => 1,
-=======
-                'talent_payrate' => 1,
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 'talent_contact_name' => 'Lorem ipsum dolor sit amet',
                 'talent_contact_number' => 'Lorem ipsum dolor sit amet',
                 'talent_email' => 'Lorem ipsum dolor sit amet',

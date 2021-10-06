@@ -17,7 +17,6 @@ class EventsTalentsFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-<<<<<<< HEAD
         'event_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'talent_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
@@ -27,19 +26,6 @@ class EventsTalentsFixture extends TestFixture
         '_constraints' => [
             'event_talent_talent_id' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'event_talent_event_id' => ['type' => 'foreign', 'columns' => ['event_id'], 'references' => ['events', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-=======
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'event_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'talent_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        '_indexes' => [
-            'event_talent_talentID' => ['type' => 'index', 'columns' => ['talent_id'], 'length' => []],
-            'event_talent_eventID' => ['type' => 'index', 'columns' => ['event_id'], 'length' => []],
-        ],
-        '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'event_talent_talentID' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_talent_eventID' => ['type' => 'foreign', 'columns' => ['event_id'], 'references' => ['events', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -56,10 +42,6 @@ class EventsTalentsFixture extends TestFixture
     {
         $this->records = [
             [
-<<<<<<< HEAD
-=======
-                'id' => 1,
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 'event_id' => 1,
                 'talent_id' => 1,
             ],

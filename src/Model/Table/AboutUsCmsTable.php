@@ -212,4 +212,3 @@ class AboutUsCmsTable extends Table
         return $validator;
     }
 }
-

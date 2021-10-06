@@ -19,7 +19,6 @@ class EventsFixture extends TestFixture
     public $fields = [
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'event_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
-<<<<<<< HEAD
         'customer_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'venue_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'event_attendance' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
@@ -32,31 +31,14 @@ class EventsFixture extends TestFixture
             'event_event_type_id' => ['type' => 'index', 'columns' => ['event_type_id'], 'length' => []],
             'event_customer_customer_id' => ['type' => 'index', 'columns' => ['customer_id'], 'length' => []],
             'event_payment_payment_id' => ['type' => 'index', 'columns' => ['payment_id'], 'length' => []],
-=======
-        'user_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'venue_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'event_attendance' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'event_type_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'event_startdate' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
-        'event_enddate' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
-        '_indexes' => [
-            'event_event_type_id' => ['type' => 'index', 'columns' => ['event_type_id'], 'length' => []],
-            'event_customer_customer_id' => ['type' => 'index', 'columns' => ['user_id'], 'length' => []],
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             'event_venue_venue_id' => ['type' => 'index', 'columns' => ['venue_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-<<<<<<< HEAD
             'event_venue_venue_id' => ['type' => 'foreign', 'columns' => ['venue_id'], 'references' => ['venues', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'event_payment_payment_id' => ['type' => 'foreign', 'columns' => ['payment_id'], 'references' => ['payments', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'event_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
             'event_customer_customer_id' => ['type' => 'foreign', 'columns' => ['customer_id'], 'references' => ['customers', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-=======
-            'event_event_type_user_id' => ['type' => 'foreign', 'columns' => ['user_id'], 'references' => ['users', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_event_type_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_event_type_venue_id' => ['type' => 'foreign', 'columns' => ['venue_id'], 'references' => ['venues', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -75,7 +57,6 @@ class EventsFixture extends TestFixture
             [
                 'id' => 1,
                 'event_name' => 'Lorem ipsum dolor sit amet',
-<<<<<<< HEAD
                 'customer_id' => 1,
                 'venue_id' => 1,
                 'event_attendance' => 1,
@@ -84,14 +65,6 @@ class EventsFixture extends TestFixture
                 'event_startdate' => '2021-08-30 08:21:32',
                 'event_enddate' => '2021-08-30 08:21:32',
                 'payment_id' => 1,
-=======
-                'user_id' => 1,
-                'venue_id' => 1,
-                'event_attendance' => 1,
-                'event_type_id' => 1,
-                'event_startdate' => '2021-09-22 12:40:35',
-                'event_enddate' => '2021-09-22 12:40:35',
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             ],
         ];
         parent::init();

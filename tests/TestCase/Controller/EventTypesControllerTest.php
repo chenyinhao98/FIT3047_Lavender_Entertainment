@@ -24,21 +24,12 @@ class EventTypesControllerTest extends TestCase
     protected $fixtures = [
         'app.EventTypes',
         'app.Events',
-<<<<<<< HEAD
         'app.Venues',
         'app.Suppliers',
         'app.Talents',
         'app.EventTypesVenues',
         'app.SuppliersEventTypes',
         'app.TalentsEventTypes',
-=======
-        'app.Suppliers',
-        'app.Talents',
-        'app.Venues',
-        'app.EventTypesSuppliers',
-        'app.EventTypesTalents',
-        'app.EventTypesVenues',
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     ];
 
     /**

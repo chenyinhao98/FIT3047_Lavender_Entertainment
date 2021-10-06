@@ -1,15 +1,8 @@
 <?php
 /**
  * @var \App\View\AppView $this
-<<<<<<< HEAD
  * @var \App\Model\Entity\Venue $venue
  * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
-=======
- * @var \App\Model\Entity\EventType $eventType
- * @var \Cake\Collection\CollectionInterface|string[] $suppliers
- * @var \Cake\Collection\CollectionInterface|string[] $talents
- * @var \Cake\Collection\CollectionInterface|string[] $venues
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
  */
 ?>
 <!DOCTYPE html>
@@ -64,29 +57,17 @@
 
 
         <!-- Nav Item - Venue Collapse Menu -->
-<<<<<<< HEAD
         <li class="nav-item">
-=======
-        <li class="nav-item active">
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             <a class="nav-link collapsed services-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-home"></i>
                 <span>Venues</span>
             </a>
-<<<<<<< HEAD
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
-=======
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Venue Options:</h6>
-                    <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <a style="color:#a298fc;" class="collapse-item active">Add New Venue</a>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
@@ -105,11 +86,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
-=======
-                    <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                     <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
 
@@ -136,26 +113,17 @@
         </li>
 
         <!-- Nav Item - Supplier Event Type Menu -->
-<<<<<<< HEAD
         <li class="nav-item active">
-=======
-        <li class="nav-item">
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEventTypes"
                aria-expanded="true" aria-controls="collapseEventTypes">
                 <i class="fas fa-birthday-cake"></i>
                 <span>Event Types</span>
             </a>
-<<<<<<< HEAD
             <div id="collapseEventTypes" class="collapse show" aria-labelledby="headingEventTypes"
-=======
-            <div id="collapseEventTypes" class="collapse" aria-labelledby="headingEventTypes"
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Event Type Options:</h6>
                     <?= $this->Html->link(__('View All Event Types'), ['controller'=> 'EventTypes','action' => 'index'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
                     <a style="color:#a298fc;" class="collapse-item active">Add Event Type</a>
                 </div>
             </div>
@@ -173,25 +141,6 @@
                     <h6 class="collapse-header">Content Edit Options:</h6>
                     <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' =>'edit',1], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
-=======
-                    <?= $this->Html->link(__('Add New Event Types'), ['controller'=> 'EventTypes','action' => 'add'], ['class' => 'collapse-item']) ?>
-                </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
-               aria-expanded="true" aria-controls="collapseNews">
-                <i class="fas fa-newspaper"></i>
-                <span>News</span>
-            </a>
-            <div id="collapseNews" class="collapse" aria-labelledby="headingNews"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">News Options:</h6>
-                    <?= $this->Html->link(__('View All News'), ['controller'=> 'News','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Publish News'), ['controller'=> 'News','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 </div>
             </div>
         </li>
@@ -289,33 +238,14 @@
                         <legend><?= __('Add Event Type') ?></legend></h1><br>
                     <?php
                     echo $this->Form->control('event_name');
-<<<<<<< HEAD
                     ?><br>
                     <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
                     <?= $this->Form->end() ?>
                 </fieldset>
-=======
-                    echo $this->Form->control('suppliers._ids', ['options' => $suppliers]);
-                    echo $this->Form->control('talents._ids', ['options' => $talents]);
-                    echo $this->Form->control('venues._ids', ['options' => $venues]);
-                    ?><br>
-
-                    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
-                    <?= $this->Form->end() ?>
-                </fieldset><br>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             </div>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
-=======
-<br>
-<div class="container-fluid">
-    <!-- content goes here !-->
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 </div>
 <!-- End of Main Content -->
 <!-- End of Page Wrapper -->
@@ -359,7 +289,3 @@
 </body>
 
 </html>
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98

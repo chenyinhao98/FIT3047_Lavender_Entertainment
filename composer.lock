@@ -4,10 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-
     "content-hash": "1d4992350dbbb1e022c8bdf455d8f470",
-
-    "content-hash": "a05294b95dd0299877cdad34989c5834",
     "packages": [
         {
             "name": "cakephp/cakephp",
@@ -728,7 +725,6 @@
             "time": "2021-07-09T08:23:52+00:00"
         },
         {
-
             "name": "league/flysystem",
             "version": "2.3.0",
             "source": {

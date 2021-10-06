@@ -5,7 +5,6 @@ namespace App\Controller;
 
 /**
  * ContactCms Controller
- * ContactUsCms Controller
  *
  * @property \App\Model\Table\ContactUsCmsTable $ContactUsCms
  * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
@@ -19,26 +18,20 @@ class ContactUsCmsController extends AppController
      */
     public function index()
     {
-
         $ContactUsCms = $this->paginate($this->ContactUsCms);
 
         $this->set(compact('ContactUsCms'));
-        $contactUsCms = $this->paginate($this->ContactUsCms);
-
-        $this->set(compact('contactUsCms'));
     }
 
     /**
      * View method
      *
      * @param string|null $id Contact Us id.
-     * @param string|null $id Contact Us Cm id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-
         $ContactUsCm = $this->ContactUsCms->get($id, [
             'contain' => [],
         ]);
@@ -46,13 +39,14 @@ class ContactUsCmsController extends AppController
         $this->set(compact('ContactUsCm'));
     }
 
-    public function contactus()
+    public function contactus($id = null)
     {
-        $contactUsCms = $this->paginate($this->ContactUsCms);
+        $ContactUsCm = $this->ContactUsCms->get($id, [
+            'contain' => [],
+        ]);
 
-        $this->set(compact('contactUsCms'));
+        $this->set(compact('ContactUsCm'));
     }
-
 
     /**
      * Add method
@@ -72,17 +66,6 @@ class ContactUsCmsController extends AppController
             $this->Flash->error(__('The about us cm could not be saved. Please, try again.'));
         }
         $this->set(compact('ContactUsCm'));
-        $contactUsCm = $this->ContactUsCms->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $contactUsCm = $this->ContactUsCms->patchEntity($contactUsCm, $this->request->getData());
-            if ($this->ContactUsCms->save($contactUsCm)) {
-                $this->Flash->success(__('The contact us cm has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The contact us cm could not be saved. Please, try again.'));
-        }
-        $this->set(compact('contactUsCm'));
     }
 
     /**
@@ -94,47 +77,55 @@ class ContactUsCmsController extends AppController
      */
     public function edit($id = null)
     {
-        $contactUsCm = $this->ContactUsCms->get($id, [
+        $ContactUsCm = $this->ContactUsCms->get($id, [
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $contactUsCm = $this->ContactUsCms->patchEntity($contactUsCm, $this->request->getData());
-            if ($this->ContactUsCms->save($contactUsCm)) {
+            $ContactUsCm = $this->ContactUsCms->patchEntity($ContactUsCm, $this->request->getData());
+
+            if ($this->ContactUsCms->save($ContactUsCm)) {
                 $this->Flash->success(__('The contact us cm has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The contact us cm could not be saved. Please, try again.'));
         }
-        $this->set(compact('contactUsCm'));
+        $this->set(compact('ContactUsCm'));
     }
 
     /**
      * Delete method
      *
      * @param string|null $id Contact us Cm id.
-     * @param string|null $id Contact Us Cm id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-
         $ContactUsCm = $this->ContactUsCms->get($id);
         if ($this->ContactUsCms->delete($ContactUsCm)) {
             $this->Flash->success(__('The about us cm has been deleted.'));
         } else {
             $this->Flash->error(__('The about us cm could not be deleted. Please, try again.'));
-            $contactUsCm = $this->ContactUsCms->get($id);
-            if ($this->ContactUsCms->delete($contactUsCm)) {
-                $this->Flash->success(__('The contact us cm has been deleted.'));
-            } else {
-                $this->Flash->error(__('The contact us cm could not be deleted. Please, try again.'));
-            }
-
-            return $this->redirect(['action' => 'index']);
         }
+
+        return $this->redirect(['action' => 'index']);
     }
 
+    public function settings()
+    {
+    $settings = $this->Settings->find()->firstOrFail();
+
+    if ($this->request->is(['patch', 'post', 'put'])) {
+        $settings = $this->Settings->patchEntity($settings, $this->request->getData());
+        if ($this->Settings->save($settings)) {
+            $this->Flash->success(__('The setting has been saved.'));
+
+            return $this->redirect(['action' => 'settings']);
+        }
+        $this->Flash->error(__('The setting could not be saved. Please, try again.'));
+    }
+    $this->set(compact('settings'));
+}
 }

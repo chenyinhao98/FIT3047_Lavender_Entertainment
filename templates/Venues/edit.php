@@ -131,7 +131,6 @@
                 </div>
             </div>
         </li>
-<<<<<<< HEAD
         <!-- Nav Item -  CMS Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
@@ -149,8 +148,6 @@
                 </div>
             </div>
         </li>
-=======
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         <!-- Divider -->
         <hr class="sidebar-divider">
     </ul>
@@ -249,13 +246,8 @@
                 echo $this->Form->control('venue_payrate');
                 echo $this->Form->control('venue_rating');
                 echo $this->Form->control('venue_contact_name');
-<<<<<<< HEAD
                 echo $this->Form->control('venue_contact_number');
                 echo $this->Form->control('venue_email');
-=======
-                echo $this->Form->control('venue_contact_number', ['type' => 'integer']);
-                echo $this->Form->control('venue_email', ['type' => 'email']);
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 echo $this->Form->control('venue_photo1', array('type' => 'file'));
                 echo $this->Form->control('venue_photo2', array('type' => 'file'));
                 echo $this->Form->control('venue_about_us');
