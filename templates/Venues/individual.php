@@ -5,6 +5,8 @@
  * @var \App\Model\Entity\Talent $talent
  * @var \App\Model\Entity\Supplier $supplier
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var \App\Model\Entity\EventType $eventType
+ * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $venueEventTypes
  * @var \App\Model\Entity\Talent[]|\Cake\Collection\CollectionInterface $talentResults
  * @var \App\Model\Entity\Supplier[]|\Cake\Collection\CollectionInterface $supplierResults
  */
@@ -12,15 +14,7 @@
 <?= $this->Form->create($venue, ['type' => 'get']);?>
 <p></p>
 
-<?php /*foreach ($venues as $venue):
-    $sql = "SELECT id, firstname, lastname FROM MyGuests";
-    $result = $conn->query($sql);
-    $venue_id = $_REQUEST['venue_id'];
-    $venue_auth = $_GET[venue_id];
-    if ($venue->id == $venue_auth){
-        $selected = $venue;
-    }?>
-    <?php  endforeach; */?>
+
 <?php /*$this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
 <input name=''>
 <?= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
@@ -28,12 +22,12 @@
 
 <?php if ($talentResults != null){
     foreach($talentResults as $talent){
-    echo $talent;
+    
     }
 }?>
 <?php if ($supplierResults != null){
     foreach($supplierResults as $supplier){
-    echo $supplier;
+    
     }
 }?>
 
@@ -89,9 +83,7 @@
                                 <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
                             <div class="col-md-4">
                                 <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
-                                <div class="input-wrap">
-                                <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="Availabilty Date">
-                            </div>
+                                
                             </div>
                         </div>
 
@@ -117,37 +109,37 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="Occasion">Occasion</label>
-                                    <input type="text" class="form-control" name="occasion" id="occasion" placeholder="">
+                                    <input type="text" class="form-control" name="occasion" id="occasion" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="date">Date</label>
-                                    <input type="date" class="form-control" name="date" id="date" placeholder="">
+                                    <input type="date" class="form-control" name="date" id="date" placeholder="" onKeyDown="return false"> 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="label" for="budget">Budget</label>
-                                    <input type="number" class="form-control" name="budget" id="budget" placeholder="">
+                                    <input type="number" class="form-control" name="budget" id="budget" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="label" for="guests">Number of Guests</label>
-                                    <input type="number" class="form-control" name="guests" id="guests" placeholder="">
+                                    <input type="number" class="form-control" name="guests" id="guests" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="#">Food Requirements</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
+                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="#">Additional Message</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
+                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -203,7 +195,7 @@
 			  <span class="quote d-flex align-items-center justify-content-center">
 
 			</span>
-                            <h1 class="display-3 " style="text-align: center; padding: 10px;" ><?=h($venue->venue_min_capacity) ?> Guests</h1>
+                            <h1 class="display-3 " style="text-align: center; padding: 10px;" ><?=h($venue->venue_capacity) ?> Guests</h1>
 
 
                         </div>
@@ -220,8 +212,8 @@
             <div class="col-md-12">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link  " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Recommended Vendors</a>
-                        <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Write a Review</a>
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Recommended Vendors</a>
+                        <a class="nav-item nav-link " id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Write a Review</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -319,7 +311,7 @@
         </div>
     </div>
 <!-- Recommendation Modal-->
-<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="reccModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -361,3 +353,109 @@
         </div>
     </div>
 
+    <!-- Recommendation Final Modal-->
+<div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please type in your details to proceed to cart</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <div class="col-lg-12">
+                <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'cart', $venue->id]),'method' => 'GET']);?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            
+                            <input class="form-control" type="text" name="username" placeholder="Enter Your Full Name" onkeyup="this.value=this.value.replace(/[\d]/,'')"/>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                           
+                            <input class="form-control" type="number" name="phone" min="0100000000" max="9999999999"  placeholder="Enter Your Phone Number" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10"/>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            
+                            <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>" onKeyDown="return false" placeholder="Number Of Guests"/>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    
+                                    <select name="venue_type" id="" class="form-control">
+                                        <option value="">Event Type</option>
+                                        <?php foreach ($venueEventTypes as $eventType): ?>
+                                            <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <!--Recommended Supplier-->
+                                    <select name="recsupplier" id="" class="form-control" value='Recommended Supplier'>
+                                        <option value=''>Choose Supplier</option>
+                                        <?php foreach($supplierResults as $supplier):?>
+                                        <option value="<?= h($supplier->supplier_name) ?>"><?= h($supplier->supplier_name) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <!--Recommended Talent-->
+                                    <select name="rectalent" id="" class="form-control">
+                                        <option value=''>Choose Talent</option>
+                                        <?php foreach($talentResults as $talent):?>
+                                        <option value="<?= h($talent->talent_name) ?>"><?= h($talent->talent_name) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-wrap">
+                                <div class="icon"><span class="ion-md-calendar"></span></div>
+                                <input type="text" name="eventDate" class="form-control appointment_date-check-in" placeholder="Event Date" onKeyDown="return false">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <?= $this->Form->button('Add to Cart',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
+                        </div>
+                    </div>
+                </div>
+                <?= $this->Form->end(); ?>
+            </div>
+        </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>

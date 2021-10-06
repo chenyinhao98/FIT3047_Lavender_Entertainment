@@ -107,11 +107,7 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if($user){
                 $this->Auth->setUser($user);
-<<<<<<< HEAD
                 return $this->redirect(['controller' => 'venues', 'action' => 'index']);
-=======
-                return $this->redirect(['controller' => 'venues','action' => 'index']);
->>>>>>> b6590ab65f09b7d020a1e8118d6ed20d63fdac81
             }
             $this->Flash->error('Incorrect Sign In');
         }

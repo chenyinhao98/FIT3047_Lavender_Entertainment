@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
+ * @var string $subtotal;
+ * @var string $userName;
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
  */
 ?>
@@ -30,9 +32,9 @@
 					<div class="col-md-12">
 						<div class="invoice-wrapper">
 							<div class="intro">
-							Hi <strong>User Name</strong>, 
+							Hi!
 							<br>
-							This is the receipt for a payment of <strong></strong> (AUD) for your booking
+							This is the receipt for a payment of <strong id="data"></strong> (AUD) for your booking
 						</div>
 
 						<div class="payment-info">
@@ -56,75 +58,43 @@
 					<div class="payment-details">
 						<div class="row">
 							<div class="col-sm-6">
-								<span>Client</span>
+								<span>Payment From</span>
 								<strong>
-									User Name
+									Client
 								</strong>
-								<p>
-									989 5th Avenue <br>
-									Melbourne <br>
-									Victoria <br>
-									Australia <br>
-									<a href="#">
-										user@email.com
-									</a>
-								</p>
+								
 							</div>
 							<div class="col-sm-6 text-right">
 								<span>Payment To</span>
 								<strong>
 									Lavender Entertainment
 								</strong>
-								<p>
-									344 9th Avenue <br>
-									Melbourne <br>
-									Victoria <br>
-									Australia <br>
-									<a href="#">
-										client@email.com
-									</a>
-								</p>
+								
 							</div>
 						</div>
 					</div>
 
 					<div class="line-items">
 						<div class="headers clearfix">
-							<div class="row">
-								<div class="col-xs-4">Description</div>
-								<div class="col-xs-3">Quantity</div>
-								<div class="col-xs-5 text-right">Amount</div>
-							</div>
+						<strong style="font-size:25px">Booking For </strong><strong id="data5" style="font-size:25px"></strong><strong style="font-size:25px"> Guests at <?=h($venue->venue_name) ?>
 						</div>
-						<div class="items">
-						<div class="row item">
-								<div class="col-xs-4 desc">
-									<span><?=h($venue->venue_name) ?></span>
-								</div>
-								<div class="col-xs-3 qty">
-								<span id="data"></span>
-								</div>
-								<div class="col-xs-5 amount text-right">
-								<span id="data1"></span>
-								</div>
 						
-						</div>
 						<div class="total text-right">
 							<p class="extra-notes">
 								<strong>Extra Notes</strong> 
 								Thank you for choosing Lavender Entertainment
 							</p>
 							<div class="field">
-								Subtotal <span>$379.00</span>
+								Venue Charges($) <span id="data4"></span>
 							</div>
 							<div class="field">
-								Shipping <span>$0.00</span>
+								Supplier Charges($) <span id="data3">$0.00</span>
 							</div>
 							<div class="field">
-								Discount <span>4.5%</span>
+								Talent Charge($) <span id="data2">N/A</span>
 							</div>
 							<div class="field grand-total">
-								Total <span>$312.00</span>
+								Total($)<span id="data1"></span>
 							</div>
 						</div>
 						<div class="print">
@@ -168,14 +138,20 @@ function randomString() {
 //displaying the value from local storage to another page by their respective Ids
 document.getElementById("data").innerHTML=localStorage.getItem("txtValue");
 document.getElementById("data1").innerHTML=localStorage.getItem("txtValue1");
-
+document.getElementById("data2").innerHTML=localStorage.getItem("txtValue2");
+document.getElementById("data3").innerHTML=localStorage.getItem("txtValue3");
+document.getElementById("data4").innerHTML=localStorage.getItem("txtValue4");
+document.getElementById("data5").innerHTML=localStorage.getItem("txtValue5");
+document.getElementById("data6").innerHTML=localStorage.getItem("txtValue7");
+document.getElementById("data7").innerHTML=localStorage.getItem("txtValue7");
+document.getElementById("data8").innerHTML=localStorage.getItem("txtValue9");
 </script>
 
 <script>
 
 var today = new Date();
 
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
 document.getElementById("date1").innerHTML =date;
 
