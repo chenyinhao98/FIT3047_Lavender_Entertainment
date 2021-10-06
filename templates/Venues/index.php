@@ -70,11 +70,8 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Venue Options:</h6>
                     <a style="color:#a298fc;" class="collapse-item active">View All Venues</a>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -92,11 +89,8 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
                     <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -113,13 +107,9 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-                    <?= $this->Html->link(__('Add New Talents'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
-=======
                     <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -140,6 +130,24 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 </div>
             </div>
         </li>
+
+        <!-- Nav Item - CMS Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
+               aria-expanded="true" aria-controls="collapseContentEdit">
+                <i class="far fa-edit"></i>
+                <span>Content Edit</span>
+            </a>
+            <div id="collapseContentEdit" class="collapse" aria-labelledby="headingContentEdit"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Content Edit Options:</h6>
+                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
+                </div>
+            </div>
+        </li>
+
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
@@ -179,24 +187,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-<<<<<<< HEAD
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Search for..." aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-=======
                     <!-- Dropdown - Messages -->
                     <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                          aria-labelledby="searchDropdown">
@@ -213,7 +203,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                             </div>
                         </form>
                     </div>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                     </li>
 
                     <hr class="topbar-divider">
@@ -243,49 +232,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Venues') ?></h3></h1>
             </div>
             <div class="venues index content">
-<<<<<<< HEAD
-                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%;">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
-                        <thead>
-                        <tr style="font-size: 10px; padding: 0 !important; margin: 0 !important; ">
-                            <th><?= $this->Paginator->sort('Venue Name') ?></th>
-                            <th><?= $this->Paginator->sort('Address') ?></th>
-                            <th><?= $this->Paginator->sort('Capacity') ?></th>
-                            <th><?= $this->Paginator->sort('Hourly Rate') ?></th>
-                            <th><?= $this->Paginator->sort('Rating') ?></th>
-                            <th><?= $this->Paginator->sort('Contact Name') ?></th>
-                            <th><?= $this->Paginator->sort('Contact Number') ?></th>
-                            <th><?= $this->Paginator->sort('Email') ?></th>
-                            <th><?= $this->Paginator->sort('Photo 1') ?></th>
-                            <th><?= $this->Paginator->sort('Photo 2') ?></th>
-                            <th><?= $this->Paginator->sort('About') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($venues as $venue): ?>
-                            <tr style="font-size: 10px;">
-                                <td><?= h($venue->venue_name) ?></td>
-                                <td><?= h($venue->venue_address) ?></td>
-                                <td><?= $this->Number->format($venue->venue_min_capacity) ?></td>
-                                <td><?= $this->Number->format($venue->venue_payrate) ?></td>
-                                <td><?= $this->Number->format($venue->venue_rating) ?></td>
-                                <td><?= h($venue->venue_contact_name) ?></td>
-                                <td><?= h($venue->venue_contact_number) ?></td>
-                                <td><?= h($venue->venue_email) ?></td>
-                                <td><?= h($venue->venue_photo1) ?></td>
-                                <td><?= h($venue->venue_photo2) ?></td>
-                                <td><?= h($venue->venue_about_us) ?></td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $venue->id]) ?> <br>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $venue->id]) ?> <br>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $venue->id], ['confirm' => __('Are you sure you want to delete {0}?', $venue->venue_name)]) ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-=======
                 <div class="table-responsive" style="padding-left: 1%; padding-right: 1%; font-size: 55%">
                         <table class="table table-bordered" id="dataTable">
                             <thead>
@@ -329,7 +275,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                             <?php endforeach; ?>
                             </tbody>
                         </table>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
             <div class="container-fluid">
@@ -365,11 +310,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-<<<<<<< HEAD
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-=======
                     <a class="btn btn-primary" href="users/login">Logout</a>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </div>
@@ -384,11 +325,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-<<<<<<< HEAD
-<?= $this->fetch('script') ?>
-=======
     <?= $this->fetch('script') ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
 
     <script>
         $(document).ready(function(){

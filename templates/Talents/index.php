@@ -1,21 +1,10 @@
 <?php
-<<<<<<< HEAD
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
- */
-=======
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
 
 echo $this->Html->css('/vendor/datatables/dataTables.bootstrap4.min.css', ['block'=>true]);
 echo $this->Html->script('/vendor/datatables/jquery.dataTables.min.js', ['block'=>true]);
 echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['block'=>true]);
 
 ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,16 +64,11 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
-<<<<<<< HEAD
-                    <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
-=======
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
 
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -102,11 +86,8 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
                     <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -123,13 +104,9 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Talent Options:</h6>
                     <a style="color:#a298fc;" class="collapse-item active">View All Talent</a>
-<<<<<<< HEAD
-                    <?= $this->Html->link(__('Add New Talents'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
-=======
                     <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -147,6 +124,23 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <h6 class="collapse-header">Event Type Options:</h6>
                     <?= $this->Html->link(__('View All Event Types'), ['controller'=> 'EventTypes','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Event Types'), ['controller'=> 'EventTypes','action' => 'add'], ['class' => 'collapse-item']) ?>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - CMS Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
+               aria-expanded="true" aria-controls="collapseContentEdit">
+                <i class="far fa-edit"></i>
+                <span>Content Edit</span>
+            </a>
+            <div id="collapseContentEdit" class="collapse" aria-labelledby="headingContentEdit"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Content Edit Options:</h6>
+                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -231,49 +225,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 
             <!-- Begin Page Content -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<<<<<<< HEAD
-                <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Talent') ?></h3></h1>
-            </div>
-            <div class="talent index content">
-                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%;">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellpadding="0">
-                        <thead>
-                        <tr style="font-size: 10px; padding: 0 !important; margin: 0 !important; ">
-                            <th><?= $this->Paginator->sort('talent_type') ?></th>
-                            <th><?= $this->Paginator->sort('talent_name') ?></th>
-                            <th><?= $this->Paginator->sort('talent_address') ?></th>
-                            <th><?= $this->Paginator->sort('talent_travel_radius') ?></th>
-                            <th><?= $this->Paginator->sort('talent_payrate') ?></th>
-                            <th><?= $this->Paginator->sort('talent_min_hour') ?></th>
-                            <th><?= $this->Paginator->sort('talent_contact_name') ?></th>
-                            <th><?= $this->Paginator->sort('talent_contact_number') ?></th>
-                            <th><?= $this->Paginator->sort('talent_email') ?></th>
-                            <th><?= $this->Paginator->sort('talent_about_us') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($talents as $talent): ?>
-                            <tr style="font-size: 10px;">
-                                <td><?= h($talent->talent_type) ?></td>
-                                <td><?= h($talent->talent_name) ?></td>
-                                <td><?= h($talent->talent_address) ?></td>
-                                <td><?= $this->Number->format($talent->talent_travel_radius) ?></td>
-                                <td><?= $this->Number->format($talent->talent_payrate) ?></td>
-                                <td><?= $this->Number->format($talent->talent_min_hour) ?></td>
-                                <td><?= h($talent->talent_contact_name) ?></td>
-                                <td><?= h($talent->talent_contact_number) ?></td>
-                                <td><?= h($talent->talent_email) ?></td>
-                                <td><?= h($talent->talent_about_us) ?></td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $talent->id]) ?><br>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $talent->id]) ?><br>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $talent->id], ['confirm' => __('Are you sure you want to delete # {0}?', $talent->id)]) ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-=======
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Talents') ?></h3></h1>
             </div>
             <div class="venues index content">
@@ -315,7 +266,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                     </table>
                 </div>
             </div>

@@ -342,32 +342,6 @@ class VenuesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function display(string ...$path): ?Response
-    {
-        if (!$path) {
-            return $this->redirect('/');}
-        if (in_array('..', $path, true) || in_array('.', $path, true)) {
-            throw new ForbiddenException();}
-        $page = $subpage = null;
-
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        $this->set(compact('page', 'subpage'));
-
-        try {
-            return $this->render(implode('/', $path));
-        } catch (MissingTemplateException $exception) {
-            if (Configure::read('debug')) {
-                throw $exception;
-            }
-            throw new NotFoundException();
-        }}
-
-
     /**
      * Cart method
      *
@@ -375,37 +349,35 @@ class VenuesController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-/**
- * Cart method
- *
- * @param string|null $id Venue id.
- * @return \Cake\Http\Response|null|void Renders view
- * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
- */
+    public function cart($id=null)
+    {
+        $venue = $this->Venues->get($id, [
+            'contain' => ['EventTypes', 'Events'],
+        ]);
 
-    public function cart($id=null) {
-    $venue = $this->Venues->get($id, [
-        'contain' => ['EventTypes', 'Events'],
-    ]);
-
-    $guestNumber = $this->getRequest()->getQuery('guest_count');
-    $payrate= $venue->venue_payrate;
+        $guestNumber = $this->getRequest()->getQuery('guest_count');
 
 
-    if(isset($_GET['update'])) { //Use $_GET if it's a GET request
-        //Save the values in variable
-        $guestcount = $_GET['guest-count'];
-        $rate = $_GET['venue_payrate'];
+        $payrate= $venue->venue_payrate;
 
-        //Calculate here
-        $total = $guestcount * $rate;
 
-    }
-    $this->set(compact('venue'));
+///////
+        if(isset($_GET['update'])) { //Use $_GET if it's a GET request
+            //Save the values in variable
+            $guestcount = $_GET['guest-count'];
+            $rate = $_GET['venue_payrate'];
+
+            //Calculate here
+            $total = $guestcount * $rate;
+
+
+        }
+        $this->set(compact('venue'));
+
 
     }
 
-/**
+    /**
      * Invoice method
      *
      * @param string|null $id Venue id.

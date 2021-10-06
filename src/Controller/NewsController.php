@@ -7,6 +7,7 @@ namespace App\Controller;
  * News Controller
  *
  * @property \App\Model\Table\NewsTable $News
+ * @property \App\Model\Table\AboutUsCmsTable $AboutUsCms
  * @method \App\Model\Entity\News[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class NewsController extends AppController
@@ -26,9 +27,12 @@ class NewsController extends AppController
 
     public function aboutus()
     {
-        $news = $this->paginate($this->News);
 
-        $this->set(compact('news'));
+        $news = $this->paginate($this->News);
+        $this->loadModel('AboutUsCms');
+        $aboutUsCms = $this->AboutUsCms->find()->first();
+
+        $this->set(compact('news','aboutUsCms'));
     }
 
     /**

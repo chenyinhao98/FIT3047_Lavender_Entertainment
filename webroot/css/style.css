@@ -1805,9 +1805,6 @@ textarea.form-control {
   .custom-select.is-valid ~ .valid-tooltip {
     display: block; }
 
-.lavender{
-    color: #a298fc;
-}
 .was-validated .form-control-file:valid ~ .valid-feedback,
 .was-validated .form-control-file:valid ~ .valid-tooltip, .form-control-file.is-valid ~ .valid-feedback,
 .form-control-file.is-valid ~ .valid-tooltip {
@@ -9188,9 +9185,10 @@ footer {
 /* Blog*/
 .post-info {
   font-size: 12px;
+  text-transform: uppercase;
   font-weight: bold;
+  color: #fff;
   letter-spacing: .1em; }
-
   .post-info > div {
     display: inline-block; }
     .post-info > div .seperator {

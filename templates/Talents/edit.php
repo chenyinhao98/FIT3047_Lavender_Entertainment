@@ -69,11 +69,8 @@
                     <h6 class="collapse-header">Venue Options:</h6>
                     <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -91,12 +88,9 @@
                     <h6 class="collapse-header">Supplier Options:</h6>
                     <?= $this->Html->link(__('View All Suppliers'), ['controller'=> 'Suppliers','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Supplier'), ['controller'=> 'Suppliers','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
                     <?= $this->Html->link(__('Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Supplier Availability'), ['controller'=> 'SupplierAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
 
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -114,11 +108,8 @@
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
                     <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -136,10 +127,7 @@
                     <h6 class="collapse-header">Event Type Options:</h6>
                     <?= $this->Html->link(__('View All Event Types'), ['controller'=> 'EventTypes','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Event Types'), ['controller'=> 'EventTypes','action' => 'add'], ['class' => 'collapse-item']) ?>
-<<<<<<< HEAD
-=======
 
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 </div>
             </div>
         </li>
@@ -231,31 +219,13 @@
             <br>
             <?= $this->Form->create($talent) ?>
             <fieldset style="padding-left: 5%; padding-right:5%">
-<<<<<<< HEAD
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Edit Talent') ?></h3></h1>
-                </div>
-=======
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;" >
                     <legend>Edit Talent</legend><br>
                 </h1>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 <?php
                 echo $this->Form->control('talent_type');
                 echo $this->Form->control('talent_name');
                 echo $this->Form->control('talent_address');
-<<<<<<< HEAD
-                echo $this->Form->control('talent_travel_radius');
-                echo $this->Form->control('talent_payrate');
-                echo $this->Form->control('talent_min_hour');
-                echo $this->Form->control('talent_contact_name');
-                echo $this->Form->control('talent_contact_number');
-                echo $this->Form->control('talent_email');
-                echo $this->Form->control('talent_about_us');
-                echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
-                ?><br>
-                <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
-=======
                 echo $this->Form->control('talent_payrate');
                 echo $this->Form->control('talent_contact_name');
                 echo $this->Form->control('talent_contact_number');
@@ -266,7 +236,6 @@
                 echo $this->Form->control('events._ids', ['options' => $events]);
                 ?><br>
                 <?= $this->Form->button(__('Submit'),  ['class'=>'btn btn-primary']) ?>
->>>>>>> eb6a50b8b745668bb9d74b990b2d6f7f2ca19a59
                 <?= $this->Form->end() ?>
             </fieldset>
 
