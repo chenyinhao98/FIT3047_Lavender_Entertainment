@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $eventTypes
+ * @var \App\Model\Entity\News[]|\Cake\Collection\CollectionInterface $news
  */
 ?>
 <!DOCTYPE html>
@@ -206,7 +206,7 @@
 
             <!-- Begin Page Content -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Event Types') ?></h3></h1>
+                <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('News') ?></h3></h1>
             </div>
             <div class="venues index content">
                 <div class="table-responsive" style="padding-left: 1%; padding-right: 1%; font-size: 55%">
@@ -214,19 +214,25 @@
                         <thead>
                         <tr>
                             <th><?= $this->Paginator->sort('id') ?></th>
-                            <th><?= $this->Paginator->sort('event_name') ?></th>
+                            <th><?= $this->Paginator->sort('title') ?></th>
+                            <th><?= $this->Paginator->sort('content') ?></th>
+                            <th><?= $this->Paginator->sort('author') ?></th>
+                            <th><?= $this->Paginator->sort('date') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($eventTypes as $eventType): ?>
+                        <?php foreach ($news as $news): ?>
                             <tr>
-                                <td><?= $this->Number->format($eventType->id) ?></td>
-                                <td><?= h($eventType->event_name) ?></td>
+                                <td><?= $this->Number->format($news->id) ?></td>
+                                <td><?= h($news->title) ?></td>
+                                <td><?= h($news->content) ?></td>
+                                <td><?= h($news->author) ?></td>
+                                <td><?= h($news->date) ?></td>
                                 <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $eventType->id]) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $eventType->id]) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $eventType->id], ['confirm' => __('Are you sure you want to delete # {0}?', $eventType->id)]) ?>
+                                    <?= $this->Html->link(__('View'), ['action' => 'view', $news->id]) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $news->id]) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $news->id], ['confirm' => __('Are you sure you want to delete # {0}?', $news->id)]) ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -293,4 +299,3 @@
 </body>
 
 </html>
-
