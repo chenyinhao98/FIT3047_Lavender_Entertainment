@@ -16,6 +16,8 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \App\Model\Entity\AboutUsCm $aboutUsCm
+ * @var \App\Model\Entity\News $new
+ * @var \App\Model\Entity\News[]|\Cake\Collection\CollectionInterface $news
  */
 
 use Cake\Cache\Cache;
@@ -119,7 +121,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
@@ -178,6 +180,33 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </div>
 </section>
 
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2>News</h2>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <?php foreach ($news as $new): ?>
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry align-self-stretch">
+                        <div class="text p-4 text-center">
+                            <h3 class="heading"><a href="#"><?= h($new->title) ?></a></h3>
+                            <p><?= h($new->content) ?></p>
+                            <div class="meta mb-2">
+                                <div><a href="#"><?= h($new->author) ?></a></div>
+                                <div><a href="#"><?= h($new->date) ?></a></div>
+                                <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span></a></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
 <section class="ftco-section testimony-section bg-light">
     <div class="container">

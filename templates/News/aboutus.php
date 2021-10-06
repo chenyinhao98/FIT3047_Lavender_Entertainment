@@ -149,29 +149,28 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="row">
             <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
                 <div class="d-block services-wrap text-center">
-                    <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/image_1.jpg')?>);"></div>
+                    <div class="img" style="background-image"><?= $this->Html->image($aboutUsCm->first_section_photo_1,array('width'=>'340px','height'=>'220px'))?></div>
                     <div class="media-body py-4 px-3">
-                        <h3 class="heading">Browse Venues</h3>
-                        <p>Check out the best suitable Venues</p>
+                        <h3 class="heading"><p><?= h($aboutUsCm->first_section_header_1) ?></p></h3>
+                        <p><?= h($aboutUsCm->first_section_body_1) ?></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
                 <div class="d-block services-wrap text-center">
-                    <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/image_5.jpg')?>);"></div>
+                    <div class="img" style="background-image"><?= $this->Html->image($aboutUsCm->first_section_photo_2,array('width'=>'340px','height'=>'220px'))?></div>
                     <div class="media-body py-4 px-3">
-                        <h3 class="heading">Be our members</h3>
-                        <p>Become our member, enjoy the privilege and preferential treatment,
-                            to provide you with personalized venues and plans</p>
+                        <h3 class="heading"><?= h($aboutUsCm->first_section_header_2) ?></h3>
+                        <p><?= h($aboutUsCm->first_section_body_2) ?></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
                 <div class="d-block services-wrap text-center">
-                    <div class="img" style="background-image: url(<?=$this->Html->Url->image('/img/southyarrabar1.jpg')?>);"></div>
+                    <div class="img" style="background-image"><?= $this->Html->image($aboutUsCm->first_section_photo_3,array('width'=>'340px','height'=>'220px'))?></div>
                     <div class="media-body py-4 px-3">
-                        <h3 class="heading">Book a Venue</h3>
-                        <p>Select and Book the perfect venue in no time at all.Time is money,save both</p>
+                        <h3 class="heading"><?= h($aboutUsCm->first_section_header_3) ?></h3>
+                        <p><?= h($aboutUsCm->first_section_body_3) ?></p>
                     </div>
                 </div>
             </div>
@@ -284,14 +283,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-6 wrap-about">
-                <div class="img img-2 mb-4" style="background-image: url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);">
+                <div class="img" style="background-image"><?= $this->Html->image($aboutUsCm->what_we_offer_photo,array('width'=>'700px','height'=>'400px'))?>
                 </div>
-                <h2>The most recommended venue booking</h2>
-                <p>Lavender Entertainment is Australia’s leading venue booking platform. The company has revolutionised how event spaces are sourced and booked.
-                    For event bookers - the easy-to-use website and bespoke concierge service make it easier and faster to find and book the perfect venue,
-                        saving a huge amount of time and pain in the process. Lavender Entertainment also specialises in promoting unique or hard-to-find event spaces,
-                        offering bookers a wider range of exciting options. The site’s listings also contain essential information that is specifically required for planning events.
-                    For venues - Lavender is the most effective marketing and lead-generation platform in AUS, generating a high volume of corporate and private event bookings. </p>
+                <h2><?= h($aboutUsCm->annoucement_heading) ?></h2>
+                <p><?= h($aboutUsCm->annoucment_body) ?> </p>
             </div>
             <div class="col-md-6 wrap-about ftco-animate">
                 <div class="heading-section">
@@ -300,39 +295,30 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     </div>
                 </div>
                 <div class="pl-md-5">
-                    <p>Promoting unique or hard-to-find event spaces, offering bookers a wider range of exciting options.
-                        The site’s listings also contain essential information that is specifically required for planning events.</p>
+                    <p><?= h($aboutUsCm->what_we_offer_body) ?></p>
                     <div class="row">
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class=""></span>
+                                <span class="flaticon-diet"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">Wedding</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_1) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="fa fa-birthday-cake"></span>
+                                <span class="flaticon-workout"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">Birthday</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_2) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="fa fa-glass-cheers"></span>
+                                <span class="flaticon-diet-1"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">Party Room</h3>
-                            </div>
-                        </div>
-                        <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="fa fa-coffee"></span>
-                            </div>
-                            <div class="media-body pl-3">
-                                <h3 class="heading">meeting</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_3) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
@@ -340,33 +326,41 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                 <span class="flaticon-first"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">Funeral</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_4) ?></h3>
+                            </div>
+                        </div>
+                        <div class="services-2 col-lg-6 d-flex w-100">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="flaticon-first"></span>
+                            </div>
+                            <div class="media-body pl-3">
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_5) ?></h3>
                                 <p></p>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="fa fa-graduation-cap"></span>
+                                <span class="flaticon-first"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">conference & Seminars</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_6) ?></h3>
                                 <p></p>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="fa fa-bread-slice"></span>
+                                <span class="flaticon-first"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">Editor's pick</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_7) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="fa fa-cat"></span>
+                                <span class="flaticon-first"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">Kitty Partys</h3>
+                                <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_8) ?></h3>
                                 <p></p>
                             </div>
 

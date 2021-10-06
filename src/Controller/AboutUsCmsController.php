@@ -7,6 +7,7 @@ namespace App\Controller;
  * AboutUsCms Controller
  *
  * @property \App\Model\Table\AboutUsCmsTable $AboutUsCms
+ * @property \App\Model\Table\NewsTable $News
  * @method \App\Model\Entity\AboutUsCm[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class AboutUsCmsController extends AppController
@@ -39,13 +40,16 @@ class AboutUsCmsController extends AppController
         $this->set(compact('aboutUsCm'));
     }
 
-    public function aboutus($id = null)
+    public function aboutus($id = 1)
     {
+        $this->loadModel('News');
+        $news = $this->News->find();
+
         $aboutUsCm = $this->AboutUsCms->get($id, [
             'contain' => [],
         ]);
 
-        $this->set(compact('aboutUsCm'));
+        $this->set(compact('aboutUsCm','news'));
     }
 
     /**
