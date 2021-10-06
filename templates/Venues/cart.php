@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-4"
                     >
-                        <div class="input number required"  style="text-align: left"><label for="guest-count" class="form-label">Number of Guests</label><input type="number" min="0" id="guest_count" name="guest_count" class="form-control" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" ></div>
+                        <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Number of Guests</label><input type="number" id="guest_count" name="guest_count" class="form-control" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" ></div>
 
                     </div>
                     <div class="col-md-4">

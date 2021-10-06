@@ -142,12 +142,12 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
                 <h3 class="mb-3">Book your Venue</h3>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <!-- search keywords -->
-                            <input class="form-control" type="text" name="search_name" placeholder="Suburb"/>
+                            <input class="form-control" type="text" name="search_name" placeholder="Search Suburb Name"/>
                             <!-- CODE for PHP form
-                            = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Suburb"]);
+                            = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Search by Suburb Name"]);
                             -->
                         </div>
                     </div>
@@ -206,15 +206,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <div class="form-group">
                             <div class="input-wrap">
                                 <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Start Date">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-md-calender"></span></div>
-                                <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="End Date">
+                                <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Date">
                             </div>
                         </div>
                     </div>

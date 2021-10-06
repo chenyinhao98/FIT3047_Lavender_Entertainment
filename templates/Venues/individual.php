@@ -2,7 +2,11 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
+ * @var \App\Model\Entity\Talent $talent
+ * @var \App\Model\Entity\Supplier $supplier
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var \App\Model\Entity\Talent[]|\Cake\Collection\CollectionInterface $talentResults
+ * @var \App\Model\Entity\Supplier[]|\Cake\Collection\CollectionInterface $supplierResults
  */
 ?>
 <?= $this->Form->create($venue, ['type' => 'get']);?>
@@ -17,10 +21,21 @@
         $selected = $venue;
     }?>
     <?php  endforeach; */?>
-<?//= $this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
-<!--<input name=''>-->
-<?//= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
-<?//= $this->Form->end(); ?>
+<?php /*$this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
+<input name=''>
+<?= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
+<?= $this->Form->end(); ?> */ ?>
+
+<?php if ($talentResults != null){
+    foreach($talentResults as $talent){
+    echo $talent;
+    }
+}?>
+<?php if ($supplierResults != null){
+    foreach($supplierResults as $supplier){
+    echo $supplier;
+    }
+}?>
 
 <section class="ftco-section bg-light " style="background:gray">
     <div class="container">
@@ -74,13 +89,16 @@
                                 <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
                             <div class="col-md-4">
                                 <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
+                                <div class="input-wrap">
+                                <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="Availabilty Date">
+                            </div>
                             </div>
                         </div>
 
 
 
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
-                            <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
+                        <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#recModal">Book Venue</a>
                             <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
@@ -210,10 +228,10 @@
                     <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
                         <div class="testimony-wrap d-flex" style="height: 250px">
-                            <ul><li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
+                            <ul><li id="one">Lorem ipsum</li>
+                                <li id="two">Lorem ipsum</li>
+                                <li id="three">Lorem ipsum</li>
+                                <li id="four">Lorem ipsum</li>
                                 <li>Lorem ipsum</li>
                                 <li>Lorem ipsum</li>
                                 <li>Lorem ipsum</li> </ul>
@@ -315,7 +333,7 @@
                     <div class="list-group">
                         <label class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="">
-                            First checkbox
+                            <span><? document.getElementById("one")?></span>
                         </label>
                         <label class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="">
@@ -337,7 +355,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#">Yes</a>
+                    <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
                 </div>
             </div>
         </div>
