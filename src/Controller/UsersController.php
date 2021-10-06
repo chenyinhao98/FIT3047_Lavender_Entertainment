@@ -110,8 +110,6 @@ class UsersController extends AppController
 
                 return $this->redirect(['controller' => 'venues', 'action' => 'index']);
 
-                return $this->redirect(['controller' => 'venues','action' => 'index']);
-
             }
             $this->Flash->error('Incorrect Sign In');
         }
