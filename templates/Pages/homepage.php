@@ -69,7 +69,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-<<<<<<< HEAD
     <header>
         <div class="container text-center">
             <a href="https://cakephp.org/" target="_blank" rel="noopener">
@@ -104,7 +103,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="column">
                         <h4>Environment</h4>
                         <ul>
-=======
 <header>
     <div class="container text-center">
         <a href="https://cakephp.org/" target="_blank" rel="noopener">
@@ -139,7 +137,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <div class="column">
                     <h4>Environment</h4>
                     <ul>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                         <?php if (version_compare(PHP_VERSION, '7.2.0', '>=')) : ?>
                             <li class="bullet success">Your version of PHP is 7.2.0 or higher (detected <?= PHP_VERSION ?>).</li>
                         <?php else : ?>
@@ -165,19 +162,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <?php else : ?>
                             <li class="bullet problem">Your version of PHP does NOT have the intl extension loaded.</li>
                         <?php endif; ?>
-<<<<<<< HEAD
                         </ul>
                     </div>
                     <div class="column">
                         <h4>Filesystem</h4>
                         <ul>
-=======
                     </ul>
                 </div>
                 <div class="column">
                     <h4>Filesystem</h4>
                     <ul>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                         <?php if (is_writable(TMP)) : ?>
                             <li class="bullet success">Your tmp directory is writable.</li>
                         <?php else : ?>
@@ -196,7 +190,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <?php else : ?>
                             <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
                         <?php endif; ?>
-<<<<<<< HEAD
                         </ul>
                     </div>
                 </div>
@@ -208,7 +201,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         $result = $checkConnection('default');
                         ?>
                         <ul>
-=======
                     </ul>
                 </div>
             </div>
@@ -220,25 +212,22 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     $result = $checkConnection('default');
                     ?>
                     <ul>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                         <?php if ($result['connected']) : ?>
                             <li class="bullet success">CakePHP is able to connect to the database.</li>
                         <?php else : ?>
                             <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= $result['error'] ?></li>
                         <?php endif; ?>
-<<<<<<< HEAD
                         </ul>
                     </div>
                     <div class="column">
                         <h4>DebugKit</h4>
                         <ul>
-=======
+
                     </ul>
                 </div>
                 <div class="column">
                     <h4>DebugKit</h4>
                     <ul>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                         <?php if (Plugin::isLoaded('DebugKit')) : ?>
                             <li class="bullet success">DebugKit is loaded.</li>
                             <?php
@@ -252,7 +241,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <?php else : ?>
                             <li class="bullet problem">DebugKit is <strong>not</strong> loaded.</li>
                         <?php endif; ?>
-<<<<<<< HEAD
                         </ul>
                     </div>
                 </div>
@@ -298,7 +286,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </div>
         </div>
     </main>
-=======
                     </ul>
                 </div>
             </div>
@@ -344,6 +331,5 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </div>
     </div>
 </main>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 </body>
 </html>

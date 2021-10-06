@@ -15,11 +15,10 @@ declare(strict_types=1);
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-<<<<<<< HEAD
 
-=======
+
+
 use Cake\Event\EventInterface;
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 use Cake\Controller\Controller;
 
 /**
@@ -47,9 +46,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-<<<<<<< HEAD
 
-=======
         $this->loadComponent('Auth', [
             'authenticate' => [
                 'Form' => [
@@ -66,7 +63,7 @@ class AppController extends Controller
         ]);
 
     }
-    private ?\Cake\Datasource\RepositoryInterface $viewVars = null;
+    /*private ?\Cake\Datasource\RepositoryInterface $viewVars = null;*/
     public function beforeRender(EventInterface $event)
     {
         if(!array_key_exists('_serialize', (array) $this->viewVars) &&
@@ -84,16 +81,10 @@ class AppController extends Controller
     public function beforeFilter(EventInterface $event){
         $this->Auth->allow(['controller' => 'Pages', 'action' => 'display', 'home']);
     }
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
-<<<<<<< HEAD
         //$this->loadComponent('FormProtection');
-    }
-=======
-        //$this->loadComponent('FormProtection'); */
 
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 }

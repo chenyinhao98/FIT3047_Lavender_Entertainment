@@ -3,44 +3,35 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-<<<<<<< HEAD
+
 use Cake\ORM\TableRegistry;
-=======
 
 use Cake\Database\Expression\QueryExpression;
 use Cake\ORM\Query;
-use Cake\ORM\TableRegistry;
 use App\Model\Entity\Venue;
 use function React\Promise\all;
 
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 
 /**
  * Venues Controller
  *
  * @property \App\Model\Table\VenuesTable $Venues
  * @property \App\Model\Table\EventTypesTable $EventTypes
-<<<<<<< HEAD
-=======
 
  * @property \App\Model\Table\VenueAvailabilityTable $VenueAvailability
  * @property \App\Model\Table\SuppliersTable $Suppliers
  * @property \App\Model\Table\TalentsTable $Talents
 >>>>>>> origin/master
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
  * @method \App\Model\Entity\Venue[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class VenuesController extends AppController
 {
-<<<<<<< HEAD
-=======
 
     public $paginate = [
         'limit' => 100
     ];
 
 
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     /**
      * Index method
      *
@@ -66,20 +57,17 @@ class VenuesController extends AppController
     public function result()
     {
         $this->loadModel('EventTypes');
-<<<<<<< HEAD
         $venues = $this->paginate($this->Venues);
         $eventType = null;
-=======
         $this->loadModel('VenueAvailability');
 
         $venues = $this->paginate($this->Venues);
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 
         $searchAddress = $this->getRequest()->getQuery('search_name');
         $attendeeNumber = $this->getRequest()->getQuery('attendee_number');
         $searchPrice = $this->getRequest()->getQuery('venue_price');
         $searchType = $this->getRequest()->getQuery('venue_type');
-<<<<<<< HEAD
+
 
 
         $numberArray = explode(',',$attendeeNumber);
@@ -103,7 +91,6 @@ class VenuesController extends AppController
         }
         */
         $this->set(compact('venues','result','eventType'));
-=======
         $searchStartDate = $this->getRequest()->getQuery('search_start_date');
         //$searchEndDate = $this->getRequest()->getQuery('search_end_date');
 
@@ -228,7 +215,7 @@ class VenuesController extends AppController
         */
 
         $this->set(compact('venues','results','invalidResults','searchStartDate'));
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
+
     }
 
     public function individual($id=null)
@@ -237,10 +224,8 @@ class VenuesController extends AppController
             'contain' => ['EventTypes', 'Events','VenueAvailability'],
         ]);
 
-<<<<<<< HEAD
         $this->set(compact('venue'));
 
-=======
         //Get EventType
         $venueEventTypes = $venue->event_types;
         $venueEventTypesIds = array();
@@ -303,7 +288,6 @@ class VenuesController extends AppController
         }
 
         $this->set(compact('venue','talentResults','supplierResults'));
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     }
 
     /**
@@ -315,10 +299,6 @@ class VenuesController extends AppController
      */
     public function view($id = null)
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
@@ -391,8 +371,7 @@ class VenuesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-<<<<<<< HEAD
-=======
+
 
     /**
      * Cart method
@@ -462,5 +441,4 @@ class VenuesController extends AppController
         $this->set(compact('venue'));
 
     }
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 }

@@ -4,11 +4,10 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
+
     "content-hash": "1d4992350dbbb1e022c8bdf455d8f470",
-=======
+
     "content-hash": "a05294b95dd0299877cdad34989c5834",
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     "packages": [
         {
             "name": "cakephp/cakephp",
@@ -358,7 +357,6 @@
             "time": "2021-06-07T13:58:28+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "josegonzalez/cakephp-upload",
             "version": "6.0.0",
             "source": {
@@ -416,8 +414,6 @@
             "time": "2021-08-06T13:20:07+00:00"
         },
         {
-=======
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             "name": "laminas/laminas-diactoros",
             "version": "2.6.0",
             "source": {
@@ -732,7 +728,7 @@
             "time": "2021-07-09T08:23:52+00:00"
         },
         {
-<<<<<<< HEAD
+
             "name": "league/flysystem",
             "version": "2.3.0",
             "source": {
@@ -874,8 +870,6 @@
             "time": "2021-09-25T08:23:19+00:00"
         },
         {
-=======
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.37",
             "source": {
