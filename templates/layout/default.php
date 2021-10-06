@@ -72,13 +72,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <span class="fa fa-bars"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus',1]) ?>" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller' => 'AboutUsCms', 'action' => 'aboutus', 1]) ?>" class="nav-link">About</a></li>
-
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'News','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
             </ul>
         </div>
     </div>
@@ -86,10 +84,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!-- END nav -->
 
 <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
-    <div class="container" style="max-width: 100vmax; align-items: center;">
+    <div class="container">
         <div class="row justify-content-end">
-                <?= $this->Flash->render() ?>
-                <?= $this->fetch('content') ?>
+            <?= $this->Flash->render() ?>
+            <?= $this->fetch('content') ?>
         </div>
     </div>
 </section>

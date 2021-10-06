@@ -25,6 +25,8 @@ class TalentsTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Talents',
+        'app.TalentAvailability',
+        'app.TalentSuburb',
         'app.EventTypes',
         'app.Events',
     ];

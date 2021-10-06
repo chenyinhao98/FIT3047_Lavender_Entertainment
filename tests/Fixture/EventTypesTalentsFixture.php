@@ -17,6 +17,7 @@ class EventTypesTalentsFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'talent_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'event_type_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
@@ -24,8 +25,9 @@ class EventTypesTalentsFixture extends TestFixture
             'event_types_talents_event_type_id' => ['type' => 'index', 'columns' => ['event_type_id'], 'length' => []],
         ],
         '_constraints' => [
-            'talents_event_types_talents_id' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'event_types_talents_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+            'event_type_talent_talent_id' => ['type' => 'foreign', 'columns' => ['talent_id'], 'references' => ['talents', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'event_type_talent_event_type_id' => ['type' => 'foreign', 'columns' => ['event_type_id'], 'references' => ['event_types', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -42,6 +44,7 @@ class EventTypesTalentsFixture extends TestFixture
     {
         $this->records = [
             [
+                'id' => 1,
                 'talent_id' => 1,
                 'event_type_id' => 1,
             ],

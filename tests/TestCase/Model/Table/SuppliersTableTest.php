@@ -25,6 +25,8 @@ class SuppliersTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Suppliers',
+        'app.SupplierAvailability',
+        'app.SupplierSuburb',
         'app.EventTypes',
         'app.Events',
     ];

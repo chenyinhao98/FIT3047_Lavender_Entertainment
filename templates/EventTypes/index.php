@@ -1,13 +1,8 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
+ * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $eventTypes
  */
-
-echo $this->Html->css('/vendor/datatables/dataTables.bootstrap4.min.css', ['block'=>true]);
-echo $this->Html->script('/vendor/datatables/jquery.dataTables.min.js', ['block'=>true]);
-echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['block'=>true]);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,16 +54,16 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 
 
         <!-- Nav Item - Venue Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link collapsed services-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-home"></i>
                 <span>Venues</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
-                    <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <a style="color:#a298fc;" class="collapse-item active">View All Venues</a>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
@@ -107,7 +102,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Talent Options:</h6>
                     <?= $this->Html->link(__('View All Talent'), ['controller'=> 'Talents','action' => 'index'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Add New Talents'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Add New Talent'), ['controller'=> 'Talents','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Talent Availability'), ['controller'=>'TalentAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Talent Availability'), ['controller'=>'TalentAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
@@ -115,34 +110,34 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
         </li>
 
         <!-- Nav Item - Supplier Event Type Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEventTypes"
                aria-expanded="true" aria-controls="collapseEventTypes">
                 <i class="fas fa-birthday-cake"></i>
                 <span>Event Types</span>
             </a>
-            <div id="collapseEventTypes" class="collapse show" aria-labelledby="headingEventTypes"
+            <div id="collapseEventTypes" class="collapse" aria-labelledby="headingEventTypes"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Event Type Options:</h6>
-                    <a style="color:#a298fc;" class="collapse-item active">Vew All Event Types</a>
+                    <?= $this->Html->link(__('View All Event Types'), ['controller'=> 'EventTypes','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Event Types'), ['controller'=> 'EventTypes','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
-        <!-- Nav Item - CMS Menu -->
+
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
-               aria-expanded="true" aria-controls="collapseContentEdit">
-                <i class="far fa-edit"></i>
-                <span>Content Edit</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
+               aria-expanded="true" aria-controls="collapseNews">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
             </a>
-            <div id="collapseContentEdit" class="collapse" aria-labelledby="headingContentEdit"
+            <div id="collapseNews" class="collapse" aria-labelledby="headingNews"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Content Edit Options:</h6>
-                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
+                    <h6 class="collapse-header">News Options:</h6>
+                    <?= $this->Html->link(__('View All News'), ['controller'=> 'News','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Publish News'), ['controller'=> 'News','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
@@ -214,7 +209,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold; padding-left: 1%;" ><?= __('Event Types') ?></h3></h1>
             </div>
             <div class="venues index content">
-                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%; font-size: 95%">
+                <div class="table-responsive" style="padding-left: 1%; padding-right: 1%; font-size: 55%">
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                         <tr>
@@ -272,7 +267,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="users/login">Logout</a>
                 </div>
             </div>
         </div>
@@ -298,3 +293,4 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 </body>
 
 </html>
+

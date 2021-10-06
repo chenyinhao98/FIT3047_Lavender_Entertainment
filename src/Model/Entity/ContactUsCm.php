@@ -9,8 +9,8 @@ use Cake\ORM\Entity;
  * ContactUsCm Entity
  *
  * @property int $id
- * @property string $header_1
- * @property string $body_1
+ * @property string $header
+ * @property string $body
  */
 class ContactUsCm extends Entity
 {
@@ -24,7 +24,7 @@ class ContactUsCm extends Entity
      * @var array
      */
     protected $_accessible = [
-        'header_1' => true,
-        'body_1' => true,
+        'header' => true,
+        'body' => true,
     ];
 }

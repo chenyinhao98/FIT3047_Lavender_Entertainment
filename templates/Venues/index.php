@@ -130,22 +130,23 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 </div>
             </div>
         </li>
-        <!-- Nav Item - CMS Menu -->
+
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
-               aria-expanded="true" aria-controls="collapseContentEdit">
-                <i class="far fa-edit"></i>
-                <span>Content Edit</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
+               aria-expanded="true" aria-controls="collapseNews">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
             </a>
-            <div id="collapseContentEdit" class="collapse" aria-labelledby="headingContentEdit"
+            <div id="collapseNews" class="collapse" aria-labelledby="headingNews"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Content Edit Options:</h6>
-                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
+                    <h6 class="collapse-header">News Options:</h6>
+                    <?= $this->Html->link(__('View All News'), ['controller'=> 'News','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Publish News'), ['controller'=> 'News','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>
         </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
     </ul>
@@ -291,7 +292,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="users/login">Logout</a>
                 </div>
             </div>
         </div>

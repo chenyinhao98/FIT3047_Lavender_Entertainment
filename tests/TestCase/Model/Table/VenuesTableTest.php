@@ -26,6 +26,7 @@ class VenuesTableTest extends TestCase
     protected $fixtures = [
         'app.Venues',
         'app.Events',
+        'app.VenueAvailability',
         'app.EventTypes',
     ];
 

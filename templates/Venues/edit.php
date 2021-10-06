@@ -131,23 +131,6 @@
                 </div>
             </div>
         </li>
-        <!-- Nav Item -  CMS Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
-               aria-expanded="true" aria-controls="collapseCms">
-                <i class="far fa-edit"></i>
-                <span>Edit</span>
-            </a>
-            <div id="collapseEventTypes" class="collapse" aria-labelledby="headingCms"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Content Edit Options:</h6>
-                    <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
-                    <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' => 'add'], ['class' => 'collapse-item']) ?>
-
-                </div>
-            </div>
-        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
     </ul>
@@ -246,8 +229,8 @@
                 echo $this->Form->control('venue_payrate');
                 echo $this->Form->control('venue_rating');
                 echo $this->Form->control('venue_contact_name');
-                echo $this->Form->control('venue_contact_number');
-                echo $this->Form->control('venue_email');
+                echo $this->Form->control('venue_contact_number', ['type' => 'integer']);
+                echo $this->Form->control('venue_email', ['type' => 'email']);
                 echo $this->Form->control('venue_photo1', array('type' => 'file'));
                 echo $this->Form->control('venue_photo2', array('type' => 'file'));
                 echo $this->Form->control('venue_about_us');
