@@ -1,7 +1,6 @@
 <?php
 /**
  * @var \App\View\AppView $this
-<<<<<<< HEAD
  * @var \App\Model\Entity\Venue $venue
  * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
  */
@@ -237,23 +236,6 @@
             <fieldset style="padding-left: 5%; padding-right:5%">
                 <h1 class="h3 mb-0 text-black-50" style="font-family: Poppins, Arial, sans-serif; font-weight: bold;">
                 <legend><?= __('About us editing') ?></legend></h1><br>
-=======
- * @var \App\Model\Entity\AboutUsCm $aboutUsCm
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List About Us Cms'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="aboutUsCms form content">
-            <?= $this->Form->create($aboutUsCm) ?>
-            <fieldset>
-                <legend><?= __('Add About Us Cm') ?></legend>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 <?php
                     echo $this->Form->control('first_section_header_1');
                     echo $this->Form->control('first_section_body_1');
@@ -278,7 +260,6 @@
                     echo $this->Form->control('annoucment_body');
                 ?>
             </fieldset>
-<<<<<<< HEAD
                 <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
                 <?= $this->Form->end() ?>
             </fieldset><br>
@@ -293,10 +274,3 @@
             </aside>
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
-=======
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
-</div>
->>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
