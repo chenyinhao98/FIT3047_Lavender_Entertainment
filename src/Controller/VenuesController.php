@@ -372,7 +372,7 @@ class VenuesController extends AppController
 
 
         }
-        $this->set(compact('venue','subtotal'));
+        $this->set(compact('venue'));
 
 
     }
