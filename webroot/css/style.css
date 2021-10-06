@@ -9861,3 +9861,8 @@ label.radio input:checked+span {
     padding: 22% 0;
   }
   
+  @media print {
+  .no-print{
+  display : none !important;
+ }
+}
