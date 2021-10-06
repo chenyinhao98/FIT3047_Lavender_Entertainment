@@ -6,17 +6,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * User Entity
+ * ContactUsCm Entity
  *
  * @property int $id
- * @property string $username
- * @property string $password
- * @property string|null $name
- * @property string|null $email
- *
- * @property \App\Model\Entity\Event[] $events
+ * @property string $header
+ * @property string $body
  */
-class User extends Entity
+class ContactUsCm extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,19 +24,7 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'username' => true,
-        'password' => true,
-        'name' => true,
-        'email' => true,
-        'events' => true,
-    ];
-
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password',
+        'header' => true,
+        'body' => true,
     ];
 }

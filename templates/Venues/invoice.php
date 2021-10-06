@@ -18,7 +18,7 @@
 			
 		</div>
 
-			<div class="receipt-content" style="margin: center">
+			<div class="receipt-content" style="margin: center" id="receipt">
     
 				<div class="row">
 					<div class="col-md-12">
@@ -121,6 +121,12 @@
 								Total <span>$312.00</span>
 							</div>
 						</div>
+						<div class="print">
+							<a href="#" onclick="printInvoice();">
+								<i class="fa fa-print"></i>
+								Print this receipt
+							</a>
+						</div>
 
 						
 					</div>
@@ -174,4 +180,22 @@ document.getElementById("date1").innerHTML =date;
   let r = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 100000;
   return r;
 }
+</script>
+
+<script>
+function printInvoice()
+ {
+     printDiv = "#receipt"; // id of the div you want to print
+     $("*").addClass("no-print");
+     $(printDiv+" *").removeClass("no-print");
+     $(printDiv).removeClass("no-print");
+
+     parent =  $(printDiv).parent();
+     while($(parent).length)
+     {
+         $(parent).removeClass("no-print");
+         parent =  $(parent).parent();
+     }
+     window.print();
+ }
 </script>

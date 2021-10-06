@@ -6,17 +6,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * User Entity
+ * News Entity
  *
  * @property int $id
- * @property string $username
- * @property string $password
- * @property string|null $name
- * @property string|null $email
- *
- * @property \App\Model\Entity\Event[] $events
+ * @property string $title
+ * @property string $content
+ * @property string|null $author
+ * @property \Cake\I18n\FrozenTime $date
  */
-class User extends Entity
+class News extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,19 +26,9 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'username' => true,
-        'password' => true,
-        'name' => true,
-        'email' => true,
-        'events' => true,
-    ];
-
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password',
+        'title' => true,
+        'content' => true,
+        'author' => true,
+        'date' => true,
     ];
 }

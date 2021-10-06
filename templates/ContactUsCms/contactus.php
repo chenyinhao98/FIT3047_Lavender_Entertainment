@@ -15,6 +15,8 @@
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
+ * @var \App\Model\Entity\ContactUsCm[]|\Cake\Collection\CollectionInterface $contactUsCms
+ * @var \App\Model\Entity\ContactUsCm $contactUsCms1
  */
 
 use Cake\Cache\Cache;
@@ -53,6 +55,7 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,10 +120,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'News','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
             </ul>
         </div>
     </div>
@@ -145,11 +147,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     			<div class="col-md-8">
     				<div id="map" class="map"></div>
     			</div>
+                <?php foreach($contactUsCms as $contactUsCms1):?>
     			<div class="col-md-4 p-4 p-md-5 bg-white">
-    				<h2 class="font-weight-bold mb-4">Lets have a conversation!</h2>
-    				<p>If you have any questions, just fill in the contact form, and we will answer you shortly. If you live nearby, come visit Lavender Entertainment at our comfortable office. We'd love to help you with any venue bookings you want!</p>
+    				<h2 class="font-weight-bold mb-4"><?= h($contactUsCms1->header) ?></h2>
+    				<p><?= h($contactUsCms1->body) ?></p>
     				<p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" class="btn btn-primary">Book Venue Now</a></p>
     			</div>
+                <?php endforeach; ?>
 					<div class="col-md-12">
 						<div class="wrapper">
 							<div class="row no-gutters">

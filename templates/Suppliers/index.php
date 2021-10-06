@@ -143,6 +143,23 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
+               aria-expanded="true" aria-controls="collapseNews">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <div id="collapseNews" class="collapse" aria-labelledby="headingNews"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">News Options:</h6>
+                    <?= $this->Html->link(__('View All News'), ['controller'=> 'News','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Publish News'), ['controller'=> 'News','action' => 'add'], ['class' => 'collapse-item']) ?>
+                </div>
+            </div>
+        </li>
+
+
         <!-- Divider -->
         <hr class="sidebar-divider">
     </ul>
