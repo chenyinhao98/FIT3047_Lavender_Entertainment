@@ -1,5 +1,6 @@
 <?php
 /**
+<<<<<<< HEAD
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
  */
@@ -294,3 +295,19 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 </body>
 
 </html>
+=======
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
+ * @since         0.10.0
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
+ */
+
+require 'webroot' . DIRECTORY_SEPARATOR . 'index.php';
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98

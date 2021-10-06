@@ -17,10 +17,17 @@ class VenuesFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
+<<<<<<< HEAD
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'venue_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'venue_address' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
         'venue_min_capacity' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+=======
+        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'venue_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'venue_address' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
+        'venue_capacity' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         'venue_payrate' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
         'venue_rating' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'venue_contact_name' => ['type' => 'string', 'length' => 256, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null],
@@ -50,7 +57,11 @@ class VenuesFixture extends TestFixture
                 'id' => 1,
                 'venue_name' => 'Lorem ipsum dolor sit amet',
                 'venue_address' => 'Lorem ipsum dolor sit amet',
+<<<<<<< HEAD
                 'venue_min_capacity' => 1,
+=======
+                'venue_capacity' => 1,
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 'venue_payrate' => 1,
                 'venue_rating' => 1,
                 'venue_contact_name' => 'Lorem ipsum dolor sit amet',

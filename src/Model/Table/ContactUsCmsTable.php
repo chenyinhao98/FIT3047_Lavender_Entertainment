@@ -9,6 +9,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 
+
     /**
      * ContactUsCms Model
      *
@@ -26,6 +27,25 @@ use Cake\Validation\Validator;
      * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
      * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
      */
+=======
+/**
+ * ContactUsCms Model
+ *
+ * @method \App\Model\Entity\ContactUsCm newEmptyEntity()
+ * @method \App\Model\Entity\ContactUsCm newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\ContactUsCm[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\ContactUsCm get($primaryKey, $options = [])
+ * @method \App\Model\Entity\ContactUsCm findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\ContactUsCm patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\ContactUsCm[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\ContactUsCm|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\ContactUsCm saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\ContactUsCm[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ */
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 class ContactUsCmsTable extends Table
 {
     /**
@@ -56,6 +76,7 @@ class ContactUsCmsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
+<<<<<<< HEAD
             ->scalar('header_1')
             ->maxLength('header_1', 225)
             ->requirePresence('header_1', 'create')
@@ -70,4 +91,19 @@ class ContactUsCmsTable extends Table
         return $validator;
     }
 
+=======
+            ->scalar('header')
+            ->maxLength('header', 64)
+            ->requirePresence('header', 'create')
+            ->notEmptyString('header');
+
+        $validator
+            ->scalar('body')
+            ->maxLength('body', 1024)
+            ->requirePresence('body', 'create')
+            ->notEmptyString('body');
+
+        return $validator;
+    }
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 }

@@ -5,7 +5,11 @@
  */
 ?>
 <div class="aboutUsCms index content">
+<<<<<<< HEAD
     <?= $this->Html->link(__('New About Us Cms'), ['action' => 'edit',1], ['class' => 'button float-right']) ?>
+=======
+    <?= $this->Html->link(__('New About Us Cm'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     <h3><?= __('About Us Cms') ?></h3>
     <div class="table-responsive">
         <table>
@@ -34,6 +38,7 @@
                     <td><?= $this->Number->format($aboutUsCm->id) ?></td>
                     <td><?= h($aboutUsCm->first_section_header_1) ?></td>
                     <td><?= h($aboutUsCm->first_section_body_1) ?></td>
+<<<<<<< HEAD
                     <td><?= @$this->Html->image($aboutUsCm->first_section_photo_1,array('width'=>'340px','height'=>'220px'))?></td>
                     <td><?= h($aboutUsCm->first_section_header_2) ?></td>
                     <td><?= h($aboutUsCm->first_section_body_2) ?></td>
@@ -42,6 +47,16 @@
                     <td><?= h($aboutUsCm->first_section_body_3) ?></td>
                     <td><?= @$this->Html->image($aboutUsCm->first_section_photo_3)?></td>
                     <td><?= @$this->Html->image($aboutUsCm->what_we_offer_photo) ?></td>
+=======
+                    <td><?= h($aboutUsCm->first_section_photo_1) ?></td>
+                    <td><?= h($aboutUsCm->first_section_header_2) ?></td>
+                    <td><?= h($aboutUsCm->first_section_body_2) ?></td>
+                    <td><?= h($aboutUsCm->first_section_photo_2) ?></td>
+                    <td><?= h($aboutUsCm->first_section_header_3) ?></td>
+                    <td><?= h($aboutUsCm->first_section_body_3) ?></td>
+                    <td><?= h($aboutUsCm->first_section_photo_3) ?></td>
+                    <td><?= h($aboutUsCm->what_we_offer_photo) ?></td>
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                     <td><?= h($aboutUsCm->what_we_offer_body) ?></td>
                     <td><?= h($aboutUsCm->annoucement_heading) ?></td>
                     <td><?= h($aboutUsCm->annoucment_body) ?></td>

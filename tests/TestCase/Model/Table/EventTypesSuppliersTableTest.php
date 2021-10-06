@@ -54,6 +54,20 @@ class EventTypesSuppliersTableTest extends TestCase
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Test validationDefault method
+     *
+     * @return void
+     * @uses \App\Model\Table\EventTypesSuppliersTable::validationDefault()
+     */
+    public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
      * Test buildRules method
      *
      * @return void

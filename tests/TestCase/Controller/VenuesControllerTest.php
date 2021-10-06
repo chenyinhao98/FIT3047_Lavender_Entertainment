@@ -24,6 +24,10 @@ class VenuesControllerTest extends TestCase
     protected $fixtures = [
         'app.Venues',
         'app.Events',
+<<<<<<< HEAD
+=======
+        'app.VenueAvailability',
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         'app.EventTypes',
         'app.EventTypesVenues',
     ];

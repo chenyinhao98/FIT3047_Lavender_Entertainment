@@ -104,8 +104,14 @@ class VenuesTable extends Table
             ->notEmptyString('venue_contact_name');
 
         $validator
+<<<<<<< HEAD
             ->scalar('venue_contact_number')
             ->maxLength('venue_contact_number', 256)
+=======
+            ->integer('venue_contact_number')
+            ->minLength('venue_contact_number', 10)
+            ->maxLength('venue_contact_number', 10)
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             ->requirePresence('venue_contact_number', 'create')
             ->notEmptyString('venue_contact_number');
 

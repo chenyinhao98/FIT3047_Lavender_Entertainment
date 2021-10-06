@@ -217,4 +217,7 @@ TypeFactory::map('time', StringType::class);
 //Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98

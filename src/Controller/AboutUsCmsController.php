@@ -39,6 +39,7 @@ class AboutUsCmsController extends AppController
         $this->set(compact('aboutUsCm'));
     }
 
+<<<<<<< HEAD
     public function aboutus($id = null)
     {
         $aboutUsCm = $this->AboutUsCms->get($id, [
@@ -48,6 +49,8 @@ class AboutUsCmsController extends AppController
         $this->set(compact('aboutUsCm'));
     }
 
+=======
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     /**
      * Add method
      *
@@ -82,6 +85,7 @@ class AboutUsCmsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $aboutUsCm = $this->AboutUsCms->patchEntity($aboutUsCm, $this->request->getData());
+<<<<<<< HEAD
 
             if(!$aboutUsCm->getErrors) {
                 $image = $this->request->getData('image_file');
@@ -121,6 +125,8 @@ class AboutUsCmsController extends AppController
                 $aboutUsCm->what_we_offer_photo=$name4;
             }
 
+=======
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             if ($this->AboutUsCms->save($aboutUsCm)) {
                 $this->Flash->success(__('The about us cm has been saved.'));
 
@@ -150,6 +156,7 @@ class AboutUsCmsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+<<<<<<< HEAD
 
     public function settings()
     {
@@ -166,4 +173,6 @@ class AboutUsCmsController extends AppController
     }
     $this->set(compact('settings'));
 }
+=======
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
 }

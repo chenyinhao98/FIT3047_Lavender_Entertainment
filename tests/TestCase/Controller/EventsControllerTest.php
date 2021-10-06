@@ -23,10 +23,16 @@ class EventsControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Events',
+<<<<<<< HEAD
         'app.Customers',
         'app.Venues',
         'app.EventTypes',
         'app.Payments',
+=======
+        'app.Users',
+        'app.Venues',
+        'app.EventTypes',
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
         'app.Suppliers',
         'app.Talents',
         'app.EventsSuppliers',

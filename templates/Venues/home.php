@@ -112,10 +112,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" >
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
+<<<<<<< HEAD
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
+=======
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'News','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
             </ul>
         </div>
     </div>
@@ -139,6 +145,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row justify-content-end" >
             <div class="col-lg-12">
+<<<<<<< HEAD
                   <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
                     <h3 class="mb-3">Book your Venue</h3>
                     <div class="row">
@@ -224,6 +231,85 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             </div>
                         </div>
                     </div>
+=======
+                <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
+                <h3 class="mb-3">Book your Venue</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <!-- search keywords -->
+                            <input class="form-control" type="text" name="search_name" placeholder="Search Suburb Name"/>
+                            <!-- CODE for PHP form
+                            = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Search by Suburb Name"]);
+                            -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                    <select name="venue_type" id="" class="form-control">
+                                        <option value="">Event Type</option>
+                                        <?php foreach ($types as $eventType): ?>
+                                            <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <!-- number of attendees-->
+                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                    <select name="attendee_number" id="" class="form-control">
+                                        <option value='0,500'>Attendees</option>
+                                        <option value='0,10'>Less than 10</option>
+                                        <option value='11,50'>11-50</option>
+                                        <option value='51,100'>51-100</option>
+                                        <option value='100,500'>More than 100</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                    <select name="venue_price" id="" class="form-control">
+                                        <option value="0,500">Price</option>
+                                        <option value="0,20">Under $20/h</option>
+                                        <option value="21,50">$21-50/h</option>
+                                        <option value="51,100">$51-100/h</option>
+                                        <option value="100,500">over $100/h</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-wrap">
+                                <div class="icon"><span class="ion-md-calendar"></span></div>
+                                <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <?= $this->Form->button('Book My Venues Now',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 </form>
                 <?= $this->Form->end(); ?>
             </div>

@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\AboutUsCm $aboutUsCm
  */
 ?>
+<<<<<<< HEAD
 <head>
 
     <?= $this->Html->charset() ?>
@@ -243,6 +244,36 @@
                     echo $this->Form->control('first_section_body_3');
                     echo $this->Form->control('image3_file',['type'=>'file']);
                     echo $this->Form->control('image4_file',['type'=>'file']);
+=======
+<div class="row">
+    <aside class="column">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <?= $this->Form->postLink(
+                __('Delete'),
+                ['action' => 'delete', $aboutUsCm->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $aboutUsCm->id), 'class' => 'side-nav-item']
+            ) ?>
+            <?= $this->Html->link(__('List About Us Cms'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+        </div>
+    </aside>
+    <div class="column-responsive column-80">
+        <div class="aboutUsCms form content">
+            <?= $this->Form->create($aboutUsCm) ?>
+            <fieldset>
+                <legend><?= __('Edit About Us Cm') ?></legend>
+                <?php
+                    echo $this->Form->control('first_section_header_1');
+                    echo $this->Form->control('first_section_body_1');
+                    echo $this->Form->control('first_section_photo_1');
+                    echo $this->Form->control('first_section_header_2');
+                    echo $this->Form->control('first_section_body_2');
+                    echo $this->Form->control('first_section_photo_2');
+                    echo $this->Form->control('first_section_header_3');
+                    echo $this->Form->control('first_section_body_3');
+                    echo $this->Form->control('first_section_photo_3');
+                    echo $this->Form->control('what_we_offer_photo');
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                     echo $this->Form->control('what_we_offer_body');
                     echo $this->Form->control('what_we_offer_dot_1');
                     echo $this->Form->control('what_we_offer_dot_2');
@@ -256,6 +287,7 @@
                     echo $this->Form->control('annoucment_body');
                 ?>
             </fieldset>
+<<<<<<< HEAD
             <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary','style' => 'margin-left: 5rem']) ?>
             <?= $this->Form->end() ?>
             </fieldset><br>
@@ -270,3 +302,10 @@
             </aside>
             <!-- Custom scripts for all pages-->
             <script src="js/sb-admin-2.min.js"></script>
+=======
+            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
+</div>
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98

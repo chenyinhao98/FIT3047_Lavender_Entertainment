@@ -25,6 +25,10 @@ class UsersTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Users',
+<<<<<<< HEAD
+=======
+        'app.Events',
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
     ];
 
     /**
@@ -55,6 +59,10 @@ class UsersTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Model\Table\UsersTable::validationDefault()
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
      */
     public function testValidationDefault(): void
     {
@@ -65,6 +73,10 @@ class UsersTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
+<<<<<<< HEAD
+=======
+     * @uses \App\Model\Table\UsersTable::buildRules()
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
      */
     public function testBuildRules(): void
     {

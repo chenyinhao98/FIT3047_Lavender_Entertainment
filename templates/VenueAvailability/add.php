@@ -126,6 +126,7 @@
                 </div>
             </div>
         </li>
+<<<<<<< HEAD
         <!-- Nav Item - CMS Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
@@ -139,6 +140,21 @@
                     <h6 class="collapse-header">Content Edit Options:</h6>
                     <?= $this->Html->link(__('Edit About Us Pages'), ['controller'=> 'AboutUsCms','action' => 'edit',1], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Edit Contact Us Pages'), ['controller'=> 'ContactUsCms','action' =>'edit',1], ['class' => 'collapse-item']) ?>
+=======
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
+               aria-expanded="true" aria-controls="collapseNews">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <div id="collapseNews" class="collapse" aria-labelledby="headingNews"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">News Options:</h6>
+                    <?= $this->Html->link(__('View All News'), ['controller'=> 'News','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <?= $this->Html->link(__('Publish News'), ['controller'=> 'News','action' => 'add'], ['class' => 'collapse-item']) ?>
+>>>>>>> 4b6099aa45aecc823ccd8a1102c7616d7170fb98
                 </div>
             </div>
         </li>
