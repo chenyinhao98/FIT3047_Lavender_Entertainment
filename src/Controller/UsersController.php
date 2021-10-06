@@ -25,7 +25,7 @@ class UsersController extends AppController
 
         $this->set(compact('users'));
     }
-
+ 
     /**
      * View method
      *
@@ -111,7 +111,15 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if($user){
                 $this->Auth->setUser($user);
+<<<<<<< HEAD
                 return $this->redirect(['controller' => 'venues']);
+=======
+<<<<<<< HEAD
+                return $this->redirect(['controller' => 'venues', 'action' => 'index']);
+=======
+                return $this->redirect(['controller' => 'venues','action' => 'index']);
+>>>>>>> b6590ab65f09b7d020a1e8118d6ed20d63fdac81
+>>>>>>> 134dc3dbf8e9c949144928bfc4c281079186ff35
             }
             $this->Flash->error('Incorrect Sign In');
         }
