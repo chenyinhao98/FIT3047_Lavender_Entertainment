@@ -121,6 +121,12 @@
 								Total <span>$312.00</span>
 							</div>
 						</div>
+						<div class="print">
+							<a href="#" onclick="window.print();">
+								<i class="fa fa-print"></i>
+								Print this receipt
+							</a>
+						</div>
 
 						
 					</div>
