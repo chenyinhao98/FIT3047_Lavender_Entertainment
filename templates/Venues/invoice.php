@@ -8,7 +8,7 @@
  */
 ?>
 <?= $this->Form->create($venue, ['type' => 'get']);?>
-<p></p>  
+<p></p>
 
 <?= $this->Html->charset() ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,15 +19,15 @@
 
 
     <div class="container">
-        <div class="row no-gutters"> 
+        <div class="row no-gutters">
 		<p><div class="col md-12" style="font-size: 24px; color: green; text-align: left" id="checkmark">
-		
+
 		<h2 class="font-weight-bold" style="text-align:center; width: 700px; padding: 10px; color: green; align:left";><i class="fa fa-check-circle fa-3x"></i><span>  Your Order has been booked!  </span></h2></p>
-			
+
 		</div>
 
-			<div class="receipt-content" style="margin: center" id="receipt">
-    
+			<div class="receipt-content" id="receipt">
+
 				<div class="row">
 					<div class="col-md-12">
 						<div class="invoice-wrapper">
@@ -40,8 +40,8 @@
 						<div class="payment-info">
 							<div class="row">
 								<div class="col-sm-6">
-								<?php 
-									$a = mt_rand(100000,999999); 
+								<?php
+									$a = mt_rand(100000,999999);
 								?>
 									<span>Payment No.</span>
 									<strong><span id="random">32424254</span></strong>
@@ -49,8 +49,8 @@
 								<div class="col-sm-6 text-right">
 									<span>Payment Date</span>
 									<strong><span id="date1"></span></strong>
-									
-									
+
+
 							</div>
 						</div>
 					</div>
@@ -78,10 +78,26 @@
 						<div class="headers clearfix">
 						<strong style="font-size:25px">Booking For </strong><strong id="data5" style="font-size:25px"></strong><strong style="font-size:25px"> Guests at <?=h($venue->venue_name) ?>
 						</div>
+<<<<<<< HEAD
 						
+=======
+						<div class="items">
+						<div class="row item">
+								<div class="col-xs-4 desc">
+									<span><?=h($venue->venue_name) ?></span>
+								</div>
+								<div class="col-xs-3 qty">
+								<span id="data"></span>
+								</div>
+								<div class="col-xs-5 amount text-right">
+								<span id="data1"></span>
+								</div>
+
+						</div>
+>>>>>>> ef07c15736cd6bfe778edce35c357565ef5a7cad
 						<div class="total text-right">
 							<p class="extra-notes">
-								<strong>Extra Notes</strong> 
+								<strong>Extra Notes</strong>
 								Thank you for choosing Lavender Entertainment
 							</p>
 							<div class="field">
@@ -104,34 +120,34 @@
 							</a>
 						</div>
 
-						
+
 					</div>
 				</div>
 
-				
+
 			</div>
 		</div>
-	
-</div>       
 
-<script>  
-function randomString() {  
-            //initialize a variable having alpha-numeric characters  
-    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";  
-  
-            //specify the length for the new string to be generated  
-    var string_length = 8;  
-    var randomstring = '';  
-  
-            //put a loop to select a character randomly in each iteration  
-    for (var i=0; i<string_length; i++) {  
-        var rnum = Math.floor(Math.random() * chars.length);  
-        randomstring += chars.substring(rnum,rnum+1);  
-    }  
-             //display the generated string   
-    document.getElementById("randomfield").innerHTML = randomstring; 
-	
-}  
+</div>
+
+<script>
+function randomString() {
+            //initialize a variable having alpha-numeric characters
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+
+            //specify the length for the new string to be generated
+    var string_length = 8;
+    var randomstring = '';
+
+            //put a loop to select a character randomly in each iteration
+    for (var i=0; i<string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum,rnum+1);
+    }
+             //display the generated string
+    document.getElementById("randomfield").innerHTML = randomstring;
+
+}
 </script>
 
 <script>

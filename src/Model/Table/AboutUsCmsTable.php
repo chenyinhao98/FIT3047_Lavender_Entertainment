@@ -58,119 +58,119 @@ class AboutUsCmsTable extends Table
             ->scalar('first_section_header_1')
             ->maxLength('first_section_header_1', 100)
             ->requirePresence('first_section_header_1', 'create')
-            ->notEmptyString('first_section_header_1');
+            ->allowEmptyArray('first_section_header_1');
 
         $validator
             ->scalar('first_section_body_1')
             ->maxLength('first_section_body_1', 225)
             ->requirePresence('first_section_body_1', 'create')
-            ->notEmptyString('first_section_body_1');
+            ->allowEmptyArray('first_section_body_1');
 
         $validator
             ->scalar('first_section_photo_1')
             ->maxLength('first_section_photo_1', 225)
             ->requirePresence('first_section_photo_1', 'create')
-            ->notEmptyString('first_section_photo_1');
+            ->allowEmptyArray('first_section_photo_1');
 
         $validator
             ->scalar('first_section_header_2')
             ->maxLength('first_section_header_2', 100)
             ->requirePresence('first_section_header_2', 'create')
-            ->notEmptyString('first_section_header_2');
+            ->allowEmptyArray('first_section_header_2');
 
         $validator
             ->scalar('first_section_body_2')
             ->maxLength('first_section_body_2', 225)
             ->requirePresence('first_section_body_2', 'create')
-            ->notEmptyString('first_section_body_2');
+            ->allowEmptyArray('first_section_body_2');
 
         $validator
             ->scalar('first_section_photo_2')
             ->maxLength('first_section_photo_2', 225)
             ->requirePresence('first_section_photo_2', 'create')
-            ->notEmptyString('first_section_photo_2');
+            ->allowEmptyArray('first_section_photo_2');
 
         $validator
             ->scalar('first_section_header_3')
             ->maxLength('first_section_header_3', 100)
             ->requirePresence('first_section_header_3', 'create')
-            ->notEmptyString('first_section_header_3');
+            ->allowEmptyArray('first_section_header_3');
 
         $validator
             ->scalar('first_section_body_3')
             ->maxLength('first_section_body_3', 225)
             ->requirePresence('first_section_body_3', 'create')
-            ->notEmptyString('first_section_body_3');
+            ->allowEmptyArray('first_section_body_3');
 
         $validator
             ->scalar('first_section_photo_3')
             ->maxLength('first_section_photo_3', 225)
             ->requirePresence('first_section_photo_3', 'create')
-            ->notEmptyString('first_section_photo_3');
+            ->allowEmptyArray('first_section_photo_3');
 
         $validator
             ->scalar('what_we_offer_photo')
             ->maxLength('what_we_offer_photo', 225)
             ->requirePresence('what_we_offer_photo', 'create')
-            ->notEmptyString('what_we_offer_photo');
+            ->allowEmptyArray('what_we_offer_photo');
 
         $validator
             ->scalar('what_we_offer_body')
             ->maxLength('what_we_offer_body', 225)
             ->requirePresence('what_we_offer_body', 'create')
-            ->notEmptyString('what_we_offer_body');
+            ->allowEmptyArray('what_we_offer_body');
 
         $validator
             ->scalar('what_we_offer_dot_1')
             ->requirePresence('what_we_offer_dot_1', 'create')
-            ->notEmptyString('what_we_offer_dot_1');
+            ->allowEmptyArray('what_we_offer_dot_1');
 
         $validator
             ->scalar('what_we_offer_dot_2')
             ->requirePresence('what_we_offer_dot_2', 'create')
-            ->notEmptyString('what_we_offer_dot_2');
+            ->allowEmptyArray('what_we_offer_dot_2');
 
         $validator
             ->scalar('what_we_offer_dot_3')
             ->requirePresence('what_we_offer_dot_3', 'create')
-            ->notEmptyString('what_we_offer_dot_3');
+            ->allowEmptyArray('what_we_offer_dot_3');
 
         $validator
             ->scalar('what_we_offer_dot_4')
             ->requirePresence('what_we_offer_dot_4', 'create')
-            ->notEmptyString('what_we_offer_dot_4');
+            ->allowEmptyArray('what_we_offer_dot_4');
 
         $validator
             ->scalar('what_we_offer_dot_5')
             ->requirePresence('what_we_offer_dot_5', 'create')
-            ->notEmptyString('what_we_offer_dot_5');
+            ->allowEmptyArray('what_we_offer_dot_5');
 
         $validator
             ->scalar('what_we_offer_dot_6')
             ->requirePresence('what_we_offer_dot_6', 'create')
-            ->notEmptyString('what_we_offer_dot_6');
+            ->allowEmptyArray('what_we_offer_dot_6');
 
         $validator
             ->scalar('what_we_offer_dot_7')
             ->requirePresence('what_we_offer_dot_7', 'create')
-            ->notEmptyString('what_we_offer_dot_7');
+            ->allowEmptyArray('what_we_offer_dot_7');
 
         $validator
             ->scalar('what_we_offer_dot_8')
             ->requirePresence('what_we_offer_dot_8', 'create')
-            ->notEmptyString('what_we_offer_dot_8');
+            ->allowEmptyArray('what_we_offer_dot_8');
 
         $validator
             ->scalar('annoucement_heading')
             ->maxLength('annoucement_heading', 100)
             ->requirePresence('annoucement_heading', 'create')
-            ->notEmptyString('annoucement_heading');
+            ->allowEmptyArray('annoucement_heading');
 
         $validator
             ->scalar('annoucment_body')
             ->maxLength('annoucment_body', 225)
             ->requirePresence('annoucment_body', 'create')
-            ->notEmptyString('annoucment_body');
+            ->allowEmptyArray('annoucment_body');
 
         return $validator;
     }

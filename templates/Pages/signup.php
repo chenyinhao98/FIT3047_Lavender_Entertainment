@@ -11,12 +11,8 @@
  * @link      https://cakephp.org CakePHP(tm) Project
  * @since     0.10.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
-/**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
- * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
- * @var \App\Model\Entity\EventType $eventType
- * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $types
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -26,6 +22,8 @@ use Cake\Error\Debugger;
 use Cake\Http\Exception\NotFoundException;
 
 $this->disableAutoLayout();
+
+
 
 $checkConnection = function (string $name) {
     $error = null;
@@ -52,11 +50,8 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,10 +106,11 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" >
-                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
+                <li class="nav-item active  "><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
@@ -123,112 +119,70 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 <div class="hero-wrap js-fullheight" style="background-image: linear-gradient(rgba(40,12,70,0.2),rgba(40,12,70,0.2)),url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text js-fullheight justify-content-start" data-scrollax-parent="true" style="padding-top: 9em">
-            <div class="col-md-12 ftco-animate">
-                <h2 class="subheading">Welcome to Lavender Entertainment</h2>
-                <h1 class="mb-4">Discover a Venue for Your Event</h1>
-                <p><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="btn btn-primary">Learn more</a> <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="btn btn-white">Contact us</a></p>
-            </div>
-        </div>
-    </div>
-</div>
 
 <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
     <div class="container">
-        <div class="row justify-content-end" >
+        <div class="row justify-content-end">
             <div class="col-lg-12">
-                <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result']),'method' => 'GET']);?>
-                <h3 class="mb-3">Book your Venue</h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <!-- search keywords -->
-                            <input class="form-control" type="text" name="search_name" placeholder="Search Suburb Name"/>
-                            <!-- CODE for PHP form
-                            = $this->Form->text('search_name', ['class' => 'form-control', 'placeholder'=>"Search by Suburb Name"]);
-                            -->
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <div class="select-wrap">
-                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                    <select name="venue_type" id="" class="form-control">
-                                        <option value="">Event Type</option>
-                                        <?php foreach ($types as $eventType): ?>
-                                            <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <div class="select-wrap">
-                                    <!-- number of attendees-->
-                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                    <select name="attendee_number" id="" class="form-control">
-                                        <option value='0,500'>Attendees</option>
-                                        <option value='0,10'>Less than 10</option>
-                                        <option value='11,50'>11-50</option>
-                                        <option value='51,100'>51-100</option>
-                                        <option value='100,500'>More than 100</option>
-                                    </select>
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row no-gutters">
+                        <div class="col-lg-8 col-md-7 d-flex align-items-stretch">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Sign Up</h3>
+                                <div id="form-message-warning" class="mb-4"></div>
+                                <div id="form-message-success" class="mb-4">
+                                    Create an Account with us Today!
                                 </div>
+                                <?= $this->Form->create();?>
+                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="name">Full Name</label>
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="email">Email Address</label>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <label class="label" for="subject">Password</label>
+                                                <input type="password" class="form-control" name="Enter Password" placeholder="Enter New Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <label class="label" for="subject">Password</label>
+                                                <input type="password" class="form-control" name="Re-Type Password" placeholder="Re-Type New Password">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <input  type="submit" value="Create Account" class="btn btn-primary">
+                                                <div  class="submitting"  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <?= $this->Html->link(__('Already Have an Account? Sign In Here!'), ['controller'=>'Pages','action' => 'display', 'signin'], ['class' => 'collapse-item']) ?>
+                            </form>
+                                <?= $this->Form->end();?>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <div class="select-wrap">
-                                    <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                    <select name="venue_price" id="" class="form-control">
-                                        <option value="0,500">Price</option>
-                                        <option value="0,20">Under $20/h</option>
-                                        <option value="21,50">$21-50/h</option>
-                                        <option value="51,100">$51-100/h</option>
-                                        <option value="100,500">over $100/h</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" name="search_start_date" class="form-control appointment_date-check-in" placeholder="Date">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <?= $this->Form->button('Book My Venues Now',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
-                        </div>
-                    </div>
-                </div>
-                </form>
-                <?= $this->Form->end(); ?>
-            </div>
-        </div>
-    </div>
 </section>
-
 
 <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                 <h2 class="footer-heading"><a href="#" class="logo">Lavender Entertainment</a></h2>
-                <p> The truth is lavender originally come from the Mediterranean region and was well-known thousands of years ago from ancient Greece. </p>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 <a href="#">Read more <span class="fa fa-chevron-right" style="font-size: 11px;"></span></a>
             </div>
             <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
@@ -276,7 +230,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <div class="col-md-6 col-lg-8">
 
                     <p class="copyright mb-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
                 <div class="col-md-6 col-lg-4 text-md-right">

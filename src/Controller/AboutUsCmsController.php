@@ -7,6 +7,7 @@ namespace App\Controller;
  * AboutUsCms Controller
  *
  * @property \App\Model\Table\AboutUsCmsTable $AboutUsCms
+ * @property \App\Model\Table\NewsTable $News
  * @method \App\Model\Entity\AboutUsCm[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class AboutUsCmsController extends AppController
@@ -37,6 +38,18 @@ class AboutUsCmsController extends AppController
         ]);
 
         $this->set(compact('aboutUsCm'));
+    }
+
+    public function aboutus($id = 1)
+    {
+        $this->loadModel('News');
+        $news = $this->News->find();
+
+        $aboutUsCm = $this->AboutUsCms->get($id, [
+            'contain' => [],
+        ]);
+
+        $this->set(compact('aboutUsCm','news'));
     }
 
     /**
@@ -73,6 +86,45 @@ class AboutUsCmsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $aboutUsCm = $this->AboutUsCms->patchEntity($aboutUsCm, $this->request->getData());
+
+            if(!$aboutUsCm->getErrors) {
+                $image = $this->request->getData('image_file');
+                $name = $image->getClientFilename();
+
+                $targetPath = WWW_ROOT.'img'.DS.$name;
+                if($name)
+                    $image->moveTo($targetPath);
+
+                $aboutUsCm->first_section_photo_1=$name;
+
+                $image2 = $this->request->getData('image2_file');
+                $name2 = $image2->getClientFilename();
+
+                $targetPath = WWW_ROOT.'img'.DS.$name2;
+                if($name2)
+                    $image2->moveTo($targetPath);
+
+                $aboutUsCm->first_section_photo_2=$name2;
+
+                $image3 = $this->request->getData('image3_file');
+                $name3 = $image3->getClientFilename();
+
+                $targetPath = WWW_ROOT.'img'.DS.$name3;
+                if($name3)
+                    $image3->moveTo($targetPath);
+
+                $aboutUsCm->first_section_photo_3=$name3;
+
+                $image4 = $this->request->getData('image4_file');
+                $name4 = $image4->getClientFilename();
+
+                $targetPath = WWW_ROOT.'img'.DS.$name4;
+                if($name4)
+                    $image4->moveTo($targetPath);
+
+                $aboutUsCm->what_we_offer_photo=$name4;
+            }
+
             if ($this->AboutUsCms->save($aboutUsCm)) {
                 $this->Flash->success(__('The about us cm has been saved.'));
 
@@ -102,4 +154,20 @@ class AboutUsCmsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function settings()
+    {
+    $settings = $this->Settings->find()->firstOrFail();
+
+    if ($this->request->is(['patch', 'post', 'put'])) {
+        $settings = $this->Settings->patchEntity($settings, $this->request->getData());
+        if ($this->Settings->save($settings)) {
+            $this->Flash->success(__('The setting has been saved.'));
+
+            return $this->redirect(['action' => 'settings']);
+        }
+        $this->Flash->error(__('The setting could not be saved. Please, try again.'));
+    }
+    $this->set(compact('settings'));
+}
 }

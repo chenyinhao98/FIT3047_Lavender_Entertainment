@@ -52,6 +52,7 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,9 +108,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" >
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
+                <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
@@ -118,7 +120,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 <div class="hero-wrap js-fullheight" style="background-image: linear-gradient(rgba(40,12,70,0.2),rgba(40,12,70,0.2)),url(<?=$this->Html->Url->image('/img/homepage_background.jpg')?>);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
-
+<br>
     <section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
         <div class="container">
             <div class="row justify-content-end">
@@ -129,21 +131,17 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <div class="row no-gutters">
                                 <div class="col-lg-8 col-md-7 d-flex align-items-stretch">
                                     <div class="contact-wrap w-100 p-md-5 p-4">
-                                        <h3 class="mb-4">Sign Up</h3>
+                                        <h3 class="mb-4">Sign In</h3>
                                         <div id="form-message-warning" class="mb-4"></div>
                                         <div id="form-message-success" class="mb-4">
-                                            Create an Account with us Today!
+                                            Sign Into Your Dedicated Account!
                                         </div>
-                                        <?= $this->Form->create($user);?>
-                                        <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                        <?= $this->Form->create();?>
+                                        <form method="POST" id="signInPanel" name="signInPanel" class="Panel">
+
+
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="label" for="name">Full Name</label>
-                                                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label class="label" for="email">Email Address</label>
                                                         <input type="email" class="form-control" name="email" id="email" placeholder="Email">
@@ -151,41 +149,34 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
-                                                        <label class="label" for="username">Username</label>
-                                                        <input type="username" class="form-control" name="username" id="username" placeholder="username">
+                                                        <label class="label" for="subject">Password</label>
+                                                        <input type="password" class="form-control" name="Enter Password" placeholder="Enter New Password">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <div class="form-group">
-                                                        <label class="label" for="subject">Password</label>
-                                                        <?=$this->Form->input('password',array('type'=>'password'));?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label class="label" for="subject">Password</label>
-                                                        <?=$this->Form->input('password',array('type'=>'password'));?>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="form-group">
-                                                        <?= $this->Form->submit('Sign Up', array('class' => 'btn btn-primary')); ?>
-                                                        <div class="submitting"></div>
-
-                                                    </div>
+                                                        <div class="form-group">
+                                                            <?= $this->Html->link(__('Sign In'), ['controller'=>'Venues','action' => 'index'], ['class' => 'btn btn-primary']) ?>
+                                                            <div class="submitting"></div>
+                                                        </div>
                                                 </div>
                                             </div>
-                                            <?= $this->Form->end(); ?>
+                                            <?= $this->Html->link(__('No Account, Create one Here!'), ['controller'=>'Pages','action' => 'display', 'signup'], ['class' => 'collapse-item']) ?>
+                                        </form>
+                                        <?= $this->Form->end();?>
                                     </div>
                                 </div>
     </section>
+
+
+
+
+
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                     <h2 class="footer-heading"><a href="#" class="logo">Lavender Entertainment</a></h2>
-                    <p> The truth is lavender originally come from the Mediterranean region and was well-known thousands of years ago from ancient Greece. </p>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                     <a href="#">Read more <span class="fa fa-chevron-right" style="font-size: 11px;"></span></a>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
@@ -233,7 +224,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="col-md-6 col-lg-8">
 
                         <p class="copyright mb-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                     <div class="col-md-6 col-lg-4 text-md-right">
@@ -275,3 +266,4 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 </body>
 </html>
+-->
