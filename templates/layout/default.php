@@ -74,10 +74,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'News','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
