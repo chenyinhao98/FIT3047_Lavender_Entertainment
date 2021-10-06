@@ -78,23 +78,7 @@
 						<div class="headers clearfix">
 						<strong style="font-size:25px">Booking For </strong><strong id="data5" style="font-size:25px"></strong><strong style="font-size:25px"> Guests at <?=h($venue->venue_name) ?>
 						</div>
-<<<<<<< HEAD
 						
-=======
-						<div class="items">
-						<div class="row item">
-								<div class="col-xs-4 desc">
-									<span><?=h($venue->venue_name) ?></span>
-								</div>
-								<div class="col-xs-3 qty">
-								<span id="data"></span>
-								</div>
-								<div class="col-xs-5 amount text-right">
-								<span id="data1"></span>
-								</div>
-
-						</div>
->>>>>>> ef07c15736cd6bfe778edce35c357565ef5a7cad
 						<div class="total text-right">
 							<p class="extra-notes">
 								<strong>Extra Notes</strong>
