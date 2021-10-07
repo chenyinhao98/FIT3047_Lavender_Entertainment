@@ -15,12 +15,12 @@
 <p></p>
 <?php if ($talentResults != null){
     foreach($talentResults as $talent){
-    
+
     }
 }?>
 <?php if ($supplierResults != null){
     foreach($supplierResults as $supplier){
-    
+
     }
 }?>
 
@@ -42,30 +42,30 @@
                         <hr>
                         <strong style="font-size:25px">Hi </strong><strong id="client" style="font-size:25px"><?php echo $userName ?></strong><strong style="font-size:25px">! This is your shopping cart</strong>
                         <div class="d-flex justify-content-between"></div>
-                        
+
                         <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded" style="height: 300px">
                             <div class="d-flex flex-row"><img class="rounded" src="<?=$this->Html->Url->image(h($venue->venue_photo1)) ?>" width="250" length="250">
-                                <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2><div class="col-md-12" id="date">Event Date: <?php echo $eventDate ?></div>  
+                                <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2><div class="col-md-12" id="date">Event Date: <?php echo $eventDate ?></div>
                                 <div class="col-md-12">Supplier: <?php echo $supplierselection ?></div>
                                 <div class="col-md-12">Talent: <?php echo $talentselection ?></div>  </div>
-                                
-                                                
+
+
                             </div>
-                            
-                            <div class="col-md-2">   
+
+                            <div class="col-md-2">
                                 <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Guests</label><input type="number" id="guest_count" name="guest_count" class="form-special" value="<?php echo $guestNumber ?>" readonly required="required" onKeyDown="return false"></div>
                                 <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Talent Rate</label><input type="number" id="talpayrate" name="talpayrate" class="form-special" value="<?= (h($talent->talent_payrate)) ?>" readonly required="required" onKeyDown="return false"></div>
-                                
+
                             </div>
                             <div class="col-md-2">
                             <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Rate($/Guest)</label><input type="number" id="check" name="guest_count" class="form-special" value="<?=h($venue->venue_payrate) ?>" readonly required="required" onKeyDown="return false"></div>
                             <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Supplier Rate</label><input type="number" id="suppayrate" name="suppayrate" class="form-special" value="<?= (h($supplier->supplier_payrate)) ?>" readonly required="required" onKeyDown="return false"></div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
-               
+
 
                 <div class="col-md-4">
                     <div class="payment-info" style="background:white">
@@ -74,15 +74,15 @@
                         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
                         <label class="radio"><a href="https://www.paypal.com/in/signin"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span></a></label>
                         <div><label class="credit-card-label">Name on card</label><input type="text" color="Black" class="form-control credit-inputs" placeholder="Name" onkeyup="this.value=this.value.replace(/[\d]/,'')"></div>
-                        <div><label class="credit-card-label">Card number</label><input type="number" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" onkeyup="this.value=this.value.replace(/[\d]/,'')"></div>
-                        
+                        <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" minlength="16" maxlength="16" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></div>
+
                         <div class="row">
-                            <div class="col-md-6"><label class="credit-card-label">Date</label><input type="number" class="form-control credit-inputs" placeholder="12/24" onkeyup="this.value=this.value.replace(/[\d]/,'')"></div>
-                            <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="number" class="form-control credit-inputs" placeholder="342" onkeyup="this.value=this.value.replace(/[\d]/,'')"></div>
+                            <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24" minlength="4" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></div>
+                            <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342" minlength="3" maxlength="3" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></div>
                         </div>
                         <hr class="line">
-                        
-                        
+
+
                         <div class="d-flex justify-content-between information"><span>Venue Cost($)</span><span><span id="result" name="subtotal">$</span></span></div>
                         <div class="d-flex justify-content-between information"><span>Supplier Cost($)</span><span><span id="suptotal" name="suptotal"><?= h($supplier->supplier_payrate) ?></span></span></div>
                         <div class="d-flex justify-content-between information"><span>Talent Cost($)</span><span><span id="taltotal" name="taltotal"><?= (h($talent->talent_payrate)) ?></span></span></div>
@@ -90,7 +90,7 @@
 
                         <div class="d-flex justify-content-between information"><span>Total($)</span><span><span id="final" name="final">$</span></span></div>
                         <?= $this->Form->end(); ?>
-                        <?= $this-> Form-> create(null,['class'=>'appointment-form','style'=>'margin-top:0px', 'action' => $this->Url->build(['controller'=>'Venues','action' => 'invoice', $venue->id]),'method' => 'GET']);?> 
+                        <?= $this-> Form-> create(null,['class'=>'appointment-form','style'=>'margin-top:0px', 'action' => $this->Url->build(['controller'=>'Venues','action' => 'invoice', $venue->id]),'method' => 'GET']);?>
                         <?= $this->Form->button('Checkout',['type' => 'submit','class' => 'btn btn-primary btn-block d-flex justify-content-between mt-3', 'style' => 'margin-top: 0px']); ?>
                         <?= $this->Form->end(); ?>
                         <?= $this->Form->end(); ?>
