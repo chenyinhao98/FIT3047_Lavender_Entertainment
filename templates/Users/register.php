@@ -107,10 +107,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" >
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item active  "><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
             </ul>
         </div>
     </div>
@@ -179,7 +178,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <div class="row">
                 <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
                     <h2 class="footer-heading"><a href="#" class="logo">Lavender Entertainment</a></h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <p> The truth is lavender originally come from the Mediterranean region and was well-known thousands of years ago from ancient Greece. </p>
                     <a href="#">Read more <span class="fa fa-chevron-right" style="font-size: 11px;"></span></a>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-md-0 mb-4">
@@ -227,7 +226,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="col-md-6 col-lg-8">
 
                         <p class="copyright mb-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                     <div class="col-md-6 col-lg-4 text-md-right">

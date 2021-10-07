@@ -113,10 +113,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" >
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'News','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+                
             </ul>
         </div>
     </div>
@@ -126,8 +126,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight justify-content-start" data-scrollax-parent="true" style="padding-top: 9em">
             <div class="col-md-12 ftco-animate">
-                <h2 class="subheading">Welcome to Lavender Entertainment</h2>
-                <h1 class="mb-4">Discover a Venue for Your Event</h1>
+                <h2 class="subheading" style="color: black">Welcome to Lavender Entertainment</h2>
+                <h1 class="mb-4" style="color: black">Discover a Venue for Your Event</h1>
                 <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
             </div>
         </div>
@@ -135,13 +135,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </div>
 		<!-- Home Page -->
 		<section class="content show" id="home">
-			<h1 class="font-weight-bold" style="color: white">Under Construction</h1>
+			<h1 class="font-weight-bold" style="color: black">Under Construction</h1>
 			<p><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="btn btn-primary">Contact Us</a></li></p>
 		</section>
 </div>
 
-		
-		
+
+
 
   </body>
 </html>

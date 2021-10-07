@@ -203,6 +203,12 @@ class VenuesController extends AppController
             array_push($venueEventTypesIds,$x->id);
         }
 
+        $eventTypeIds = array();
+            //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
+            $resultsEventType = $this->Venues->find()
+                ->contain('EventTypes')
+                ->extract('event_types');
+
         //foreach ($venueEventTypesIds as $x){echo $x;}
 
         $this->loadModel('Suppliers');
@@ -257,7 +263,7 @@ class VenuesController extends AppController
             $talentResults = null;
         }
 
-        $this->set(compact('venue','talentResults','supplierResults'));
+        $this->set(compact('venue','talentResults','supplierResults','venueEventTypes'));
     }
 
     /**
@@ -355,24 +361,89 @@ class VenuesController extends AppController
             'contain' => ['EventTypes', 'Events'],
         ]);
 
-        $guestNumber = $this->getRequest()->getQuery('guest_count');
-
-
+        
         $payrate= $venue->venue_payrate;
+        $userName = $this->getRequest()->getQuery('username');
+        $userPhone = $this->getRequest()->getQuery('phone');
+        $guestNumber = $this->getRequest()->getQuery('guests');
+        $eventselection = $this->getRequest()->getQuery('venue_type');
+        $supplierselection = $this->getRequest()->getQuery('recsupplier');
+        $talentselection = $this->getRequest()->getQuery('rectalent');
+        $eventDate = $this->getRequest()->getQuery('eventDate');
 
 
-///////
-        if(isset($_GET['update'])) { //Use $_GET if it's a GET request
-            //Save the values in variable
-            $guestcount = $_GET['guest-count'];
-            $rate = $_GET['venue_payrate'];
+       
 
-            //Calculate here
-            $total = $guestcount * $rate;
-
-
+        $venueEventTypes = $venue->event_types;
+        $venueEventTypesIds = array();
+        foreach($venueEventTypes as $x){
+            array_push($venueEventTypesIds,$x->id);
         }
-        $this->set(compact('venue','subtotal'));
+
+        $eventTypeIds = array();
+            //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
+            $resultsEventType = $this->Venues->find()
+                ->contain('EventTypes')
+                ->extract('event_types');
+
+        //foreach ($venueEventTypesIds as $x){echo $x;}
+
+        $this->loadModel('Suppliers');
+        $this->loadModel('Talents');
+
+        //Supplier Recommendation
+        $supplierEventTypes = $this->Suppliers->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
+        $supplierResultsIds = array();
+        foreach ($supplierEventTypes as $x){
+            foreach($x as $y){
+                //echo $y;
+                if(in_array($y->id,$venueEventTypesIds)){
+                    if (!in_array($y->_joinData->supplier_id,$supplierResultsIds)){
+                            array_push($supplierResultsIds,$y->_joinData->supplier_id);
+                    }
+                }
+            }
+        }
+        if (!empty($supplierResultsIds)){
+            $supplierResults = $this->Suppliers->find()
+                ->where(['id IN' => $supplierResultsIds]);
+        }
+        else{
+            $supplierResults = null;
+        }
+
+
+        //Talent Recommendation
+        $talentEventTypes = $this->Talents->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
+
+            $talentResultsIds = array();
+            foreach ($talentEventTypes as $x) {
+                foreach ($x as $y) {
+                    //echo $y;
+                    if (in_array($y->id, $venueEventTypesIds)) {
+                        if (!in_array($y->_joinData->talent_id, $talentResultsIds)) {
+                            array_push($talentResultsIds, $y->_joinData->talent_id);
+                        }
+
+                    }
+                }
+            }
+        if (!empty($talentResultsIds)) {
+            $talentResults = $this->Talents->find()
+                ->where(['id IN' => $talentResultsIds]);
+        }
+        else{
+            $talentResults = null;
+        }
+      
+
+
+        
+        $this->set(compact('venue','userName','guestNumber','supplierselection','talentselection','talentResults','supplierResults','eventDate'));
 
 
     }
@@ -403,11 +474,16 @@ class VenuesController extends AppController
 
         //this part of code is for availability
 
+        $userName = $this->getRequest()->getQuery('username');
+        $subtotal = $this->getRequest()->getQuery('subtotal');
+        echo $userName;
+        echo $subtotal;
+
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events'],
         ]);
 
-        $this->set(compact('venue'));
+        $this->set(compact('venue','userName'));
 
     }
 }

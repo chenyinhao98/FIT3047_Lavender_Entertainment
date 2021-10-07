@@ -121,7 +121,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" class="nav-link">Cart</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','cart']) ?>" class="nav-link">Cart</a></li>
             </ul>
         </div>
     </div>
@@ -276,7 +276,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="row">
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-diet"></span>
+                                <span class="fa fa-birthday-cake"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Wedding</h3>
@@ -284,7 +284,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-workout"></span>
+                                <span class="fa fa-arrow-circle-o-up"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Birthday</h3>
@@ -292,7 +292,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-diet-1"></span>
+                                <span class="fa fa-arrow-circle-o-up"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Party Room</h3>
@@ -300,7 +300,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                                <span class="fa fa-coffee"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Farm Houses</h3>
@@ -308,7 +308,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                                <span class="fa fa-arrow-circle-o-up"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Engagement</h3>
@@ -317,16 +317,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                                <span class="fa fa-arrow-circle-o-up"></span>
                             </div>
                             <div class="media-body pl-3">
-                                <h3 class="heading">conference & Seminars</h3>
+                                <h3 class="heading">Conference & Seminars</h3>
                                 <p></p>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                                <span class="fa fa-arrow-circle-o-up"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Editor's pick</h3>
@@ -334,7 +334,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
                             <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                                <span class="fa fa-arrow-circle-o-up"></span>
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading">Kitty Partys</h3>

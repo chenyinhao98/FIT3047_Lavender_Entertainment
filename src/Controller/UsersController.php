@@ -133,7 +133,7 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
     public function beforeFilter(EventInterface $event){
-        $this->Auth->allow(['register', 'result']);
+        $this->Auth->allow(['register','result']);
     }
 
 
