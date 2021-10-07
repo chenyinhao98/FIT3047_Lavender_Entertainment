@@ -346,37 +346,110 @@
 </div>
 <!-- Recommendation Modal-->
 
+<!-- Recommendation Final Modal-->
 <div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add some of our recommended suppliers to your purchase?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Please type in your details to proceed to cart</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="list-group">
-                    <?php foreach ($supplierResults as $supplier): ?>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            <?=h($supplier->supplier_name) ?>
-                        </label>
-                    <?php endforeach; ?>
-                    <?php foreach ($talentResults as $talent): ?>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            <?=h($talent->talent_name) ?>
-                        </label>
-                    <?php endforeach; ?>
+                <div class="col-lg-12">
+                    <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'cart', $venue->id]),'method' => 'GET']);?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+                                <input class="form-control" type="text" name="username" placeholder="Enter Your Full Name" onkeyup="this.value=this.value.replace(/[\d]/,'')"/>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+                                <input class="form-control" type="number" name="phone" min="0100000000" max="9999999999"  placeholder="Enter Your Phone Number" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10"/>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+                                <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>" onKeyDown="return false" placeholder="Number Of Guests"/>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <div class="select-wrap">
+
+                                        <select name="venue_type" id="" class="form-control">
+                                            <option value="">Event Type</option>
+                                            <?php foreach ($venueEventTypes as $eventType): ?>
+                                                <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <!--Recommended Supplier-->
+                                        <select name="recsupplier" id="" class="form-control" value='Recommended Supplier'>
+                                            <option value=''>Choose Supplier</option>
+                                            <?php foreach($supplierResults as $supplier):?>
+                                                <option value="<?= h($supplier->supplier_name) ?>"><?= h($supplier->supplier_name) ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <!--Recommended Talent-->
+                                        <select name="rectalent" id="" class="form-control">
+                                            <option value=''>Choose Talent</option>
+                                            <?php foreach($talentResults as $talent):?>
+                                                <option value="<?= h($talent->talent_name) ?>"><?= h($talent->talent_name) ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-wrap">
+                                    <div class="icon"><span class="ion-md-calendar"></span></div>
+                                    <input type="text" name="eventDate" class="form-control appointment_date-check-in" placeholder="Event Date" onKeyDown="return false">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <?= $this->Form->button('Add to Cart',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?= $this->Form->end(); ?>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
-            </div>
         </div>
+
     </div>
+</div>
 </div>
 
