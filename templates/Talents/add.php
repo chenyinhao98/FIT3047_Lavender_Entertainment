@@ -264,7 +264,6 @@
                     echo $this->Form->control('talent_photo', array('type' => 'file'));
                     echo $this->Form->control('talent_about_us');
                     echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
-                    echo $this->Form->control('events._ids', ['options' => $events]);
                     ?><br>
 
                     <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>

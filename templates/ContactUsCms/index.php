@@ -55,13 +55,13 @@
 
 
         <!-- Nav Item - Venue Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link collapsed services-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-home"></i>
                 <span>Venues</span>
             </a>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
                     <a style="color:#a298fc;" class="collapse-item active">View All Venues</a>
@@ -128,13 +128,13 @@
         </li>
 
         <!-- Nav Item - CMS Menu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContentEdit"
                aria-expanded="true" aria-controls="collapseContentEdit">
                 <i class="far fa-edit"></i>
                 <span>Content Edit</span>
             </a>
-            <div id="collapseContentEdit" class="collapse" aria-labelledby="headingContentEdit"
+            <div id="collapseContentEdit" class="collapse show" aria-labelledby="headingContentEdit"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Content Edit Options:</h6>

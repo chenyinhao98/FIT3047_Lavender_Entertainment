@@ -54,16 +54,17 @@
 
 
         <!-- Nav Item - Venue Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link collapsed services-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-home"></i>
                 <span>Venues</span>
             </a>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Venue Options:</h6>
-                    <a style="color:#a298fc;" class="collapse-item active">View All Venues</a>
+
+                    <?= $this->Html->link(__('View All Venues'), ['controller'=>'Venues','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add New Venue'), ['controller'=>'Venues','action' => 'add'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Venue Availability'), ['controller'=>'VenueAvailability','action' => 'index'], ['class' => 'collapse-item']) ?>
                     <?= $this->Html->link(__('Add Venue Availability'), ['controller'=>'VenueAvailability','action' => 'add'], ['class' => 'collapse-item']) ?>
@@ -143,17 +144,17 @@
             </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
                aria-expanded="true" aria-controls="collapseNews">
                 <i class="fas fa-newspaper"></i>
                 <span>News</span>
             </a>
-            <div id="collapseNews" class="collapse" aria-labelledby="headingNews"
+            <div id="collapseNews" class="collapse show" aria-labelledby="headingNews"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">News Options:</h6>
-                    <?= $this->Html->link(__('View All News'), ['controller'=> 'News','action' => 'index'], ['class' => 'collapse-item']) ?>
+                    <a style="color:#a298fc;" class="collapse-item active">View All News</a>
                     <?= $this->Html->link(__('Publish News'), ['controller'=> 'News','action' => 'add'], ['class' => 'collapse-item']) ?>
                 </div>
             </div>

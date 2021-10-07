@@ -5,8 +5,6 @@
  * @var \App\Model\Entity\Talent $talent
  * @var \App\Model\Entity\Supplier $supplier
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
- * @var \App\Model\Entity\EventType $eventType
- * @var \App\Model\Entity\EventType[]|\Cake\Collection\CollectionInterface $venueEventTypes
  * @var \App\Model\Entity\Talent[]|\Cake\Collection\CollectionInterface $talentResults
  * @var \App\Model\Entity\Supplier[]|\Cake\Collection\CollectionInterface $supplierResults
  */
@@ -14,22 +12,10 @@
 <?= $this->Form->create($venue, ['type' => 'get']);?>
 <p></p>
 
-
-<?php /*$this-> Form-> create(null,['action' => '$this->Url->build(['controller'=>'Venues','action' => 'cart'])','method' => 'GET']);?>
-<input name=''>
-<?= $this->Form->button('Book Venue',['type' => 'submit','class' => 'put class inside ']); ?>
-<?= $this->Form->end(); ?> */ ?>
-
-<?php if ($talentResults != null){
-    foreach($talentResults as $talent){
-    
-    }
-}?>
-<?php if ($supplierResults != null){
-    foreach($supplierResults as $supplier){
-    
-    }
-}?>
+<?= $this->Html->css(['vendors.css']) ?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
 
 <section class="ftco-section bg-light " style="background:gray">
     <div class="container">
@@ -70,8 +56,8 @@
                                         <?php  $count = 0;
                                         while($count < $venue->venue_rating){
                                             $count++;
-                                        ?>
-                                        <span class="fa fa-star fa-2x"></span>
+                                            ?>
+                                            <span class="fa fa-star fa-2x"></span>
                                         <?php } ?>
                                     </p>
                                 </div>
@@ -83,14 +69,16 @@
                                 <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
                             <div class="col-md-4">
                                 <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
-                                
+                                <div class="input-wrap">
+                                    <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="Availabilty Date">
+                                </div>
                             </div>
                         </div>
 
 
 
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
-                        <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#recModal">Book Venue</a>
+                            <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#recModal">Book Venue</a>
                             <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
@@ -99,7 +87,7 @@
 
             <div class="col-lg-5 col-md-7 d-flex align-items-stretch ">
                 <div class="contact-wrap w-100 p-md-5 p-4 ">
-                    <h3 class="mb-4">Check Availability</h3>
+                    <h3 class="mb-4">Send Event Enquiry</h3>
                     <div id="form-message-warning" class="mb-4"></div>
                     <div id="form-message-success" class="mb-4">
 
@@ -109,37 +97,37 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="Occasion">Occasion</label>
-                                    <input type="text" class="form-control" name="occasion" id="occasion" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
+                                    <input type="text" class="form-control" name="occasion" id="occasion" placeholder="">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="date">Date</label>
-                                    <input type="date" class="form-control" name="date" id="date" placeholder="" onKeyDown="return false"> 
+                                    <input type="date" class="form-control" name="date" id="date" placeholder="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="label" for="budget">Budget</label>
-                                    <input type="number" class="form-control" name="budget" id="budget" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
+                                    <input type="number" class="form-control" name="budget" id="budget" placeholder="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="label" for="guests">Number of Guests</label>
-                                    <input type="number" class="form-control" name="guests" id="guests" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
+                                    <input type="number" class="form-control" name="guests" id="guests" placeholder="">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="#">Food Requirements</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')"></textarea>
+                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="#">Additional Message</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')"></textarea>
+                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -195,7 +183,7 @@
 			  <span class="quote d-flex align-items-center justify-content-center">
 
 			</span>
-                            <h1 class="display-3 " style="text-align: center; padding: 10px;" ><?=h($venue->venue_capacity) ?> Guests</h1>
+                            <h1 class="display-3 " style="text-align: center; padding: 10px;" ><?=h($venue->venue_min_capacity) ?> Guests</h1>
 
 
                         </div>
@@ -212,23 +200,69 @@
             <div class="col-md-12">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Recommended Vendors</a>
-                        <a class="nav-item nav-link " id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Write a Review</a>
+                        <a class="nav-item nav-link  " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Recommended Vendors</a>
+                        <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Write a Review</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="testimony-wrap d-flex" style="height: auto ">
+                            <div class="container">
+                                <?php if(empty($supplierResults)): ?>
+                                No Available Reccomended Suppliers :(
+                                <?php else:?>
+                                    <?php foreach ($supplierResults as $supplier): ?>
+                                        <div class="col-md-12" style="flex-wrap:wrap">
+                                            <div class="supplier_background ">
+                                                <a href="#" class="img supplier_image" style="background-image: url('<?=$this->Html->Url->image(h($supplier->supplier_photo))?>');"></a>
+                                                <div class="supplier_name">
+                                                    <?=h($supplier->supplier_name) ?>
+                                                </div>
+                                                <div class="supplier_type">
+                                                    <?=h($supplier->supplier_type) ?>
+                                                 </div>
+                                                <div class="supplier_price">
+                                                    $<?=h($supplier->supplier_payrate) ?>/ph
+                                                </div>
+                                                <div class="supplier_address">
+                                                    <i class="map-pin"></i><?=h($supplier->supplier_address) ?>
+                                                </div>
+                                                <div class="supplier_aboutus">
+                                                    <?=h($supplier->supplier_about_us) ?>
+                                                </div>
+                                            </div>
+                                        </div><br>
+                            <?php endforeach;?>
+                                <?php endif; ?>
+                                <?php if(empty($talentResults)): ?>
+                                    <br> No Available Reccomended Talent :(
+                                <?php else:?>
+                                    <?php foreach ($talentResults as $talent): ?>
+                                <div class="col-12" >
+                                    <div class="supplier_background ">
+                                        <a href="#" class="img supplier_image" style="background-image: url('<?=$this->Html->Url->image(h($talent->talent_photo))?>');"></a>
+                                        <div class="supplier_name">
+                                            <?=h($talent->talent_name) ?>
+                                        </div>
+                                        <div class="supplier_type">
+                                            <?=h($talent->talent_type) ?>
+                                        </div>
+                                        <div class="supplier_price">
+                                            $<?=h($talent->talent_payrate) ?>/ph
+                                        </div>
+                                        <div class="supplier_address">
+                                            <i class="map-pin"></i><?=h($talent->talent_address) ?>
+                                        </div>
+                                        <div class="supplier_aboutus">
+                                            <?=h($talent->talent_about_us) ?>
+                                        </div>
 
-                        <div class="testimony-wrap d-flex" style="height: 250px">
-                            <ul><li id="one">Lorem ipsum</li>
-                                <li id="two">Lorem ipsum</li>
-                                <li id="three">Lorem ipsum</li>
-                                <li id="four">Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li> </ul>
-
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                                <?php endif; ?>
                         </div>
+                    </div>
                     </div>
 
                     <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -263,199 +297,86 @@
 
 <!-- Shortlist Modal-->
 <div class="modal fade" id="shortlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><?=h($venue->venue_name) ?> has been shortlisted!</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                            </div>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><?=h($venue->venue_name) ?> has been shortlisted!</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
         </div>
     </div>
+</div>
 
 <!-- Enquiry Modal-->
 <div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                            </div>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
         </div>
     </div>
+</div>
 
 <!-- Book Modal-->
 <div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Book <?=h($venue->venue_name) ?> ? </h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Do you want to add <?=h($venue->venue_name) ?> to your cart ?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#" data-dismiss="modal" data-toggle="modal" data-target="#recModal">Yes</a>
-                </div>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Book <?=h($venue->venue_name) ?> ? </h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Do you want to add <?=h($venue->venue_name) ?> to your cart ?</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="#" data-dismiss="modal" data-toggle="modal" data-target="#recModal">Yes</a>
             </div>
         </div>
     </div>
+</div>
 <!-- Recommendation Modal-->
-<div class="modal fade" id="reccModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add some of our recommended suppliers to your purchase?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="list-group">
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            <span><? document.getElementById("one")?></span>
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Second checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Third checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Fourth checkbox
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="">
-                            Fifth checkbox
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Recommendation Final Modal-->
 <div class="modal fade" id="recModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Please type in your details to proceed to cart</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <div class="col-lg-12">
-                <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'cart', $venue->id]),'method' => 'GET']);?>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            
-                            <input class="form-control" type="text" name="username" placeholder="Enter Your Full Name" onkeyup="this.value=this.value.replace(/[\d]/,'')"/>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                           
-                            <input class="form-control" type="number" name="phone" min="0100000000" max="9999999999"  placeholder="Enter Your Phone Number" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10"/>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            
-                            <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>" onKeyDown="return false" placeholder="Number Of Guests"/>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <div class="select-wrap">
-                                    
-                                    <select name="venue_type" id="" class="form-control">
-                                        <option value="">Event Type</option>
-                                        <?php foreach ($venueEventTypes as $eventType): ?>
-                                            <option value="<?= h($eventType->event_name) ?>"><?= h($eventType->event_name) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <div class="select-wrap">
-                                    <!--Recommended Supplier-->
-                                    <select name="recsupplier" id="" class="form-control" value='Recommended Supplier'>
-                                        <option value=''>Choose Supplier</option>
-                                        <?php foreach($supplierResults as $supplier):?>
-                                        <option value="<?= h($supplier->supplier_name) ?>"><?= h($supplier->supplier_name) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-field">
-                                <div class="select-wrap">
-                                    <!--Recommended Talent-->
-                                    <select name="rectalent" id="" class="form-control">
-                                        <option value=''>Choose Talent</option>
-                                        <?php foreach($talentResults as $talent):?>
-                                        <option value="<?= h($talent->talent_name) ?>"><?= h($talent->talent_name) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-wrap">
-                                <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" name="eventDate" class="form-control appointment_date-check-in" placeholder="Event Date" onKeyDown="return false">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <?= $this->Form->button('Add to Cart',['type' => 'submit','class' => 'btn btn-primary py-3 px-4']); ?>
-                        </div>
-                    </div>
-                </div>
-                <?= $this->Form->end(); ?>
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add some of our recommended suppliers to your purchase?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-        </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <?php foreach ($supplierResults as $supplier): ?>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            <?=h($supplier->supplier_name) ?>
+                        </label>
+                    <?php endforeach; ?>
+                    <?php foreach ($talentResults as $talent): ?>
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="">
+                            <?=h($talent->talent_name) ?>
+                        </label>
+                    <?php endforeach; ?>
                 </div>
-                
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="pt-1" style="text-align:center; width:32.5%; padding:10; "><?= $this->Html->link(__('Book Venue'), ['action' => 'cart', $venue->id],['class' => 'btn btn-primary']) ?></a>
             </div>
         </div>
     </div>
+</div>
+
