@@ -50,10 +50,12 @@ class PaymentsController extends AppController
         if ($this->request->is('post')) {
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());
             if ($this->Payments->save($payment)) {
+
                 $this->Flash->success(__('The payment has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
+            $this->request->session()->delete('Flash');
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
         $this->set(compact('payment'));

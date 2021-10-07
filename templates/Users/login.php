@@ -125,7 +125,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-lg-12">
-
                     <div class="col-md-12">
                         <div class="wrapper">
                             <div class="row no-gutters">

@@ -11,6 +11,8 @@ use Cake\Event\EventInterface;
  */
 class UsersController extends AppController
 {
+    private ?\Cake\Datasource\RepositoryInterface $session;
+
     /**
      * Index method
      *
@@ -107,7 +109,7 @@ class UsersController extends AppController
             $user = $this->Auth->identify();
             if($user){
                 $this->Auth->setUser($user);
-                return $this->redirect(['controller' => 'venues']);
+                return $this->redirect(['controller' => 'venues', 'action' => 'index']);
             }
             $this->Flash->error('Incorrect Sign In');
         }
@@ -131,7 +133,7 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
     public function beforeFilter(EventInterface $event){
-        $this->Auth->allow(['register']);
+        $this->Auth->allow(['register', 'result']);
     }
 
 

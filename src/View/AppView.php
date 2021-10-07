@@ -27,6 +27,9 @@ use Cake\View\View;
 class AppView extends View
 {
     /**
+     * @var mixed
+     */
+    /**
      * Initialization hook method.
      *
      * Use this method to add common initialization code like loading helpers.

@@ -162,13 +162,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                         <?=$this->Form->input('password',array('type'=>'password'));?>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label class="label" for="subject">Password</label>
-                                                        <?=$this->Form->input('password',array('type'=>'password'));?>
-
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-10">
                                                     <div class="form-group">
                                                         <?= $this->Form->submit('Sign Up', array('class' => 'btn btn-primary')); ?>

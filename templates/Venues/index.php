@@ -29,7 +29,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 
 
     <!-- Custom styles for this template-->
-    <?= $this->Html->css(['sb-admin-2.min.css']) ?>
+    <?= $this->Html->css(['sb-admin-2.min.css?1422585377']) ?>
     <?= $this->Html->css(['/css/animate.css']) ?>
     <?= $this->Html->css(['/css/owl.carousel.min.css']) ?>
     <?= $this->Html->css(['/css/owl.theme.default.min.css']) ?>
