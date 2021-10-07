@@ -90,8 +90,8 @@
 
                         <div class="d-flex justify-content-between information"><span>Total($)</span><span><span id="final" name="final">$</span></span></div>
                         <?= $this->Form->end(); ?>
-                        <?= $this-> Form-> create(null,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'invoice', $venue->id]),'method' => 'GET']);?> 
-                        <?= $this->Form->button('Checkout',['type' => 'submit','class' => 'btn btn-primary btn-block d-flex justify-content-between mt-3', 'style' => 'width:"200px"']); ?>
+                        <?= $this-> Form-> create(null,['class'=>'appointment-form','style'=>'margin-top:0px', 'action' => $this->Url->build(['controller'=>'Venues','action' => 'invoice', $venue->id]),'method' => 'GET']);?> 
+                        <?= $this->Form->button('Checkout',['type' => 'submit','class' => 'btn btn-primary btn-block d-flex justify-content-between mt-3', 'style' => 'margin-top: 0px']); ?>
                         <?= $this->Form->end(); ?>
                         <?= $this->Form->end(); ?>
                     </div>
