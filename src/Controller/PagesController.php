@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Core\Configure;
-use Cake\Event\Event;
 use Cake\Event\EventInterface;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
@@ -73,7 +72,7 @@ class PagesController extends AppController
         }
     }
     public function beforeFilter(EventInterface $event) {
-        $this->Auth->allow(['display']);
+        $this->Auth->allow(['action' => 'display', 'aboutus','cart', 'contactus', 'emptycart', 'underconstruction']);
     }
 
 }

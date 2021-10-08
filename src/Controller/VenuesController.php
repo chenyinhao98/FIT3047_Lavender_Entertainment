@@ -51,7 +51,7 @@ class VenuesController extends AppController
 
         $venues = $this->paginate($this->Venues);
 
-        $this->set(compact('venues','types'));
+        $this->set(compact('venues', 'types'));
     }
 
     public function result()
@@ -68,115 +68,108 @@ class VenuesController extends AppController
         $searchStartDate = $this->getRequest()->getQuery('search_start_date');
         //$searchEndDate = $this->getRequest()->getQuery('search_end_date');
 
-        $numberArray = explode(',',$attendeeNumber);
-        $priceArray = explode(',',$searchPrice);
+        $numberArray = explode(',', $attendeeNumber);
+        $priceArray = explode(',', $searchPrice);
 
         //find by event type
         $eventTypeIds = array();
-            //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
-            $resultsEventType = $this->Venues->find()
-                ->contain('EventTypes')
-                ->extract('event_types');
-            //echo $searchType;
-            $eventTypeFound = false;
-            foreach ($resultsEventType as $x){
-                foreach ($x as $y){
-                    //echo $y->_joinData;
-                    //echo $y->event_name;
-                    if ($y->event_name == $searchType){
-                        array_push($eventTypeIds,$y->_joinData->venue_id);
-                        $eventTypeFound = true;
-                    }
+        //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
+        $resultsEventType = $this->Venues->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
+        //echo $searchType;
+        $eventTypeFound = false;
+        foreach ($resultsEventType as $x) {
+            foreach ($x as $y) {
+                //echo $y->_joinData;
+                //echo $y->event_name;
+                if ($y->event_name == $searchType) {
+                    array_push($eventTypeIds, $y->_joinData->venue_id);
+                    $eventTypeFound = true;
                 }
             }
-            if (!$eventTypeFound) {
-                $eventTypeIds = null;
-            }
+        }
+        if (!$eventTypeFound) {
+            $eventTypeIds = null;
+        }
 
         //foreach ($eventTypeIds as $x){echo $x;}
 
 
-
         //find by date and other values
-        if ($searchStartDate != null){
+        if ($searchStartDate != null) {
             //date format transmission
-            $startDateArray = explode('/',$searchStartDate);
+            $startDateArray = explode('/', $searchStartDate);
             $searchStartDate = $startDateArray[2] . '-' . $startDateArray[0] . '-' . $startDateArray[1];
 
             $invalidIds = array();
-            foreach($venues as $venue) {
+            foreach ($venues as $venue) {
                 $available = $this->VenueAvailability->find()
                     ->where(['venue_id' => $venue->id]) //Make this constant only for testing
                     ->andWhere(['date' => $searchStartDate])
                     ->andWhere(['avaliable' => 0]); //this is a Boolean entity
-                if(empty($available->all()->first())){
+                if (empty($available->all()->first())) {
 
-                }
-                else{
-                    array_push($invalidIds,$venue->id);
+                } else {
+                    array_push($invalidIds, $venue->id);
                 }
             }
 
-            if (!empty($invalidIds)){
-                if ($eventTypeIds != null){
+            if (!empty($invalidIds)) {
+                if ($eventTypeIds != null) {
                     $results = $this->Venues->find()
-                        ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                        ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                         ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                        ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]])
+                        ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]])
                         ->andwhere(['id NOT IN' => $invalidIds])
                         ->andwhere(['id IN' => $eventTypeIds]);
                     $invalidResults = $this->Venues->find()
-                        ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                        ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                         ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                        ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]])
+                        ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]])
                         ->andwhere(['id IN' => $invalidIds])
                         ->andwhere(['id IN' => $eventTypeIds]);
-                }
-                else{
+                } else {
                     $results = $this->Venues->find()
-                        ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                        ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                         ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                        ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]])
+                        ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]])
                         ->andwhere(['id NOT IN' => $invalidIds]);
                     $invalidResults = $this->Venues->find()
-                        ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                        ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                         ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                        ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]])
+                        ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]])
                         ->andwhere(['id IN' => $invalidIds]);
                 }
 
-            }
-            else{
-                if ($eventTypeIds != null){
+            } else {
+                if ($eventTypeIds != null) {
                     $results = $this->Venues->find()
-                        ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                        ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                         ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                        ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]])
+                        ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]])
                         ->andwhere(['id IN' => $eventTypeIds]);
-                }
-                else{
+                } else {
                     $results = $this->Venues->find()
-                        ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                        ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                         ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                        ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]]);
+                        ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]]);
                 }
                 $invalidResults = null;
             }
 
-        }
-        else{
-            if ($eventTypeIds != null){
+        } else {
+            if ($eventTypeIds != null) {
                 $results = $this->Venues->find()
-                    ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                    ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                     ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                    ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]])
+                    ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]])
                     ->andwhere(['id IN' => $eventTypeIds]);
-            }
-            else{
+            } else {
                 $results = $this->Venues->find()
-                    ->where(['venue_capacity >=' => $numberArray[0],'AND' => ['venue_capacity <=' => $numberArray[1]]])
+                    ->where(['venue_capacity >=' => $numberArray[0], 'AND' => ['venue_capacity <=' => $numberArray[1]]])
                     ->andWhere(['venue_address LIKE' => '%' . $searchAddress . '%'])
-                    ->andWhere(['venue_payrate >=' => $priceArray[0],'AND' => ['venue_payrate <=' => $priceArray[1]]]);
+                    ->andWhere(['venue_payrate >=' => $priceArray[0], 'AND' => ['venue_payrate <=' => $priceArray[1]]]);
             }
             $invalidResults = null;
         }
@@ -188,27 +181,27 @@ class VenuesController extends AppController
         }
         */
 
-        $this->set(compact('venues','results','invalidResults','searchStartDate'));
+        $this->set(compact('venues', 'results', 'invalidResults', 'searchStartDate'));
     }
 
-    public function individual($id=null)
+    public function individual($id = null)
     {
         $venue = $this->Venues->get($id, [
-            'contain' => ['EventTypes', 'Events','VenueAvailability'],
+            'contain' => ['EventTypes', 'Events', 'VenueAvailability'],
         ]);
 
         //Get EventType
         $venueEventTypes = $venue->event_types;
         $venueEventTypesIds = array();
-        foreach($venueEventTypes as $x){
-            array_push($venueEventTypesIds,$x->id);
+        foreach ($venueEventTypes as $x) {
+            array_push($venueEventTypesIds, $x->id);
         }
 
         $eventTypeIds = array();
-            //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
-            $resultsEventType = $this->Venues->find()
-                ->contain('EventTypes')
-                ->extract('event_types');
+        //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
+        $resultsEventType = $this->Venues->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
 
         //foreach ($venueEventTypesIds as $x){echo $x;}
 
@@ -220,21 +213,20 @@ class VenuesController extends AppController
             ->contain('EventTypes')
             ->extract('event_types');
         $supplierResultsIds = array();
-        foreach ($supplierEventTypes as $x){
-            foreach($x as $y){
+        foreach ($supplierEventTypes as $x) {
+            foreach ($x as $y) {
                 //echo $y;
-                if(in_array($y->id,$venueEventTypesIds)){
-                    if (!in_array($y->_joinData->supplier_id,$supplierResultsIds)){
-                            array_push($supplierResultsIds,$y->_joinData->supplier_id);
+                if (in_array($y->id, $venueEventTypesIds)) {
+                    if (!in_array($y->_joinData->supplier_id, $supplierResultsIds)) {
+                        array_push($supplierResultsIds, $y->_joinData->supplier_id);
                     }
                 }
             }
         }
-        if (!empty($supplierResultsIds)){
+        if (!empty($supplierResultsIds)) {
             $supplierResults = $this->Suppliers->find()
                 ->where(['id IN' => $supplierResultsIds]);
-        }
-        else{
+        } else {
             $supplierResults = null;
         }
 
@@ -244,27 +236,26 @@ class VenuesController extends AppController
             ->contain('EventTypes')
             ->extract('event_types');
 
-            $talentResultsIds = array();
-            foreach ($talentEventTypes as $x) {
-                foreach ($x as $y) {
-                    //echo $y;
-                    if (in_array($y->id, $venueEventTypesIds)) {
-                        if (!in_array($y->_joinData->talent_id, $talentResultsIds)) {
-                            array_push($talentResultsIds, $y->_joinData->talent_id);
-                        }
-
+        $talentResultsIds = array();
+        foreach ($talentEventTypes as $x) {
+            foreach ($x as $y) {
+                //echo $y;
+                if (in_array($y->id, $venueEventTypesIds)) {
+                    if (!in_array($y->_joinData->talent_id, $talentResultsIds)) {
+                        array_push($talentResultsIds, $y->_joinData->talent_id);
                     }
+
                 }
             }
+        }
         if (!empty($talentResultsIds)) {
             $talentResults = $this->Talents->find()
                 ->where(['id IN' => $talentResultsIds]);
-        }
-        else{
+        } else {
             $talentResults = null;
         }
 
-        $this->set(compact('venue','talentResults','supplierResults','venueEventTypes'));
+        $this->set(compact('venue', 'talentResults', 'supplierResults', 'venueEventTypes'));
     }
 
     /**
@@ -356,14 +347,14 @@ class VenuesController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function cart($id=null)
+    public function cart($id = null)
     {
         $venue = $this->Venues->get($id, [
             'contain' => ['EventTypes', 'Events'],
         ]);
 
 
-        $payrate= $venue->venue_payrate;
+        $payrate = $venue->venue_payrate;
         $userName = $this->getRequest()->getQuery('username');
         $userPhone = $this->getRequest()->getQuery('phone');
         $guestNumber = $this->getRequest()->getQuery('guests');
@@ -373,19 +364,17 @@ class VenuesController extends AppController
         $eventDate = $this->getRequest()->getQuery('eventDate');
 
 
-
-
         $venueEventTypes = $venue->event_types;
         $venueEventTypesIds = array();
-        foreach($venueEventTypes as $x){
-            array_push($venueEventTypesIds,$x->id);
+        foreach ($venueEventTypes as $x) {
+            array_push($venueEventTypesIds, $x->id);
         }
 
         $eventTypeIds = array();
-            //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
-            $resultsEventType = $this->Venues->find()
-                ->contain('EventTypes')
-                ->extract('event_types');
+        //$chooseEventType = $this->EventTypes->find()->where(['event_name' => $searchType])->first();
+        $resultsEventType = $this->Venues->find()
+            ->contain('EventTypes')
+            ->extract('event_types');
 
         //foreach ($venueEventTypesIds as $x){echo $x;}
 
@@ -397,21 +386,20 @@ class VenuesController extends AppController
             ->contain('EventTypes')
             ->extract('event_types');
         $supplierResultsIds = array();
-        foreach ($supplierEventTypes as $x){
-            foreach($x as $y){
+        foreach ($supplierEventTypes as $x) {
+            foreach ($x as $y) {
                 //echo $y;
-                if(in_array($y->id,$venueEventTypesIds)){
-                    if (!in_array($y->_joinData->supplier_id,$supplierResultsIds)){
-                            array_push($supplierResultsIds,$y->_joinData->supplier_id);
+                if (in_array($y->id, $venueEventTypesIds)) {
+                    if (!in_array($y->_joinData->supplier_id, $supplierResultsIds)) {
+                        array_push($supplierResultsIds, $y->_joinData->supplier_id);
                     }
                 }
             }
         }
-        if (!empty($supplierResultsIds)){
+        if (!empty($supplierResultsIds)) {
             $supplierResults = $this->Suppliers->find()
                 ->where(['id IN' => $supplierResultsIds]);
-        }
-        else{
+        } else {
             $supplierResults = null;
         }
 
@@ -421,30 +409,27 @@ class VenuesController extends AppController
             ->contain('EventTypes')
             ->extract('event_types');
 
-            $talentResultsIds = array();
-            foreach ($talentEventTypes as $x) {
-                foreach ($x as $y) {
-                    //echo $y;
-                    if (in_array($y->id, $venueEventTypesIds)) {
-                        if (!in_array($y->_joinData->talent_id, $talentResultsIds)) {
-                            array_push($talentResultsIds, $y->_joinData->talent_id);
-                        }
-
+        $talentResultsIds = array();
+        foreach ($talentEventTypes as $x) {
+            foreach ($x as $y) {
+                //echo $y;
+                if (in_array($y->id, $venueEventTypesIds)) {
+                    if (!in_array($y->_joinData->talent_id, $talentResultsIds)) {
+                        array_push($talentResultsIds, $y->_joinData->talent_id);
                     }
+
                 }
             }
+        }
         if (!empty($talentResultsIds)) {
             $talentResults = $this->Talents->find()
                 ->where(['id IN' => $talentResultsIds]);
-        }
-        else{
+        } else {
             $talentResults = null;
         }
 
 
-
-
-        $this->set(compact('venue','userName','guestNumber','supplierselection','talentselection','talentResults','supplierResults','eventDate'));
+        $this->set(compact('venue', 'userName', 'guestNumber', 'supplierselection', 'talentselection', 'talentResults', 'supplierResults', 'eventDate'));
 
 
     }
@@ -456,7 +441,7 @@ class VenuesController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function invoice($id=null)
+    public function invoice($id = null)
     {
         //this part of code is for availability
         /*
@@ -484,7 +469,12 @@ class VenuesController extends AppController
             'contain' => ['EventTypes', 'Events'],
         ]);
 
-        $this->set(compact('venue','userName'));
+        $this->set(compact('venue', 'userName'));
 
+    }
+
+    public function beforeFilter(EventInterface $event)
+    {
+        $this->Auth->allow(['result', 'individual', 'invoice', 'home', 'cart']);
     }
 }
