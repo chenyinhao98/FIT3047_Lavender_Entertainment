@@ -218,7 +218,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <?=$this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?>
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-
+                                
                             </a>
                         </div>
                     </li>
