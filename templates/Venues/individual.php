@@ -69,9 +69,7 @@
                                 <p class="font-weight-bold"style="text-align: left; font-size: large;"><i class="fa fa-address-card fa-2x" aria-hidden="true" style="padding: 10px;"></i>  <?=h($venue->venue_address) ?></p> </div>
                             <div class="col-md-4">
                                 <p class="font-weight-bold" style="text-align: right; font-size: large;"><i class="fa fa-usd fa-2x" aria-hidden="true" style="padding: 10px;"></i><?=h($venue->venue_payrate) ?> / Guest</p>
-                                <div class="input-wrap">
-                                    <input type="text" name="search_end_date" class="form-control appointment_date-check-out" placeholder="Availabilty Date">
-                                </div>
+
                             </div>
                         </div>
 
@@ -79,7 +77,7 @@
 
                         <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
                             <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#recModal">Book Venue</a>
-                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
+                            <a href="#reviewtab" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
                     </div>
 
                 </div>
@@ -276,7 +274,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','underconstruction']) ?>" style="text-align:center; width:70%; padding:10;" class="btn btn-primary">Submit	</a>
+                                            <a href="#" style="text-align:center; width:70%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">Submit	</a>
                                             <div class="submitting"></div></div>
                                     </div>
                                     <div class="col-md-4">
@@ -317,6 +315,21 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Your Enquiry has been sent!</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Review Modal-->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Your Review has been sent!</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -378,7 +391,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
 
-                                <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>" onKeyDown="return false" placeholder="Number Of Guests"/>
+                                <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>" onKeyDown="return false" placeholder="Number Of Guests" required="required"/>
 
                             </div>
                         </div>
@@ -405,7 +418,7 @@
                                     <div class="select-wrap">
                                         <!--Recommended Supplier-->
                                         <select name="recsupplier" id="" class="form-control" value='Recommended Supplier'>
-                                            <option value=''>Choose Supplier</option>
+                                            <option value=''>No Supplier</option>
                                             <?php foreach($supplierResults as $supplier):?>
                                                 <option value="<?= h($supplier->supplier_name) ?>"><?= h($supplier->supplier_name) ?></option>
                                             <?php endforeach; ?>
@@ -420,7 +433,7 @@
                                     <div class="select-wrap">
                                         <!--Recommended Talent-->
                                         <select name="rectalent" id="" class="form-control">
-                                            <option value=''>Choose Talent</option>
+                                            <option value=''>No Talent</option>
                                             <?php foreach($talentResults as $talent):?>
                                                 <option value="<?= h($talent->talent_name) ?>"><?= h($talent->talent_name) ?></option>
                                             <?php endforeach; ?>

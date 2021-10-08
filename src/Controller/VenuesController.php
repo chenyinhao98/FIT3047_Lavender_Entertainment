@@ -361,7 +361,7 @@ class VenuesController extends AppController
             'contain' => ['EventTypes', 'Events'],
         ]);
 
-        
+
         $payrate= $venue->venue_payrate;
         $userName = $this->getRequest()->getQuery('username');
         $userPhone = $this->getRequest()->getQuery('phone');
@@ -371,8 +371,15 @@ class VenuesController extends AppController
         $talentselection = $this->getRequest()->getQuery('rectalent');
         $eventDate = $this->getRequest()->getQuery('eventDate');
 
+        $this->loadModel('Suppliers');
+        $this->loadModel('Talents');
 
-       
+        $supplierResult = $this->Suppliers->find()
+            ->where(['supplier_name' => $supplierselection])
+            ->first();
+        $talentResult = $this->Talents->find()
+            ->where(['talent_name' => $talentselection])
+            ->first();
 
         $venueEventTypes = $venue->event_types;
         $venueEventTypesIds = array();
@@ -388,8 +395,7 @@ class VenuesController extends AppController
 
         //foreach ($venueEventTypesIds as $x){echo $x;}
 
-        $this->loadModel('Suppliers');
-        $this->loadModel('Talents');
+
 
         //Supplier Recommendation
         $supplierEventTypes = $this->Suppliers->find()
@@ -439,11 +445,11 @@ class VenuesController extends AppController
         else{
             $talentResults = null;
         }
-      
 
 
-        
-        $this->set(compact('venue','userName','guestNumber','supplierselection','talentselection','talentResults','supplierResults','eventDate'));
+
+
+        $this->set(compact('venue','userName','guestNumber','supplierselection','talentselection','talentResults','supplierResults','eventDate','supplierResult','talentResult'));
 
 
     }

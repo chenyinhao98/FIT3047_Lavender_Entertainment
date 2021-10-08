@@ -3,7 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \App\Model\Entity\Talent $talent
+ * @var \App\Model\Entity\Talent $talentResult
  * @var \App\Model\Entity\Supplier $supplier
+ * @var \App\Model\Entity\Supplier $supplierResult
  * @var string $userName;
  * @var \App\Model\Entity\Venue[]|\Cake\Collection\CollectionInterface $venues
  * @var \App\Model\Entity\Talent[]|\Cake\Collection\CollectionInterface $talentResults
@@ -13,6 +15,7 @@
 ?>
 <?= $this->Form->create($venue, ['type' => 'get']);?>
 <p></p>
+
 <?php if ($talentResults != null){
     foreach($talentResults as $talent){
 
@@ -24,6 +27,24 @@
     }
 }?>
 
+<?php
+if ($supplierResult == null){
+    $supplierName = "Not Applicable";
+    $supplierPayrate = "0";
+}
+else{
+    $supplierName = $supplierResult->supplier_name;
+    $supplierPayrate = $supplierResult->supplier_payrate;
+}
+if ($talentResult == null){
+    $talentName = "Not Applicable";
+    $talentPayrate = "0";
+}
+else{
+    $talentName = $talentResult->talent_name;
+    $talentPayrate= $talentResult->talent_payrate;
+}
+?>
 
 <body>
 <section class="ftco-section about-section bg-light">
@@ -46,20 +67,20 @@
                         <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded" style="height: 300px">
                             <div class="d-flex flex-row"><img class="rounded" src="<?=$this->Html->Url->image(h($venue->venue_photo1)) ?>" width="250" length="250">
                                 <div class="col-md-12"> <h2 class="font-weight-bold"><?=h($venue->venue_name) ?></h2><div class="col-md-12" id="date">Event Date: <?php echo $eventDate ?></div>
-                                <div class="col-md-12">Supplier: <?php echo $supplierselection ?></div>
-                                <div class="col-md-12">Talent: <?php echo $talentselection ?></div>  </div>
+                                <div class="col-md-12">Supplier: <?=$supplierName?></div>
+                                <div class="col-md-12">Talent: <?=$talentName ?></div>  </div>
 
 
                             </div>
 
                             <div class="col-md-2">
                                 <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Guests</label><input type="number" id="guest_count" name="guest_count" class="form-special" value="<?php echo $guestNumber ?>" readonly required="required" onKeyDown="return false"></div>
-                                <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Talent Rate</label><input type="number" id="talpayrate" name="talpayrate" class="form-special" value="<?= (h($talent->talent_payrate)) ?>" readonly required="required" onKeyDown="return false"></div>
+                                <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Talent Rate</label><input type="number" id="talpayrate" name="talpayrate" class="form-special" value="<?= $talentPayrate ?>" readonly required="required" onKeyDown="return false"></div>
 
                             </div>
                             <div class="col-md-2">
                             <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Rate($/Guest)</label><input type="number" id="check" name="guest_count" class="form-special" value="<?=h($venue->venue_payrate) ?>" readonly required="required" onKeyDown="return false"></div>
-                            <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Supplier Rate</label><input type="number" id="suppayrate" name="suppayrate" class="form-special" value="<?= (h($supplier->supplier_payrate)) ?>" readonly required="required" onKeyDown="return false"></div>
+                            <div class="input number required"style="text-align: left"><label for="guest-count" class="form-label">Supplier Rate</label><input type="number" id="suppayrate" name="suppayrate" class="form-special" value="<?= $supplierPayrate ?>" readonly required="required" onKeyDown="return false"></div>
 
                             </div>
                         </div>
@@ -84,8 +105,8 @@
 
 
                         <div class="d-flex justify-content-between information"><span>Venue Cost($)</span><span><span id="result" name="subtotal">$</span></span></div>
-                        <div class="d-flex justify-content-between information"><span>Supplier Cost($)</span><span><span id="suptotal" name="suptotal"><?= h($supplier->supplier_payrate) ?></span></span></div>
-                        <div class="d-flex justify-content-between information"><span>Talent Cost($)</span><span><span id="taltotal" name="taltotal"><?= (h($talent->talent_payrate)) ?></span></span></div>
+                        <div class="d-flex justify-content-between information"><span>Supplier Cost($)</span><span><span id="suptotal" name="suptotal"><?= $supplierPayrate ?></span></span></div>
+                        <div class="d-flex justify-content-between information"><span>Talent Cost($)</span><span><span id="taltotal" name="taltotal"><?= $talentPayrate ?></span></span></div>
                         <hr class="line">
 
                         <div class="d-flex justify-content-between information"><span>Total($)</span><span><span id="final" name="final">$</span></span></div>
