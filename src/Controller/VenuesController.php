@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use Cake\Database\Expression\QueryExpression;
+use Cake\Event\EventInterface;
 use Cake\ORM\Query;
 use Cake\ORM\TableRegistry;
 use App\Model\Entity\Venue;
@@ -361,7 +362,7 @@ class VenuesController extends AppController
             'contain' => ['EventTypes', 'Events'],
         ]);
 
-        
+
         $payrate= $venue->venue_payrate;
         $userName = $this->getRequest()->getQuery('username');
         $userPhone = $this->getRequest()->getQuery('phone');
@@ -372,7 +373,7 @@ class VenuesController extends AppController
         $eventDate = $this->getRequest()->getQuery('eventDate');
 
 
-       
+
 
         $venueEventTypes = $venue->event_types;
         $venueEventTypesIds = array();
@@ -439,10 +440,10 @@ class VenuesController extends AppController
         else{
             $talentResults = null;
         }
-      
 
 
-        
+
+
         $this->set(compact('venue','userName','guestNumber','supplierselection','talentselection','talentResults','supplierResults','eventDate'));
 
 

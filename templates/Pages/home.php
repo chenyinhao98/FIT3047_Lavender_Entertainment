@@ -134,7 +134,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="row justify-content-end">
             <div class="col-lg-12">
 
-                <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'Venues','action' => 'result'])]);?>
+                <?= $this-> Form-> create($venue,['class'=>'appointment-form','action' => $this->Url->build(['controller'=>'venues','action' => 'result'])]);?>
                 <h3 class="mb-3">Book your Venue</h3>
                 <div class="row">
                     <div class="col-md-6">

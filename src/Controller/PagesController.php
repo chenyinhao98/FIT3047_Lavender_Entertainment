@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use Cake\Event\Event;
+use Cake\Event\EventInterface;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
@@ -69,6 +71,9 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
+    }
+    public function beforeFilter(EventInterface $event) {
+        $this->Auth->allow(['display']);
     }
 
 }
