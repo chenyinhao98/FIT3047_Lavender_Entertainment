@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
+ * @var string[]|\Cake\Collection\CollectionInterface $eTs
  */
 ?>
 <!DOCTYPE html>
@@ -38,7 +39,9 @@
 
 
 </head>
-
+<?php foreach ($eventTypes as $x){
+    echo $x;
+} ?>
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -265,7 +268,7 @@
                     echo $this->Form->control('venue_photo1', array('type' => 'file'));
                     echo $this->Form->control('venue_photo2', array('type' => 'file'));
                     echo $this->Form->control('venue_about_us');
-                    echo $this->Form->control('event_types._ids', ['options' => $eventTypes]);
+                    echo $this->Form->control('event_types._ids', ['options' => $eTs,'value' => $eventTypes]);
                     ?><br>
 
                     <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>

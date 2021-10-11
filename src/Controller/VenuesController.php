@@ -289,6 +289,7 @@ class VenuesController extends AppController
      */
     public function add()
     {
+
         $venue = $this->Venues->newEmptyEntity();
         if ($this->request->is('post')) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
@@ -300,7 +301,13 @@ class VenuesController extends AppController
             $this->Flash->error(__('The venue could not be saved. Please, try again.'));
         }
         $eventTypes = $this->Venues->EventTypes->find('list', ['limit' => 200]);
-        $this->set(compact('venue', 'eventTypes'));
+
+        $eTs = $this->Venues->EventTypes->find('list',[
+            'keyField' => 'id',
+            'valueField' => 'event_name'
+        ]);
+
+        $this->set(compact('venue', 'eventTypes','eTs'));
     }
 
     /**
@@ -325,7 +332,22 @@ class VenuesController extends AppController
             $this->Flash->error(__('The venue could not be saved. Please, try again.'));
         }
         $eventTypes = $this->Venues->EventTypes->find('list', ['limit' => 200]);
-        $this->set(compact('venue', 'eventTypes'));
+
+        $eTs = $this->Venues->EventTypes->find('list',[
+            'keyField' => 'id',
+            'valueField' => 'event_name'
+        ]);
+        /*
+        foreach ($eTs as $x){
+            echo $x;
+            array_push($eventTypesNames,$x->event_name);
+            array_push($eventTypesId,$x->id);
+        }
+        foreach ($eventTypesId as $x){
+            echo $x;
+        }
+        */
+        $this->set(compact('venue', 'eventTypes','eTs'));
     }
 
     /**

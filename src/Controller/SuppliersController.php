@@ -58,7 +58,13 @@ class SuppliersController extends AppController
         }
         $eventTypes = $this->Suppliers->EventTypes->find('list', ['limit' => 200]);
         $events = $this->Suppliers->Events->find('list', ['limit' => 200]);
-        $this->set(compact('supplier', 'eventTypes', 'events'));
+
+        $eTs = $this->Venues->EventTypes->find('list',[
+            'keyField' => 'id',
+            'valueField' => 'event_name'
+        ]);
+
+        $this->set(compact('supplier', 'eventTypes', 'events', 'eTs'));
     }
 
     /**
@@ -84,7 +90,13 @@ class SuppliersController extends AppController
         }
         $eventTypes = $this->Suppliers->EventTypes->find('list', ['limit' => 200]);
         $events = $this->Suppliers->Events->find('list', ['limit' => 200]);
-        $this->set(compact('supplier', 'eventTypes', 'events'));
+
+        $eTs = $this->Venues->EventTypes->find('list',[
+            'keyField' => 'id',
+            'valueField' => 'event_name'
+        ]);
+
+        $this->set(compact('supplier', 'eventTypes', 'events', 'eTs'));
     }
 
     /**

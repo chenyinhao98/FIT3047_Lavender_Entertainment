@@ -58,7 +58,13 @@ class TalentsController extends AppController
         }
         $eventTypes = $this->Talents->EventTypes->find('list', ['limit' => 200]);
         $events = $this->Talents->Events->find('list', ['limit' => 200]);
-        $this->set(compact('talent', 'eventTypes', 'events'));
+
+        $eTs = $this->Venues->EventTypes->find('list',[
+            'keyField' => 'id',
+            'valueField' => 'event_name'
+        ]);
+
+        $this->set(compact('talent', 'eventTypes', 'events','eTs'));
     }
 
     /**
@@ -84,7 +90,13 @@ class TalentsController extends AppController
         }
         $eventTypes = $this->Talents->EventTypes->find('list', ['limit' => 200]);
         $events = $this->Talents->Events->find('list', ['limit' => 200]);
-        $this->set(compact('talent', 'eventTypes', 'events'));
+
+        $eTs = $this->Venues->EventTypes->find('list',[
+            'keyField' => 'id',
+            'valueField' => 'event_name'
+        ]);
+
+        $this->set(compact('talent', 'eventTypes', 'events','eTs'));
     }
 
     /**
