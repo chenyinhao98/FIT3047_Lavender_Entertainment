@@ -11,6 +11,11 @@ namespace App\Controller;
  */
 class TalentAvailabilityController extends AppController
 {
+    
+    public $paginate = [
+        'limit' => 100
+    ];
+    
     /**
      * Index method
      *

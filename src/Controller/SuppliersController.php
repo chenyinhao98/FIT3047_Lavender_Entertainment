@@ -11,6 +11,9 @@ namespace App\Controller;
  */
 class SuppliersController extends AppController
 {
+    public $paginate = [
+        'limit' => 100
+    ];
     /**
      * Index method
      *
@@ -59,7 +62,7 @@ class SuppliersController extends AppController
         $eventTypes = $this->Suppliers->EventTypes->find('list', ['limit' => 200]);
         $events = $this->Suppliers->Events->find('list', ['limit' => 200]);
 
-        $eTs = $this->Venues->EventTypes->find('list',[
+        $eTs = $this->Suppliers->EventTypes->find('list',[
             'keyField' => 'id',
             'valueField' => 'event_name'
         ]);

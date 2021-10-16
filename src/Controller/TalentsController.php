@@ -11,6 +11,10 @@ namespace App\Controller;
  */
 class TalentsController extends AppController
 {
+    public $paginate = [
+        'limit' => 100
+    ];
+    
     /**
      * Index method
      *
@@ -59,7 +63,7 @@ class TalentsController extends AppController
         $eventTypes = $this->Talents->EventTypes->find('list', ['limit' => 200]);
         $events = $this->Talents->Events->find('list', ['limit' => 200]);
 
-        $eTs = $this->Venues->EventTypes->find('list',[
+        $eTs = $this->Talents->EventTypes->find('list',[
             'keyField' => 'id',
             'valueField' => 'event_name'
         ]);

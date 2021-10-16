@@ -57,7 +57,7 @@ else{
                     <div class="product-details mr-2">
                     <div class="col-md-8">
                         <div class="d-flex flex-row align-items-center"></div></div>
-                        <p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'result']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" ><i class="fa fa-long-arrow-left ml-1" aria-hidden="true"></i> Continue Shopping</a>
+                        <p><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" ><i class="fa fa-long-arrow-left ml-1" aria-hidden="true"></i> Continue Shopping</a>
                         <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" input type="button" name="update" id="update" value="Submit" onClick="totalCalc()"><i class="fa fa-refresh" aria-hidden="true"></i> Update Cart</a>
                         <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" ><i class="fa fa-trash" aria-hidden="true"></i> Empty Cart	</a></p>
                         <hr>
@@ -94,12 +94,12 @@ else{
                         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
                         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
                         <label class="radio"><a href="https://www.paypal.com/in/signin"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png" /></span></a></label>
-                        <div><label class="credit-card-label">Name on card</label><input type="text" color="Black" class="form-control credit-inputs" placeholder="Name" onkeyup="this.value=this.value.replace(/[\d]/,'')"></div>
-                        <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" minlength="16" maxlength="16" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></div>
+                        <div><label class="credit-card-label">Name on card</label><input type="text" color="Black" class="form-control credit-inputs" placeholder="Name" onkeyup="this.value=this.value.replace(/[\d]/,'')" required="required"></div>
+                        <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" minlength="16" maxlength="16" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" required="required"></div>
 
                         <div class="row">
-                            <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24" minlength="4" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></div>
-                            <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342" minlength="3" maxlength="3" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></div>
+                            <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24" minlength="5" maxlength="5" required="required"></div>
+                            <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342" minlength="3" maxlength="3" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" required="required"></div>
                         </div>
                         <hr class="line">
 

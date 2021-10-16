@@ -107,10 +107,11 @@ class UsersController extends AppController
     public function login(){
         if($this->request->is('post')){
             $user = $this->Auth->identify();
-            if($user){
+            if($user != 'admin'){
                 $this->Auth->setUser($user);
                 return $this->redirect(['controller' => 'venues', 'action' => 'index']);
             }
+            
             $this->Flash->error('Incorrect Sign In');
         }
     }
@@ -133,7 +134,7 @@ class UsersController extends AppController
         $this->set('_serialize', ['user']);
     }
     public function beforeFilter(EventInterface $event){
-        $this->Auth->allow(['register','result']);
+        $this->Auth->allow(['register']);
     }
 
 

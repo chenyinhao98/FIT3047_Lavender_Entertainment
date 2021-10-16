@@ -11,6 +11,11 @@ namespace App\Controller;
  */
 class EventTypesController extends AppController
 {
+    
+    public $paginate = [
+        'limit' => 100
+    ];
+    
     /**
      * Index method
      *

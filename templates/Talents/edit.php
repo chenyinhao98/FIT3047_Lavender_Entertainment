@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var string[]|\Cake\Collection\CollectionInterface $eventTypes
- * @var string[]|\Cake\Collection\CollectionInterface $eTs
+ * @var \Cake\Collection\CollectionInterface|string[] $eTs
  */
 ?>
 
@@ -233,8 +233,7 @@
                 echo $this->Form->control('talent_email');
                 echo $this->Form->control('talent_photo', array('type' => 'file'));
                 echo $this->Form->control('talent_about_us');
-                echo $this->Form->control('event_types._ids', ['options' => $eTs,'value' => $eventTypes]);
-                echo $this->Form->control('events._ids', ['options' => $events]);
+                    echo $this->Form->control('event_types._ids', ['options' => $eTs,'value' => $eventTypes]);
                 ?><br>
                 <?= $this->Form->button(__('Submit'),  ['class'=>'btn btn-primary']) ?>
                 <?= $this->Form->end() ?>

@@ -123,8 +123,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'index']) ?>" class="nav-link">Admin</a></li>
             </ul>
+            <div
+            <?php if($loggedIn) :?>
+            <li><?=$this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?>
+                <?php endIf;?>
+        </div>
         </div>
     </div>
 </nav>
@@ -298,40 +303,40 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <p><?= h($aboutUsCm->what_we_offer_body) ?></p>
                     <div class="row">
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-diet"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                1
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_1) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-workout"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                2
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_2) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-diet-1"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                3
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_3) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                4
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_4) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                5
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_5) ?></h3>
@@ -339,8 +344,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                6
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_6) ?></h3>
@@ -348,16 +353,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                7
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_7) ?></h3>
                             </div>
                         </div>
                         <div class="services-2 col-lg-6 d-flex w-100">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="flaticon-first"></span>
+                            <div class="icon d-flex justify-content-center align-items-center" style="color:white">
+                                8
                             </div>
                             <div class="media-body pl-3">
                                 <h3 class="heading"><?= h($aboutUsCm->what_we_offer_dot_8) ?></h3>

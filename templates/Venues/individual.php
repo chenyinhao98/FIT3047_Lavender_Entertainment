@@ -17,7 +17,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
 
-<section class="ftco-section bg-light " style="background:gray">
+
+
+<section class="ftco-section bg-light " style="background:gray; border:gray">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-7 d-flex services align-self-stretch px-3 ftco-animate">
@@ -75,9 +77,10 @@
 
 
 
-                        <p><a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i> Shortlist</a>
-                            <a href="#" style="text-align:center; width:32.5%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#recModal">Book Venue</a>
-                            <a href="#reviewtab" style="text-align:center; width:32.5%; padding:10; " class="btn btn-primary" >Write A Review!	</a></p>
+                        <p>
+                            <a href="#" style="text-align:center; width:100%; " class="btn btn-primary" data-toggle="modal" data-target="#recModal"><strong>Book Venue</strong></a>
+                            </p>
+                            
                     </div>
 
                 </div>
@@ -92,47 +95,46 @@
                     </div>
                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                         <div class="row">
+                        	<div class="col-md-12">
+	                                <div class="form-group">
+	                                    <label class="label" for="Occasion">Name</label>
+	                                    <input type="text" class="form-control" name="name" id="name" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
+	                                </div>
+                        	</div>
+                        	<div class="col-md-12">
+	                                <div class="form-group">
+	                                    <label class="label" for="Email">Email</label>
+	                                    <input type="text" class="form-control" name="email" id="email" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
+	                                </div>
+                        	</div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="Occasion">Occasion</label>
-                                    <input type="text" class="form-control" name="occasion" id="occasion" placeholder="">
+                                    <input type="text" class="form-control" name="occasion" id="occasion" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="date">Date</label>
-                                    <input type="date" class="form-control" name="date" id="date" placeholder="">
+                                    <input type="date" class="form-control" name="date" id="date" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="label" for="budget">Budget</label>
-                                    <input type="number" class="form-control" name="budget" id="budget" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="label" for="guests">Number of Guests</label>
-                                    <input type="number" class="form-control" name="guests" id="guests" placeholder="">
-                                </div>
-                            </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="label" for="#">Food Requirements</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="label" for="#">Additional Message</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
+                                    <label class="label" for="#">Description</label>
+                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
 
-                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Submit	</a>
+                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal"><strong>Submit</strong></a>
                                     <div class="submitting"></div>
+                                  <hr>
+                                    <a href="#" style="text-align:center; width:100%; padding:10;" class="btn btn-primary" data-toggle="modal" data-target="#shortlistModal"><i class="fa fa-heart" aria-hidden="true"></i><strong>Shortlist</strong></a>		 
+                                    <hr>
+                                    <a href="#reviewtab" style="text-align:center; width:100%; padding:10; " class="btn btn-primary" ><strong>Write A Review!</strong></a></p>
                                 </div>
                             </div>
                         </div>
@@ -160,9 +162,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8" style="flex-wrap:wrap">
                 <div class="item">
-                    <div class="testimony-wrap d-flex" style="height: 250px">
+                    <div class="testimony-wrap d-flex" style="height: 250px ; flex-wrap:wrap">
 
                         <div class="text pl-4">
 				  <span class="quote d-flex align-items-center justify-content-center">
@@ -174,14 +176,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4"style="flex-wrap:wrap">
                 <div class="item">
-                    <div class="testimony-wrap d-flex lavender " style="height: 250px; color:#A295FF ;">
+                    <div class="testimony-wrap d-flex lavender " style="height: 250px; color:#A295FF ;flex-wrap:wrap">
                         <div class="">
 			  <span class="quote d-flex align-items-center justify-content-center">
 
 			</span>
-                            <h1 class="display-3 " style="text-align: center; padding: 10px;" ><?=h($venue->venue_min_capacity) ?> Guests</h1>
+                            <h1 class="display-3 " style="text-align: center; padding: 10px;" ><?=h($venue->venue_capacity) ?> Guests</h1>
 
 
                         </div>
@@ -213,20 +215,20 @@
                                         <div class="col-md-12" style="flex-wrap:wrap">
                                             <div class="supplier_background ">
                                                 <a href="#" class="img supplier_image" style="background-image: url('<?=$this->Html->Url->image(h($supplier->supplier_photo))?>');"></a>
-                                                <div class="supplier_name">
+                                                <div class="supplier_name" style="font-size: large">
                                                     <?=h($supplier->supplier_name) ?>
                                                 </div>
-                                                <div class="supplier_type">
-                                                    <?=h($supplier->supplier_type) ?>
+                                                <div class="supplier_type" style="font-size: small">
+                                                    Type: <?=h($supplier->supplier_type) ?>
                                                  </div>
-                                                <div class="supplier_price">
-                                                    $<?=h($supplier->supplier_payrate) ?>/ph
+                                                <div class="supplier_price" style="font-size: large">
+                                                    $<?=h($supplier->supplier_payrate) ?>/hour
                                                 </div>
-                                                <div class="supplier_address">
-                                                    <i class="map-pin"></i><?=h($supplier->supplier_address) ?>
+                                                <div class="supplier_address" style="font-size: small">
+                                                    <i class="icon-map-marker"></i><?=h($supplier->supplier_address) ?>
                                                 </div>
-                                                <div class="supplier_aboutus">
-                                                    <?=h($supplier->supplier_about_us) ?>
+                                                <div class="supplier_aboutus" style="font-size: small">
+                                                    Description: <?=h($supplier->supplier_about_us) ?>
                                                 </div>
                                             </div>
                                         </div><br>
@@ -236,27 +238,27 @@
                                     <br> No Available Reccomended Talent :(
                                 <?php else:?>
                                     <?php foreach ($talentResults as $talent): ?>
-                                <div class="col-12" >
+                                <div class="col-md-12" style="flex-wrap:wrap" >
                                     <div class="supplier_background ">
                                         <a href="#" class="img supplier_image" style="background-image: url('<?=$this->Html->Url->image(h($talent->talent_photo))?>');"></a>
-                                        <div class="supplier_name">
+                                        <div class="supplier_name" style="font-size: large">
                                             <?=h($talent->talent_name) ?>
                                         </div>
-                                        <div class="supplier_type">
-                                            <?=h($talent->talent_type) ?>
+                                        <div class="supplier_type" style="font-size: small">
+                                            Type: <?=h($talent->talent_type) ?>
                                         </div>
-                                        <div class="supplier_price">
-                                            $<?=h($talent->talent_payrate) ?>/ph
+                                        <div class="supplier_price" style="font-size: large">
+                                            $<?=h($talent->talent_payrate) ?>/hour
                                         </div>
-                                        <div class="supplier_address">
-                                            <i class="map-pin"></i><?=h($talent->talent_address) ?>
+                                        <div class="supplier_address" style="font-size: small">
+                                            <i class="icon-map-marker"></i><?=h($talent->talent_address) ?>
                                         </div>
-                                        <div class="supplier_aboutus">
-                                            <?=h($talent->talent_about_us) ?>
+                                        <div class="supplier_aboutus" style="font-size: small">
+                                            Description: <?=h($talent->talent_about_us) ?>
                                         </div>
 
                                     </div>
-                                </div>
+                                </div><br>
                             <?php endforeach; ?>
                                 <?php endif; ?>
                         </div>
@@ -269,7 +271,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="label" for="#">Please let us know about your experience!</label>
-                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder=""></textarea>
+                                    <textarea name="num" class="form-control" id="foodreq" cols="20" rows="2" placeholder="" onkeyup="this.value=this.value.replace(/[\d]/,'')" required="required"></textarea>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-8">
@@ -377,21 +379,21 @@
                         <div class="col-md-12">
                             <div class="form-group">
 
-                                <input class="form-control" type="text" name="username" placeholder="Enter Your Full Name" onkeyup="this.value=this.value.replace(/[\d]/,'')"/>
+                                <input class="form-control" type="text" name="username" placeholder="Enter Your Full Name" onkeyup="this.value=this.value.replace(/[\d]/,'')" required="required"/>
 
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
 
-                                <input class="form-control" type="number" name="phone" min="0100000000" max="9999999999"  placeholder="Enter Your Phone Number" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10"/>
+                                <input class="form-control" type="number" name="phone" min="0100000000" max="9999999999"  placeholder="Enter Your Phone Number" required minlength="10" maxlength="10" onkeyup="this.value=this.value.replace(/[^\d]/,'')"  required="required"/>
 
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
 
-                                <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>" onKeyDown="return false" placeholder="Number Of Guests" required="required"/>
+                                <input class="form-control" type="number" name="guests" min="1" max="<?=h($venue->venue_capacity) ?>"  placeholder="Number Of Guests" required="required"/>
 
                             </div>
                         </div>
@@ -447,7 +449,7 @@
                             <div class="form-group">
                                 <div class="input-wrap">
                                     <div class="icon"><span class="ion-md-calendar"></span></div>
-                                    <input type="text" name="eventDate" class="form-control appointment_date-check-in" placeholder="Event Date" onKeyDown="return false">
+                                    <input type="text" name="eventDate"  class="form-control appointment_date-check-in"  placeholder="Event Date" onKeyDown="return false" required="required">
                                 </div>
                             </div>
                         </div>

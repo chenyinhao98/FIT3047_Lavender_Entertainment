@@ -67,7 +67,7 @@ foreach ($venues as $venue):
                                 <?php } ?>
                                 </p>
                                 <p class="mb-0"><span class="price mr-1">$<?= $this->Number->format($venue->venue_payrate) ?></span> <span class="per">per hour</span></p>
-                                <h3 class="mb-3" style="font-size: 24px"><a href="rooms.html"><?= h($venue->venue_name) ?></a></h3>
+                                <h3 class="mb-3" style="font-size: 24px"><a href="#"><?= h($venue->venue_name) ?></a></h3>
                                 <ul class="list-accomodation">
                                     <li><span>Capacity:</span> <?= $this->Number->format($venue->venue_capacity) ?> Persons</li>
                                     <li><span>Address:</span> <?= h($venue->venue_address) ?></li>
@@ -96,7 +96,7 @@ foreach ($venues as $venue):
                                     <?php } ?>
                                 </p>
                                 <p class="mb-0"><span class="price mr-1">$<?= $this->Number->format($venue->venue_payrate) ?></span> <span class="per">per hour</span></p>
-                                <h3 class="mb-3" style="font-size: 24px"><a href="rooms.html"><?= h($venue->venue_name) ?></a></h3>
+                                <h3 class="mb-3" style="font-size: 24px"><a><?= h($venue->venue_name) ?></a></h3>
                                 <ul class="list-accomodation">
                                     <li><span>Capacity:</span> <?= $this->Number->format($venue->venue_capacity) ?> Persons</li>
                                     <li><span>Address:</span> <?= h($venue->venue_address) ?></li>

@@ -18,9 +18,9 @@
 
 
 
-    <div class="container">
+    <div class="container" style:"diplay: block;">
         <div class="row no-gutters">
-		<p><div class="col md-12" style="font-size: 24px; color: green; text-align: left" id="checkmark">
+		<p><div class="col md-12" id="checkmark">
 
 		<h2 class="font-weight-bold" style="text-align:center; width: 700px; padding: 10px; color: green; align:left";><i class="fa fa-check-circle fa-3x"></i><span>  Your Order has been booked!  </span></h2></p>
 
@@ -75,8 +75,8 @@
 					</div>
 
 					<div class="line-items">
-						<div class="headers clearfix">
-						<strong style="font-size:25px">Booking For </strong><strong id="data5" style="font-size:25px"></strong><strong style="font-size:25px"> Guests at <?=h($venue->venue_name) ?>
+						<div class="headers clearfix" style="font-size:25px; color: black;">
+						<strong font-weight: bolder;>Booking For </strong><strong id="data5" ></strong><strong > Guests at <?=h($venue->venue_name) ?>
 						</div>
 						
 						<div class="total text-right">
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 
-</div>
+    </div>
 
 <script>
 function randomString() {

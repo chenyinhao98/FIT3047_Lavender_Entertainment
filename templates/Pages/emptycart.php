@@ -120,9 +120,14 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'index']) ?>" class="nav-link">Admin</a></li>
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','emptycart']) ?>" class="nav-link">Cart</a></li>
             </ul>
+            <div
+            <?php if($loggedIn) :?>
+            <li><?=$this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?>
+                <?php endIf;?>
+        </div>
         </div>
     </div>
 </nav>

@@ -3,7 +3,6 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
- * @var string[]|\Cake\Collection\CollectionInterface $eTs
  */
 ?>
 <!DOCTYPE html>
@@ -39,9 +38,7 @@
 
 
 </head>
-<?php foreach ($eventTypes as $x){
-    echo $x;
-} ?>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -238,8 +235,8 @@
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <?=$this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?>
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
                             </a>
                         </div>
                     </li>
@@ -265,7 +262,7 @@
                     echo $this->Form->control('venue_contact_name');
                     echo $this->Form->control('venue_contact_number', ['type' => 'integer']);
                     echo $this->Form->control('venue_email', ['type' => 'email']);
-                    echo $this->Form->control('venue_photo1', array('type' => 'file'));
+                    echo $this->Form->control('venue_photo1', ['type' => 'file']);
                     echo $this->Form->control('venue_photo2', array('type' => 'file'));
                     echo $this->Form->control('venue_about_us');
                     echo $this->Form->control('event_types._ids', ['options' => $eTs,'value' => $eventTypes]);

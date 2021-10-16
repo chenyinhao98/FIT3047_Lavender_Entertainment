@@ -7,6 +7,7 @@ namespace App\Controller;
 use Cake\Database\Expression\QueryExpression;
 use Cake\ORM\Query;
 use Cake\ORM\TableRegistry;
+use Cake\Event\EventInterface;
 use App\Model\Entity\Venue;
 use function React\Promise\all;
 
@@ -289,7 +290,6 @@ class VenuesController extends AppController
      */
     public function add()
     {
-
         $venue = $this->Venues->newEmptyEntity();
         if ($this->request->is('post')) {
             $venue = $this->Venues->patchEntity($venue, $this->request->getData());
@@ -301,12 +301,12 @@ class VenuesController extends AppController
             $this->Flash->error(__('The venue could not be saved. Please, try again.'));
         }
         $eventTypes = $this->Venues->EventTypes->find('list', ['limit' => 200]);
-
+        
         $eTs = $this->Venues->EventTypes->find('list',[
             'keyField' => 'id',
             'valueField' => 'event_name'
         ]);
-
+        
         $this->set(compact('venue', 'eventTypes','eTs'));
     }
 
@@ -332,22 +332,20 @@ class VenuesController extends AppController
             $this->Flash->error(__('The venue could not be saved. Please, try again.'));
         }
         $eventTypes = $this->Venues->EventTypes->find('list', ['limit' => 200]);
-
+        
+        $this->loadModel('EventTypes');
+        $eventTypesNames = array();
+        $eTs = $this->EventTypes->find()->all();
+        foreach ($eTs as $x){
+            array_push($eventTypesNames,$x->event_name);
+        }
+        
         $eTs = $this->Venues->EventTypes->find('list',[
             'keyField' => 'id',
             'valueField' => 'event_name'
         ]);
-        /*
-        foreach ($eTs as $x){
-            echo $x;
-            array_push($eventTypesNames,$x->event_name);
-            array_push($eventTypesId,$x->id);
-        }
-        foreach ($eventTypesId as $x){
-            echo $x;
-        }
-        */
-        $this->set(compact('venue', 'eventTypes','eTs'));
+        
+        $this->set(compact('venue', 'eventTypes','eventTypesNames','eTs'));
     }
 
     /**
@@ -513,5 +511,9 @@ class VenuesController extends AppController
 
         $this->set(compact('venue','userName'));
 
+    }
+    public function beforeFilter(EventInterface $event)
+    {
+        $this->Auth->allow(['result', 'individual', 'invoice', 'home', 'cart']);
     }
 }

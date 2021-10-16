@@ -114,8 +114,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="nav-link">Contact Us</a></li>
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Users','action' => 'login']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'index']) ?>" class="nav-link">Admin</a></li>
             </ul>
+            <div
+            <?php if($loggedIn) :?>
+            <li><?=$this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?>
+                <?php endIf;?>
+        </div>
         </div>
     </div>
 </nav>
@@ -128,7 +133,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <div class="col-md-12 ftco-animate">
                 <h2 class="subheading">Welcome to Lavender Entertainment</h2>
                 <h1 class="mb-4">Discover a Venue for Your Event</h1>
-                <p><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="btn btn-primary">Learn more</a> <a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','contactus']) ?>" class="btn btn-white">Contact us</a></p>
+                <p><a href="<?= $this->Url->build(['controller'=>'AboutUsCms','action' => 'aboutus']) ?>" class="btn btn-primary">Learn more</a> <a href="<?= $this->Url->build(['controller'=>'ContactUsCms','action' => 'contactus']) ?>" class="btn btn-white">Contact us</a></p>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
- * @var \Cake\Collection\CollectionInterface|string[] $eventTypes
+ * @var \Cake\Collection\CollectionInterface|string[] $eventTypes 
  * @var \Cake\Collection\CollectionInterface|string[] $eTs
  */
 ?>
@@ -238,8 +238,8 @@
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <?=$this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?>
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
                             </a>
                         </div>
                     </li>

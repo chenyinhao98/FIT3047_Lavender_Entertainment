@@ -107,8 +107,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <li class="nav-item active"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','home']) ?>" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','aboutus']) ?>" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
->>>>>>> 139fcca6982a5868e2a4988562469f0ff901a713
-                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Pages','action' => 'display','signin']) ?>" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="<?= $this->Url->build(['controller'=>'Venues','action' => 'index']) ?>" class="nav-link">Admin</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">Cart</a></li>
             </ul>
         </div>

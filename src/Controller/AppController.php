@@ -75,9 +75,7 @@ class AppController extends Controller
         }
     }
     public function beforeFilter(EventInterface $event){
-        $this->Auth->allow(['controller' => 'Pages', 'action' => 'display', 'home']);
-        $this->Auth->allow(['controller' => 'Venues', 'action' => 'result']);
-        $this->Auth->allow(['*']);
+        $this->Auth->allow(['controller' => 'Pages', 'action' => 'display', 'aboutus', 'cart', 'contactus', 'emptycart']);
     }
         /*
          * Enable the following component for recommended CakePHP form protection settings.

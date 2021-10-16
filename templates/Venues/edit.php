@@ -3,7 +3,6 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Venue $venue
  * @var string[]|\Cake\Collection\CollectionInterface $eventTypes
- * @var string[]|\Cake\Collection\CollectionInterface $eTs
  */
 ?>
 
