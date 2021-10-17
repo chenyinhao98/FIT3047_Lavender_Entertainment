@@ -1,14 +1,19 @@
-# CakePHP Application Skeleton
+# Lavender Entertainment Website Build V2
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+A website built for Lavender Entertainment to act as their official website for users to book events. 
+All parts included should be working as of the upload of the latest build.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 4.x.
-
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+## Development Requirements
+Listed below are the software requirements to appropriately develop and deploy the website:
+* PHP: Version 7.4.24 or above
+* CakePHP Framework : Version 4.2.8 or above
+* Integrated Development Environment: PHPStorm/ VSCode or any IDE that lets you code in HTML,PHP and Javascript at the same time.
+* Git: Version 2.32.0 or above
+* Composer: Version 2.1.6  or above
 
 ## Installation
+
+CakePHP and Composer
 
 1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
 2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
@@ -31,8 +36,11 @@ up the built-in webserver with:
 ```bash
 bin/cake server -p 8765
 ```
+IDE
 
-Then visit `http://localhost:8765` to see the welcome page.
+Any IDE that supports PHP, HTML and Javascript can be used for the development of this website. We recommend PHPStorm since it integrates well with our project.
+
+Visit `http://localhost/[local repository name here]` to see the website on your localhost.
 
 ## Update
 
@@ -48,6 +56,11 @@ Other environment agnostic settings can be changed in `config/app.php`.
 
 ## Layout
 
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+The Layout has been taken from the Vacation Rental Template by ColorLib which can be found [here](https://colorlib.com/wp/template/vacation-rental/). 
+
+The Admin Dashboard has been built using this [template](https://startbootstrap.com/theme/sb-admin-2).
+
+All the CSS and JS Files included are necessary and have been modified and built upon for this website
+
+## APIs
+Paypal and Google Maps API licenses are required for the full functioning of important elements of the website;
